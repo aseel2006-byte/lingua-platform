@@ -1,0 +1,14 @@
+require('dotenv').config();
+const express=require('express'),cors=require('cors'),helmet=require('helmet'),morgan=require('morgan');
+const app=express();
+app.use('/api/v1/stripe/webhook',express.raw({type:'application/json'}));
+app.use(helmet());app.use(cors({origin:process.env.FRONTEND_URL||'*',credentials:true}));
+app.use(morgan('dev'));app.use(express.json());
+app.use('/api/v1/auth',      require('./routes/auth'));
+app.use('/api/v1/products',  require('./routes/products'));
+app.use('/api/v1/stripe',    require('./routes/stripe'));
+app.use('/api/v1/me',        require('./routes/dashboard'));
+app.use('/api/v1/admin',     require('./routes/admin'));
+app.get('/api/v1/health',(req,res)=>res.json({status:'ok',version:'2.0.0'}));
+app.use((err,req,res,next)=>res.status(500).json({error:err.message}));
+app.listen(process.env.PORT||4000,()=>console.log('Lingua API ready'));
