@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>تم الدفع — Lingua</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+:root{--plum:#1E1648;--gold:#C4983A;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--border:#E5E2F0;--r-lg:16px;--r-xl:22px;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:3rem 2.5rem;text-align:center;max-width:480px;width:100%;box-shadow:0 8px 32px rgba(30,22,72,.1);}
+.check-circle{width:80px;height:80px;background:var(--jade-l);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;}
+.check-circle i{font-size:40px;color:var(--jade);}
+h1{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--plum);margin-bottom:.75rem;}
+.sub{font-size:14px;color:#8886A0;line-height:1.7;margin-bottom:2rem;}
+.order-box{background:var(--sand);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:2rem;text-align:right;}
+.order-title{font-size:12px;font-weight:600;color:var(--plum);margin-bottom:10px;}
+.order-item{font-size:13px;color:#3A3852;padding:6px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;}
+.order-item:last-child{border-bottom:none;}
+.order-total{display:flex;justify-content:space-between;font-size:15px;font-weight:700;color:var(--plum);padding-top:10px;margin-top:4px;border-top:2px solid var(--border);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border:none;border-radius:var(--r-lg);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;width:100%;justify-content:center;margin-bottom:10px;}
+.btn-gold{background:var(--gold);color:var(--plum);}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:#3A3852;}
+.btn:hover{opacity:.88}
+.loading{color:#8886A0;font-size:14px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head><body>
+<div class="card">
+  <div class="check-circle"><i class="ti ti-check" id="checkIcon"></i></div>
+  <h1 id="mainTitle">جارٍ التحقق من الدفع...</h1>
+  <p class="sub" id="mainSub">يرجى الانتظار لحظة</p>
+  <div class="order-box hidden" id="orderBox">
+    <div class="order-title">الدروس المشتراة</div>
+    <div id="orderItems"></div>
+    <div class="order-total"><span>الإجمالي</span><span id="orderTotal">-</span></div>
+  </div>
+  <div id="actions" class="hidden">
+    <button class="btn btn-gold" onclick="location.href='dashboard.html'"><i class="ti ti-books"></i> ابدأ التعلّم الآن</button>
+    <button class="btn btn-ghost" onclick="location.href='index.html'"><i class="ti ti-shopping-bag"></i> تصفح المزيد</button>
+  </div>
+</div>
+<script src="../js/api.js"></script>
+<script>
+(async () => {
+  const params = new URLSearchParams(location.search);
+  const sessionId = params.get('session_id');
+  
+  if (!sessionId) {
+    document.getElementById('mainTitle').textContent = 'تم الدفع بنجاح!';
+    document.getElementById('mainSub').textContent = 'شكراً لثقتك — سيصلك رابط الدرس عبر البريد الإلكتروني.';
+    document.getElementById('actions').classList.remove('hidden');
+    return;
+  }
+
+  try {
+    const data = await api.success?.(sessionId) || 
+      await apiFetch('/stripe/success?session_id=' + sessionId);
+    
+    const order = data.order;
+    document.getElementById('mainTitle').textContent = 'تم الدفع بنجاح! 🎉';
+    document.getElementById('mainSub').textContent = 'شكراً لثقتك بـ Lingua — سيصلك رابط الدرس فوراً عبر البريد الإلكتروني.';
+    
+    if (order?.products) {
+      document.getElementById('orderItems').innerHTML = order.products
+        .map(p => '<div class="order-item"><span>' + p + '</span><span style="color:var(--jade)">✓</span></div>').join('');
+      document.getElementById('orderTotal').textContent = Number(order.total).toFixed(0) + ' ر.س';
+      document.getElementById('orderBox').classList.remove('hidden');
+    }
+    document.getElementById('actions').classList.remove('hidden');
+    cart.clear();
+  } catch(e) {
+    document.getElementById('mainTitle').textContent = 'تم الدفع!';
+    document.getElementById('mainSub').textContent = 'سيصلك رابط الدرس فوراً عبر البريد الإلكتروني.';
+    document.getElementById('actions').classList.remove('hidden');
+    cart.clear();
+  }
+})();
+</script>
+</body></html>
