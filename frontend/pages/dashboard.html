@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>لوحة الطالب — Lingua</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--sand-d:#F0EDE6;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--r-lg:16px;--r-xl:22px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh;display:flex;}
+.sidebar{width:230px;background:var(--plum);min-height:100vh;display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sb-logo{padding:1.5rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.1);}
+.sb-logo-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;}
+.sb-logo-sub{font-size:10px;color:var(--gold);letter-spacing:.08em;}
+.sb-user{padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.avatar{width:40px;height:40px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;}
+.sb-name{font-size:13px;font-weight:600;color:#fff;}
+.sb-email{font-size:11px;color:#AFA9EC;}
+.sb-nav{padding:.75rem 0;flex:1;}
+.nav-lbl{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;font-weight:600;padding:10px 1.25rem 4px;text-transform:uppercase;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 1.25rem;font-size:13px;font-weight:500;color:#AFA9EC;cursor:pointer;transition:.12s;border-right:3px solid transparent;}
+.nav-item:hover{color:#fff;background:rgba(255,255,255,.05);}
+.nav-item.active{color:#fff;background:rgba(255,255,255,.1);border-right-color:var(--gold);}
+.nav-item i{font-size:17px;}
+.sb-foot{padding:1rem 1.25rem;border-top:1px solid rgba(255,255,255,.1);}
+.logout{display:flex;align-items:center;gap:8px;font-size:12px;color:#AFA9EC;cursor:pointer;padding:8px;border-radius:8px;width:100%;}
+.logout:hover{color:#fff;background:rgba(255,255,255,.08);}
+.main{flex:1;padding:2rem;overflow-x:hidden;}
+.ph{margin-bottom:1.75rem;}
+.ph-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--plum);}
+.ph-sub{font-size:13px;color:var(--ink-3);margin-top:4px;}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.75rem;}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr);}}
+.sc{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.1rem 1.25rem;}
+.sc-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px;}
+.sc-icon.purple{background:var(--plum-l);color:var(--plum-m);}
+.sc-icon.gold{background:var(--gold-l);color:var(--gold);}
+.sc-icon.jade{background:var(--jade-l);color:var(--jade);}
+.sc-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--plum);display:block;}
+.sc-lbl{font-size:12px;color:var(--ink-3);margin-top:2px;}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.sec-head h2{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum);}
+.courses{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:2rem;}
+.cc{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:.15s;}
+.cc:hover{border-color:var(--plum-m);}
+.ct{height:90px;display:flex;align-items:center;justify-content:center;font-size:32px;position:relative;}
+.ct.en{background:var(--plum-l)}.ct.tr{background:var(--jade-l)}.ct.zh{background:#FAECE7}
+.cb{padding:1rem;}
+.cb-title{font-size:13px;font-weight:700;color:var(--plum);margin-bottom:8px;line-height:1.4;}
+.cb-meta{font-size:11px;color:var(--ink-3);margin-bottom:10px;display:flex;gap:8px;}
+.progress-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-3);margin-bottom:4px;}
+.progress{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:10px;}
+.progress-fill{height:100%;border-radius:3px;background:var(--plum-m);}
+.progress-fill.done{background:var(--jade);}
+.cf{display:flex;gap:8px;}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:10px;font-size:12px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:.15s;}
+.btn:hover{opacity:.85}
+.btn-primary{background:var(--plum);color:#fff;flex:1;justify-content:center;}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--ink-2);}
+.btn-jade{background:var(--jade);color:#fff;flex:1;justify-content:center;}
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;}
+th{font-size:11px;color:var(--ink-3);font-weight:600;text-align:right;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sand);}
+td{font-size:13px;padding:12px 14px;border-bottom:1px solid var(--border);color:var(--ink-2);}
+tr:last-child td{border-bottom:none;}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:5px;font-size:11px;font-weight:700;}
+.badge-jade{background:var(--jade-l);color:var(--jade);}
+.badge-danger{background:#FCEBEB;color:#E24B4A;}
+.badge-gold{background:var(--gold-l);color:var(--gold);}
+.empty{text-align:center;padding:3rem 1rem;color:var(--ink-3);}
+.empty i{font-size:48px;display:block;margin-bottom:1rem;color:var(--border);}
+.hidden{display:none!important}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:768px){.sidebar{display:none;}.stats{grid-template-columns:1fr 1fr;}}
+</style></head>
+<body>
+<aside class="sidebar">
+  <div class="sb-logo"><div class="sb-logo-name">Lingua</div><div class="sb-logo-sub">معهد اللغات</div></div>
+  <div class="sb-user"><div class="avatar" id="av">--</div><div class="sb-name" id="uname">...</div><div class="sb-email" id="uemail">--</div></div>
+  <nav class="sb-nav">
+    <div class="nav-lbl">الرئيسية</div>
+    <div class="nav-item active" onclick="show('courses',this)"><i class="ti ti-books"></i> دروسي</div>
+    <div class="nav-item" onclick="show('orders',this)"><i class="ti ti-receipt"></i> طلباتي</div>
+    <div class="nav-item" onclick="show('certs',this)"><i class="ti ti-certificate"></i> الشهادات</div>
+    <div class="nav-lbl">الاكتشاف</div>
+    <div class="nav-item" onclick="location.href='/index.html'"><i class="ti ti-shopping-bag"></i> المتجر</div>
+    <div class="nav-item" onclick="show('profile',this)"><i class="ti ti-user-circle"></i> حسابي</div>
+  </nav>
+  <div class="sb-foot"><div class="logout" onclick="auth.logout()"><i class="ti ti-logout" style="font-size:16px"></i> خروج</div></div>
+</aside>
+<div class="main">
+  <!-- COURSES -->
+  <div id="s-courses">
+    <div class="ph"><h1 class="ph-title">مرحباً، <span id="greet">...</span> 👋</h1><p class="ph-sub">تتبّع تقدمك واستمر في رحلتك</p></div>
+    <div class="stats">
+      <div class="sc"><div class="sc-icon purple"><i class="ti ti-books"></i></div><span class="sc-val" id="st1">-</span><div class="sc-lbl">دروس مشتراة</div></div>
+      <div class="sc"><div class="sc-icon gold"><i class="ti ti-chart-line"></i></div><span class="sc-val" id="st2">-</span><div class="sc-lbl">متوسط التقدم</div></div>
+      <div class="sc"><div class="sc-icon jade"><i class="ti ti-circle-check"></i></div><span class="sc-val" id="st3">-</span><div class="sc-lbl">مكتملة</div></div>
+      <div class="sc"><div class="sc-icon purple"><i class="ti ti-star"></i></div><span class="sc-val">B1</span><div class="sc-lbl">مستواك</div></div>
+    </div>
+    <div class="sec-head"><h2>دروسي</h2><a href="/index.html" style="font-size:13px;color:var(--plum-m);font-weight:600;display:flex;align-items:center;gap:4px"><i class="ti ti-plus"></i> درس جديد</a></div>
+    <div class="courses" id="coursesGrid"><div class="empty"><i class="ti ti-loader" style="animation:spin .8s linear infinite"></i>جارٍ التحميل...</div></div>
+  </div>
+  <!-- ORDERS -->
+  <div id="s-orders" class="hidden">
+    <div class="ph"><h1 class="ph-title">طلباتي</h1><p class="ph-sub">سجل عمليات الشراء</p></div>
+    <table class="tbl"><thead><tr><th>رقم الطلب</th><th>المنتجات</th><th>الإجمالي</th><th>الحالة</th><th>التاريخ</th></tr></thead><tbody id="ordersBody"><tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--ink-3)">جارٍ التحميل...</td></tr></tbody></table>
+  </div>
+  <!-- CERTS -->
+  <div id="s-certs" class="hidden">
+    <div class="ph"><h1 class="ph-title">شهاداتي</h1><p class="ph-sub">أكمل 100% للحصول على شهادة</p></div>
+    <div class="courses" id="certGrid"></div>
+  </div>
+  <!-- PROFILE -->
+  <div id="s-profile" class="hidden">
+    <div class="ph"><h1 class="ph-title">حسابي</h1></div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);padding:1.5rem;max-width:500px">
+      <div style="font-size:13px;font-weight:600;color:var(--plum);margin-bottom:1rem">معلوماتي</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--ink-2)">
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--ink-3)">الاسم</span><span id="pname">-</span></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--ink-3)">الإيميل</span><span id="pemail" dir="ltr">-</span></div>
+      </div>
+      <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border)">
+        <div style="font-size:13px;font-weight:600;color:var(--plum);margin-bottom:.75rem">تغيير كلمة المرور</div>
+        <input type="password" id="curPw" placeholder="كلمة المرور الحالية" style="margin-bottom:8px;padding:9px 12px;width:100%;border:1px solid var(--border);border-radius:10px;font-size:13px;font-family:inherit">
+        <input type="password" id="newPw" placeholder="كلمة المرور الجديدة" style="margin-bottom:10px;padding:9px 12px;width:100%;border:1px solid var(--border);border-radius:10px;font-size:13px;font-family:inherit">
+        <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="changePw()"><i class="ti ti-lock"></i> تحديث</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/api.js"></script>
+<script>
+requireAuth();
+const imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',audio:'ti-player-play',bundle:'ti-package',pdf:'ti-file-type-pdf'};
+const ltc={en:'en',tr:'tr',zh:'zh'};
+async function init(){
+  const user=auth.getUser();
+  if(user){
+    const ini=user.name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+    document.getElementById('av').textContent=ini;
+    document.getElementById('uname').textContent=user.name;
+    document.getElementById('uemail').textContent=user.email;
+    document.getElementById('greet').textContent=user.name.split(' ')[0];
+    document.getElementById('pname').textContent=user.name;
+    document.getElementById('pemail').textContent=user.email;
+  }
+  await Promise.all([loadStats(),loadCourses()]);
+}
+async function loadStats(){
+  try{const d=await api.myStats();document.getElementById('st1').textContent=d.totalCourses;document.getElementById('st2').textContent=d.avgProgress+'%';document.getElementById('st3').textContent=d.completedCount;}catch(e){}
+}
+async function loadCourses(){
+  const grid=document.getElementById('coursesGrid');
+  try{
+    const{enrollments}=await api.myEnrollments();
+    if(!enrollments.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1"><i class="ti ti-books"></i>لم تشترِ أي درس بعد<br><br><a href="/index.html" class="btn btn-primary" style="display:inline-flex">تصفح الدروس</a></div>';return;}
+    grid.innerHTML=enrollments.map(e=>'<div class="cc"><div class="ct '+(ltc[e.lang]||'en')+'"><i class="ti '+(imap[e.skill]||'ti-book-2')+'" style="color:'+(e.lang==='en'?'#534AB7':e.lang==='tr'?'#0B5E46':'#993C1D')+'"></i></div><div class="cb"><div class="cb-title">'+e.title+'</div><div class="cb-meta"><span>'+e.level+'</span><span>•</span><span>'+(e.lang==='en'?'إنجليزية':e.lang==='tr'?'تركية':'صينية')+'</span></div><div class="progress-lbl"><span>التقدم</span><span>'+Number(e.progress).toFixed(0)+'%</span></div><div class="progress"><div class="progress-fill'+(e.completed?' done':'')+'" style="width:'+e.progress+'%"></div></div><div class="cf">'+(e.completed?'<button class="btn btn-jade"><i class="ti ti-certificate"></i> الشهادة</button>':'<button class="btn btn-primary" onclick="updateP(''+e.product_id+'','+Math.min(100,Number(e.progress)+10)+')"><i class="ti ti-player-play"></i> متابعة</button>')+(e.download_url?'<a href="'+e.download_url+'" class="btn btn-ghost" download><i class="ti ti-download"></i></a>':'')+'</div></div></div>').join('');
+    const certs=enrollments.filter(e=>e.completed);
+    document.getElementById('certGrid').innerHTML=certs.length?certs.map(e=>'<div class="cc"><div class="ct" style="background:var(--gold-l)"><i class="ti ti-certificate" style="color:var(--gold);font-size:36px"></i></div><div class="cb"><div class="cb-title">'+e.title+'</div><div class="cb-meta"><span>'+e.level+'</span><span>•</span><span>مكتمل ✓</span></div><button class="btn btn-gold" style="width:100%;justify-content:center"><i class="ti ti-download"></i> تحميل الشهادة</button></div></div>').join(''):'<div class="empty" style="grid-column:1/-1"><i class="ti ti-certificate"></i>لا شهادات بعد</div>';
+  }catch(e){grid.innerHTML='<div class="empty" style="grid-column:1/-1"><i class="ti ti-alert-circle"></i>خطأ في التحميل</div>';}
+}
+async function loadOrders(){
+  const body=document.getElementById('ordersBody');
+  try{
+    const{orders}=await api.myOrders();
+    if(!orders.length){body.innerHTML='<tr><td colspan="5"><div class="empty"><i class="ti ti-receipt"></i>لا طلبات بعد</div></td></tr>';return;}
+    const sb={paid:'<span class="badge badge-jade">مدفوع</span>',pending:'<span class="badge badge-gold">معلق</span>',failed:'<span class="badge badge-danger">فشل</span>',refunded:'<span class="badge badge-danger">مسترد</span>'};
+    body.innerHTML=orders.map(o=>'<tr><td style="font-family:monospace;font-size:11px;color:var(--ink-3)">#'+o.id.slice(-8).toUpperCase()+'</td><td>'+o.items.map(i=>i.title).join('، ')+'</td><td style="font-weight:700;color:var(--plum)">'+Number(o.total).toFixed(0)+' ر.س</td><td>'+(sb[o.status]||o.status)+'</td><td style="color:var(--ink-3)">'+new Date(o.created_at).toLocaleDateString('ar-SA')+'</td></tr>').join('');
+  }catch(e){body.innerHTML='<tr><td colspan="5">خطأ</td></tr>';}
+}
+async function updateP(pid,p){try{await api.updateProgress(pid,p);showToast('تم تحديث التقدم');loadCourses();}catch(e){showToast(e.message,'error');}}
+async function changePw(){const c=document.getElementById('curPw').value,n=document.getElementById('newPw').value;if(!c||!n){showToast('أدخل كلمة المرور الحالية والجديدة','error');return;}try{await apiFetch('/auth/change-password',{method:'PUT',body:JSON.stringify({currentPassword:c,newPassword:n})});showToast('تم تغيير كلمة المرور');}catch(e){showToast(e.message,'error');}}
+function show(name,el){document.querySelectorAll('[id^="s-"]').forEach(s=>s.classList.add('hidden'));document.getElementById('s-'+name).classList.remove('hidden');document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));if(el)el.classList.add('active');if(name==='orders')loadOrders();}
+init();
+</script></body></html>
