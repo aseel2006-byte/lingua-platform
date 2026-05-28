@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>دخول — Lingua</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--border-d:#D0CCEC;--danger:#E24B4A;--r-md:10px;--r-lg:16px;--r-xl:22px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--plum);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem;overflow:hidden;position:relative;}
+.bg-deco{position:fixed;border-radius:50%;pointer-events:none;opacity:.06}
+.bg-deco-1{width:500px;height:500px;background:#fff;top:-150px;right:-100px}
+.bg-deco-2{width:350px;height:350px;background:var(--gold);bottom:-100px;left:-80px}
+.auth-wrap{width:100%;max-width:440px;position:relative;z-index:2}
+.logo-block{text-align:center;margin-bottom:1.75rem}
+.logo-mark{width:56px;height:56px;background:var(--gold);border-radius:16px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 8px 24px rgba(196,152,58,.4);}
+.logo-mark i{font-size:28px;color:var(--plum)}
+.logo-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff}
+.logo-sub{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.1em;margin-top:3px}
+.card{background:#fff;border-radius:var(--r-xl);padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+.tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:1.75rem}
+.tab{flex:1;padding:10px;text-align:center;font-size:14px;font-weight:600;color:var(--ink-3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:.15s;}
+.tab.active{color:var(--plum);border-bottom-color:var(--plum)}
+.field{margin-bottom:14px}
+label{font-size:12px;font-weight:600;color:var(--ink-2);display:block;margin-bottom:5px}
+.iw{position:relative}
+.iw .ico{position:absolute;top:50%;transform:translateY(-50%);right:12px;font-size:16px;color:var(--ink-3);pointer-events:none;}
+input{width:100%;padding:11px 40px 11px 12px;border:1.5px solid var(--border-d);border-radius:var(--r-md);font-size:13px;font-family:inherit;color:var(--ink);outline:none;transition:.15s;background:#fff;}
+input:focus{border-color:var(--plum-m);box-shadow:0 0 0 3px rgba(83,74,183,.1)}
+.btn{width:100%;padding:13px;border:none;border-radius:var(--r-md);font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;font-family:inherit;transition:.15s;}
+.btn:hover{opacity:.88}.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn-primary{background:var(--plum);color:#fff}
+.btn-gold{background:var(--gold);color:var(--plum)}
+.btn-google{background:#fff;color:#3c4043;border:1.5px solid var(--border-d);font-size:13px;font-weight:600;}
+.btn-bio{background:var(--plum-l);color:var(--plum-m);border:1.5px solid #AFA9EC;font-size:13px;font-weight:600;}
+.divider{text-align:center;color:var(--ink-3);font-size:12px;margin:1.1rem 0;position:relative;}
+.divider::before,.divider::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:var(--border);}
+.divider::before{right:0}.divider::after{left:0}
+.alert{padding:10px 14px;border-radius:var(--r-md);font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+.alert-danger{background:#FCEBEB;color:var(--danger);border:1px solid #F7C1C1}
+.alert-success{background:var(--jade-l);color:var(--jade);border:1px solid #9FE1CB}
+.alert-info{background:var(--plum-l);color:var(--plum-m);border:1px solid #AFA9EC}
+.forgot{font-size:12px;color:var(--plum-m);cursor:pointer;display:block;text-align:left;margin:-4px 0 14px}
+.trust{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-top:1.25rem}
+.trust-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ink-3)}
+.trust-item i{font-size:14px;color:var(--gold)}
+.spin{width:17px;height:17px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;animation:sp .7s linear infinite;flex-shrink:0;}
+@keyframes sp{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.pulse{animation:pulse 1.6s ease-in-out infinite}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="bg-deco bg-deco-1"></div>
+<div class="bg-deco bg-deco-2"></div>
+<div class="auth-wrap">
+  <div class="logo-block">
+    <div class="logo-mark"><i class="ti ti-language"></i></div>
+    <div class="logo-name">Lingua</div>
+    <div class="logo-sub">معهد اللغات الأكاديمي</div>
+  </div>
+  <div class="card">
+    <div class="tabs">
+      <div class="tab active" id="tab-login" onclick="switchTab('login')"><i class="ti ti-login" style="font-size:14px;vertical-align:-2px"></i> دخول</div>
+      <div class="tab" id="tab-register" onclick="switchTab('register')"><i class="ti ti-user-plus" style="font-size:14px;vertical-align:-2px"></i> حساب جديد</div>
+    </div>
+    <div class="alert alert-danger hidden" id="alertBox"><i class="ti ti-alert-circle"></i><span id="alertMsg"></span></div>
+    <div class="alert alert-success hidden" id="successBox"><i class="ti ti-check"></i><span id="successMsg"></span></div>
+    <div class="alert alert-info hidden" id="infoBox"><i class="ti ti-info-circle"></i><span id="infoMsg"></span></div>
+    <!-- LOGIN -->
+    <div id="loginPanel">
+      <div class="field"><label>البريد الإلكتروني</label><div class="iw"><i class="ti ti-mail ico"></i><input type="email" id="loginEmail" placeholder="you@example.com" dir="ltr" autocomplete="username webauthn" oninput="checkBio()"></div></div>
+      <div class="field"><label>كلمة المرور</label><div class="iw"><i class="ti ti-lock ico" id="pwEye" style="cursor:pointer;pointer-events:all" onclick="togglePw('loginPw','pwEye')"></i><input type="password" id="loginPw" placeholder="••••••••" dir="ltr"></div></div>
+      <span class="forgot" onclick="forgotPw()">نسيت كلمة المرور؟</span>
+      <button class="btn btn-primary" id="loginBtn" onclick="handleLogin()" style="margin-bottom:10px"><i class="ti ti-login"></i><span id="loginTxt">دخول</span></button>
+      <div class="divider">أو</div>
+      <button class="btn btn-google" onclick="handleGoogle()" style="margin-bottom:10px">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        المتابعة بحساب Google
+      </button>
+      <button class="btn btn-bio hidden" id="bioBtn" onclick="handleBioLogin()"><i class="ti ti-scan pulse" style="font-size:20px"></i><span id="bioTxt">الدخول ببصمة الوجه / الإصبع</span></button>
+    </div>
+    <!-- REGISTER -->
+    <div id="registerPanel" class="hidden">
+      <button class="btn btn-google" onclick="handleGoogle()" style="margin-bottom:14px">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        التسجيل بحساب Google
+      </button>
+      <div class="divider">أو بالبريد الإلكتروني</div>
+      <div class="field"><label>الاسم الكامل</label><div class="iw"><i class="ti ti-user ico"></i><input type="text" id="regName" placeholder="اسمك الكريم"></div></div>
+      <div class="field"><label>البريد الإلكتروني</label><div class="iw"><i class="ti ti-mail ico"></i><input type="email" id="regEmail" placeholder="you@example.com" dir="ltr"></div></div>
+      <div class="field"><label>رقم الجوال</label><div class="iw"><i class="ti ti-device-mobile ico"></i><input type="tel" id="regPhone" placeholder="+966 5X XXX XXXX" dir="ltr"></div></div>
+      <div class="field"><label>كلمة المرور (8 أحرف+)</label><div class="iw"><i class="ti ti-lock ico"></i><input type="password" id="regPw" placeholder="••••••••" dir="ltr"></div></div>
+      <button class="btn btn-gold" id="registerBtn" onclick="handleRegister()"><i class="ti ti-user-plus"></i><span id="registerTxt">إنشاء الحساب</span></button>
+      <div id="bioSetup" class="hidden" style="margin-top:14px">
+        <div class="divider">تفعيل بصمة الوجه؟</div>
+        <button class="btn btn-bio" onclick="registerBio()"><i class="ti ti-scan pulse" style="font-size:20px"></i><span>تفعيل Face ID / بصمة الإصبع</span></button>
+        <div style="text-align:center;margin-top:8px"><span onclick="skipBio()" style="font-size:12px;color:var(--ink-3);cursor:pointer">تخطي</span></div>
+      </div>
+    </div>
+    <div class="trust">
+      <div class="trust-item"><i class="ti ti-shield-check"></i> ضمان 7 أيام</div>
+      <div class="trust-item"><i class="ti ti-scan"></i> Face ID</div>
+      <div class="trust-item"><i class="ti ti-brand-google"></i> Google</div>
+    </div>
+  </div>
+</div>
+<div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com" data-callback="onGoogleCred" data-auto_prompt="false"></div>
+<script src="/js/api.js"></script>
+<script>
+const GOOGLE_CLIENT_ID='YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
+let bioAvailable=false;
+(async()=>{
+  if(auth.isLoggedIn()){window.location.href='/dashboard.html';return;}
+  if(new URLSearchParams(location.search).get('tab')==='register')switchTab('register');
+  if(window.PublicKeyCredential)bioAvailable=await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable().catch(()=>false);
+})();
+function switchTab(t){
+  document.getElementById('loginPanel').classList.toggle('hidden',t!=='login');
+  document.getElementById('registerPanel').classList.toggle('hidden',t!=='register');
+  document.getElementById('tab-login').classList.toggle('active',t==='login');
+  document.getElementById('tab-register').classList.toggle('active',t==='register');
+  clearAlerts();
+}
+function showAlert(msg,type='danger'){clearAlerts();const ids={danger:'alertBox',success:'successBox',info:'infoBox'};const mids={danger:'alertMsg',success:'successMsg',info:'infoMsg'};document.getElementById(ids[type]).classList.remove('hidden');document.getElementById(mids[type]).textContent=msg;}
+function clearAlerts(){['alertBox','successBox','infoBox'].forEach(id=>document.getElementById(id).classList.add('hidden'));}
+function setLoading(btnId,txtId,on,lbl=''){const b=document.getElementById(btnId);b.disabled=on;b.querySelector('.spin')?.remove();if(on){const s=document.createElement('div');s.className='spin';b.prepend(s);}if(lbl)document.getElementById(txtId).textContent=lbl;}
+function togglePw(iid,ico){const i=document.getElementById(iid);const s=i.type==='password';i.type=s?'text':'password';document.getElementById(ico).className='ti '+(s?'ti-eye-off':'ti-lock')+' ico';}
+function checkBio(){if(!bioAvailable)return;const e=document.getElementById('loginEmail').value;document.getElementById('bioBtn').classList.toggle('hidden',!e.includes('@'));}
+async function handleLogin(){
+  clearAlerts();const email=document.getElementById('loginEmail').value.trim(),pw=document.getElementById('loginPw').value;
+  if(!email||!pw){showAlert('أدخل البريد وكلمة المرور');return;}
+  setLoading('loginBtn','loginTxt',true,'جارٍ الدخول...');
+  try{const d=await api.login({email,password:pw});onSuccess(d);}
+  catch(e){showAlert(e.message);setLoading('loginBtn','loginTxt',false,'دخول');}
+}
+async function handleGoogle(){
+  clearAlerts();showAlert('جارٍ فتح Google...','info');
+  google.accounts.id.initialize({client_id:GOOGLE_CLIENT_ID,callback:onGoogleCred,auto_select:false});
+  google.accounts.id.prompt(n=>{if(n.isNotDisplayed()){const p=new URLSearchParams({client_id:GOOGLE_CLIENT_ID,redirect_uri:location.origin+'/auth.html',response_type:'token',scope:'email profile',prompt:'select_account'});window.location.href='https://accounts.google.com/o/oauth2/v2/auth?'+p;}});
+}
+async function onGoogleCred(response){
+  clearAlerts();showAlert('جارٍ التحقق...','info');
+  try{const d=await api.google({credential:response.credential});onSuccess(d);}catch(e){showAlert(e.message);}
+}
+async function handleBioLogin(){
+  if(!bioAvailable){showAlert('البصمة غير مدعومة على هذا الجهاز');return;}
+  const email=document.getElementById('loginEmail').value.trim();if(!email){showAlert('أدخل بريدك أولاً');return;}
+  setLoading('bioBtn','bioTxt',true,'انتظر البصمة...');
+  try{
+    const opts=await api.webauthnLoginOptions({email});
+    opts.challenge=b64ToBuffer(opts.challenge);
+    opts.allowCredentials=opts.allowCredentials.map(c=>({...c,id:b64ToBuffer(c.id)}));
+    const assertion=await navigator.credentials.get({publicKey:opts});
+    const cred={id:assertion.id,rawId:bufferToB64(assertion.rawId),type:assertion.type,response:{clientDataJSON:bufferToB64(assertion.response.clientDataJSON),authenticatorData:bufferToB64(assertion.response.authenticatorData),signature:bufferToB64(assertion.response.signature),userHandle:assertion.response.userHandle?bufferToB64(assertion.response.userHandle):null}};
+    const d=await api.webauthnLoginVerify({body:cred,userId:opts.userId});
+    onSuccess(d);
+  }catch(e){showAlert(e.name==='NotAllowedError'?'تم إلغاء البصمة':e.message||'فشل البصمة');setLoading('bioBtn','bioTxt',false,'الدخول ببصمة الوجه');}
+}
+async function handleRegister(){
+  clearAlerts();const name=document.getElementById('regName').value.trim(),email=document.getElementById('regEmail').value.trim(),phone=document.getElementById('regPhone').value.trim(),pw=document.getElementById('regPw').value;
+  if(!name||!email||!pw){showAlert('يرجى تعبئة الحقول المطلوبة');return;}
+  if(pw.length<8){showAlert('كلمة المرور 8 أحرف على الأقل');return;}
+  setLoading('registerBtn','registerTxt',true,'جارٍ الإنشاء...');
+  try{const d=await api.register({name,email,phone,password:pw});auth.setToken(d.token);auth.setUser(d.user);setLoading('registerBtn','registerTxt',false,'إنشاء الحساب');showAlert('تم إنشاء حسابك! 🎉','success');if(bioAvailable)document.getElementById('bioSetup').classList.remove('hidden');else setTimeout(()=>{location.href='/dashboard.html';},1400);}
+  catch(e){showAlert(e.message);setLoading('registerBtn','registerTxt',false,'إنشاء الحساب');}
+}
+async function registerBio(){
+  showAlert('ضع إصبعك أو انظر للكاميرا...','info');
+  try{
+    const opts=await api.webauthnRegisterOptions();
+    opts.challenge=b64ToBuffer(opts.challenge);opts.user.id=b64ToBuffer(opts.user.id);
+    if(opts.excludeCredentials)opts.excludeCredentials=opts.excludeCredentials.map(c=>({...c,id:b64ToBuffer(c.id)}));
+    const cred=await navigator.credentials.create({publicKey:opts});
+    const credJSON={id:cred.id,rawId:bufferToB64(cred.rawId),type:cred.type,response:{clientDataJSON:bufferToB64(cred.response.clientDataJSON),attestationObject:bufferToB64(cred.response.attestationObject)}};
+    await api.webauthnRegisterVerify({body:credJSON,deviceName:getDevice()});
+    showAlert('تم تفعيل البصمة ✓','success');setTimeout(()=>{location.href='/dashboard.html';},1600);
+  }catch(e){showAlert(e.name==='NotAllowedError'?'تم إلغاء التسجيل':e.message||'فشل البصمة');}
+}
+function skipBio(){location.href='/dashboard.html';}
+function onSuccess(d){auth.setToken(d.token);auth.setUser(d.user);const p=new URLSearchParams(location.search);location.href=p.get('redirect')||(d.user.role==='admin'?'/admin.html':'/dashboard.html');}
+async function forgotPw(){const e=document.getElementById('loginEmail').value.trim();if(!e){showAlert('أدخل بريدك أولاً');return;}try{await apiFetch('/auth/forgot-password',{method:'POST',body:JSON.stringify({email:e})});}catch(x){}showAlert('إذا كان البريد مسجّلاً سيصلك رابط الاسترداد','success');}
+function b64ToBuffer(s){const b=s.replace(/-/g,'+').replace(/_/g,'/');return Uint8Array.from(atob(b),c=>c.charCodeAt(0)).buffer;}
+function bufferToB64(b){const u=new Uint8Array(b);let s='';u.forEach(x=>s+=String.fromCharCode(x));return btoa(s).replace(/+/g,'-').replace(///g,'_').replace(/=/g,'');}
+function getDevice(){const ua=navigator.userAgent;if(/iPhone/.test(ua))return 'iPhone';if(/iPad/.test(ua))return 'iPad';if(/Android/.test(ua))return 'Android';if(/Mac/.test(ua))return 'Mac';return 'جهازي';}
+</script>
+</body></html>
