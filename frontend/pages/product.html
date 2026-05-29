@@ -8,96 +8,98 @@
 :root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--danger:#E24B4A;--r-md:10px;--r-lg:16px;--r-xl:22px;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh;}
-.nav{background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 2rem;position:sticky;top:0;z-index:10;}
-.logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum);display:flex;align-items:center;gap:8px;}
+.nav{background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 2rem;position:sticky;top:0;z-index:10;gap:12px;}
+.logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum);text-decoration:none;display:flex;align-items:center;gap:8px;}
 .logo-mark{width:32px;height:32px;background:var(--plum);border-radius:8px;display:flex;align-items:center;justify-content:center;}
 .logo-mark i{color:#fff;font-size:16px;}
-.back{margin-right:auto;font-size:13px;color:var(--ink-3);cursor:pointer;display:flex;align-items:center;gap:5px;}
-.back:hover{color:var(--plum);}
-main{max-width:960px;margin:0 auto;padding:2rem 1.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start;}
+.back-btn{margin-right:auto;background:none;border:1px solid var(--border);border-radius:var(--r-md);padding:7px 14px;font-size:13px;color:var(--ink-2);cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit;}
+.back-btn:hover{background:var(--plum-l);border-color:#AFA9EC;}
+main{max-width:980px;margin:0 auto;padding:2rem 1.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start;}
 @media(max-width:700px){main{grid-template-columns:1fr;}}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);padding:1.5rem;margin-bottom:1rem;}
-.product-thumb{height:160px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:56px;}
-.product-thumb.en{background:var(--plum-l);}
-.product-thumb.tr{background:var(--jade-l);}
-.product-thumb.zh{background:#FAECE7;}
-.product-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--plum);margin-bottom:.75rem;}
+.pthumb{height:160px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:56px;}
+.pthumb.en{background:var(--plum-l)}.pthumb.tr{background:var(--jade-l)}.pthumb.zh{background:#FAECE7}
+.ptitle{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--plum);margin-bottom:.75rem;}
 .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem;}
 .badge{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:6px;font-size:12px;font-weight:600;}
 .badge-plum{background:var(--plum-l);color:var(--plum-m);}
 .badge-gold{background:var(--gold-l);color:var(--gold);border:1px solid var(--gold);}
 .badge-jade{background:var(--jade-l);color:var(--jade);}
-.product-desc{font-size:14px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;}
+.pdesc{font-size:14px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;}
 .features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem;}
 .feat{background:var(--sand);border-radius:10px;padding:12px;text-align:center;}
 .feat i{font-size:22px;color:var(--plum-m);display:block;margin-bottom:6px;}
 .feat-val{font-size:13px;font-weight:600;color:var(--plum);}
 .feat-lbl{font-size:11px;color:var(--ink-3);}
-.reviews-title{font-size:15px;font-weight:700;color:var(--plum);margin-bottom:1rem;}
+.reviews-title{font-size:15px;font-weight:700;color:var(--plum);margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
 .review-item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid var(--border);}
 .review-item:last-child{border-bottom:none;}
-.avatar{width:36px;height:36px;border-radius:50%;background:var(--plum-l);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--plum-m);flex-shrink:0;}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--plum-l);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--plum-m);flex-shrink:0;}
 .r-name{font-size:12px;font-weight:600;color:var(--plum);}
-.r-stars{color:var(--gold);font-size:12px;}
-.r-text{font-size:13px;color:var(--ink-2);line-height:1.6;margin-top:3px;}
-/* Sidebar */
+.r-stars{color:var(--gold);font-size:12px;margin:2px 0;}
+.r-text{font-size:13px;color:var(--ink-2);line-height:1.6;}
 .price-box{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--plum);margin-bottom:4px;}
-.price-del{font-size:14px;color:var(--ink-3);font-family:inherit;font-weight:400;}
+.price-box del{font-size:16px;color:var(--ink-3);font-family:inherit;font-weight:400;margin-left:8px;}
 .save-tag{font-size:12px;color:var(--jade);background:var(--jade-l);padding:3px 9px;border-radius:5px;font-weight:600;display:inline-block;margin-bottom:1rem;}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border:none;border-radius:var(--r-md);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;margin-bottom:8px;}
 .btn:hover{opacity:.88;}
 .btn-gold{background:var(--gold);color:var(--plum);}
+.btn-primary{background:var(--plum);color:#fff;}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--ink-2);}
 .guarantees{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px;}
 .g{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-3);}
 .g i{color:var(--jade);font-size:14px;}
-.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--plum);color:#fff;padding:12px 22px;border-radius:30px;font-size:14px;font-weight:500;z-index:999;transition:transform .3s;display:flex;align-items:center;gap:8px;}
-.toast.show{transform:translateX(-50%) translateY(0);}
-.loading{text-align:center;padding:3rem;color:var(--ink-3);}
+.sticky-side{position:sticky;top:70px;}
+.review-form{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+.rf-title{font-size:14px;font-weight:700;color:var(--plum);margin-bottom:12px;}
+.stars-input{display:flex;gap:6px;margin-bottom:10px;}
+.stars-input i{font-size:24px;color:var(--border);cursor:pointer;transition:.1s;}
+.stars-input i.active{color:var(--gold);}
+textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:var(--r-md);font-size:13px;font-family:inherit;resize:vertical;outline:none;min-height:80px;}
+textarea:focus{border-color:var(--plum-m);}
+.empty-reviews{color:var(--ink-3);font-size:13px;padding:1rem 0;text-align:center;}
 @keyframes spin{to{transform:rotate(360deg)}}
+.loading{text-align:center;padding:3rem;color:var(--ink-3);}
 </style>
 </head><body>
 <nav class="nav">
-  <div class="logo"><div class="logo-mark"><i class="ti ti-language"></i></div>Lingua</div>
-  <div class="back" onclick="history.back()"><i class="ti ti-arrow-right"></i> رجوع</div>
+  <a class="logo" href="index.html"><div class="logo-mark"><i class="ti ti-language"></i></div>Lingua</a>
+  <button class="back-btn" onclick="history.back()"><i class="ti ti-arrow-right"></i> رجوع</button>
 </nav>
-
 <main>
-  <div id="productContent"><div class="loading"><i class="ti ti-loader" style="font-size:32px;display:block;margin:0 auto 1rem;animation:spin .8s linear infinite;color:var(--plum-m)"></i>جارٍ تحميل المنتج...</div></div>
+  <div id="productContent">
+    <div class="loading"><i class="ti ti-loader" style="font-size:36px;display:block;margin:0 auto 1rem;animation:spin .8s linear infinite;color:var(--plum-m)"></i>جارٍ تحميل المنتج...</div>
+  </div>
   <div id="sidebarContent"></div>
 </main>
-
-<div class="toast hidden" id="toast"><i class="ti ti-check"></i><span id="toastMsg"></span></div>
-
 <script src="../js/api.js"></script>
 <script>
-const imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',audio:'ti-player-play',bundle:'ti-package',pdf:'ti-file-type-pdf'};
+const imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
 const cmap={en:'#534AB7',tr:'#0B5E46',zh:'#993C1D'};
 const lname={en:'إنجليزية',tr:'تركية',zh:'صينية'};
+let selectedRating = 0;
 
 (async () => {
-  const params = new URLSearchParams(location.search);
-  const id = params.get('id');
+  const id = new URLSearchParams(location.search).get('id');
   if (!id) { location.href='index.html'; return; }
 
   try {
-    const {product, reviews} = await api.getProduct(id);
-    document.title = product.title + ' — Lingua';
+    const {product: p, reviews} = await api.getProduct(id);
+    document.title = p.title + ' — Lingua';
 
-    // المحتوى الرئيسي
     document.getElementById('productContent').innerHTML = `
       <div class="card">
-        <div class="product-thumb ${product.lang}">
-          <i class="ti ${imap[product.skill]||'ti-book-2'}" style="color:${cmap[product.lang]||'#534AB7'}"></i>
+        <div class="pthumb ${p.lang}">
+          <i class="ti ${imap[p.skill]||'ti-book-2'}" style="color:${cmap[p.lang]}"></i>
         </div>
-        <h1 class="product-title">${product.title}</h1>
+        <h1 class="ptitle">${p.title}</h1>
         <div class="badges">
-          <span class="badge badge-plum">${product.level}</span>
-          <span class="badge badge-plum">${lname[product.lang]||product.lang}</span>
-          <span class="badge badge-gold"><i class="ti ti-star"></i> ${product.rating||0} (${product.review_count||0} تقييم)</span>
-          ${product.is_free ? '<span class="badge badge-jade">مجاني</span>' : ''}
+          <span class="badge badge-plum">${p.level}</span>
+          <span class="badge badge-plum">${lname[p.lang]}</span>
+          <span class="badge badge-gold"><i class="ti ti-star"></i> ${p.rating||0} (${p.review_count||0} تقييم)</span>
+          ${p.is_free ? '<span class="badge badge-jade">مجاني</span>' : ''}
         </div>
-        <p class="product-desc">${product.description||'درس أكاديمي متكامل من الأستاذ كريم'}</p>
+        <p class="pdesc">${p.description||'درس أكاديمي متكامل من الأستاذ كريم — محتوى عالي الجودة مصمم لتطوير مهاراتك اللغوية.'}</p>
         <div class="features">
           <div class="feat"><i class="ti ti-infinity"></i><div class="feat-val">مدى الحياة</div><div class="feat-lbl">وصول دائم</div></div>
           <div class="feat"><i class="ti ti-device-mobile"></i><div class="feat-val">جميع الأجهزة</div><div class="feat-lbl">متوافق</div></div>
@@ -105,48 +107,69 @@ const lname={en:'إنجليزية',tr:'تركية',zh:'صينية'};
         </div>
       </div>
       <div class="card">
-        <div class="reviews-title">تقييمات الطلاب (${reviews.length})</div>
+        <div class="reviews-title"><i class="ti ti-star-filled" style="color:var(--gold)"></i> تقييمات الطلاب (${reviews.length})</div>
         ${reviews.length ? reviews.map(r => `
           <div class="review-item">
-            <div class="avatar">${r.user_name?.slice(0,2)||'؟؟'}</div>
+            <div class="avatar">${(r.user_name||'؟').slice(0,2)}</div>
             <div>
               <div class="r-name">${r.user_name||'طالب'}</div>
               <div class="r-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
               <div class="r-text">${r.comment||''}</div>
             </div>
-          </div>`).join('') : '<div style="color:var(--ink-3);font-size:13px;padding:1rem 0">لا توجد تقييمات بعد — كن أول من يقيّم!</div>'}
+          </div>`).join('') : '<div class="empty-reviews"><i class="ti ti-message-circle" style="font-size:32px;display:block;margin:0 auto .75rem;opacity:.3"></i>لا توجد تقييمات بعد</div>'}
+        ${auth.isLoggedIn() ? `<div class="review-form">
+          <div class="rf-title">أضف تقييمك</div>
+          <div class="stars-input" id="starsInput">
+            ${[1,2,3,4,5].map(i=>'<i class="ti ti-star-filled" data-val="'+i+'" onclick="setRating('+i+')"></i>').join('')}
+          </div>
+          <textarea id="reviewText" placeholder="اكتب تعليقك..."></textarea>
+          <button class="btn btn-primary" style="margin-top:10px" onclick="submitReview('${p.id}')"><i class="ti ti-send"></i> إرسال التقييم</button>
+        </div>` : ''}
       </div>`;
 
-    // الشريط الجانبي
-    const priceHtml = product.is_free
+    const priceHtml = p.is_free
       ? '<div class="price-box" style="color:var(--jade)">مجاني</div>'
-      : `<div class="price-box">${product.original_price?'<span class="price-del"><del>${Number(product.original_price).toFixed(0)} ر.س</del></span> ':''}  ${Number(product.price).toFixed(0)} ر.س</div>${product.original_price?'<div class="save-tag">وفّر ${Math.round((1-product.price/product.original_price)*100)}%</div>':''}`;
+      : `<div class="price-box">${p.original_price?'<del>'+Number(p.original_price).toFixed(0)+' ر.س</del>':''} ${Number(p.price).toFixed(0)} ر.س</div>
+         ${p.original_price?'<span class="save-tag">وفّر '+Math.round((1-p.price/p.original_price)*100)+'%</span>':''}`;
 
     document.getElementById('sidebarContent').innerHTML = `
-      <div class="card" style="position:sticky;top:70px">
+      <div class="card sticky-side">
         ${priceHtml}
-        ${product.is_free
-          ? '<button class="btn btn-gold" onclick="downloadFree()"><i class="ti ti-download"></i> حمّل مجاناً</button>'
-          : `<button class="btn btn-gold" onclick='addToCart(${JSON.stringify({id:product.id,title:product.title,price:product.price,skill:product.skill,lang:product.lang})})'><i class="ti ti-shopping-cart"></i> أضف للسلة</button>
-             <button class="btn btn-ghost" onclick="location.href='checkout.html'"><i class="ti ti-credit-card"></i> اشترِ الآن</button>`}
+        ${p.is_free
+          ? '<button class="btn btn-jade" onclick="showToast('جارٍ التحميل...')"><i class="ti ti-download"></i> حمّل مجاناً</button>'
+          : `<button class="btn btn-gold" onclick='addToCartAndGo(${JSON.stringify({id:p.id,title:p.title,price:p.price,skill:p.skill,lang:p.lang})})'><i class="ti ti-credit-card"></i> اشترِ الآن</button>
+             <button class="btn btn-ghost" onclick='cart.add(${JSON.stringify({id:p.id,title:p.title,price:p.price,skill:p.skill,lang:p.lang})});showToast("تمت الإضافة للسلة ✓")'><i class="ti ti-shopping-cart"></i> أضف للسلة</button>`}
         <div class="guarantees">
           <div class="g"><i class="ti ti-shield-check"></i> ضمان استرداد 7 أيام</div>
           <div class="g"><i class="ti ti-infinity"></i> وصول مدى الحياة</div>
-          <div class="g"><i class="ti ti-mail"></i> رابط الدرس يصلك فوراً</div>
+          <div class="g"><i class="ti ti-mail"></i> رابط الدرس فوراً</div>
+          <div class="g"><i class="ti ti-device-mobile"></i> يعمل على جميع الأجهزة</div>
         </div>
       </div>`;
 
   } catch(e) {
-    document.getElementById('productContent').innerHTML = '<div class="loading"><i class="ti ti-alert-circle" style="color:var(--danger)"></i><br>خطأ في تحميل المنتج</div>';
+    document.getElementById('productContent').innerHTML = '<div class="loading" style="color:var(--danger)"><i class="ti ti-alert-circle" style="font-size:36px;display:block;margin:0 auto 1rem"></i>خطأ في تحميل المنتج</div>';
   }
 })();
 
-function addToCart(product) {
-  cart.add(product);
-  showT('تمت الإضافة للسلة ✓');
+function setRating(val) {
+  selectedRating = val;
+  document.querySelectorAll('#starsInput i').forEach((el,i) => el.classList.toggle('active', i < val));
 }
-function downloadFree() { showT('جارٍ التحميل...'); }
-let tt;
-function showT(msg){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=msg;t.classList.remove('hidden');t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>{t.classList.remove('show');},2800);}
+
+function addToCartAndGo(product) {
+  cart.add(product);
+  location.href = 'checkout.html';
+}
+
+async function submitReview(productId) {
+  if (!selectedRating) { showToast('اختر تقييماً بالنجوم أولاً', 'error'); return; }
+  const comment = document.getElementById('reviewText').value.trim();
+  try {
+    await api.addReview(productId, { rating: selectedRating, comment });
+    showToast('تم إرسال تقييمك ✓');
+    setTimeout(() => location.reload(), 1500);
+  } catch(e) { showToast(e.message, 'error'); }
+}
 </script>
 </body></html>
