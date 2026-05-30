@@ -1,123 +1,379 @@
-<!-- ══ SCRIPT ═════════════════════════════════════════════════ -->
-<script src="js/api.js"></script>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lingua — معهد اللغات الأكاديمي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    :root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--gold-m:#E8C96A;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--sand-d:#F0EDE6;--white:#FFFFFF;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--border-d:#D0CCEC;--r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:22px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'IBM Plex Sans Arabic','Segoe UI',Arial,sans-serif;background:var(--sand);color:var(--ink);line-height:1.6;min-height:100vh}
+    a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit}img{max-width:100%;display:block}
+    .container{max-width:1180px;margin:0 auto;padding:0 2rem}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:var(--r-md);font-size:13px;font-weight:600;letter-spacing:.03em;transition:opacity .15s,transform .1s;border:none}
+    .btn:active{transform:scale(.98)}.btn-primary{background:var(--plum);color:var(--white)}.btn-primary:hover{opacity:.88}
+    .btn-gold{background:var(--gold);color:var(--plum)}.btn-gold:hover{opacity:.88}
+    .btn-ghost{background:transparent;color:var(--ink-2);border:1px solid var(--border-d)}.btn-ghost:hover{background:var(--sand-d)}
+    .btn-jade{background:var(--jade);color:var(--white)}.btn-sm{padding:6px 13px;font-size:12px}
+    .nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;height:64px;display:flex;align-items:center}
+    .nav .container{display:flex;align-items:center;justify-content:space-between;width:100%}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .logo-mark{width:38px;height:38px;background:var(--plum);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .logo-mark i{font-size:20px;color:var(--white)}
+    .logo-text .word{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--plum);display:block;line-height:1.1}
+    .logo-text .sub{font-size:10px;color:var(--gold);letter-spacing:.1em;font-weight:500}
+    .nav-links{display:flex;align-items:center;gap:2rem}
+    .nav-links a{font-size:14px;color:var(--ink-2);transition:color .15s;font-weight:500}
+    .nav-links a:hover{color:var(--plum)}.nav-links a.active{color:var(--plum);border-bottom:2px solid var(--plum);padding-bottom:2px}
+    .nav-ctas{display:flex;gap:8px;align-items:center}
+    .cart-btn{position:relative;background:transparent;border:1px solid var(--border-d);border-radius:var(--r-md);padding:8px 12px;color:var(--ink-2);font-size:15px;display:flex;align-items:center}
+    .cart-count{position:absolute;top:-6px;left:-6px;background:var(--gold);color:var(--plum);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .hero{background:var(--plum);padding:5rem 0 4rem;position:relative;overflow:hidden}
+    .hero-deco{position:absolute;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+    .hero-deco-1{width:420px;height:420px;top:-120px;left:-100px}.hero-deco-2{width:280px;height:280px;bottom:-80px;right:-40px}.hero-deco-3{width:150px;height:150px;top:40%;left:30%}
+    .hero .container{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:center;position:relative;z-index:2}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:5px 14px;margin-bottom:1.5rem}
+    .hero-eyebrow span{font-size:12px;color:#CECBF6;letter-spacing:.08em;font-weight:500}.hero-eyebrow i{font-size:14px;color:var(--gold-m)}
+    .hero-title{font-family:'Playfair Display',serif;font-size:46px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:1.2rem}
+    .hero-title em{color:var(--gold-m);font-style:normal}
+    .hero-desc{font-size:15px;color:#CECBF6;line-height:1.85;margin-bottom:2rem;max-width:520px}
+    .hero-actions{display:flex;gap:12px;align-items:center;margin-bottom:3rem}.hero-actions .btn{font-size:14px;padding:12px 26px}
+    .hero-link{font-size:13px;color:#AFA9EC;display:flex;align-items:center;gap:5px}.hero-link:hover{color:var(--white)}
+    .hero-stats{display:flex;gap:0;border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);overflow:hidden}
+    .hero-stat{flex:1;padding:1rem;text-align:center;border-left:1px solid rgba(255,255,255,.1)}.hero-stat:last-child{border-left:none}
+    .hero-stat-val{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);display:block}
+    .hero-stat-lbl{font-size:11px;color:#AFA9EC;letter-spacing:.04em}
+    .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-xl);padding:1.5rem}
+    .hero-card-label{font-size:11px;color:var(--gold-m);letter-spacing:.1em;font-weight:600;margin-bottom:1rem}
+    .lang-option{display:flex;align-items:center;gap:12px;padding:12px;border-radius:var(--r-md);background:rgba(255,255,255,.06);margin-bottom:8px;border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:background .15s}
+    .lang-option:hover{background:rgba(255,255,255,.12)}.lang-option.active{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25)}
+    .lang-flag{font-size:24px;flex-shrink:0}.lang-info{flex:1}
+    .lang-name{font-size:14px;font-weight:600;color:var(--white);display:block}.lang-levels{font-size:11px;color:#AFA9EC}
+    .lang-progress-wrap{width:60px}.lang-progress-bar{height:4px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden;margin-bottom:3px}
+    .lang-progress-fill{height:100%;background:var(--gold-m);border-radius:2px}.lang-pct{font-size:10px;color:#AFA9EC;text-align:center;display:block}
+    .hero-card-cta{margin-top:1.2rem;padding:10px;background:var(--gold);border-radius:var(--r-md);text-align:center;font-size:13px;font-weight:700;color:var(--plum);letter-spacing:.04em;cursor:pointer;transition:opacity .15s}
+    .hero-card-cta:hover{opacity:.88}
+    .trust-strip{background:var(--white);border-bottom:1px solid var(--border);padding:.9rem 0}
+    .trust-strip .container{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+    .trust-item{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-2);font-weight:500}.trust-item i{font-size:16px;color:var(--gold)}
+    .trust-sep{width:1px;height:18px;background:var(--border)}
+    .main{padding:3rem 0 4rem}.main .container{display:grid;grid-template-columns:260px 1fr;gap:2.5rem;align-items:start}
+    .sidebar{position:sticky;top:80px}
+    .sidebar-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1rem}
+    .sidebar-title{font-size:13px;font-weight:600;color:var(--plum);margin-bottom:12px;display:flex;align-items:center;gap:7px}.sidebar-title i{font-size:15px;color:var(--gold)}
+    .lang-filter-btn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--sand);font-size:13px;color:var(--ink-2);margin-bottom:6px;font-weight:500;transition:background .12s,border-color .12s}
+    .lang-filter-btn:hover{background:var(--plum-l);border-color:#AFA9EC}.lang-filter-btn.active{background:var(--plum-l);border-color:#534AB7;color:var(--plum)}
+    .lang-filter-btn .flag-sm{font-size:18px}.lang-filter-btn .count{margin-right:auto;font-size:10px;background:var(--plum);color:var(--white);padding:2px 7px;border-radius:10px;font-weight:600}
+    .level-filter{display:flex;flex-direction:column;gap:5px}
+    .lvl-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--sand);font-size:12px;color:var(--ink-3);font-weight:500;transition:.12s}
+    .lvl-btn .lvl-code{font-weight:700;font-size:13px;min-width:30px}.lvl-btn .lvl-name{flex:1}.lvl-btn .lvl-check{font-size:13px;color:var(--jade)}
+    .lvl-btn.done{background:var(--jade-l);border-color:#9FE1CB;color:var(--jade)}.lvl-btn.active{background:var(--plum);border-color:var(--plum);color:var(--white)}.lvl-btn.active .lvl-code{color:var(--gold-m)}
+    .skill-filter{display:flex;flex-direction:column;gap:5px}
+    .skill-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--sand);font-size:13px;color:var(--ink-2);font-weight:500;transition:.12s}
+    .skill-btn i{font-size:15px;color:var(--ink-3)}.skill-btn:hover{background:var(--plum-l);border-color:#AFA9EC}.skill-btn.active{background:var(--plum-l);border-color:#534AB7;color:var(--plum)}.skill-btn.active i{color:var(--plum-m)}
+    .price-filter{display:flex;flex-direction:column;gap:8px}.price-range-wrap{padding:4px 0}
+    .price-range-wrap input[type="range"]{width:100%;accent-color:var(--plum)}.price-display{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3)}
+    .featured-banner{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;display:flex;margin-bottom:2rem}
+    .featured-accent{width:6px;background:var(--gold);flex-shrink:0}.featured-body{padding:1.75rem;flex:1}
+    .featured-badge{display:inline-flex;align-items:center;gap:5px;background:var(--gold-l);color:var(--gold);border:1px solid #E8C96A;border-radius:5px;padding:4px 11px;font-size:11px;font-weight:700;letter-spacing:.07em;margin-bottom:12px}.featured-badge i{font-size:13px}
+    .featured-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--plum);margin-bottom:8px}
+    .featured-desc{font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:1.2rem}
+    .skills-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem}
+    .skill-chip{display:flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;border:1px solid var(--border);font-size:12px;color:var(--ink-2);background:var(--sand)}.skill-chip i{font-size:13px;color:var(--plum-m)}
+    .featured-footer{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+    .featured-price{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--plum)}.featured-price del{font-size:14px;color:var(--ink-3);font-family:inherit;font-weight:400;margin-left:8px}
+    .save-badge{font-size:12px;color:var(--jade);background:var(--jade-l);padding:3px 9px;border-radius:5px;font-weight:600}
+    .toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+    .toolbar-count{font-size:14px;color:var(--ink-3)}.toolbar-count strong{color:var(--plum);font-weight:700}
+    .toolbar-sort{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2)}
+    .toolbar-sort select{padding:6px 10px;border:1px solid var(--border-d);border-radius:var(--r-sm);background:var(--white);font-size:13px;color:var(--ink);font-family:inherit;outline:none}
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-bottom:2.5rem}
+    .pcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:border-color .15s,transform .15s}
+    .pcard:hover{border-color:var(--plum-m);transform:translateY(-2px)}.pcard.featured-border{border:2px solid var(--plum)}
+    .pcard-thumb{height:110px;display:flex;align-items:center;justify-content:center;position:relative}
+    .pcard-thumb.en{background:var(--plum-l)}.pcard-thumb.tr{background:var(--jade-l)}.pcard-thumb.zh{background:#FAECE7}
+    .pcard-thumb i{font-size:36px}.pcard-thumb .en-icon{color:#534AB7}.pcard-thumb .tr-icon{color:var(--jade)}.pcard-thumb .zh-icon{color:#993C1D}
+    .pcard-badge{position:absolute;top:8px;right:8px;font-size:10px;font-weight:700;padding:3px 9px;border-radius:5px;letter-spacing:.04em}
+    .badge-hot{background:var(--plum);color:var(--white)}.badge-new{background:var(--gold);color:var(--plum)}.badge-free{background:var(--jade-l);color:var(--jade);border:1px solid #9FE1CB}
+    .pcard-body{padding:13px 14px;flex:1;display:flex;flex-direction:column}
+    .pcard-title{font-size:13px;font-weight:600;color:var(--plum);margin-bottom:5px;line-height:1.4}
+    .pcard-meta{font-size:11px;color:var(--ink-3);margin-bottom:9px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+    .meta-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-3);display:inline-block}
+    .pcard-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}.pcard-tag{font-size:10px;padding:2px 7px;border-radius:4px;background:var(--sand);color:var(--ink-2);border:1px solid var(--border)}
+    .pcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+    .pcard-price{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--plum)}.pcard-price del{font-size:11px;color:var(--ink-3);font-family:inherit;font-weight:400;margin-left:4px}
+    .pcard-price.free-price{color:var(--jade)}.pcard-stars{display:flex;align-items:center;gap:2px;font-size:11px;color:var(--gold)}
+    .pagination{display:flex;justify-content:center;gap:6px;margin-top:1.5rem}
+    .page-btn{width:36px;height:36px;border-radius:var(--r-md);border:1px solid var(--border-d);background:var(--white);font-size:13px;color:var(--ink-2);display:flex;align-items:center;justify-content:center;font-weight:500}
+    .page-btn.active{background:var(--plum);color:var(--white);border-color:var(--plum)}.page-btn:hover:not(.active){background:var(--plum-l)}
+    .reviews-section{padding:3rem 0;background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .reviews-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--plum);margin-bottom:2rem}
+    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+    .rcard{background:var(--sand);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem}
+    .rcard-stars{display:flex;gap:2px;margin-bottom:10px;color:var(--gold);font-size:14px}
+    .rcard-text{font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:14px}.rcard-author{font-size:12px;font-weight:700;color:var(--plum)}.rcard-level{font-size:11px;color:var(--ink-3)}
+    .faq-section{padding:3rem 0}.faq-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--plum);margin-bottom:1.5rem}
+    .faq-list{display:flex;flex-direction:column;gap:8px}
+    .faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+    .faq-q{display:flex;align-items:center;gap:10px;padding:1rem 1.25rem;cursor:pointer;font-size:15px;font-weight:600;color:var(--plum);user-select:none}
+    .faq-q i.faq-icon{font-size:16px;color:var(--gold);flex-shrink:0}.faq-q i.faq-arrow{margin-right:auto;font-size:15px;color:var(--ink-3);transition:transform .2s}
+    .faq-item.open .faq-arrow{transform:rotate(180deg)}
+    .faq-a{padding:0 1.25rem;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;font-size:14px;color:var(--ink-2);line-height:1.75}
+    .faq-item.open .faq-a{max-height:200px;padding:0 1.25rem 1rem}
+    .cta-section{padding:3rem 0;background:var(--sand-d)}
+    .cta-block{background:var(--plum);border-radius:var(--r-xl);padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .cta-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);margin-bottom:8px}.cta-sub{font-size:14px;color:#CECBF6}
+    .cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.cta-actions .btn{font-size:15px;padding:13px 30px}
+    .cta-badges{display:flex;gap:1.2rem;flex-wrap:wrap}.cta-badge{display:flex;align-items:center;gap:5px;font-size:12px;color:#AFA9EC}.cta-badge i{font-size:14px;color:var(--gold-m)}
+    footer{background:var(--white);border-top:1px solid var(--border);padding:2rem 0}
+    footer .container{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum)}.footer-logo span{font-size:12px;color:var(--gold);display:block;font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:500;letter-spacing:.05em}
+    .footer-links{display:flex;gap:1.5rem}.footer-links a{font-size:13px;color:var(--ink-3);transition:color .12s}.footer-links a:hover{color:var(--plum)}.footer-note{font-size:12px;color:var(--ink-3)}
+    .toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--plum);color:var(--white);padding:12px 22px;border-radius:30px;font-size:14px;font-weight:500;z-index:999;transition:transform .3s cubic-bezier(.22,.68,0,1.2);display:flex;align-items:center;gap:8px}
+    .toast.show{transform:translateX(-50%) translateY(0)}
+    .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:200;opacity:0;pointer-events:none;transition:opacity .2s}.cart-overlay.open{opacity:1;pointer-events:all}
+    .cart-drawer{position:fixed;top:0;left:0;bottom:0;width:380px;background:var(--white);z-index:201;transform:translateX(-100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;border-right:1px solid var(--border)}
+    .cart-overlay.open .cart-drawer{transform:translateX(0)}
+    .cart-head{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}.cart-head h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum)}
+    .cart-close{background:none;border:none;font-size:20px;color:var(--ink-3);cursor:pointer}.cart-body{flex:1;overflow-y:auto;padding:1rem 1.5rem}
+    .cart-empty{text-align:center;padding:3rem 1rem;color:var(--ink-3);font-size:14px}.cart-empty i{font-size:40px;display:block;margin-bottom:1rem}
+    .cart-item{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+    .cart-item-icon{width:44px;height:44px;border-radius:var(--r-md);background:var(--plum-l);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--plum-m);flex-shrink:0}
+    .cart-item-info{flex:1}.cart-item-title{font-size:13px;font-weight:600;color:var(--plum)}.cart-item-meta{font-size:11px;color:var(--ink-3)}
+    .cart-item-price{font-size:14px;font-weight:700;color:var(--plum);white-space:nowrap}.cart-item-remove{font-size:15px;color:var(--ink-3);background:none;border:none;cursor:pointer}.cart-item-remove:hover{color:#E24B4A}
+    .cart-foot{padding:1.25rem 1.5rem;border-top:1px solid var(--border)}
+    .cart-total{display:flex;justify-content:space-between;font-size:16px;font-weight:700;color:var(--plum);margin-bottom:1rem}
+    .cart-checkout{width:100%;padding:13px;background:var(--gold);color:var(--plum);border:none;border-radius:var(--r-md);font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.04em}
+    .eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--gold);flex-shrink:0}
+    .eyebrow span{font-size:11px;letter-spacing:.12em;font-weight:600;color:var(--gold);text-transform:uppercase}
+    @media(max-width:900px){.hero .container{grid-template-columns:1fr}.hero-card{display:none}.main .container{grid-template-columns:1fr}.sidebar{position:static}}
+    @media(max-width:640px){.nav-links{display:none}.hero-title{font-size:32px}.reviews-grid{grid-template-columns:1fr}.cta-block{flex-direction:column}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-logo">
+      <div class="logo-mark"><i class="ti ti-language"></i></div>
+      <div class="logo-text"><span class="word">Lingua</span><span class="sub">معهد اللغات الأكاديمي</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active">المتجر</a>
+      <a href="#levels">المستويات</a>
+      <a href="#reviews">الطلاب</a>
+      <a href="#faq">الأسئلة</a>
+    </div>
+    <div class="nav-ctas">
+      <button class="cart-btn" id="cartBtn"><i class="ti ti-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></button>
+      <button class="btn btn-ghost" id="navLogin">دخول</button>
+      <button class="btn btn-primary" id="navRegister">ابدأ مجاناً</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-deco hero-deco-3"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i><span>منصة أكاديمية معتمدة · خبرة 40 عاماً</span></div>
+      <h1 class="hero-title">أتقن اللغات مع<br><em>الأستاذ كريم</em></h1>
+      <p class="hero-desc">منهج أكاديمي متكامل في الإنجليزية والتركية والصينية — كتب تفاعلية وتسجيلات صوتية وحصص حية من A0 إلى C2</p>
+      <div class="hero-actions">
+        <button class="btn btn-gold" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><i class="ti ti-player-play"></i>اختبر مستواك مجاناً</button>
+        <a href="#products" class="hero-link">تصفح الدروس <i class="ti ti-arrow-left"></i></a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-val">20K+</span><span class="hero-stat-lbl">طالب مستفيد</span></div>
+        <div class="hero-stat"><span class="hero-stat-val">150+</span><span class="hero-stat-lbl">درس أكاديمي</span></div>
+        <div class="hero-stat"><span class="hero-stat-val">3</span><span class="hero-stat-lbl">لغات عالمية</span></div>
+        <div class="hero-stat"><span class="hero-stat-val">4.9</span><span class="hero-stat-lbl">تقييم الطلاب</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">اختر لغتك وابدأ الآن</div>
+      <div class="lang-option active" onclick="filterLang('en',this)"><span class="lang-flag">🇬🇧</span><div class="lang-info"><span class="lang-name">الإنجليزية</span><span class="lang-levels">10 مستويات · 68 درساً</span></div><div class="lang-progress-wrap"><div class="lang-progress-bar"><div class="lang-progress-fill" style="width:42%"></div></div><span class="lang-pct">A0→C2</span></div></div>
+      <div class="lang-option" onclick="filterLang('tr',this)"><span class="lang-flag">🇹🇷</span><div class="lang-info"><span class="lang-name">التركية</span><span class="lang-levels">10 مستويات · 46 درساً</span></div><div class="lang-progress-wrap"><div class="lang-progress-bar"><div class="lang-progress-fill" style="width:100%"></div></div><span class="lang-pct">A0→C2</span></div></div>
+      <div class="lang-option" onclick="filterLang('zh',this)"><span class="lang-flag">🇨🇳</span><div class="lang-info"><span class="lang-name">الصينية</span><span class="lang-levels">10 مستويات · 38 درساً</span></div><div class="lang-progress-wrap"><div class="lang-progress-bar"><div class="lang-progress-fill" style="width:100%"></div></div><span class="lang-pct">A0→C2</span></div></div>
+      <div class="hero-card-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><i class="ti ti-books" style="font-size:14px;vertical-align:-2px;"></i> تصفح الكتالوج الأكاديمي</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip"><div class="container">
+  <div class="trust-item"><i class="ti ti-infinity"></i> وصول مدى الحياة</div><div class="trust-sep"></div>
+  <div class="trust-item"><i class="ti ti-shield-check"></i> ضمان 7 أيام</div><div class="trust-sep"></div>
+  <div class="trust-item"><i class="ti ti-headphones"></i> تسجيلات بصوت الأستاذ</div><div class="trust-sep"></div>
+  <div class="trust-item"><i class="ti ti-device-mobile"></i> يعمل على جميع الأجهزة</div><div class="trust-sep"></div>
+  <div class="trust-item"><i class="ti ti-credit-card"></i> دفع واحد · لا اشتراك</div>
+</div></div>
+
+<!-- MAIN -->
+<section class="main" id="products">
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title"><i class="ti ti-flag"></i> اللغة</div>
+        <button class="lang-filter-btn active" onclick="filterLang('en',this)"><span class="flag-sm">🇬🇧</span> الإنجليزية<span class="count">68</span></button>
+        <button class="lang-filter-btn" onclick="filterLang('tr',this)"><span class="flag-sm">🇹🇷</span> التركية<span class="count">46</span></button>
+        <button class="lang-filter-btn" onclick="filterLang('zh',this)"><span class="flag-sm">🇨🇳</span> الصينية<span class="count">38</span></button>
+      </div>
+      <div class="sidebar-card" id="levels">
+        <div class="sidebar-title"><i class="ti ti-stairs"></i> المستوى</div>
+        <div class="level-filter">
+          <button class="lvl-btn done" onclick="filterLevel('A0',this)"><span class="lvl-code">A0</span><span class="lvl-name">مبتدئ مطلق</span><i class="ti ti-check lvl-check"></i></button>
+          <button class="lvl-btn done" onclick="filterLevel('A1',this)"><span class="lvl-code">A1</span><span class="lvl-name">مبتدئ</span><i class="ti ti-check lvl-check"></i></button>
+          <button class="lvl-btn done" onclick="filterLevel('A2',this)"><span class="lvl-code">A2</span><span class="lvl-name">ما قبل المتوسط</span><i class="ti ti-check lvl-check"></i></button>
+          <button class="lvl-btn active" onclick="filterLevel('B1',this)"><span class="lvl-code">B1</span><span class="lvl-name">متوسط</span></button>
+          <button class="lvl-btn" onclick="filterLevel('B2',this)"><span class="lvl-code">B2</span><span class="lvl-name">فوق المتوسط</span></button>
+          <button class="lvl-btn" onclick="filterLevel('C1',this)"><span class="lvl-code">C1</span><span class="lvl-name">متقدم</span></button>
+          <button class="lvl-btn" onclick="filterLevel('C2',this)"><span class="lvl-code">C2</span><span class="lvl-name">احترافي</span></button>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-title"><i class="ti ti-layout-grid"></i> المهارة</div>
+        <div class="skill-filter">
+          <button class="skill-btn active" onclick="filterSkill('all',this)"><i class="ti ti-stack-2"></i> جميع المهارات</button>
+          <button class="skill-btn" onclick="filterSkill('listening',this)"><i class="ti ti-ear"></i> الاستماع</button>
+          <button class="skill-btn" onclick="filterSkill('speaking',this)"><i class="ti ti-microphone"></i> المحادثة</button>
+          <button class="skill-btn" onclick="filterSkill('reading',this)"><i class="ti ti-book-2"></i> القراءة</button>
+          <button class="skill-btn" onclick="filterSkill('writing',this)"><i class="ti ti-pencil"></i> الكتابة</button>
+          <button class="skill-btn" onclick="filterSkill('pdf',this)"><i class="ti ti-file-type-pdf"></i> كتب PDF</button>
+          <button class="skill-btn" onclick="filterSkill('audio',this)"><i class="ti ti-player-play"></i> قصص صوتية</button>
+        </div>
+      </div>
+    </aside>
+    <div class="content-area">
+      <div class="featured-banner">
+        <div class="featured-accent"></div>
+        <div class="featured-body">
+          <div class="featured-badge"><i class="ti ti-star"></i> الباقة الأكاديمية المميزة</div>
+          <div class="featured-title">الإنجليزية الكاملة A0-C2</div>
+          <div class="featured-desc">المنهج الأكاديمي المتكامل للأستاذ كريم — جميع المستويات والمهارات في حصة واحدة مع كتب تفاعلية وتسجيلات حية</div>
+          <div class="skills-chips"><span class="skill-chip"><i class="ti ti-ear"></i> استماع</span><span class="skill-chip"><i class="ti ti-microphone"></i> محادثة</span><span class="skill-chip"><i class="ti ti-book-2"></i> قراءة</span><span class="skill-chip"><i class="ti ti-pencil"></i> كتابة</span><span class="skill-chip"><i class="ti ti-file-type-pdf"></i> كتب PDF</span><span class="skill-chip"><i class="ti ti-player-play"></i> قصص صوتية</span></div>
+          <div class="featured-footer">
+            <div class="featured-price"><del>799 ر.س</del> 399 ر.س</div>
+            <span class="save-badge"><i class="ti ti-tag" style="font-size:12px;vertical-align:-2px;"></i> وفّر 50%</span>
+            <button class="btn btn-gold" onclick="addProd({id:'full-en',title:'الإنجليزية الكاملة A0-C2',price:399,skill:'bundle',lang:'en'})"><i class="ti ti-shopping-cart"></i> أضف للسلة</button>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="toolbar-count">عرض <strong id="productCount">6</strong> منتجاً — المستوى B1 · الإنجليزية</div>
+        <div class="toolbar-sort"><span>ترتيب:</span><select><option>الأكثر مبيعاً</option><option>الأحدث</option><option>السعر: الأدنى أولاً</option><option>التقييم</option></select></div>
+      </div>
+      <div class="products-grid" id="productsGrid">
+        <div class="pcard" onclick="window.location.href='pages/product.html?id=listen-b1'"><div class="pcard-thumb en"><i class="ti ti-ear en-icon"></i><span class="pcard-badge badge-hot">الأكثر مبيعاً</span></div><div class="pcard-body"><div class="pcard-title">الاستماع B1 — مواقف حياتية يومية</div><div class="pcard-meta">B1 <span class="meta-dot"></span> إنجليزية <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 4.9</span></div><div class="pcard-tags"><span class="pcard-tag">استماع</span><span class="pcard-tag">تسجيلات صوتية</span></div><div class="pcard-foot"><div class="pcard-price">89 ر.س</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'listen-b1',title:'الاستماع B1',price:89,skill:'listening',lang:'en'})"><i class="ti ti-plus"></i> أضف</button></div></div></div>
+        <div class="pcard" onclick="window.location.href='pages/product.html?id=speak-b1'"><div class="pcard-thumb en"><i class="ti ti-messages en-icon"></i><span class="pcard-badge badge-new">جديد</span></div><div class="pcard-body"><div class="pcard-title">المحادثة B1 — المطار والسفر</div><div class="pcard-meta">B1 <span class="meta-dot"></span> إنجليزية <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 4.8</span></div><div class="pcard-tags"><span class="pcard-tag">محادثة</span><span class="pcard-tag">أدوار حياتية</span></div><div class="pcard-foot"><div class="pcard-price"><del>99</del> 75 ر.س</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'speak-b1',title:'المحادثة B1',price:75,skill:'speaking',lang:'en'})"><i class="ti ti-plus"></i> أضف</button></div></div></div>
+        <div class="pcard" onclick="window.location.href='pages/product.html?id=read-b1'"><div class="pcard-thumb en"><i class="ti ti-book-2 en-icon"></i></div><div class="pcard-body"><div class="pcard-title">القراءة B1 — كتاب تفاعلي مع تمارين</div><div class="pcard-meta">B1 <span class="meta-dot"></span> إنجليزية <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 4.9</span></div><div class="pcard-tags"><span class="pcard-tag">قراءة</span><span class="pcard-tag">PDF تفاعلي</span></div><div class="pcard-foot"><div class="pcard-price">79 ر.س</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'read-b1',title:'القراءة B1',price:79,skill:'reading',lang:'en'})"><i class="ti ti-plus"></i> أضف</button></div></div></div>
+        <div class="pcard" onclick="window.location.href='pages/product.html?id=write-b1'"><div class="pcard-thumb en"><i class="ti ti-pencil en-icon"></i></div><div class="pcard-body"><div class="pcard-title">الكتابة B1 — رسائل ونصوص يومية</div><div class="pcard-meta">B1 <span class="meta-dot"></span> إنجليزية <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 4.7</span></div><div class="pcard-tags"><span class="pcard-tag">كتابة</span><span class="pcard-tag">تمارين ذكية</span></div><div class="pcard-foot"><div class="pcard-price">79 ر.س</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'write-b1',title:'الكتابة B1',price:79,skill:'writing',lang:'en'})"><i class="ti ti-plus"></i> أضف</button></div></div></div>
+        <div class="pcard" onclick="window.location.href='pages/product.html?id=audio-b1'"><div class="pcard-thumb en"><i class="ti ti-player-play" style="color:#0B5E46"></i><span class="pcard-badge badge-free">مجاني</span></div><div class="pcard-body"><div class="pcard-title">قصص صوتية B1 — ثلاث قصص قصيرة</div><div class="pcard-meta">B1 <span class="meta-dot"></span> إنجليزية <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 5.0</span></div><div class="pcard-tags"><span class="pcard-tag">قصص صوتية</span><span class="pcard-tag">مجاني</span></div><div class="pcard-foot"><div class="pcard-price free-price">مجاني</div><button class="btn btn-jade btn-sm" onclick="event.stopPropagation();showToast('جارٍ التحميل...')"><i class="ti ti-download"></i> حمّل</button></div></div></div>
+        <div class="pcard featured-border" onclick="window.location.href='pages/product.html?id=bundle-b1'"><div class="pcard-thumb en"><i class="ti ti-package en-icon"></i></div><div class="pcard-body"><div class="pcard-title">باقة B1 الكاملة — كل المهارات</div><div class="pcard-meta">B1 <span class="meta-dot"></span> إنجليزية <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 5.0</span></div><div class="pcard-tags"><span class="pcard-tag">استماع</span><span class="pcard-tag">محادثة</span><span class="pcard-tag">قراءة</span><span class="pcard-tag">+3</span></div><div class="pcard-foot"><div class="pcard-price"><del>350</del> 249 ر.س</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'bundle-b1',title:'باقة B1 الكاملة',price:249,skill:'bundle',lang:'en'})"><i class="ti ti-plus"></i> أضف</button></div></div></div>
+      </div>
+      <div class="pagination"><button class="page-btn active">1</button><button class="page-btn">2</button><button class="page-btn">3</button><button class="page-btn"><i class="ti ti-chevron-left" style="font-size:14px;"></i></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="eyebrow"><span>شهادات الطلاب</span></div>
+    <h2>ماذا يقول طلابنا</h2>
+    <div class="reviews-grid">
+      <div class="rcard"><div class="rcard-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rcard-text">جمال جداً ومفيد وتطور وممتع. الكتب التفاعلية والتسجيلات الصوتية أفضل ما وجدته في حياتي. أصبح استثماري في حياتي.</p><div class="rcard-author">محمد العتيبي</div><div class="rcard-level">طالب إنجليزية · المستوى B2</div></div>
+      <div class="rcard"><div class="rcard-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rcard-text">ولدي كان يحب اللغة الإنجليزية، بعد ما اشتركت بالكتب والمحادثة والقراءة الحمد لله تطور كثيراً ضرب بالنسبة لراتبه.</p><div class="rcard-author">سارة الحربي</div><div class="rcard-level">أم طالب · المستوى A2</div></div>
+      <div class="rcard"><div class="rcard-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rcard-text">أفضل منصة لتعليم اللغة الإنجليزية بالمنهج الأكاديمي المتسلسل والمدروس والعالي للمستويات بضم عالية.</p><div class="rcard-author">خالد الدوسري</div><div class="rcard-level">طالب إنجليزية · المستوى C1</div></div>
+      <div class="rcard"><div class="rcard-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rcard-text">تعلمت منهج الإنجليزية في 3 أشهر بعد سنوات فاشلة. المنهج المتسلسل من A0 حتى قيض لي باللغة لي.</p><div class="rcard-author">نورة المطيري</div><div class="rcard-level">طالبة إنجليزية · المستوى B1</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="eyebrow"><span>الأسئلة الشائعة</span></div>
+    <h2>كل ما تريد معرفته</h2>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>كيف أحصل على الدرس بعد الشراء؟<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">يصلك رابط الوصول الفوري بعد الدفع مباشرة عبر البريد الإلكتروني وعبر البريد والواتساب. الوصول دائم ولا ينتهي أبداً.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>هل الكتب PDF عادية أم تفاعلية؟<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">جميع الكتب التفاعلية متكاملة — تمارين وإجابات وتسجيلات صوتية مدمجة مع كل وحدة. تجرب الأكاديمية المتكاملة للا من آخر.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>هل الدفع لمرة أم للاشتراك الشهري؟<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">لدينا اختيار تحديث المستويات المحددة أو مستوى كامل عن خلال 10 دقائق. ابدأ الآن بدون ثمن.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>كيف أعرف مستوى الحالي أو أكن راضياً؟<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">لدينا اختبار مجاني يحدد مستوياتك المحددة أو مستوى كامل عن خلال 10 دقائق. ابدأ الآن بدون ثمن.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>هل يمكنني استرداد الاستردادية إذا لم أكن راضياً؟<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">نعم، نضمن استرداد الأموال خلال 7 أيام من الشراء بدون أي شروط.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-block">
+      <div><h2 class="cta-title">ابدأ رحلتك الأكاديمية اليوم</h2><p class="cta-sub">انضم لأكثر من 20,000 طالب يتعلمون من الأستاذ كريم</p></div>
+      <div class="cta-actions">
+        <button class="btn btn-gold" onclick="window.location.href='pages/auth.html?tab=register'"><i class="ti ti-player-play"></i>اختبر مستواك مجاناً</button>
+        <div class="cta-badges"><div class="cta-badge"><i class="ti ti-shield-check"></i> ضمان 7 أيام</div><div class="cta-badge"><i class="ti ti-infinity"></i> وصول مدى الحياة</div><div class="cta-badge"><i class="ti ti-lock"></i> دفع آمن 100%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">Lingua<span>معهد اللغات الأكاديمي</span></div>
+    <div class="footer-links">
+      <a href="#">سياسة الخصوصية</a><a href="#">الشروط والأحكام</a><a href="#">تواصل معنا</a><a href="#">المدونة</a>
+    </div>
+    <div class="footer-note">© 2026 Lingua · جميع الحقوق محفوظة</div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="ti ti-check"></i><span id="toastMsg">تمت الإضافة</span></div>
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay">
+  <div class="cart-drawer">
+    <div class="cart-head"><h3>سلة المشتريات</h3><button class="cart-close" onclick="closeCart()"><i class="ti ti-x"></i></button></div>
+    <div class="cart-body" id="cartBody"><div class="cart-empty"><i class="ti ti-shopping-cart"></i>سلتك فارغة حالياً</div></div>
+    <div class="cart-foot" id="cartFoot" style="display:none;">
+      <div class="cart-total"><span>الإجمالي</span><span id="cartTotal">0 ر.س</span></div>
+      <button class="cart-checkout" onclick="window.location.href='pages/checkout.html'"><i class="ti ti-credit-card" style="font-size:15px;vertical-align:-2px;"></i> إتمام الشراء</button>
+    </div>
+  </div>
+</div>
+
 <script>
-  /* ══ State ══════════════════════════════════════════════════ */
-  let currentLang='en', currentLevel='B1', currentSkill='all';
-
-  /* ══ Nav — حالة الدخول ══════════════════════════════════════ */
-  (function initNav(){
-    if(auth.isLoggedIn()){
-      const u=auth.getUser(),li=document.getElementById('navLogin'),re=document.getElementById('navRegister');
-      if(li){li.textContent=u?.name?.split(' ')[0]||'حسابي';li.onclick=()=>location.href='pages/dashboard.html';}
-      if(re){re.textContent=u?.role==='admin'?'Admin':'لوحتي';re.onclick=()=>location.href=(u?.role==='admin'?'pages/admin.html':'pages/dashboard.html');}
-    }
-  })();
-
-  /* ══ addProd ════════════════════════════════════════════════ */
-  function addProd(product){
-    cart.add(product);
-    showToast('تمت إضافة "'+product.title+'" للسلة ✓');
-  }
-
-  /* ══ تحميل المنتجات من API ══════════════════════════════════ */
-  async function loadProductsFromAPI(){
-    const grid=document.getElementById('productsGrid');if(!grid)return;
-    try{
-      const params=new URLSearchParams({lang:currentLang,level:currentLevel});
-      if(currentSkill!=='all')params.append('skill',currentSkill);
-      const data=await apiFetch('/products?'+params);
-      const products=data.products||[];
-      const ce=document.getElementById('productCount');if(ce)ce.textContent=products.length;
-      const le=document.getElementById('filterLabel');if(le)le.textContent='المستوى '+currentLevel+' · '+(currentLang==='en'?'الإنجليزية':currentLang==='tr'?'التركية':'الصينية');
-      if(!products.length)return;
-      const imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
-      const cmap={en:'#534AB7',tr:'#0B5E46',zh:'#993C1D'};
-      const lnm={en:'إنجليزية',tr:'تركية',zh:'صينية'};
-      grid.innerHTML=products.map(p=>{
-        const badge=p.badge?'<span class="pcard-badge badge-'+p.badge+'">'+(p.badge==='hot'?'الأكثر مبيعاً':p.badge==='new'?'جديد':'مجاني')+'</span>':'';
-        const price=p.is_free?'<div class="pcard-price free-price">مجاني</div>':'<div class="pcard-price">'+(p.original_price?'<del>'+Number(p.original_price).toFixed(0)+'</del> ':'')+Number(p.price).toFixed(0)+' ر.س</div>';
-        const prod=JSON.stringify({id:p.id,title:p.title,price:p.price,skill:p.skill,lang:p.lang});
-        const btn=p.is_free?'<button class="btn btn-jade btn-sm" onclick="event.stopPropagation();showToast(\'جارٍ التحميل...\')"><i class="ti ti-download"></i> حمّل</button>':'<button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd('+prod.replace(/"/g,"'")+')" ><i class="ti ti-plus"></i> أضف</button>';
-        return '<div class="pcard" onclick="location.href=\'pages/product.html?id='+p.id+'\'">'
-          +'<div class="pcard-thumb '+p.lang+'"><i class="ti '+(imap[p.skill]||'ti-book-2')+'" style="color:'+cmap[p.lang]+'"></i>'+badge+'</div>'
-          +'<div class="pcard-body"><div class="pcard-title">'+p.title+'</div>'
-          +'<div class="pcard-meta">'+p.level+' <span class="meta-dot"></span> '+lnm[p.lang]+' <span class="meta-dot"></span> <span class="pcard-stars"><i class="ti ti-star-filled"></i> '+(p.rating||0)+'</span></div>'
-          +'<div class="pcard-foot">'+price+btn+'</div></div></div>';
-      }).join('');
-    }catch(e){console.warn('API offline — original cards visible');}
-  }
-
-  /* ══ Cart ═══════════════════════════════════════════════════ */
-  function updateCartUI(){
-    const items=cart.get(),count=items.length;
-    document.getElementById('cartCount').textContent=count;
-    const body=document.getElementById('cartBody'),foot=document.getElementById('cartFoot');
-    const imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
-    const lnm={en:'إنجليزية',tr:'تركية',zh:'صينية'};
-    if(!count){body.innerHTML='<div class="cart-empty"><i class="ti ti-shopping-cart"></i>سلتك فارغة حالياً</div>';foot.style.display='none';return;}
-    let html='',total=0;
-    items.forEach(item=>{
-      total+=Number(item.price);
-      html+='<div class="cart-item"><div class="cart-item-icon"><i class="ti '+(imap[item.skill]||'ti-book-2')+'"></i></div>'
-        +'<div class="cart-item-info"><div class="cart-item-title">'+item.title+'</div><div class="cart-item-meta">'+(lnm[item.lang]||'')+'</div></div>'
-        +'<div class="cart-item-price">'+Number(item.price).toFixed(0)+' ر.س</div>'
-        +'<button class="cart-item-remove" onclick="cart.remove(\''+item.id+'\')"><i class="ti ti-trash"></i></button></div>';
-    });
-    body.innerHTML=html;
-    document.getElementById('cartTotal').textContent=total.toFixed(0)+' ر.س';
-    foot.style.display='block';
-  }
-
-  function closeCart(){document.getElementById('cartOverlay').classList.remove('open');}
-
-  document.getElementById('cartBtn').addEventListener('click',()=>{
-    document.getElementById('cartOverlay').classList.toggle('open');updateCartUI();
-  });
-  document.getElementById('cartOverlay').addEventListener('click',function(e){if(e.target===this)closeCart();});
-  window.addEventListener('cartUpdated',updateCartUI);
-
-  /* ══ Toast ══════════════════════════════════════════════════ */
-  let _tt;
-  function showToast(msg){
-    const t=document.getElementById('toast'),m=document.getElementById('toastMsg');
-    if(t&&m){m.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>t.classList.remove('show'),2800);}
-  }
-
-  /* ══ FAQ ════════════════════════════════════════════════════ */
-  function toggleFaq(el){
-    const item=el.closest('.faq-item'),isOpen=item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
-    if(!isOpen)item.classList.add('open');
-  }
-
-  /* ══ Filters — مربوطة بـ API ════════════════════════════════ */
-  function filterLang(lang){
-    currentLang=lang;
-    document.querySelectorAll('.lang-filter-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.lang-option').forEach(b=>b.classList.remove('active'));
-    if(event?.currentTarget)event.currentTarget.classList.add('active');
-    showToast('تم تصفية: '+(lang==='en'?'الإنجليزية':lang==='tr'?'التركية':'الصينية'));
-    loadProductsFromAPI();
-  }
-
-  function filterLevel(lvl){
-    currentLevel=lvl;
-    document.querySelectorAll('.lvl-btn').forEach(b=>{if(!b.classList.contains('done'))b.classList.remove('active');});
-    if(event?.currentTarget)event.currentTarget.classList.add('active');
-    showToast('المستوى: '+lvl);
-    loadProductsFromAPI();
-  }
-
-  function filterSkill(skill){
-    currentSkill=skill;
-    document.querySelectorAll('.skill-btn').forEach(b=>b.classList.remove('active'));
-    if(event?.currentTarget)event.currentTarget.classList.add('active');
-    loadProductsFromAPI();
-  }
-
-  /* ══ تهيئة ═════════════════════════════════════════════════ */
-  updateCartUI();
-  window.addEventListener('load',loadProductsFromAPI);
+const API_BASE='https://api.lingua.sa/v1';
+const auth={getToken:()=>localStorage.getItem('lingua_token'),getUser:()=>JSON.parse(localStorage.getItem('lingua_user')||'null'),isLoggedIn:()=>!!localStorage.getItem('lingua_token'),logout:()=>{localStorage.removeItem('lingua_token');localStorage.removeItem('lingua_user');window.location.href='pages/auth.html';}};
+async function apiFetch(p,o={}){const t=auth.getToken();const h={'Content-Type':'application/json',...o.headers};if(t)h['Authorization']='Bearer '+t;try{const r=await fetch(API_BASE+p,{...o,headers:h});const d=await r.json();if(!r.ok)throw new Error(d.error||'خطأ');return d;}catch(e){console.warn('API:',e.message);throw e;}}
+const cartStore={get:()=>JSON.parse(localStorage.getItem('lingua_cart')||'[]'),save:c=>localStorage.setItem('lingua_cart',JSON.stringify(c)),add:p=>{const c=cartStore.get();if(!c.find(i=>i.id===p.id))c.push(p);cartStore.save(c);updateCartUI();},remove:id=>{cartStore.save(cartStore.get().filter(i=>i.id!==id));updateCartUI();},total:()=>cartStore.get().reduce((s,i)=>s+Number(i.price),0)};
+function addProd(product){cartStore.add(product);showToast('تمت إضافة "'+product.title+'" للسلة ✓');}
+const imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
+const lname={en:'إنجليزية',tr:'تركية',zh:'صينية'};
+let cLang='en',cLevel='B1',cSkill='all';
+async function loadProductsFromAPI(){const grid=document.getElementById('productsGrid');if(!grid)return;const params=new URLSearchParams({lang:cLang,level:cLevel});if(cSkill!=='all')params.append('skill',cSkill);try{const data=await apiFetch('/products?'+params);const products=data.products||[];const c=document.getElementById('productCount');if(c)c.textContent=products.length;if(!products.length)return;grid.innerHTML=products.map(p=>{const ico=imap[p.skill]||'ti-book-2';const color=p.lang==='en'?'#534AB7':p.lang==='tr'?'#0B5E46':'#993C1D';const badge=p.badge?'<span class="pcard-badge badge-'+p.badge+'">'+(p.badge==='hot'?'🔥 الأكثر مبيعاً':p.badge==='new'?'✨ جديد':'مجاني')+'</span>':'';const price=p.is_free?'<div class="pcard-price free-price">مجاني</div>':'<div class="pcard-price">'+(p.original_price?'<del>'+Number(p.original_price).toFixed(0)+'</del> ':'')+Number(p.price).toFixed(0)+' ر.س</div>';const prod=JSON.stringify({id:p.id,title:p.title,price:p.price,skill:p.skill,lang:p.lang}).replace(/"/g,"'");const btn=p.is_free?'<button class="btn btn-jade btn-sm" onclick="event.stopPropagation();showToast('جارٍ التحميل...')"><i class="ti ti-download"></i> حمّل</button>':'<button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd('+prod+')"><i class="ti ti-plus"></i> أضف</button>';return '<div class="pcard" onclick="window.location.href='pages/product.html?id='+p.id+''">'+'<div class="pcard-thumb '+p.lang+'"><i class="ti '+ico+'" style="color:'+color+'"></i>'+badge+'</div>'+'<div class="pcard-body"><div class="pcard-title">'+p.title+'</div><div class="pcard-meta">'+p.level+' <span class="meta-dot"></span> '+lname[p.lang]+' <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> '+(p.rating||0)+'</span></div><div class="pcard-foot">'+price+btn+'</div></div></div>';}).join('');}catch(e){console.warn('API offline');}}
+(function(){const li=document.getElementById('navLogin'),re=document.getElementById('navRegister');if(!li||!re)return;if(auth.isLoggedIn()){const u=auth.getUser();li.textContent=u?.name?.split(' ')[0]||'حسابي';li.onclick=()=>window.location.href='pages/dashboard.html';re.textContent=u?.role==='admin'?'Admin':'لوحتي';re.onclick=()=>window.location.href=u?.role==='admin'?'pages/admin.html':'pages/dashboard.html';}else{li.onclick=()=>window.location.href='pages/auth.html';re.onclick=()=>window.location.href='pages/auth.html?tab=register';}})();
+function updateCartUI(){const items=cartStore.get();const cnt=document.getElementById('cartCount');if(cnt)cnt.textContent=items.length;const body=document.getElementById('cartBody'),foot=document.getElementById('cartFoot');if(!body)return;if(!items.length){body.innerHTML='<div class="cart-empty"><i class="ti ti-shopping-cart"></i>سلتك فارغة حالياً</div>';if(foot)foot.style.display='none';return;}let h='',t=0;items.forEach(item=>{t+=Number(item.price);h+='<div class="cart-item"><div class="cart-item-icon"><i class="ti '+(imap[item.skill]||'ti-book-2')+'"></i></div><div class="cart-item-info"><div class="cart-item-title">'+item.title+'</div><div class="cart-item-meta">'+(lname[item.lang]||'')+'</div></div><div class="cart-item-price">'+Number(item.price).toFixed(0)+' ر.س</div><button class="cart-item-remove" onclick="cartStore.remove(''+item.id+'')"><i class="ti ti-trash"></i></button></div>';});body.innerHTML=h;const ct=document.getElementById('cartTotal');if(ct)ct.textContent=t.toFixed(0)+' ر.س';if(foot)foot.style.display='block';}
+function closeCart(){document.getElementById('cartOverlay')?.classList.remove('open');}
+document.addEventListener('DOMContentLoaded',()=>{const cb=document.getElementById('cartBtn'),co=document.getElementById('cartOverlay');if(cb)cb.addEventListener('click',()=>{co?.classList.toggle('open');updateCartUI();});if(co)co.addEventListener('click',function(e){if(e.target===this)closeCart();});});
+let _tt;function showToast(msg){const t=document.getElementById('toast'),m=document.getElementById('toastMsg');if(t&&m){m.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>t.classList.remove('show'),2800);}}
+function toggleFaq(el){const item=el.closest('.faq-item'),isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
+function filterLang(lang,btn){cLang=lang;document.querySelectorAll('.lang-filter-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.lang-option').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');loadProductsFromAPI();}
+function filterLevel(lvl,btn){cLevel=lvl;document.querySelectorAll('.lvl-btn').forEach(b=>{if(!b.classList.contains('done'))b.classList.remove('active');});if(btn)btn.classList.add('active');loadProductsFromAPI();}
+function filterSkill(s,btn){cSkill=s;document.querySelectorAll('.skill-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');loadProductsFromAPI();}
+updateCartUI();window.addEventListener('load',loadProductsFromAPI);
 </script>
 </body>
 </html>
