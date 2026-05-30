@@ -2,64 +2,49 @@
 <html lang="ar" dir="rtl"><head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>تفاصيل المنتج — Lingua</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
-:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--danger:#E24B4A;--r-md:10px;--r-lg:16px;--r-xl:22px;}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh;}
-.nav{background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 2rem;position:sticky;top:0;z-index:10;gap:12px;}
-.logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum);text-decoration:none;display:flex;align-items:center;gap:8px;}
-.logo-mark{width:32px;height:32px;background:var(--plum);border-radius:8px;display:flex;align-items:center;justify-content:center;}
-.logo-mark i{color:#fff;font-size:16px;}
-.back-btn{margin-right:auto;background:none;border:1px solid var(--border);border-radius:var(--r-md);padding:7px 14px;font-size:13px;color:var(--ink-2);cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit;}
-.back-btn:hover{background:var(--plum-l);border-color:#AFA9EC;}
-main{max-width:980px;margin:0 auto;padding:2rem 1.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start;}
-@media(max-width:700px){main{grid-template-columns:1fr;}}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);padding:1.5rem;margin-bottom:1rem;}
-.pthumb{height:160px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:56px;}
+:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--r-md:10px;--r-lg:16px;--r-xl:22px;}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh}
+.nav{background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 2rem;position:sticky;top:0;z-index:10;gap:12px}
+.logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-mark{width:32px;height:32px;background:var(--plum);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.logo-mark i{color:#fff;font-size:16px}
+.back-btn{margin-right:auto;background:none;border:1px solid var(--border);border-radius:var(--r-md);padding:7px 14px;font-size:13px;color:var(--ink-2);cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit}
+.back-btn:hover{background:var(--plum-l);border-color:#AFA9EC}
+main{max-width:1000px;margin:0 auto;padding:2rem 1.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start}
+@media(max-width:700px){main{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);padding:1.5rem;margin-bottom:1rem}
+.pthumb{height:160px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:56px;position:relative}
 .pthumb.en{background:var(--plum-l)}.pthumb.tr{background:var(--jade-l)}.pthumb.zh{background:#FAECE7}
-.ptitle{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--plum);margin-bottom:.75rem;}
-.badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem;}
-.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:6px;font-size:12px;font-weight:600;}
-.badge-plum{background:var(--plum-l);color:var(--plum-m);}
-.badge-gold{background:var(--gold-l);color:var(--gold);border:1px solid var(--gold);}
-.badge-jade{background:var(--jade-l);color:var(--jade);}
-.pdesc{font-size:14px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem;}
-.feat{background:var(--sand);border-radius:10px;padding:12px;text-align:center;}
-.feat i{font-size:22px;color:var(--plum-m);display:block;margin-bottom:6px;}
-.feat-val{font-size:13px;font-weight:600;color:var(--plum);}
-.feat-lbl{font-size:11px;color:var(--ink-3);}
-.reviews-title{font-size:15px;font-weight:700;color:var(--plum);margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
-.review-item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid var(--border);}
-.review-item:last-child{border-bottom:none;}
-.avatar{width:36px;height:36px;border-radius:50%;background:var(--plum-l);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--plum-m);flex-shrink:0;}
-.r-name{font-size:12px;font-weight:600;color:var(--plum);}
-.r-stars{color:var(--gold);font-size:12px;margin:2px 0;}
-.r-text{font-size:13px;color:var(--ink-2);line-height:1.6;}
-.price-box{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--plum);margin-bottom:4px;}
-.price-box del{font-size:16px;color:var(--ink-3);font-family:inherit;font-weight:400;margin-left:8px;}
-.save-tag{font-size:12px;color:var(--jade);background:var(--jade-l);padding:3px 9px;border-radius:5px;font-weight:600;display:inline-block;margin-bottom:1rem;}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border:none;border-radius:var(--r-md);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;margin-bottom:8px;}
-.btn:hover{opacity:.88;}
-.btn-gold{background:var(--gold);color:var(--plum);}
-.btn-primary{background:var(--plum);color:#fff;}
-.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--ink-2);}
-.guarantees{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px;}
-.g{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-3);}
-.g i{color:var(--jade);font-size:14px;}
-.sticky-side{position:sticky;top:70px;}
-.review-form{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);}
-.rf-title{font-size:14px;font-weight:700;color:var(--plum);margin-bottom:12px;}
-.stars-input{display:flex;gap:6px;margin-bottom:10px;}
-.stars-input i{font-size:24px;color:var(--border);cursor:pointer;transition:.1s;}
-.stars-input i.active{color:var(--gold);}
-textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:var(--r-md);font-size:13px;font-family:inherit;resize:vertical;outline:none;min-height:80px;}
-textarea:focus{border-color:var(--plum-m);}
-.empty-reviews{color:var(--ink-3);font-size:13px;padding:1rem 0;text-align:center;}
+.pthumb i{font-size:52px}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:5px;font-size:11px;font-weight:700;position:absolute;top:12px;right:12px}
+.badge-hot{background:var(--plum);color:#fff}.badge-new{background:var(--gold);color:var(--plum)}.badge-free{background:var(--jade-l);color:var(--jade);border:1px solid #9FE1CB}
+.ptitle{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--plum);margin-bottom:.75rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:6px;font-size:12px;font-weight:600}
+.chip-plum{background:var(--plum-l);color:var(--plum-m)}.chip-gold{background:var(--gold-l);color:var(--gold)}.chip-jade{background:var(--jade-l);color:var(--jade)}
+.pdesc{font-size:14px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem}
+.feat{background:var(--sand);border-radius:10px;padding:12px;text-align:center}
+.feat i{font-size:22px;color:var(--plum-m);display:block;margin-bottom:6px}
+.feat-val{font-size:13px;font-weight:600;color:var(--plum)}.feat-lbl{font-size:11px;color:var(--ink-3)}
+.reviews-title{font-size:15px;font-weight:700;color:var(--plum);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.review-item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid var(--border)}
+.review-item:last-child{border-bottom:none}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--plum-l);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--plum-m);flex-shrink:0}
+.r-name{font-size:12px;font-weight:600;color:var(--plum)}.r-stars{color:var(--gold);font-size:12px;margin:2px 0}.r-text{font-size:13px;color:var(--ink-2);line-height:1.6}
+.price-box{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--plum);margin-bottom:4px}
+.price-box del{font-size:16px;color:var(--ink-3);font-family:inherit;font-weight:400;margin-left:8px}
+.save-tag{font-size:12px;color:var(--jade);background:var(--jade-l);padding:3px 9px;border-radius:5px;font-weight:600;display:inline-block;margin-bottom:1rem}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border:none;border-radius:var(--r-md);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;margin-bottom:8px}
+.btn:hover{opacity:.88}.btn-gold{background:var(--gold);color:var(--plum)}.btn-primary{background:var(--plum);color:#fff}.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--ink-2)}
+.guarantees{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px}
+.g{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-3)}.g i{color:var(--jade);font-size:14px}
+.sticky-side{position:sticky;top:70px}
+.empty{color:var(--ink-3);font-size:13px;padding:1rem 0;text-align:center}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loading{text-align:center;padding:3rem;color:var(--ink-3);}
 </style>
 </head><body>
 <nav class="nav">
@@ -67,109 +52,73 @@ textarea:focus{border-color:var(--plum-m);}
   <button class="back-btn" onclick="history.back()"><i class="ti ti-arrow-right"></i> رجوع</button>
 </nav>
 <main>
-  <div id="productContent">
-    <div class="loading"><i class="ti ti-loader" style="font-size:36px;display:block;margin:0 auto 1rem;animation:spin .8s linear infinite;color:var(--plum-m)"></i>جارٍ تحميل المنتج...</div>
-  </div>
+  <div id="productContent"><div style="text-align:center;padding:3rem;color:var(--ink-3)"><i class="ti ti-loader" style="font-size:36px;display:block;margin:0 auto 1rem;animation:spin .8s linear infinite;color:var(--plum-m)"></i>جارٍ تحميل المنتج...</div></div>
   <div id="sidebarContent"></div>
 </main>
-<script src="../js/api.js"></script>
 <script>
+const MOCK={"listen-b1":{"id":"listen-b1","title":"الاستماع B1 — مواقف حياتية يومية","price":89,"skill":"listening","lang":"en","level":"B1","rating":4.9,"review_count":142,"badge":"hot","description":"درس أكاديمي متكامل في مهارة الاستماع للمستوى B1 — يشمل 20 موقفاً حياتياً يومياً مع تسجيلات بصوت الأستاذ كريم وتمارين تفاعلية.","reviews":[{"user_name":"محمد العتيبي","rating":5,"comment":"أفضل درس استماع جربته. الأستاذ كريم يشرح ببساطة رائعة."},{"user_name":"سارة الحربي","rating":5,"comment":"المواقف الحياتية مفيدة جداً وتطبيقها سهل."},{"user_name":"خالد الدوسري","rating":5,"comment":"تطورت كثيراً في الاستماع خلال أسبوعين فقط."}]},"speak-b1":{"id":"speak-b1","title":"المحادثة B1 — المطار والسفر","price":75,"original_price":99,"skill":"speaking","lang":"en","level":"B1","rating":4.8,"review_count":98,"badge":"new","description":"درس المحادثة للمستوى B1 يركز على مواقف المطار والسفر — تعلم كيف تتحدث بثقة في أي مطار حول العالم.","reviews":[{"user_name":"نورة المطيري","rating":5,"comment":"الآن أستطيع التحدث بثقة في المطار!"},{"user_name":"فهد العمري","rating":4,"comment":"مفيد جداً، أتمنى لو فيه مزيد من المواقف."}]},"read-b1":{"id":"read-b1","title":"القراءة B1 — كتاب تفاعلي مع تمارين","price":79,"skill":"reading","lang":"en","level":"B1","rating":4.9,"review_count":115,"description":"كتاب PDF تفاعلي متكامل للقراءة بالمستوى B1 — 15 نص أصيل مع أسئلة فهم وشرح مفردات.","reviews":[{"user_name":"أحمد الشمري","rating":5,"comment":"الكتاب التفاعلي رائع، التمارين تثبت المعلومة."},{"user_name":"منى القحطاني","rating":5,"comment":"ممتاز، أنهيته في أسبوع واحد."}]},"write-b1":{"id":"write-b1","title":"الكتابة B1 — رسائل ونصوص يومية","price":79,"skill":"writing","lang":"en","level":"B1","rating":4.7,"review_count":87,"description":"تعلم كتابة رسائل البريد الإلكتروني والنصوص اليومية بالإنجليزية — مع نماذج وتمارين تدريبية.","reviews":[{"user_name":"لطيفة السبيعي","rating":5,"comment":"الآن أكتب إيميلات احترافية بثقة!"},{"user_name":"يوسف البلوي","rating":4,"comment":"مفيد جداً لمن يحتاج الكتابة في العمل."}]},"audio-b1":{"id":"audio-b1","title":"قصص صوتية B1 — ثلاث قصص قصيرة","price":0,"is_free":true,"skill":"audio","lang":"en","level":"B1","rating":5,"review_count":203,"badge":"free","description":"ثلاث قصص صوتية مجانية بالمستوى B1 — مدة كل قصة 15 دقيقة مع النص الكامل للمتابعة.","reviews":[{"user_name":"ريم الدوسري","rating":5,"comment":"مجاني ورائع! شكراً الأستاذ كريم."},{"user_name":"عبدالله العسيري","rating":5,"comment":"القصص ممتعة وأسلوب السرد رائع."}]},"bundle-b1":{"id":"bundle-b1","title":"باقة B1 الكاملة — كل المهارات","price":249,"original_price":350,"skill":"bundle","lang":"en","level":"B1","rating":5,"review_count":267,"description":"الباقة الشاملة للمستوى B1 — تشمل جميع المهارات: استماع + محادثة + قراءة + كتابة + قصص صوتية + ملفات PDF.","reviews":[{"user_name":"حمد الغامدي","rating":5,"comment":"أفضل استثمار! وفّرت 100 ريال مع باقة B1."},{"user_name":"نوف الحارثي","rating":5,"comment":"كاملة ورائعة. أنهيت B1 في شهر واحد."}]},"full-en":{"id":"full-en","title":"الإنجليزية الكاملة A0-C2","price":399,"original_price":799,"skill":"bundle","lang":"en","level":"A0-C2","rating":4.9,"review_count":412,"badge":"hot","description":"المنهج الأكاديمي المتكامل للأستاذ كريم — من مبتدئ مطلق إلى مستوى احترافي C2. جميع المهارات والمستويات في باقة واحدة.","reviews":[{"user_name":"سلطان المالكي","rating":5,"comment":"أفضل قرار في حياتي! من صفر إلى C1 خلال سنة."},{"user_name":"هدى الزهراني","rating":5,"comment":"المنهج منظم ومتسلسل بشكل احترافي جداً."}]}};
+const API_BASE='https://api.lingua.sa/v1';
+const auth={getToken:()=>localStorage.getItem('lingua_token'),getUser:()=>JSON.parse(localStorage.getItem('lingua_user')||'null'),isLoggedIn:()=>!!localStorage.getItem('lingua_token')};
+const cartStore={get:()=>JSON.parse(localStorage.getItem('lingua_cart')||'[]'),save:c=>localStorage.setItem('lingua_cart',JSON.stringify(c)),add:p=>{const c=cartStore.get();if(!c.find(i=>i.id===p.id))c.push(p);cartStore.save(c);showToast('تمت الإضافة ✓');}};
 const imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
 const cmap={en:'#534AB7',tr:'#0B5E46',zh:'#993C1D'};
 const lname={en:'إنجليزية',tr:'تركية',zh:'صينية'};
-let selectedRating = 0;
+let _tt;function showToast(msg){let t=document.getElementById('_toast');if(!t){t=document.createElement('div');t.id='_toast';t.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);background:#1E1648;color:#fff;padding:12px 22px;border-radius:30px;font-size:14px;font-weight:500;z-index:999;transition:transform .3s;';document.body.appendChild(t);}t.textContent=msg;t.style.transform='translateX(-50%) translateY(0)';clearTimeout(_tt);_tt=setTimeout(()=>t.style.transform='translateX(-50%) translateY(80px)',2800);}
 
-(async () => {
-  const id = new URLSearchParams(location.search).get('id');
-  if (!id) { location.href='index.html'; return; }
-
-  try {
-    const {product: p, reviews} = await api.getProduct(id);
-    document.title = p.title + ' — Lingua';
-
-    document.getElementById('productContent').innerHTML = `
-      <div class="card">
-        <div class="pthumb ${p.lang}">
-          <i class="ti ${imap[p.skill]||'ti-book-2'}" style="color:${cmap[p.lang]}"></i>
-        </div>
-        <h1 class="ptitle">${p.title}</h1>
-        <div class="badges">
-          <span class="badge badge-plum">${p.level}</span>
-          <span class="badge badge-plum">${lname[p.lang]}</span>
-          <span class="badge badge-gold"><i class="ti ti-star"></i> ${p.rating||0} (${p.review_count||0} تقييم)</span>
-          ${p.is_free ? '<span class="badge badge-jade">مجاني</span>' : ''}
-        </div>
-        <p class="pdesc">${p.description||'درس أكاديمي متكامل من الأستاذ كريم — محتوى عالي الجودة مصمم لتطوير مهاراتك اللغوية.'}</p>
-        <div class="features">
-          <div class="feat"><i class="ti ti-infinity"></i><div class="feat-val">مدى الحياة</div><div class="feat-lbl">وصول دائم</div></div>
-          <div class="feat"><i class="ti ti-device-mobile"></i><div class="feat-val">جميع الأجهزة</div><div class="feat-lbl">متوافق</div></div>
-          <div class="feat"><i class="ti ti-certificate"></i><div class="feat-val">شهادة</div><div class="feat-lbl">عند الإتمام</div></div>
-        </div>
+(async()=>{
+  const id=new URLSearchParams(location.search).get('id');
+  if(!id){location.href='index.html';return;}
+  
+  let p,reviews=[];
+  // حاول API أولاً
+  try{
+    const r=await fetch(API_BASE+'/products/'+id);
+    if(r.ok){const d=await r.json();p=d.product;reviews=d.reviews||[];}
+  }catch(e){}
+  // fallback على البيانات التجريبية
+  if(!p){p=MOCK[id]||{id,title:id,price:99,skill:'listening',lang:'en',level:'B1',rating:4.5,review_count:0,description:'درس أكاديمي متميز من Lingua.'};reviews=p.reviews||[];}
+  
+  document.title=p.title+' — Lingua';
+  const badge=p.badge?'<span class="badge badge-'+p.badge+'">'+(p.badge==='hot'?'🔥 الأكثر مبيعاً':p.badge==='new'?'✨ جديد':'مجاني')+'</span>':'';
+  
+  document.getElementById('productContent').innerHTML=`
+    <div class="card">
+      <div class="pthumb ${p.lang}"><i class="ti ${imap[p.skill]||'ti-book-2'}" style="color:${cmap[p.lang]||'#534AB7'}"></i>${badge}</div>
+      <h1 class="ptitle">${p.title}</h1>
+      <div class="chips">
+        <span class="chip chip-plum">${p.level}</span>
+        <span class="chip chip-plum">${lname[p.lang]||p.lang}</span>
+        <span class="chip chip-gold"><i class="ti ti-star"></i> ${p.rating} (${p.review_count||reviews.length} تقييم)</span>
+        ${p.is_free?'<span class="chip chip-jade">مجاني</span>':''}
       </div>
-      <div class="card">
-        <div class="reviews-title"><i class="ti ti-star-filled" style="color:var(--gold)"></i> تقييمات الطلاب (${reviews.length})</div>
-        ${reviews.length ? reviews.map(r => `
-          <div class="review-item">
-            <div class="avatar">${(r.user_name||'؟').slice(0,2)}</div>
-            <div>
-              <div class="r-name">${r.user_name||'طالب'}</div>
-              <div class="r-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
-              <div class="r-text">${r.comment||''}</div>
-            </div>
-          </div>`).join('') : '<div class="empty-reviews"><i class="ti ti-message-circle" style="font-size:32px;display:block;margin:0 auto .75rem;opacity:.3"></i>لا توجد تقييمات بعد</div>'}
-        ${auth.isLoggedIn() ? `<div class="review-form">
-          <div class="rf-title">أضف تقييمك</div>
-          <div class="stars-input" id="starsInput">
-            ${[1,2,3,4,5].map(i=>'<i class="ti ti-star-filled" data-val="'+i+'" onclick="setRating('+i+')"></i>').join('')}
-          </div>
-          <textarea id="reviewText" placeholder="اكتب تعليقك..."></textarea>
-          <button class="btn btn-primary" style="margin-top:10px" onclick="submitReview('${p.id}')"><i class="ti ti-send"></i> إرسال التقييم</button>
-        </div>` : ''}
-      </div>`;
+      <p class="pdesc">${p.description||'درس أكاديمي متكامل من Lingua.'}</p>
+      <div class="features">
+        <div class="feat"><i class="ti ti-infinity"></i><div class="feat-val">مدى الحياة</div><div class="feat-lbl">وصول دائم</div></div>
+        <div class="feat"><i class="ti ti-device-mobile"></i><div class="feat-val">جميع الأجهزة</div><div class="feat-lbl">متوافق</div></div>
+        <div class="feat"><i class="ti ti-certificate"></i><div class="feat-val">شهادة</div><div class="feat-lbl">عند الإتمام</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="reviews-title"><i class="ti ti-star-filled" style="color:var(--gold)"></i> تقييمات الطلاب (${reviews.length})</div>
+      ${reviews.length?reviews.map(r=>`<div class="review-item"><div class="avatar">${(r.user_name||'?').slice(0,2)}</div><div><div class="r-name">${r.user_name||'طالب'}</div><div class="r-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div><div class="r-text">${r.comment||''}</div></div></div>`).join(''):'<div class="empty">لا توجد تقييمات بعد</div>'}
+    </div>`;
 
-    const priceHtml = p.is_free
-      ? '<div class="price-box" style="color:var(--jade)">مجاني</div>'
-      : `<div class="price-box">${p.original_price?'<del>'+Number(p.original_price).toFixed(0)+' ر.س</del>':''} ${Number(p.price).toFixed(0)} ر.س</div>
-         ${p.original_price?'<span class="save-tag">وفّر '+Math.round((1-p.price/p.original_price)*100)+'%</span>':''}`;
-
-    document.getElementById('sidebarContent').innerHTML = `
-      <div class="card sticky-side">
-        ${priceHtml}
-        ${p.is_free
-          ? '<button class="btn btn-jade" onclick="showToast('جارٍ التحميل...')"><i class="ti ti-download"></i> حمّل مجاناً</button>'
-          : `<button class="btn btn-gold" onclick='addToCartAndGo(${JSON.stringify({id:p.id,title:p.title,price:p.price,skill:p.skill,lang:p.lang})})'><i class="ti ti-credit-card"></i> اشترِ الآن</button>
-             <button class="btn btn-ghost" onclick='cart.add(${JSON.stringify({id:p.id,title:p.title,price:p.price,skill:p.skill,lang:p.lang})});showToast("تمت الإضافة للسلة ✓")'><i class="ti ti-shopping-cart"></i> أضف للسلة</button>`}
-        <div class="guarantees">
-          <div class="g"><i class="ti ti-shield-check"></i> ضمان استرداد 7 أيام</div>
-          <div class="g"><i class="ti ti-infinity"></i> وصول مدى الحياة</div>
-          <div class="g"><i class="ti ti-mail"></i> رابط الدرس فوراً</div>
-          <div class="g"><i class="ti ti-device-mobile"></i> يعمل على جميع الأجهزة</div>
-        </div>
-      </div>`;
-
-  } catch(e) {
-    document.getElementById('productContent').innerHTML = '<div class="loading" style="color:var(--danger)"><i class="ti ti-alert-circle" style="font-size:36px;display:block;margin:0 auto 1rem"></i>خطأ في تحميل المنتج</div>';
-  }
+  const priceHtml=p.is_free?'<div class="price-box" style="color:var(--jade)">مجاني ✓</div>':`<div class="price-box">${p.original_price?'<del>'+Number(p.original_price).toFixed(0)+' ر.س</del>':''} ${Number(p.price).toFixed(0)} ر.س</div>${p.original_price?'<span class="save-tag">وفّر '+Math.round((1-p.price/p.original_price)*100)+'%</span>':''}`;
+  const prod=JSON.stringify({id:p.id,title:p.title,price:p.price,skill:p.skill,lang:p.lang}).replace(/"/g,"'");
+  
+  document.getElementById('sidebarContent').innerHTML=`
+    <div class="card sticky-side">
+      ${priceHtml}
+      ${p.is_free
+        ?'<button class="btn btn-jade" onclick="showToast('جارٍ التحميل...')"><i class="ti ti-download"></i> حمّل مجاناً</button>'
+        :`<button class="btn btn-gold" onclick='cartStore.add(${prod});window.location.href="checkout.html"'><i class="ti ti-credit-card"></i> اشترِ الآن</button>
+           <button class="btn btn-ghost" onclick='cartStore.add(${prod})'><i class="ti ti-shopping-cart"></i> أضف للسلة</button>`}
+      <div class="guarantees">
+        <div class="g"><i class="ti ti-shield-check"></i> ضمان استرداد 7 أيام</div>
+        <div class="g"><i class="ti ti-infinity"></i> وصول مدى الحياة</div>
+        <div class="g"><i class="ti ti-mail"></i> رابط الدرس فوراً</div>
+        <div class="g"><i class="ti ti-device-mobile"></i> يعمل على جميع الأجهزة</div>
+      </div>
+    </div>`;
 })();
-
-function setRating(val) {
-  selectedRating = val;
-  document.querySelectorAll('#starsInput i').forEach((el,i) => el.classList.toggle('active', i < val));
-}
-
-function addToCartAndGo(product) {
-  cart.add(product);
-  location.href = 'checkout.html';
-}
-
-async function submitReview(productId) {
-  if (!selectedRating) { showToast('اختر تقييماً بالنجوم أولاً', 'error'); return; }
-  const comment = document.getElementById('reviewText').value.trim();
-  try {
-    await api.addReview(productId, { rating: selectedRating, comment });
-    showToast('تم إرسال تقييمك ✓');
-    setTimeout(() => location.reload(), 1500);
-  } catch(e) { showToast(e.message, 'error'); }
-}
-</script>
-</body></html>
+</script></body></html>
