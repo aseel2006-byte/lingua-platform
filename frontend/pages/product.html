@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>تفاصيل المنتج — Lingua</title>
+<title>ØªÙØ§ØµÙÙ Ø§ÙÙÙØªØ¬ â Lingua</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
@@ -49,85 +49,85 @@ main{max-width:980px;margin:0 auto;padding:2rem 1.5rem;display:grid;grid-templat
 <body>
 <nav class="nav">
   <a class="logo" href="index.html"><div class="logo-mark"><i class="ti ti-language"></i></div>Lingua</a>
-  <button class="back-btn" onclick="history.back()"><i class="ti ti-arrow-right"></i> رجوع</button>
+  <button class="back-btn" onclick="history.back()"><i class="ti ti-arrow-right"></i> Ø±Ø¬ÙØ¹</button>
 </nav>
 <main>
-  <div id="pc"><div style="text-align:center;padding:3rem;color:#8886A0"><i class="ti ti-loader" style="font-size:36px;display:block;margin:0 auto 1rem;animation:spin .8s linear infinite;color:#3D2F8A"></i>جارٍ التحميل...</div></div>
+  <div id="pc"><div style="text-align:center;padding:3rem;color:#8886A0"><i class="ti ti-loader" style="font-size:36px;display:block;margin:0 auto 1rem;animation:spin .8s linear infinite;color:#3D2F8A"></i>Ø¬Ø§Ø±Ù Ø§ÙØªØ­ÙÙÙ...</div></div>
   <div id="ps"></div>
 </main>
 <div class="toast" id="toast"><i class="ti ti-check"></i><span id="toastMsg"></span></div>
 <script>
 var imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
 var cmap={en:'#534AB7',tr:'#0B5E46',zh:'#993C1D'};
-var lname={en:'إنجليزية',tr:'تركية',zh:'صينية'};
+var lname={en:'Ø¥ÙØ¬ÙÙØ²ÙØ©',tr:'ØªØ±ÙÙØ©',zh:'ØµÙÙÙØ©'};
 var _tt;
 function showToast(msg){var t=document.getElementById('toast'),m=document.getElementById('toastMsg');m.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},2800);}
 var cart={
   get:function(){return JSON.parse(localStorage.getItem('lingua_cart')||'[]');},
   save:function(c){localStorage.setItem('lingua_cart',JSON.stringify(c));},
-  add:function(p){var c=cart.get();if(!c.find(function(i){return i.id===p.id;}))c.push(p);cart.save(c);showToast('تمت الإضافة للسلة');}
+  add:function(p){var c=cart.get();if(!c.find(function(i){return i.id===p.id;}))c.push(p);cart.save(c);showToast('ØªÙØª Ø§ÙØ¥Ø¶Ø§ÙØ© ÙÙØ³ÙØ©');}
 };
 var products={
-  'listen-b1':{id:'listen-b1',title:'الاستماع B1 — مواقف حياتية يومية',price:89,orig:null,skill:'listening',lang:'en',level:'B1',rating:4.9,cnt:142,desc:'درس أكاديمي متكامل في مهارة الاستماع للمستوى B1 — يشمل 20 موقفاً حياتياً مع تسجيلات بصوت الأستاذ كريم وتمارين تفاعلية.',badge:'hot',free:false,reviews:[{n:'محمد العتيبي',r:5,t:'ممتاز جداً، التسجيلات واضحة ومفيدة جداً.'},{n:'سارة الحربي',r:5,t:'أفضل درس استماع جربته.'},{n:'خالد الدوسري',r:5,t:'تحسّن استماعي بشكل ملحوظ.'}]},
-  'speak-b1':{id:'speak-b1',title:'المحادثة B1 — المطار والسفر',price:75,orig:99,skill:'speaking',lang:'en',level:'B1',rating:4.8,cnt:98,desc:'درس محادثة عملي يغطي مواقف المطار والفندق والسفر — حوارات حقيقية بصوت الأستاذ كريم.',badge:'new',free:false,reviews:[{n:'نورة المطيري',r:5,t:'تحسّن نطقي كثيراً.'},{n:'فهد القحطاني',r:4,t:'محتوى ممتاز.'}]},
-  'read-b1':{id:'read-b1',title:'القراءة B1 — كتاب تفاعلي مع تمارين',price:79,orig:null,skill:'reading',lang:'en',level:'B1',rating:4.9,cnt:76,desc:'كتاب PDF تفاعلي يحتوي على 15 نصاً بمستوى B1 مع تمارين فهم وإجابات مفصّلة.',badge:null,free:false,reviews:[{n:'ريم العبدالله',r:5,t:'الكتاب منظّم بشكل أكاديمي ممتاز.'}]},
-  'write-b1':{id:'write-b1',title:'الكتابة B1 — رسائل ونصوص يومية',price:79,orig:null,skill:'writing',lang:'en',level:'B1',rating:4.7,cnt:54,desc:'دليل الكتابة الأكاديمية للمستوى B1 — رسائل رسمية وغير رسمية مع نماذج وتصحيحات.',badge:null,free:false,reviews:[]},
-  'audio-b1':{id:'audio-b1',title:'قصص صوتية B1 — ثلاث قصص قصيرة',price:0,orig:null,skill:'audio',lang:'en',level:'B1',rating:5.0,cnt:201,desc:'ثلاث قصص صوتية مجانية بمستوى B1 — مقروءة ببطء واضح مع نص مكتوب مرفق.',badge:'free',free:true,reviews:[{n:'أحمد السالم',r:5,t:'هدية رائعة! الصوت واضح والقصص ممتعة.'}]},
-  'bundle-b1':{id:'bundle-b1',title:'باقة B1 الكاملة — كل المهارات',price:249,orig:350,skill:'bundle',lang:'en',level:'B1',rating:5.0,cnt:189,desc:'الباقة الشاملة لمستوى B1 تضم جميع المهارات: استماع + محادثة + قراءة + كتابة + قصص صوتية + كتب PDF.',badge:null,free:false,reviews:[{n:'مريم الزهراني',r:5,t:'أفضل استثمار! كل المهارات في مكان واحد.'}]},
-  'full-en':{id:'full-en',title:'الإنجليزية الكاملة A0-C2',price:399,orig:799,skill:'bundle',lang:'en',level:'A0-C2',rating:4.9,cnt:342,desc:'المنهج الأكاديمي المتكامل للأستاذ كريم — جميع المستويات والمهارات في حصة واحدة مع كتب تفاعلية وتسجيلات حية.',badge:'hot',free:false,reviews:[{n:'محمد العتيبي',r:5,t:'أفضل منهج تعليمي رأيته في حياتي.'},{n:'سارة الحربي',r:5,t:'استثمار يستحق كل ريال.'}]}
+  'listen-b1':{id:'listen-b1',title:'Ø§ÙØ§Ø³ØªÙØ§Ø¹ B1 â ÙÙØ§ÙÙ Ø­ÙØ§ØªÙØ© ÙÙÙÙØ©',price:89,orig:null,skill:'listening',lang:'en',level:'B1',rating:4.9,cnt:142,desc:'Ø¯Ø±Ø³ Ø£ÙØ§Ø¯ÙÙÙ ÙØªÙØ§ÙÙ ÙÙ ÙÙØ§Ø±Ø© Ø§ÙØ§Ø³ØªÙØ§Ø¹ ÙÙÙØ³ØªÙÙ B1 â ÙØ´ÙÙ 20 ÙÙÙÙØ§Ù Ø­ÙØ§ØªÙØ§Ù ÙØ¹ ØªØ³Ø¬ÙÙØ§Øª Ø¨ØµÙØª Ø§ÙØ£Ø³ØªØ§Ø° ÙØ±ÙÙ ÙØªÙØ§Ø±ÙÙ ØªÙØ§Ø¹ÙÙØ©.',badge:'hot',free:false,reviews:[{n:'ÙØ­ÙØ¯ Ø§ÙØ¹ØªÙØ¨Ù',r:5,t:'ÙÙØªØ§Ø² Ø¬Ø¯Ø§ÙØ Ø§ÙØªØ³Ø¬ÙÙØ§Øª ÙØ§Ø¶Ø­Ø© ÙÙÙÙØ¯Ø© Ø¬Ø¯Ø§Ù.'},{n:'Ø³Ø§Ø±Ø© Ø§ÙØ­Ø±Ø¨Ù',r:5,t:'Ø£ÙØ¶Ù Ø¯Ø±Ø³ Ø§Ø³ØªÙØ§Ø¹ Ø¬Ø±Ø¨ØªÙ.'},{n:'Ø®Ø§ÙØ¯ Ø§ÙØ¯ÙØ³Ø±Ù',r:5,t:'ØªØ­Ø³ÙÙ Ø§Ø³ØªÙØ§Ø¹Ù Ø¨Ø´ÙÙ ÙÙØ­ÙØ¸.'}]},
+  'speak-b1':{id:'speak-b1',title:'Ø§ÙÙØ­Ø§Ø¯Ø«Ø© B1 â Ø§ÙÙØ·Ø§Ø± ÙØ§ÙØ³ÙØ±',price:75,orig:99,skill:'speaking',lang:'en',level:'B1',rating:4.8,cnt:98,desc:'Ø¯Ø±Ø³ ÙØ­Ø§Ø¯Ø«Ø© Ø¹ÙÙÙ ÙØºØ·Ù ÙÙØ§ÙÙ Ø§ÙÙØ·Ø§Ø± ÙØ§ÙÙÙØ¯Ù ÙØ§ÙØ³ÙØ± â Ø­ÙØ§Ø±Ø§Øª Ø­ÙÙÙÙØ© Ø¨ØµÙØª Ø§ÙØ£Ø³ØªØ§Ø° ÙØ±ÙÙ.',badge:'new',free:false,reviews:[{n:'ÙÙØ±Ø© Ø§ÙÙØ·ÙØ±Ù',r:5,t:'ØªØ­Ø³ÙÙ ÙØ·ÙÙ ÙØ«ÙØ±Ø§Ù.'},{n:'ÙÙØ¯ Ø§ÙÙØ­Ø·Ø§ÙÙ',r:4,t:'ÙØ­ØªÙÙ ÙÙØªØ§Ø².'}]},
+  'read-b1':{id:'read-b1',title:'Ø§ÙÙØ±Ø§Ø¡Ø© B1 â ÙØªØ§Ø¨ ØªÙØ§Ø¹ÙÙ ÙØ¹ ØªÙØ§Ø±ÙÙ',price:79,orig:null,skill:'reading',lang:'en',level:'B1',rating:4.9,cnt:76,desc:'ÙØªØ§Ø¨ PDF ØªÙØ§Ø¹ÙÙ ÙØ­ØªÙÙ Ø¹ÙÙ 15 ÙØµØ§Ù Ø¨ÙØ³ØªÙÙ B1 ÙØ¹ ØªÙØ§Ø±ÙÙ ÙÙÙ ÙØ¥Ø¬Ø§Ø¨Ø§Øª ÙÙØµÙÙØ©.',badge:null,free:false,reviews:[{n:'Ø±ÙÙ Ø§ÙØ¹Ø¨Ø¯Ø§ÙÙÙ',r:5,t:'Ø§ÙÙØªØ§Ø¨ ÙÙØ¸ÙÙ Ø¨Ø´ÙÙ Ø£ÙØ§Ø¯ÙÙÙ ÙÙØªØ§Ø².'}]},
+  'write-b1':{id:'write-b1',title:'Ø§ÙÙØªØ§Ø¨Ø© B1 â Ø±Ø³Ø§Ø¦Ù ÙÙØµÙØµ ÙÙÙÙØ©',price:79,orig:null,skill:'writing',lang:'en',level:'B1',rating:4.7,cnt:54,desc:'Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¨Ø© Ø§ÙØ£ÙØ§Ø¯ÙÙÙØ© ÙÙÙØ³ØªÙÙ B1 â Ø±Ø³Ø§Ø¦Ù Ø±Ø³ÙÙØ© ÙØºÙØ± Ø±Ø³ÙÙØ© ÙØ¹ ÙÙØ§Ø°Ø¬ ÙØªØµØ­ÙØ­Ø§Øª.',badge:null,free:false,reviews:[]},
+  'audio-b1':{id:'audio-b1',title:'ÙØµØµ ØµÙØªÙØ© B1 â Ø«ÙØ§Ø« ÙØµØµ ÙØµÙØ±Ø©',price:0,orig:null,skill:'audio',lang:'en',level:'B1',rating:5.0,cnt:201,desc:'Ø«ÙØ§Ø« ÙØµØµ ØµÙØªÙØ© ÙØ¬Ø§ÙÙØ© Ø¨ÙØ³ØªÙÙ B1 â ÙÙØ±ÙØ¡Ø© Ø¨Ø¨Ø·Ø¡ ÙØ§Ø¶Ø­ ÙØ¹ ÙØµ ÙÙØªÙØ¨ ÙØ±ÙÙ.',badge:'free',free:true,reviews:[{n:'Ø£Ø­ÙØ¯ Ø§ÙØ³Ø§ÙÙ',r:5,t:'ÙØ¯ÙØ© Ø±Ø§Ø¦Ø¹Ø©! Ø§ÙØµÙØª ÙØ§Ø¶Ø­ ÙØ§ÙÙØµØµ ÙÙØªØ¹Ø©.'}]},
+  'bundle-b1':{id:'bundle-b1',title:'Ø¨Ø§ÙØ© B1 Ø§ÙÙØ§ÙÙØ© â ÙÙ Ø§ÙÙÙØ§Ø±Ø§Øª',price:249,orig:350,skill:'bundle',lang:'en',level:'B1',rating:5.0,cnt:189,desc:'Ø§ÙØ¨Ø§ÙØ© Ø§ÙØ´Ø§ÙÙØ© ÙÙØ³ØªÙÙ B1 ØªØ¶Ù Ø¬ÙÙØ¹ Ø§ÙÙÙØ§Ø±Ø§Øª: Ø§Ø³ØªÙØ§Ø¹ + ÙØ­Ø§Ø¯Ø«Ø© + ÙØ±Ø§Ø¡Ø© + ÙØªØ§Ø¨Ø© + ÙØµØµ ØµÙØªÙØ© + ÙØªØ¨ PDF.',badge:null,free:false,reviews:[{n:'ÙØ±ÙÙ Ø§ÙØ²ÙØ±Ø§ÙÙ',r:5,t:'Ø£ÙØ¶Ù Ø§Ø³ØªØ«ÙØ§Ø±! ÙÙ Ø§ÙÙÙØ§Ø±Ø§Øª ÙÙ ÙÙØ§Ù ÙØ§Ø­Ø¯.'}]},
+  'full-en':{id:'full-en',title:'Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ© Ø§ÙÙØ§ÙÙØ© A0-C2',price:399,orig:799,skill:'bundle',lang:'en',level:'A0-C2',rating:4.9,cnt:342,desc:'Ø§ÙÙÙÙØ¬ Ø§ÙØ£ÙØ§Ø¯ÙÙÙ Ø§ÙÙØªÙØ§ÙÙ ÙÙØ£Ø³ØªØ§Ø° ÙØ±ÙÙ â Ø¬ÙÙØ¹ Ø§ÙÙØ³ØªÙÙØ§Øª ÙØ§ÙÙÙØ§Ø±Ø§Øª ÙÙ Ø­ØµØ© ÙØ§Ø­Ø¯Ø© ÙØ¹ ÙØªØ¨ ØªÙØ§Ø¹ÙÙØ© ÙØªØ³Ø¬ÙÙØ§Øª Ø­ÙØ©.',badge:'hot',free:false,reviews:[{n:'ÙØ­ÙØ¯ Ø§ÙØ¹ØªÙØ¨Ù',r:5,t:'Ø£ÙØ¶Ù ÙÙÙØ¬ ØªØ¹ÙÙÙÙ Ø±Ø£ÙØªÙ ÙÙ Ø­ÙØ§ØªÙ.'},{n:'Ø³Ø§Ø±Ø© Ø§ÙØ­Ø±Ø¨Ù',r:5,t:'Ø§Ø³ØªØ«ÙØ§Ø± ÙØ³ØªØ­Ù ÙÙ Ø±ÙØ§Ù.'}]}
 };
 
 var id=new URLSearchParams(location.search).get('id');
 if(!id){location.href='index.html';}
 
-var p=products[id]||{id:id,title:'منتج '+id,price:99,skill:'bundle',lang:'en',level:'B1',rating:4.5,cnt:0,desc:'',badge:null,free:false,reviews:[]};
-document.title=p.title+' — Lingua';
+var p=products[id]||{id:id,title:'ÙÙØªØ¬ '+id,price:99,skill:'bundle',lang:'en',level:'B1',rating:4.5,cnt:0,desc:'',badge:null,free:false,reviews:[]};
+document.title=p.title+' â Lingua';
 
 var badge='';
-if(p.badge==='hot')badge='<span class="pb2 bh">الأكثر مبيعاً</span>';
-else if(p.badge==='new')badge='<span class="pb2 bn">جديد</span>';
-else if(p.badge==='free')badge='<span class="pb2 bf">مجاني</span>';
+if(p.badge==='hot')badge='<span class="pb2 bh">Ø§ÙØ£ÙØ«Ø± ÙØ¨ÙØ¹Ø§Ù</span>';
+else if(p.badge==='new')badge='<span class="pb2 bn">Ø¬Ø¯ÙØ¯</span>';
+else if(p.badge==='free')badge='<span class="pb2 bf">ÙØ¬Ø§ÙÙ</span>';
 
 var reviewsHTML='';
 if(p.reviews&&p.reviews.length){
   for(var i=0;i<p.reviews.length;i++){
     var rv=p.reviews[i];
     var stars='';
-    for(var s=0;s<rv.r;s++)stars+='★';
-    for(var s2=rv.r;s2<5;s2++)stars+='☆';
+    for(var s=0;s<rv.r;s++)stars+='â';
+    for(var s2=rv.r;s2<5;s2++)stars+='â';
     reviewsHTML+='<div class="ri"><div class="av">'+rv.n.slice(0,2)+'</div><div><div class="rn">'+rv.n+'</div><div class="rs">'+stars+'</div><div class="rt2">'+rv.t+'</div></div></div>';
   }
 }else{
-  reviewsHTML='<div style="color:#8886A0;font-size:13px;padding:1rem 0;text-align:center">لا توجد تقييمات بعد</div>';
+  reviewsHTML='<div style="color:#8886A0;font-size:13px;padding:1rem 0;text-align:center">ÙØ§ ØªÙØ¬Ø¯ ØªÙÙÙÙØ§Øª Ø¨Ø¹Ø¯</div>';
 }
 
 document.getElementById('pc').innerHTML=
   '<div class="card">'
   +'<div class="pthumb '+p.lang+'"><i class="ti '+(imap[p.skill]||'ti-book-2')+'" style="font-size:56px;color:'+(cmap[p.lang]||'#534AB7')+'"></i>'+badge+'</div>'
   +'<h1 class="ptitle">'+p.title+'</h1>'
-  +'<div class="meta"><span class="tag tag-p">'+p.level+'</span><span class="tag tag-p">'+(lname[p.lang]||'')+'</span><span class="tag tag-g"><i class="ti ti-star"></i> '+p.rating+' ('+p.cnt+' تقييم)</span>'
-  +(p.free?'<span class="tag" style="background:var(--jade-l);color:var(--jade)">مجاني</span>':'')
+  +'<div class="meta"><span class="tag tag-p">'+p.level+'</span><span class="tag tag-p">'+(lname[p.lang]||'')+'</span><span class="tag tag-g"><i class="ti ti-star"></i> '+p.rating+' ('+p.cnt+' ØªÙÙÙÙ)</span>'
+  +(p.free?'<span class="tag" style="background:var(--jade-l);color:var(--jade)">ÙØ¬Ø§ÙÙ</span>':'')
   +'</div>'
   +'<p class="pdesc">'+p.desc+'</p>'
-  +'<div class="feats"><div class="feat"><i class="ti ti-infinity"></i><div class="fv">مدى الحياة</div><div class="fl">وصول دائم</div></div><div class="feat"><i class="ti ti-device-mobile"></i><div class="fv">جميع الأجهزة</div><div class="fl">متوافق</div></div><div class="feat"><i class="ti ti-certificate"></i><div class="fv">شهادة</div><div class="fl">عند الإتمام</div></div></div>'
+  +'<div class="feats"><div class="feat"><i class="ti ti-infinity"></i><div class="fv">ÙØ¯Ù Ø§ÙØ­ÙØ§Ø©</div><div class="fl">ÙØµÙÙ Ø¯Ø§Ø¦Ù</div></div><div class="feat"><i class="ti ti-device-mobile"></i><div class="fv">Ø¬ÙÙØ¹ Ø§ÙØ£Ø¬ÙØ²Ø©</div><div class="fl">ÙØªÙØ§ÙÙ</div></div><div class="feat"><i class="ti ti-certificate"></i><div class="fv">Ø´ÙØ§Ø¯Ø©</div><div class="fl">Ø¹ÙØ¯ Ø§ÙØ¥ØªÙØ§Ù</div></div></div>'
   +'</div>'
-  +'<div class="card"><div class="rt"><i class="ti ti-star-filled" style="color:var(--gold)"></i> تقييمات الطلاب ('+p.reviews.length+')</div>'
+  +'<div class="card"><div class="rt"><i class="ti ti-star-filled" style="color:var(--gold)"></i> ØªÙÙÙÙØ§Øª Ø§ÙØ·ÙØ§Ø¨ ('+p.reviews.length+')</div>'
   +reviewsHTML+'</div>';
 
 var priceH='';
 if(p.free){
-  priceH='<div class="pb" style="color:var(--jade)">مجاني</div>';
+  priceH='<div class="pb" style="color:var(--jade)">ÙØ¬Ø§ÙÙ</div>';
 }else{
-  priceH='<div class="pb">'+(p.orig?'<del>'+p.orig+' ر.س</del>':'')+' '+p.price+' ر.س</div>';
-  if(p.orig)priceH+='<span class="sv">وفّر '+Math.round((1-p.price/p.orig)*100)+'%</span>';
+  priceH='<div class="pb">'+(p.orig?'<del>'+p.orig+' Ø±.Ø³</del>':'')+' '+p.price+' Ø±.Ø³</div>';
+  if(p.orig)priceH+='<span class="sv">ÙÙÙØ± '+Math.round((1-p.price/p.orig)*100)+'%</span>';
 }
 
 document.getElementById('ps').innerHTML=
   '<div class="card sticky">'+priceH
   +(p.free
-    ? '<button class="btn btn-jade" onclick="showToast('جارٍ التحميل...')"><i class="ti ti-download"></i> حمّل مجاناً</button>'
-    : '<button class="btn btn-gold" id="buyBtn"><i class="ti ti-credit-card"></i> اشترِ الآن</button><button class="btn btn-out" id="cartBtn"><i class="ti ti-shopping-cart"></i> أضف للسلة</button>')
-  +'<div class="gs"><div class="g"><i class="ti ti-shield-check"></i> ضمان استرداد 7 أيام</div><div class="g"><i class="ti ti-infinity"></i> وصول مدى الحياة</div><div class="g"><i class="ti ti-mail"></i> رابط الدرس فوراً</div><div class="g"><i class="ti ti-device-mobile"></i> يعمل على جميع الأجهزة</div></div></div>';
+    ? '<button class="btn btn-jade" onclick="showToast('Ø¬Ø§Ø±Ù Ø§ÙØªØ­ÙÙÙ...')"><i class="ti ti-download"></i> Ø­ÙÙÙ ÙØ¬Ø§ÙØ§Ù</button>'
+    : '<button class="btn btn-gold" id="buyBtn"><i class="ti ti-credit-card"></i> Ø§Ø´ØªØ±Ù Ø§ÙØ¢Ù</button><button class="btn btn-out" id="cartBtn"><i class="ti ti-shopping-cart"></i> Ø£Ø¶Ù ÙÙØ³ÙØ©</button>')
+  +'<div class="gs"><div class="g"><i class="ti ti-shield-check"></i> Ø¶ÙØ§Ù Ø§Ø³ØªØ±Ø¯Ø§Ø¯ 7 Ø£ÙØ§Ù</div><div class="g"><i class="ti ti-infinity"></i> ÙØµÙÙ ÙØ¯Ù Ø§ÙØ­ÙØ§Ø©</div><div class="g"><i class="ti ti-mail"></i> Ø±Ø§Ø¨Ø· Ø§ÙØ¯Ø±Ø³ ÙÙØ±Ø§Ù</div><div class="g"><i class="ti ti-device-mobile"></i> ÙØ¹ÙÙ Ø¹ÙÙ Ø¬ÙÙØ¹ Ø§ÙØ£Ø¬ÙØ²Ø©</div></div></div>';
 
 var buyBtn=document.getElementById('buyBtn');
 var cartBtn=document.getElementById('cartBtn');
