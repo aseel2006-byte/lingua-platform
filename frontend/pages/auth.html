@@ -188,26 +188,10 @@ function bufferToB64(b){const u=new Uint8Array(b);let s='';u.forEach(x=>s+=Strin
 function getDevice(){const ua=navigator.userAgent;if(/iPhone/.test(ua))return 'iPhone';if(/iPad/.test(ua))return 'iPad';if(/Android/.test(ua))return 'Android';if(/Mac/.test(ua))return 'Mac';return 'Ø¬ÙØ§Ø²Ù';}
 </script>
 
-  <!-- DEMO LOGIN -->
-  <div style="position:fixed;bottom:1.5rem;right:1.5rem;background:#1E1648;color:#fff;border-radius:12px;padding:1rem 1.25rem;font-size:12px;font-family:sans-serif;z-index:1000;max-width:240px;box-shadow:0 8px 32px rgba(30,22,72,.3);">
-    <div style="font-weight:700;margin-bottom:8px;color:#E8C96A;display:flex;align-items:center;gap:6px;"><span>&#x26A1;</span> دخول تجريبي سريع</div>
-    <button onclick="demoLogin('student')" style="display:block;width:100%;padding:7px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:12px;cursor:pointer;margin-bottom:6px;font-family:inherit;text-align:right;">👤 طالب — محمد العتيبي</button>
-    <button onclick="demoLogin('admin')" style="display:block;width:100%;padding:7px 12px;background:rgba(196,152,58,.2);border:1px solid rgba(196,152,58,.4);border-radius:8px;color:#E8C96A;font-size:12px;cursor:pointer;font-family:inherit;text-align:right;">👑 Admin — الأستاذ كريم</button>
-  </div>
-  <script>
-  function demoLogin(role) {
-    const users = {
-      student: {id:'demo-student',name:'محمد العتيبي',email:'mohammed@example.com',role:'student'},
-      admin:   {id:'demo-admin',  name:'الأستاذ كريم', email:'admin@lingua.sa',     role:'admin'}
-    };
-    const user = users[role];
-    localStorage.setItem('lingua_token', 'demo-token-' + role);
-    localStorage.setItem('lingua_user', JSON.stringify(user));
-    location.href = role === 'admin' ? 'admin.html' : 'dashboard.html';
-  }
-  // تحقق من redirect param
-  const redir = new URLSearchParams(location.search).get('redirect');
-  if(localStorage.getItem('lingua_token') && redir) {
-    location.href = redir;
-  }
-  </script></body></html>
+<!-- DEMO -->
+<div id="demoBox" style="position:fixed;bottom:1.5rem;right:1.5rem;background:#1E1648;color:#fff;border-radius:12px;padding:1rem 1.25rem;font-size:12px;z-index:1000;max-width:240px;box-shadow:0 8px 32px rgba(30,22,72,.3);">
+<div style="font-weight:700;margin-bottom:8px;color:#E8C96A">⚡ دخول تجريبي</div>
+<button onclick="dLogin('student')" style="display:block;width:100%;padding:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:12px;cursor:pointer;margin-bottom:6px;font-family:inherit">👤 طالب — محمد</button>
+<button onclick="dLogin('admin')" style="display:block;width:100%;padding:7px;background:rgba(196,152,58,.2);border:1px solid rgba(196,152,58,.4);border-radius:8px;color:#E8C96A;font-size:12px;cursor:pointer;font-family:inherit">👑 Admin — الأستاذ كريم</button>
+</div>
+<script>function dLogin(r){var u=r==='admin'?{id:'da',name:'الأستاذ كريم',email:'admin@lingua.sa',role:'admin'}:{id:'ds',name:'محمد العتيبي',email:'m@ex.com',role:'student'};localStorage.setItem('lingua_token','demo-'+r);localStorage.setItem('lingua_user',JSON.stringify(u));location.href=r==='admin'?'admin.html':'dashboard.html';}</script></body></html>
