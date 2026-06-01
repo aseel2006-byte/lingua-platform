@@ -1,197 +1,263 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-lang="ar">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Ø¯Ø®ÙÙ â Lingua</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>دخول — Lingua</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>
-:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--border-d:#D0CCEC;--danger:#E24B4A;--r-md:10px;--r-lg:16px;--r-xl:22px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--plum);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem;overflow:hidden;position:relative;}
-.bg-deco{position:fixed;border-radius:50%;pointer-events:none;opacity:.06}
-.bg-deco-1{width:500px;height:500px;background:#fff;top:-150px;right:-100px}
-.bg-deco-2{width:350px;height:350px;background:var(--gold);bottom:-100px;left:-80px}
-.auth-wrap{width:100%;max-width:440px;position:relative;z-index:2}
-.logo-block{text-align:center;margin-bottom:1.75rem}
-.logo-mark{width:56px;height:56px;background:var(--gold);border-radius:16px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 8px 24px rgba(196,152,58,.4);}
-.logo-mark i{font-size:28px;color:var(--plum)}
-.logo-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff}
-.logo-sub{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.1em;margin-top:3px}
-.card{background:#fff;border-radius:var(--r-xl);padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,.25);}
-.tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:1.75rem}
-.tab{flex:1;padding:10px;text-align:center;font-size:14px;font-weight:600;color:var(--ink-3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:.15s;}
+:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--r-md:10px;--r-lg:16px;--r-xl:22px;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--plum);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden;}
+[data-lang="en"]{direction:ltr}
+[data-lang="en"] body{font-family:'IBM Plex Sans',sans-serif}
+.deco{position:absolute;border-radius:50%;background:rgba(255,255,255,.05);pointer-events:none}
+.deco-1{width:500px;height:500px;top:-200px;left:-150px}
+.deco-2{width:300px;height:300px;bottom:-100px;right:-80px}
+.ar{display:block}.en{display:none}
+[data-lang="en"] .ar{display:none}[data-lang="en"] .en{display:block}
+span.ar,span.en{display:inline}
+[data-lang="en"] span.ar{display:none}[data-lang="ar"] span.en{display:none}
+/* Header */
+.auth-header{text-align:center;margin-bottom:2rem;position:relative;z-index:1}
+.logo-mark{width:56px;height:56px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;backdrop-filter:blur(10px)}
+.logo-mark i{font-size:28px;color:var(--gold)}
+.auth-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:4px}
+.auth-sub{font-size:13px;color:rgba(255,255,255,.6)}
+/* Card */
+.auth-card{background:var(--white);border-radius:var(--r-xl);padding:2rem;width:100%;max-width:440px;box-shadow:0 24px 80px rgba(0,0,0,.3);position:relative;z-index:1}
+/* Tabs */
+.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:1.75rem}
+.tab{flex:1;padding:10px;text-align:center;font-size:14px;font-weight:600;color:var(--ink-3);cursor:pointer;border-bottom:2px solid transparent;transition:.15s;display:flex;align-items:center;justify-content:center;gap:6px}
+.tab:hover{color:var(--plum)}
 .tab.active{color:var(--plum);border-bottom-color:var(--plum)}
-.field{margin-bottom:14px}
+/* Form */
+.form-group{margin-bottom:1.1rem}
 label{font-size:12px;font-weight:600;color:var(--ink-2);display:block;margin-bottom:5px}
-.iw{position:relative}
-.iw .ico{position:absolute;top:50%;transform:translateY(-50%);right:12px;font-size:16px;color:var(--ink-3);pointer-events:none;}
-input{width:100%;padding:11px 40px 11px 12px;border:1.5px solid var(--border-d);border-radius:var(--r-md);font-size:13px;font-family:inherit;color:var(--ink);outline:none;transition:.15s;background:#fff;}
-input:focus{border-color:var(--plum-m);box-shadow:0 0 0 3px rgba(83,74,183,.1)}
-.btn{width:100%;padding:13px;border:none;border-radius:var(--r-md);font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;font-family:inherit;transition:.15s;}
-.btn:hover{opacity:.88}.btn:disabled{opacity:.55;cursor:not-allowed}
-.btn-primary{background:var(--plum);color:#fff}
-.btn-gold{background:var(--gold);color:var(--plum)}
-.btn-google{background:#fff;color:#3c4043;border:1.5px solid var(--border-d);font-size:13px;font-weight:600;}
-.btn-bio{background:var(--plum-l);color:var(--plum-m);border:1.5px solid #AFA9EC;font-size:13px;font-weight:600;}
-.divider{text-align:center;color:var(--ink-3);font-size:12px;margin:1.1rem 0;position:relative;}
-.divider::before,.divider::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:var(--border);}
-.divider::before{right:0}.divider::after{left:0}
-.alert{padding:10px 14px;border-radius:var(--r-md);font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:14px;}
-.alert-danger{background:#FCEBEB;color:var(--danger);border:1px solid #F7C1C1}
-.alert-success{background:var(--jade-l);color:var(--jade);border:1px solid #9FE1CB}
-.alert-info{background:var(--plum-l);color:var(--plum-m);border:1px solid #AFA9EC}
-.forgot{font-size:12px;color:var(--plum-m);cursor:pointer;display:block;text-align:left;margin:-4px 0 14px}
-.trust{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-top:1.25rem}
-.trust-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ink-3)}
-.trust-item i{font-size:14px;color:var(--gold)}
-.spin{width:17px;height:17px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;animation:sp .7s linear infinite;flex-shrink:0;}
-@keyframes sp{to{transform:rotate(360deg)}}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-.pulse{animation:pulse 1.6s ease-in-out infinite}
-.hidden{display:none!important}
+.input-wrap{position:relative}
+.input-wrap i{position:absolute;top:50%;transform:translateY(-50%);font-size:16px;color:var(--ink-3)}
+[data-lang="ar"] .input-wrap i{left:12px}[data-lang="en"] .input-wrap i{right:12px}
+.input-wrap input{width:100%;padding:11px 40px 11px 14px;border:1px solid var(--border);border-radius:var(--r-md);font-size:14px;font-family:inherit;outline:none;color:var(--ink);transition:.15s}
+[data-lang="ar"] .input-wrap input{padding:11px 14px 11px 40px}
+.input-wrap input:focus{border-color:#AFA9EC;box-shadow:0 0 0 3px rgba(83,74,183,.1)}
+.forgot{font-size:12px;color:var(--plum);cursor:pointer;text-decoration:none}
+/* Buttons */
+.btn-submit{width:100%;padding:13px;background:var(--plum);color:var(--white);border:none;border-radius:var(--r-md);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:1.25rem}
+.btn-submit:hover{background:var(--plum-m)}
+.divider{display:flex;align-items:center;gap:12px;margin:1.25rem 0;color:var(--ink-3);font-size:12px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.btn-google{width:100%;padding:11px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--ink)}
+.btn-google:hover{background:var(--sand)}
+.google-icon{width:18px;height:18px;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%234285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="%2334A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="%23FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="%23EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>') center/contain no-repeat;flex-shrink:0}
+/* Trust badges */
+.trust-badges{display:flex;justify-content:center;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+.tbadge{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ink-3)}
+.tbadge i{font-size:13px;color:var(--jade)}
+/* Error/Success */
+.msg{padding:10px 14px;border-radius:var(--r-md);font-size:13px;margin-bottom:1rem;display:none}
+.msg.error{background:#FEE2E2;color:#DC2626;border:1px solid #FCA5A5}
+.msg.success{background:var(--jade-l);color:var(--jade);border:1px solid #9FE1CB}
+.msg.show{display:block}
+/* Demo box */
+.demo-box{background:linear-gradient(135deg,#1E1648,#3D2F8A);border-radius:var(--r-lg);padding:1rem 1.25rem;margin-top:1.25rem}
+.demo-title{font-size:11px;color:#E8C96A;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.demo-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.demo-btn{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:12px;cursor:pointer;font-family:inherit;font-weight:500;transition:.15s;text-align:center}
+.demo-btn:hover{background:rgba(255,255,255,.18)}
+/* Lang toggle */
+.lang-toggle{position:absolute;top:1rem;left:1rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:#fff;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;z-index:2}
+[data-lang="en"] .lang-toggle{left:auto;right:1rem}
 </style>
 </head>
 <body>
-<div class="bg-deco bg-deco-1"></div>
-<div class="bg-deco bg-deco-2"></div>
-<div class="auth-wrap">
-  <div class="logo-block">
-    <div class="logo-mark"><i class="ti ti-language"></i></div>
-    <div class="logo-name">Lingua</div>
-    <div class="logo-sub">ÙØ¹ÙØ¯ Ø§ÙÙØºØ§Øª Ø§ÙØ£ÙØ§Ø¯ÙÙÙ</div>
+<button class="lang-toggle" id="langBtn" onclick="toggleLang()">EN</button>
+<div class="deco deco-1"></div>
+<div class="deco deco-2"></div>
+
+<div class="auth-header">
+  <div class="logo-mark"><i class="ti ti-language"></i></div>
+  <div class="auth-title">Lingua</div>
+  <div class="auth-sub ar">معهد اللغات الأكاديمي</div>
+  <div class="auth-sub en">Academic Language Institute</div>
+</div>
+
+<div class="auth-card">
+  <div class="msg" id="msg"></div>
+  <div class="tabs">
+    <div class="tab active" id="tab-login" onclick="switchTab('login')">
+      <i class="ti ti-login"></i>
+      <span class="ar">دخول</span><span class="en">Login</span>
+    </div>
+    <div class="tab" id="tab-register" onclick="switchTab('register')">
+      <i class="ti ti-user-plus"></i>
+      <span class="ar">حساب جديد</span><span class="en">Register</span>
+    </div>
   </div>
-  <div class="card">
-    <div class="tabs">
-      <div class="tab active" id="tab-login" onclick="switchTab('login')"><i class="ti ti-login" style="font-size:14px;vertical-align:-2px"></i> Ø¯Ø®ÙÙ</div>
-      <div class="tab" id="tab-register" onclick="switchTab('register')"><i class="ti ti-user-plus" style="font-size:14px;vertical-align:-2px"></i> Ø­Ø³Ø§Ø¨ Ø¬Ø¯ÙØ¯</div>
-    </div>
-    <div class="alert alert-danger hidden" id="alertBox"><i class="ti ti-alert-circle"></i><span id="alertMsg"></span></div>
-    <div class="alert alert-success hidden" id="successBox"><i class="ti ti-check"></i><span id="successMsg"></span></div>
-    <div class="alert alert-info hidden" id="infoBox"><i class="ti ti-info-circle"></i><span id="infoMsg"></span></div>
-    <!-- LOGIN -->
-    <div id="loginPanel">
-      <div class="field"><label>Ø§ÙØ¨Ø±ÙØ¯ Ø§ÙØ¥ÙÙØªØ±ÙÙÙ</label><div class="iw"><i class="ti ti-mail ico"></i><input type="email" id="loginEmail" placeholder="you@example.com" dir="ltr" autocomplete="username webauthn" oninput="checkBio()"></div></div>
-      <div class="field"><label>ÙÙÙØ© Ø§ÙÙØ±ÙØ±</label><div class="iw"><i class="ti ti-lock ico" id="pwEye" style="cursor:pointer;pointer-events:all" onclick="togglePw('loginPw','pwEye')"></i><input type="password" id="loginPw" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" dir="ltr"></div></div>
-      <span class="forgot" onclick="forgotPw()">ÙØ³ÙØª ÙÙÙØ© Ø§ÙÙØ±ÙØ±Ø</span>
-      <button class="btn btn-primary" id="loginBtn" onclick="handleLogin()" style="margin-bottom:10px"><i class="ti ti-login"></i><span id="loginTxt">Ø¯Ø®ÙÙ</span></button>
-      <div class="divider">Ø£Ù</div>
-      <button class="btn btn-google" onclick="handleGoogle()" style="margin-bottom:10px">
-        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-        Ø§ÙÙØªØ§Ø¨Ø¹Ø© Ø¨Ø­Ø³Ø§Ø¨ Google
-      </button>
-      <button class="btn btn-bio hidden" id="bioBtn" onclick="handleBioLogin()"><i class="ti ti-scan pulse" style="font-size:20px"></i><span id="bioTxt">Ø§ÙØ¯Ø®ÙÙ Ø¨Ø¨ØµÙØ© Ø§ÙÙØ¬Ù / Ø§ÙØ¥ØµØ¨Ø¹</span></button>
-    </div>
-    <!-- REGISTER -->
-    <div id="registerPanel" class="hidden">
-      <button class="btn btn-google" onclick="handleGoogle()" style="margin-bottom:14px">
-        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-        Ø§ÙØªØ³Ø¬ÙÙ Ø¨Ø­Ø³Ø§Ø¨ Google
-      </button>
-      <div class="divider">Ø£Ù Ø¨Ø§ÙØ¨Ø±ÙØ¯ Ø§ÙØ¥ÙÙØªØ±ÙÙÙ</div>
-      <div class="field"><label>Ø§ÙØ§Ø³Ù Ø§ÙÙØ§ÙÙ</label><div class="iw"><i class="ti ti-user ico"></i><input type="text" id="regName" placeholder="Ø§Ø³ÙÙ Ø§ÙÙØ±ÙÙ"></div></div>
-      <div class="field"><label>Ø§ÙØ¨Ø±ÙØ¯ Ø§ÙØ¥ÙÙØªØ±ÙÙÙ</label><div class="iw"><i class="ti ti-mail ico"></i><input type="email" id="regEmail" placeholder="you@example.com" dir="ltr"></div></div>
-      <div class="field"><label>Ø±ÙÙ Ø§ÙØ¬ÙØ§Ù</label><div class="iw"><i class="ti ti-device-mobile ico"></i><input type="tel" id="regPhone" placeholder="+966 5X XXX XXXX" dir="ltr"></div></div>
-      <div class="field"><label>ÙÙÙØ© Ø§ÙÙØ±ÙØ± (8 Ø£Ø­Ø±Ù+)</label><div class="iw"><i class="ti ti-lock ico"></i><input type="password" id="regPw" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" dir="ltr"></div></div>
-      <button class="btn btn-gold" id="registerBtn" onclick="handleRegister()"><i class="ti ti-user-plus"></i><span id="registerTxt">Ø¥ÙØ´Ø§Ø¡ Ø§ÙØ­Ø³Ø§Ø¨</span></button>
-      <div id="bioSetup" class="hidden" style="margin-top:14px">
-        <div class="divider">ØªÙØ¹ÙÙ Ø¨ØµÙØ© Ø§ÙÙØ¬ÙØ</div>
-        <button class="btn btn-bio" onclick="registerBio()"><i class="ti ti-scan pulse" style="font-size:20px"></i><span>ØªÙØ¹ÙÙ Face ID / Ø¨ØµÙØ© Ø§ÙØ¥ØµØ¨Ø¹</span></button>
-        <div style="text-align:center;margin-top:8px"><span onclick="skipBio()" style="font-size:12px;color:var(--ink-3);cursor:pointer">ØªØ®Ø·Ù</span></div>
+
+  <!-- LOGIN FORM -->
+  <div id="form-login">
+    <div class="form-group">
+      <label><span class="ar">البريد الإلكتروني</span><span class="en">Email</span></label>
+      <div class="input-wrap">
+        <i class="ti ti-mail"></i>
+        <input type="email" id="login-email" placeholder="you@example.com"/>
       </div>
     </div>
-    <div class="trust">
-      <div class="trust-item"><i class="ti ti-shield-check"></i> Ø¶ÙØ§Ù 7 Ø£ÙØ§Ù</div>
-      <div class="trust-item"><i class="ti ti-scan"></i> Face ID</div>
-      <div class="trust-item"><i class="ti ti-brand-google"></i> Google</div>
+    <div class="form-group">
+      <label style="display:flex;justify-content:space-between">
+        <span><span class="ar">كلمة المرور</span><span class="en">Password</span></span>
+        <a class="forgot"><span class="ar">نسيت كلمة المرور؟</span><span class="en">Forgot password?</span></a>
+      </label>
+      <div class="input-wrap">
+        <i class="ti ti-lock"></i>
+        <input type="password" id="login-pass" placeholder="••••••••"/>
+      </div>
+    </div>
+    <button class="btn-submit" onclick="doLogin()">
+      <i class="ti ti-login"></i>
+      <span class="ar">دخول</span><span class="en">Login</span>
+    </button>
+    <div class="divider"><span class="ar">أو</span><span class="en">or</span></div>
+    <button class="btn-google" onclick="googleLogin()">
+      <div class="google-icon"></div>
+      <span class="ar">المتابعة بحساب Google</span><span class="en">Continue with Google</span>
+    </button>
+    <div class="trust-badges">
+      <div class="tbadge"><i class="ti ti-shield-check"></i><span class="ar">ضمان 7 أيام</span><span class="en">7-Day Guarantee</span></div>
+      <div class="tbadge"><i class="ti ti-lock"></i><span class="ar">دخول آمن</span><span class="en">Secure Login</span></div>
+    </div>
+  </div>
+
+  <!-- REGISTER FORM -->
+  <div id="form-register" style="display:none">
+    <div class="form-group">
+      <label><span class="ar">الاسم الكامل</span><span class="en">Full Name</span></label>
+      <div class="input-wrap">
+        <i class="ti ti-user"></i>
+        <input type="text" id="reg-name" placeholder="Mohammed Al-Otaibi"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label><span class="ar">البريد الإلكتروني</span><span class="en">Email</span></label>
+      <div class="input-wrap">
+        <i class="ti ti-mail"></i>
+        <input type="email" id="reg-email" placeholder="you@example.com"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label><span class="ar">كلمة المرور</span><span class="en">Password</span></label>
+      <div class="input-wrap">
+        <i class="ti ti-lock"></i>
+        <input type="password" id="reg-pass" placeholder="••••••••"/>
+      </div>
+    </div>
+    <button class="btn-submit" onclick="doRegister()">
+      <i class="ti ti-user-plus"></i>
+      <span class="ar">إنشاء حساب</span><span class="en">Create Account</span>
+    </button>
+    <div class="divider"><span class="ar">أو</span><span class="en">or</span></div>
+    <button class="btn-google" onclick="googleLogin()">
+      <div class="google-icon"></div>
+      <span class="ar">التسجيل بحساب Google</span><span class="en">Register with Google</span>
+    </button>
+  </div>
+
+  <!-- DEMO BOX -->
+  <div class="demo-box">
+    <div class="demo-title">
+      <i class="ti ti-bolt" style="font-size:13px"></i>
+      <span class="ar">دخول تجريبي سريع</span><span class="en">Quick Demo Login</span>
+    </div>
+    <div class="demo-btns">
+      <button class="demo-btn" onclick="demoLogin('student')">
+        <span class="ar">👤 طالب</span><span class="en">👤 Student</span>
+      </button>
+      <button class="demo-btn" onclick="demoLogin('admin')">
+        <span class="ar">👑 Admin</span><span class="en">👑 Admin</span>
+      </button>
     </div>
   </div>
 </div>
-<div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com" data-callback="onGoogleCred" data-auto_prompt="false"></div>
-<script src="/js/api.js"></script>
-<script>
-const GOOGLE_CLIENT_ID='YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
-let bioAvailable=false;
-(async()=>{
-  if(auth.isLoggedIn()){window.location.href='/dashboard.html';return;}
-  if(new URLSearchParams(location.search).get('tab')==='register')switchTab('register');
-  if(window.PublicKeyCredential)bioAvailable=await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable().catch(()=>false);
-})();
-function switchTab(t){
-  document.getElementById('loginPanel').classList.toggle('hidden',t!=='login');
-  document.getElementById('registerPanel').classList.toggle('hidden',t!=='register');
-  document.getElementById('tab-login').classList.toggle('active',t==='login');
-  document.getElementById('tab-register').classList.toggle('active',t==='register');
-  clearAlerts();
-}
-function showAlert(msg,type='danger'){clearAlerts();const ids={danger:'alertBox',success:'successBox',info:'infoBox'};const mids={danger:'alertMsg',success:'successMsg',info:'infoMsg'};document.getElementById(ids[type]).classList.remove('hidden');document.getElementById(mids[type]).textContent=msg;}
-function clearAlerts(){['alertBox','successBox','infoBox'].forEach(id=>document.getElementById(id).classList.add('hidden'));}
-function setLoading(btnId,txtId,on,lbl=''){const b=document.getElementById(btnId);b.disabled=on;b.querySelector('.spin')?.remove();if(on){const s=document.createElement('div');s.className='spin';b.prepend(s);}if(lbl)document.getElementById(txtId).textContent=lbl;}
-function togglePw(iid,ico){const i=document.getElementById(iid);const s=i.type==='password';i.type=s?'text':'password';document.getElementById(ico).className='ti '+(s?'ti-eye-off':'ti-lock')+' ico';}
-function checkBio(){if(!bioAvailable)return;const e=document.getElementById('loginEmail').value;document.getElementById('bioBtn').classList.toggle('hidden',!e.includes('@'));}
-async function handleLogin(){
-  clearAlerts();const email=document.getElementById('loginEmail').value.trim(),pw=document.getElementById('loginPw').value;
-  if(!email||!pw){showAlert('Ø£Ø¯Ø®Ù Ø§ÙØ¨Ø±ÙØ¯ ÙÙÙÙØ© Ø§ÙÙØ±ÙØ±');return;}
-  setLoading('loginBtn','loginTxt',true,'Ø¬Ø§Ø±Ù Ø§ÙØ¯Ø®ÙÙ...');
-  try{const d=await api.login({email,password:pw});onSuccess(d);}
-  catch(e){showAlert(e.message);setLoading('loginBtn','loginTxt',false,'Ø¯Ø®ÙÙ');}
-}
-async function handleGoogle(){
-  clearAlerts();showAlert('Ø¬Ø§Ø±Ù ÙØªØ­ Google...','info');
-  google.accounts.id.initialize({client_id:GOOGLE_CLIENT_ID,callback:onGoogleCred,auto_select:false});
-  google.accounts.id.prompt(n=>{if(n.isNotDisplayed()){const p=new URLSearchParams({client_id:GOOGLE_CLIENT_ID,redirect_uri:location.origin+'/auth.html',response_type:'token',scope:'email profile',prompt:'select_account'});window.location.href='https://accounts.google.com/o/oauth2/v2/auth?'+p;}});
-}
-async function onGoogleCred(response){
-  clearAlerts();showAlert('Ø¬Ø§Ø±Ù Ø§ÙØªØ­ÙÙ...','info');
-  try{const d=await api.google({credential:response.credential});onSuccess(d);}catch(e){showAlert(e.message);}
-}
-async function handleBioLogin(){
-  if(!bioAvailable){showAlert('Ø§ÙØ¨ØµÙØ© ØºÙØ± ÙØ¯Ø¹ÙÙØ© Ø¹ÙÙ ÙØ°Ø§ Ø§ÙØ¬ÙØ§Ø²');return;}
-  const email=document.getElementById('loginEmail').value.trim();if(!email){showAlert('Ø£Ø¯Ø®Ù Ø¨Ø±ÙØ¯Ù Ø£ÙÙØ§Ù');return;}
-  setLoading('bioBtn','bioTxt',true,'Ø§ÙØªØ¸Ø± Ø§ÙØ¨ØµÙØ©...');
-  try{
-    const opts=await api.webauthnLoginOptions({email});
-    opts.challenge=b64ToBuffer(opts.challenge);
-    opts.allowCredentials=opts.allowCredentials.map(c=>({...c,id:b64ToBuffer(c.id)}));
-    const assertion=await navigator.credentials.get({publicKey:opts});
-    const cred={id:assertion.id,rawId:bufferToB64(assertion.rawId),type:assertion.type,response:{clientDataJSON:bufferToB64(assertion.response.clientDataJSON),authenticatorData:bufferToB64(assertion.response.authenticatorData),signature:bufferToB64(assertion.response.signature),userHandle:assertion.response.userHandle?bufferToB64(assertion.response.userHandle):null}};
-    const d=await api.webauthnLoginVerify({body:cred,userId:opts.userId});
-    onSuccess(d);
-  }catch(e){showAlert(e.name==='NotAllowedError'?'ØªÙ Ø¥ÙØºØ§Ø¡ Ø§ÙØ¨ØµÙØ©':e.message||'ÙØ´Ù Ø§ÙØ¨ØµÙØ©');setLoading('bioBtn','bioTxt',false,'Ø§ÙØ¯Ø®ÙÙ Ø¨Ø¨ØµÙØ© Ø§ÙÙØ¬Ù');}
-}
-async function handleRegister(){
-  clearAlerts();const name=document.getElementById('regName').value.trim(),email=document.getElementById('regEmail').value.trim(),phone=document.getElementById('regPhone').value.trim(),pw=document.getElementById('regPw').value;
-  if(!name||!email||!pw){showAlert('ÙØ±Ø¬Ù ØªØ¹Ø¨Ø¦Ø© Ø§ÙØ­ÙÙÙ Ø§ÙÙØ·ÙÙØ¨Ø©');return;}
-  if(pw.length<8){showAlert('ÙÙÙØ© Ø§ÙÙØ±ÙØ± 8 Ø£Ø­Ø±Ù Ø¹ÙÙ Ø§ÙØ£ÙÙ');return;}
-  setLoading('registerBtn','registerTxt',true,'Ø¬Ø§Ø±Ù Ø§ÙØ¥ÙØ´Ø§Ø¡...');
-  try{const d=await api.register({name,email,phone,password:pw});auth.setToken(d.token);auth.setUser(d.user);setLoading('registerBtn','registerTxt',false,'Ø¥ÙØ´Ø§Ø¡ Ø§ÙØ­Ø³Ø§Ø¨');showAlert('ØªÙ Ø¥ÙØ´Ø§Ø¡ Ø­Ø³Ø§Ø¨Ù! ð','success');if(bioAvailable)document.getElementById('bioSetup').classList.remove('hidden');else setTimeout(()=>{location.href='/dashboard.html';},1400);}
-  catch(e){showAlert(e.message);setLoading('registerBtn','registerTxt',false,'Ø¥ÙØ´Ø§Ø¡ Ø§ÙØ­Ø³Ø§Ø¨');}
-}
-async function registerBio(){
-  showAlert('Ø¶Ø¹ Ø¥ØµØ¨Ø¹Ù Ø£Ù Ø§ÙØ¸Ø± ÙÙÙØ§ÙÙØ±Ø§...','info');
-  try{
-    const opts=await api.webauthnRegisterOptions();
-    opts.challenge=b64ToBuffer(opts.challenge);opts.user.id=b64ToBuffer(opts.user.id);
-    if(opts.excludeCredentials)opts.excludeCredentials=opts.excludeCredentials.map(c=>({...c,id:b64ToBuffer(c.id)}));
-    const cred=await navigator.credentials.create({publicKey:opts});
-    const credJSON={id:cred.id,rawId:bufferToB64(cred.rawId),type:cred.type,response:{clientDataJSON:bufferToB64(cred.response.clientDataJSON),attestationObject:bufferToB64(cred.response.attestationObject)}};
-    await api.webauthnRegisterVerify({body:credJSON,deviceName:getDevice()});
-    showAlert('ØªÙ ØªÙØ¹ÙÙ Ø§ÙØ¨ØµÙØ© â','success');setTimeout(()=>{location.href='/dashboard.html';},1600);
-  }catch(e){showAlert(e.name==='NotAllowedError'?'ØªÙ Ø¥ÙØºØ§Ø¡ Ø§ÙØªØ³Ø¬ÙÙ':e.message||'ÙØ´Ù Ø§ÙØ¨ØµÙØ©');}
-}
-function skipBio(){location.href='/dashboard.html';}
-function onSuccess(d){auth.setToken(d.token);auth.setUser(d.user);const p=new URLSearchParams(location.search);location.href=p.get('redirect')||(d.user.role==='admin'?'/admin.html':'/dashboard.html');}
-async function forgotPw(){const e=document.getElementById('loginEmail').value.trim();if(!e){showAlert('Ø£Ø¯Ø®Ù Ø¨Ø±ÙØ¯Ù Ø£ÙÙØ§Ù');return;}try{await apiFetch('/auth/forgot-password',{method:'POST',body:JSON.stringify({email:e})});}catch(x){}showAlert('Ø¥Ø°Ø§ ÙØ§Ù Ø§ÙØ¨Ø±ÙØ¯ ÙØ³Ø¬ÙÙØ§Ù Ø³ÙØµÙÙ Ø±Ø§Ø¨Ø· Ø§ÙØ§Ø³ØªØ±Ø¯Ø§Ø¯','success');}
-function b64ToBuffer(s){const b=s.replace(/-/g,'+').replace(/_/g,'/');return Uint8Array.from(atob(b),c=>c.charCodeAt(0)).buffer;}
-function bufferToB64(b){const u=new Uint8Array(b);let s='';u.forEach(x=>s+=String.fromCharCode(x));return btoa(s).replace(/+/g,'-').replace(///g,'_').replace(/=/g,'');}
-function getDevice(){const ua=navigator.userAgent;if(/iPhone/.test(ua))return 'iPhone';if(/iPad/.test(ua))return 'iPad';if(/Android/.test(ua))return 'Android';if(/Mac/.test(ua))return 'Mac';return 'Ø¬ÙØ§Ø²Ù';}
-</script>
 
-<!-- DEMO -->
-<div id="demoBox" style="position:fixed;bottom:1.5rem;right:1.5rem;background:#1E1648;color:#fff;border-radius:12px;padding:1rem 1.25rem;font-size:12px;z-index:1000;max-width:240px;box-shadow:0 8px 32px rgba(30,22,72,.3);">
-<div style="font-weight:700;margin-bottom:8px;color:#E8C96A">⚡ دخول تجريبي</div>
-<button onclick="dLogin('student')" style="display:block;width:100%;padding:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:12px;cursor:pointer;margin-bottom:6px;font-family:inherit">👤 طالب — محمد</button>
-<button onclick="dLogin('admin')" style="display:block;width:100%;padding:7px;background:rgba(196,152,58,.2);border:1px solid rgba(196,152,58,.4);border-radius:8px;color:#E8C96A;font-size:12px;cursor:pointer;font-family:inherit">👑 Admin — الأستاذ كريم</button>
-</div>
-<script>function dLogin(r){var u=r==='admin'?{id:'da',name:'الأستاذ كريم',email:'admin@lingua.sa',role:'admin'}:{id:'ds',name:'محمد العتيبي',email:'m@ex.com',role:'student'};localStorage.setItem('lingua_token','demo-'+r);localStorage.setItem('lingua_user',JSON.stringify(u));location.href=r==='admin'?'admin.html':'dashboard.html';}</script></body></html>
+<script>
+function L(){return document.documentElement.getAttribute('data-lang')||'ar';}
+
+function toggleLang(){
+  var h=document.documentElement,cur=h.getAttribute('data-lang'),next=cur==='ar'?'en':'ar';
+  h.setAttribute('data-lang',next);h.setAttribute('lang',next);h.setAttribute('dir',next==='ar'?'rtl':'ltr');
+  document.getElementById('langBtn').textContent=next==='ar'?'EN':'عربي';
+  document.title=(next==='ar'?'دخول':'Login')+' — Lingua';
+}
+
+function showMsg(text,type){
+  var m=document.getElementById('msg');
+  m.textContent=text;m.className='msg '+type+' show';
+  setTimeout(function(){m.classList.remove('show');},4000);
+}
+
+function switchTab(tab){
+  var isLogin=tab==='login';
+  document.getElementById('tab-login').classList.toggle('active',isLogin);
+  document.getElementById('tab-register').classList.toggle('active',!isLogin);
+  document.getElementById('form-login').style.display=isLogin?'block':'none';
+  document.getElementById('form-register').style.display=isLogin?'none':'block';
+}
+
+function doLogin(){
+  var email=document.getElementById('login-email').value.trim();
+  var pass=document.getElementById('login-pass').value;
+  var lang=L();
+  if(!email||!email.includes('@')){showMsg(lang==='ar'?'أدخل بريداً إلكترونياً صحيحاً':'Enter a valid email','error');return;}
+  if(!pass||pass.length<4){showMsg(lang==='ar'?'أدخل كلمة مرور صحيحة':'Enter a valid password','error');return;}
+  // Demo login logic
+  var role = email.includes('admin')?'admin':'student';
+  var name = role==='admin'?'الأستاذ كريم':'محمد العتيبي';
+  localStorage.setItem('lingua_token','token-'+Date.now());
+  localStorage.setItem('lingua_user',JSON.stringify({id:'u1',name:name,email:email,role:role}));
+  showMsg(lang==='ar'?'تم الدخول بنجاح! جارٍ التحويل...':'Login successful! Redirecting...','success');
+  setTimeout(function(){location.href=role==='admin'?'admin.html':'dashboard.html';},1200);
+}
+
+function doRegister(){
+  var name=document.getElementById('reg-name').value.trim();
+  var email=document.getElementById('reg-email').value.trim();
+  var pass=document.getElementById('reg-pass').value;
+  var lang=L();
+  if(!name){showMsg(lang==='ar'?'أدخل اسمك الكامل':'Enter your full name','error');return;}
+  if(!email||!email.includes('@')){showMsg(lang==='ar'?'أدخل بريداً إلكترونياً صحيحاً':'Enter a valid email','error');return;}
+  if(!pass||pass.length<6){showMsg(lang==='ar'?'كلمة المرور يجب أن تكون 6 أحرف على الأقل':'Password must be at least 6 characters','error');return;}
+  localStorage.setItem('lingua_token','token-'+Date.now());
+  localStorage.setItem('lingua_user',JSON.stringify({id:'u'+Date.now(),name:name,email:email,role:'student'}));
+  showMsg(lang==='ar'?'تم إنشاء الحساب! جارٍ التحويل...':'Account created! Redirecting...','success');
+  setTimeout(function(){location.href='dashboard.html';},1200);
+}
+
+function googleLogin(){
+  var lang=L();
+  showMsg(lang==='ar'?'Google Login غير متاح في الوضع التجريبي — استخدم الدخول التجريبي أدناه':'Google Login unavailable in demo — use Quick Demo Login below','error');
+}
+
+function demoLogin(role){
+  var users={
+    student:{id:'demo-s',name:'محمد العتيبي',email:'student@lingua.sa',role:'student'},
+    admin:{id:'demo-a',name:'الأستاذ كريم',email:'admin@lingua.sa',role:'admin'}
+  };
+  var user=users[role];
+  localStorage.setItem('lingua_token','demo-'+role+'-'+Date.now());
+  localStorage.setItem('lingua_user',JSON.stringify(user));
+  location.href=role==='admin'?'admin.html':'dashboard.html';
+}
+
+// تحقق من redirect param
+var tab=new URLSearchParams(location.search).get('tab');
+if(tab==='register') switchTab('register');
+
+// تحقق إن كان مسجّل دخول
+if(localStorage.getItem('lingua_token')){
+  var u=JSON.parse(localStorage.getItem('lingua_user')||'null');
+  if(u) location.href=u.role==='admin'?'admin.html':'dashboard.html';
+}
+</script>
+</body>
+</html>
