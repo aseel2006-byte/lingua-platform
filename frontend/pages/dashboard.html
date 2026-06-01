@@ -1,204 +1,265 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"><head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>لوحة الطالب — Lingua</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
-:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--danger:#E24B4A;--r-md:10px;--r-lg:16px;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh;display:flex}
-.sidebar{width:220px;background:var(--plum);min-height:100vh;display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto}
-.sb-logo{padding:1.5rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.1)}
-.sb-logo a{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
-.sb-logo-mark{width:30px;height:30px;background:rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.sb-logo-mark i{color:var(--gold);font-size:15px}
-.sb-sub{font-size:10px;color:var(--gold);letter-spacing:.08em;margin-top:2px}
+:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--r-md:10px;--r-lg:16px;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh;display:flex;}
+[data-lang="en"]{direction:ltr;font-family:'IBM Plex Sans',sans-serif}
+.ar{display:block}.en{display:none}
+[data-lang="en"] .ar{display:none}[data-lang="en"] .en{display:block}
+span.ar,span.en{display:inline}[data-lang="en"] span.ar{display:none}[data-lang="ar"] span.en{display:none}
+/* Sidebar */
+.sidebar{width:240px;background:var(--plum);min-height:100vh;display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh}
+.sb-header{padding:1.5rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.sb-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+.sb-logo-mark{width:32px;height:32px;background:rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.sb-logo-mark i{color:var(--gold);font-size:17px}
+.sb-subtitle{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.08em;margin-top:2px}
 .sb-nav{padding:.75rem 0;flex:1}
 .nav-lbl{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;font-weight:600;padding:10px 1.25rem 4px;text-transform:uppercase}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 1.25rem;font-size:13px;font-weight:500;color:#AFA9EC;cursor:pointer;border-right:3px solid transparent;transition:.12s;text-decoration:none}
-.nav-item:hover{color:#fff;background:rgba(255,255,255,.06)}.nav-item.active{color:#fff;background:rgba(255,255,255,.1);border-right-color:var(--gold)}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 1.25rem;font-size:13px;font-weight:500;color:#AFA9EC;cursor:pointer;border-right:3px solid transparent;transition:.12s;background:none;border-top:none;border-bottom:none;border-left:none;width:100%;font-family:inherit;text-align:inherit}
+[data-lang="en"] .nav-item{border-right:none;border-left:3px solid transparent;text-align:left}
 .nav-item i{font-size:17px}
-.sb-user{padding:1rem 1.25rem;border-top:1px solid rgba(255,255,255,.1)}
-.user-info{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.user-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--plum);flex-shrink:0}
-.user-name{font-size:13px;font-weight:600;color:#fff}.user-level{font-size:11px;color:#AFA9EC}
-.logout-btn{display:flex;align-items:center;gap:8px;font-size:12px;color:#AFA9EC;cursor:pointer;padding:8px;border-radius:8px;background:none;border:none;font-family:inherit;width:100%}
+.nav-item:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-item.active{color:#fff;background:rgba(255,255,255,.1);border-right-color:var(--gold)}
+[data-lang="en"] .nav-item.active{border-right-color:transparent;border-left-color:var(--gold)}
+.sb-footer{padding:1rem 1.25rem;border-top:1px solid rgba(255,255,255,.1)}
+.user-card{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.user-avatar{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--gold);flex-shrink:0}
+.user-name{font-size:13px;font-weight:600;color:#fff}
+.user-level{font-size:11px;color:rgba(255,255,255,.4)}
+.logout-btn{display:flex;align-items:center;gap:7px;font-size:12px;color:rgba(255,255,255,.5);cursor:pointer;padding:6px;border-radius:6px;background:none;border:none;font-family:inherit;width:100%;transition:.12s}
 .logout-btn:hover{color:#fff;background:rgba(255,255,255,.08)}
+/* Main */
 .main{flex:1;padding:2rem;overflow-x:hidden}
-.page-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--plum);margin-bottom:.25rem}
-.page-sub{font-size:13px;color:var(--ink-3);margin-bottom:1.5rem}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem}
-@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
-.sc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1rem 1.25rem}
-.sc-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:8px}
-.sc-icon.p{background:var(--plum-l);color:var(--plum-m)}.sc-icon.g{background:var(--gold-l);color:var(--gold)}.sc-icon.j{background:var(--jade-l);color:var(--jade)}
-.sc-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--plum);display:block}.sc-lbl{font-size:11px;color:var(--ink-3)}
-.section-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
-.section-hdr h2{font-size:15px;font-weight:700;color:var(--plum)}
-.btn-sm{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--r-md);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s;text-decoration:none;border:none}
-.btn-primary{background:var(--plum);color:#fff}.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--ink-2)}
-.btn-sm:hover{opacity:.88}
-.enrollment-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:10px;display:flex;gap:14px;align-items:center}
-.e-thumb{width:52px;height:52px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.e-thumb.en{background:var(--plum-l)}.e-thumb.tr{background:var(--jade-l)}.e-thumb.zh{background:#FAECE7}
-.e-info{flex:1}.e-title{font-size:14px;font-weight:600;color:var(--plum);margin-bottom:4px}
-.e-meta{font-size:11px;color:var(--ink-3);margin-bottom:8px}
-.progress-wrap{background:#F0EDE6;border-radius:4px;height:6px;overflow:hidden;margin-bottom:4px}
-.progress-fill{height:100%;border-radius:4px;background:var(--plum);transition:width .5s}
-.progress-pct{font-size:11px;color:var(--ink-3)}
-.e-action{flex-shrink:0}
-.order-row{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1rem 1.25rem;margin-bottom:8px;display:flex;align-items:center;gap:12px}
-.order-icon{width:36px;height:36px;background:var(--gold-l);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0}
-.order-info{flex:1}.order-id{font-size:11px;color:var(--ink-3);font-family:monospace}
-.order-title{font-size:13px;font-weight:600;color:var(--plum)}.order-date{font-size:11px;color:var(--ink-3)}
-.order-amount{font-size:15px;font-weight:700;color:var(--plum);white-space:nowrap}
-.badge{display:inline-flex;padding:3px 9px;border-radius:5px;font-size:11px;font-weight:700}
-.badge-jade{background:var(--jade-l);color:var(--jade)}.badge-gold{background:var(--gold-l);color:var(--gold)}
-.hidden{display:none!important}
-@media(max-width:768px){.sidebar{width:60px}.sb-logo-text,.nav-lbl,.nav-item span,.sb-user .user-name,.sb-user .user-level,.sb-sub{display:none}.nav-item{justify-content:center;padding:12px}.sb-user{padding:.5rem}}
+.page-header{margin-bottom:1.75rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.page-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--plum)}
+.page-sub{font-size:14px;color:var(--ink-3)}
+.lang-btn{background:var(--plum-l);border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--plum);cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1rem 1.25rem}
+.stat-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
+.stat-icon.p{background:var(--plum-l);color:var(--plum-m)}
+.stat-icon.g{background:var(--gold-l);color:var(--gold)}
+.stat-icon.j{background:var(--jade-l);color:var(--jade)}
+.stat-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--plum);display:block}
+.stat-lbl{font-size:11px;color:var(--ink-3)}
+/* Courses */
+.section-title{font-size:15px;font-weight:700;color:var(--plum);margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between}
+.btn-sm{padding:6px 14px;background:var(--plum);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px}
+.course-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:12px;display:flex;align-items:center;gap:1rem}
+.course-icon{width:48px;height:48px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.course-icon.en{background:var(--plum-l);color:var(--plum-m)}
+.course-icon.tr{background:var(--jade-l);color:var(--jade)}
+.course-icon.zh{background:#FAECE7;color:#993C1D}
+.course-info{flex:1}
+.course-name{font-size:14px;font-weight:600;color:var(--plum);margin-bottom:3px}
+.course-meta{font-size:12px;color:var(--ink-3);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.progress-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:var(--plum);border-radius:3px;transition:.3s}
+.progress-fill.done{background:var(--jade)}
+.course-pct{font-size:11px;color:var(--ink-3);margin-top:3px}
+.badge-done{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:var(--jade-l);color:var(--jade)}
+.btn-continue{padding:8px 16px;background:var(--plum);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;display:flex;align-items:center;gap:5px}
+.empty-state{text-align:center;padding:3rem;color:var(--ink-3)}
+.empty-state i{font-size:48px;display:block;margin-bottom:1rem;opacity:.3}
+.btn-browse{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--plum);color:#fff;border:none;border-radius:var(--r-md);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:1rem;text-decoration:none}
+/* Certs */
+.cert-card{background:linear-gradient(135deg,var(--plum),var(--plum-m));border-radius:var(--r-lg);padding:1.25rem;color:#fff;display:flex;align-items:center;gap:1rem;margin-bottom:12px}
+.cert-icon{width:44px;height:44px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.cert-name{font-size:14px;font-weight:600;margin-bottom:3px}
+.cert-sub{font-size:12px;color:rgba(255,255,255,.6)}
+.cert-btn{margin-right:auto;padding:7px 14px;background:var(--gold);color:var(--plum);border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;flex-shrink:0}
+[data-lang="en"] .cert-btn{margin-right:0;margin-left:auto}
+@media(max-width:768px){.sidebar{width:52px}.sb-logo span,.sb-subtitle,.nav-lbl{display:none}.nav-item{justify-content:center;padding:12px}.nav-item span{display:none}.sb-footer{padding:.5rem}.user-name,.user-level,.logout-btn span{display:none}}
 </style>
 </head>
 <body>
 <aside class="sidebar">
-  <div class="sb-logo">
-    <a href="index.html"><div class="sb-logo-mark"><i class="ti ti-language"></i></div><div class="sb-logo-text"><span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff">Lingua</span><div class="sb-sub">STUDENT PORTAL</div></div></a>
+  <div class="sb-header">
+    <a class="sb-logo" href="../index.html">
+      <div class="sb-logo-mark"><i class="ti ti-language"></i></div>
+      <div>
+        <span>Lingua</span>
+        <div class="sb-subtitle ar">STUDENT PORTAL</div>
+        <div class="sb-subtitle en">STUDENT PORTAL</div>
+      </div>
+    </a>
   </div>
   <nav class="sb-nav">
-    <div class="nav-lbl">التعلم</div>
-    <a class="nav-item active" href="#" onclick="showTab('courses',this)"><i class="ti ti-books"></i><span>دروسي</span></a>
-    <a class="nav-item" href="#" onclick="showTab('orders',this)"><i class="ti ti-receipt"></i><span>طلباتي</span></a>
-    <a class="nav-item" href="#" onclick="showTab('certs',this)"><i class="ti ti-certificate"></i><span>الشهادات</span></a>
-    <div class="nav-lbl">الاستكشاف</div>
-    <a class="nav-item" href="index.html"><i class="ti ti-shopping-bag"></i><span>المتجر</span></a>
+    <div class="nav-lbl"><span class="ar">التعلم</span><span class="en">Learning</span></div>
+    <button class="nav-item active" onclick="showSection('courses',this)"><i class="ti ti-books"></i><span class="ar">دروسي</span><span class="en">My Courses</span></button>
+    <button class="nav-item" onclick="showSection('certs',this)"><i class="ti ti-certificate"></i><span class="ar">الشهادات</span><span class="en">Certificates</span></button>
+    <div class="nav-lbl"><span class="ar">الاستكشاف</span><span class="en">Explore</span></div>
+    <button class="nav-item" onclick="location.href='../index.html'"><i class="ti ti-shopping-bag"></i><span class="ar">المتجر</span><span class="en">Store</span></button>
+    <button class="nav-item" onclick="location.href='checkout.html'"><i class="ti ti-credit-card"></i><span class="ar">الشراء</span><span class="en">Purchase</span></button>
   </nav>
-  <div class="sb-user">
-    <div class="user-info">
-      <div class="user-avatar" id="userInitial">--</div>
-      <div><div class="user-name" id="userName">الطالب</div><div class="user-level">المستوى B1</div></div>
+  <div class="sb-footer">
+    <div class="user-card">
+      <div class="user-avatar" id="userAvatar">م</div>
+      <div>
+        <div class="user-name" id="userName">محمد العتيبي</div>
+        <div class="user-level" id="userLevel">B1 · <span class="ar">إنجليزية</span><span class="en">English</span></div>
+      </div>
     </div>
-    <button class="logout-btn" onclick="logout()"><i class="ti ti-logout" style="font-size:16px"></i><span>تسجيل خروج</span></button>
+    <button class="logout-btn" onclick="logout()">
+      <i class="ti ti-logout" style="font-size:15px"></i>
+      <span><span class="ar">تسجيل خروج</span><span class="en">Logout</span></span>
+    </button>
   </div>
 </aside>
 
 <div class="main">
-  <div class="page-title" id="pageTitle">👋 مرحباً...</div>
-  <div class="page-sub" id="pageSub">تتبع تقدمك واستمر في رحلتك</div>
+  <div class="page-header">
+    <div>
+      <div class="page-title"><span class="ar">مرحباً، </span><span class="en">Welcome, </span><span id="greetName">محمد</span>! 👋</div>
+      <div class="page-sub ar">تابع تقدمك واستمر في رحلتك</div>
+      <div class="page-sub en">Track your progress and continue your journey</div>
+    </div>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
 
   <!-- STATS -->
-  <div class="stats-grid">
-    <div class="sc"><div class="sc-icon p"><i class="ti ti-books"></i></div><span class="sc-val" id="statCourses">0</span><div class="sc-lbl">دروس مشتراة</div></div>
-    <div class="sc"><div class="sc-icon j"><i class="ti ti-circle-check"></i></div><span class="sc-val" id="statCompleted">0</span><div class="sc-lbl">مكتملة</div></div>
-    <div class="sc"><div class="sc-icon g"><i class="ti ti-trending-up"></i></div><span class="sc-val" id="statProgress">-</span><div class="sc-lbl">متوسط التقدم</div></div>
-    <div class="sc"><div class="sc-icon p"><i class="ti ti-star"></i></div><span class="sc-val">B1</span><div class="sc-lbl">مستواك</div></div>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-icon p"><i class="ti ti-star"></i></div>
+      <span class="stat-val" id="statLevel">B1</span>
+      <div class="stat-lbl"><span class="ar">مستواك</span><span class="en">Your Level</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon g"><i class="ti ti-trending-up"></i></div>
+      <span class="stat-val" id="statProgress">65%</span>
+      <div class="stat-lbl"><span class="ar">متوسط التقدم</span><span class="en">Avg. Progress</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon j"><i class="ti ti-circle-check"></i></div>
+      <span class="stat-val" id="statDone">1</span>
+      <div class="stat-lbl"><span class="ar">مكتملة</span><span class="en">Completed</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-icon p"><i class="ti ti-books"></i></div>
+      <span class="stat-val" id="statTotal">3</span>
+      <div class="stat-lbl"><span class="ar">دروس مشتراة</span><span class="en">Courses Bought</span></div>
+    </div>
   </div>
 
-  <!-- COURSES TAB -->
-  <div id="tab-courses">
-    <div class="section-hdr"><h2>🎓 دروسي</h2><a class="btn-sm btn-primary" href="index.html"><i class="ti ti-plus"></i> درس جديد</a></div>
-    <div id="coursesList"><div style="text-align:center;padding:2rem;color:var(--ink-3)"><i class="ti ti-loader" style="animation:spin .8s linear infinite;font-size:30px;display:block;margin:0 auto 1rem"></i>جارٍ التحميل...</div></div>
+  <!-- COURSES SECTION -->
+  <div id="sec-courses">
+    <div class="section-title">
+      <span><i class="ti ti-books" style="color:var(--gold);margin-left:6px"></i><span class="ar">دروسي</span><span class="en">My Courses</span></span>
+      <button class="btn-sm" onclick="location.href='../index.html'">
+        <i class="ti ti-plus"></i><span class="ar">درس جديد</span><span class="en">Add Course</span>
+      </button>
+    </div>
+    <div id="coursesList"></div>
   </div>
 
-  <!-- ORDERS TAB -->
-  <div id="tab-orders" class="hidden">
-    <div class="section-hdr"><h2>🧾 طلباتي</h2></div>
-    <div id="ordersList"><div style="text-align:center;padding:2rem;color:var(--ink-3)"><i class="ti ti-loader" style="animation:spin .8s linear infinite;font-size:30px;display:block;margin:0 auto 1rem"></i>جارٍ التحميل...</div></div>
-  </div>
-
-  <!-- CERTS TAB -->
-  <div id="tab-certs" class="hidden">
-    <div class="section-hdr"><h2>🏆 شهاداتي</h2></div>
-    <div style="text-align:center;padding:3rem;color:var(--ink-3)"><i class="ti ti-certificate" style="font-size:48px;display:block;margin:0 auto 1rem;opacity:.3"></i><p style="font-size:14px">أكمل دروسك للحصول على شهادات اجتياز</p></div>
+  <!-- CERTIFICATES SECTION -->
+  <div id="sec-certs" style="display:none">
+    <div class="section-title"><span class="ar">شهاداتي</span><span class="en">My Certificates</span></div>
+    <div id="certsList"></div>
   </div>
 </div>
 
-<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <script>
-const API_BASE='https://api.lingua.sa/v1';
-const auth={getToken:()=>localStorage.getItem('lingua_token'),getUser:()=>JSON.parse(localStorage.getItem('lingua_user')||'null'),isLoggedIn:()=>!!localStorage.getItem('lingua_token'),logout:()=>{localStorage.removeItem('lingua_token');localStorage.removeItem('lingua_user');location.href='auth.html';}};
+function L(){return document.documentElement.getAttribute('data-lang')||'ar';}
+function toggleLang(){
+  var h=document.documentElement,cur=h.getAttribute('data-lang'),next=cur==='ar'?'en':'ar';
+  h.setAttribute('data-lang',next);h.setAttribute('lang',next);h.setAttribute('dir',next==='ar'?'rtl':'ltr');
+  document.getElementById('langBtn').textContent=next==='ar'?'EN':'عربي';
+  renderAll();
+}
 
-// بيانات تجريبية
-const MOCK_ENROLLMENTS=[
-  {id:'e1',product_id:'listen-b1',title:'الاستماع B1 — مواقف حياتية يومية',skill:'listening',lang:'en',level:'B1',progress:65,completed:false},
-  {id:'e2',product_id:'bundle-b1',title:'باقة B1 الكاملة — كل المهارات',skill:'bundle',lang:'en',level:'B1',progress:30,completed:false},
-  {id:'e3',product_id:'audio-b1',title:'قصص صوتية B1',skill:'audio',lang:'en',level:'B1',progress:100,completed:true},
+var user = JSON.parse(localStorage.getItem('lingua_user')||'{"name":"محمد العتيبي","role":"student"}');
+var cart = JSON.parse(localStorage.getItem('lingua_cart')||'[]');
+
+// بيانات الدروس الافتراضية
+var demoCourses = [
+  {id:'en-b1-listening',title_ar:'الاستماع B1 — مواقف حياتية',title_en:'Listening B1 — Real Life',lang:'en',skill:'listening',progress:65,done:false},
+  {id:'en-b1-bundle',title_ar:'باقة B1 الكاملة',title_en:'Complete B1 Bundle',lang:'en',skill:'bundle',progress:30,done:false},
+  {id:'en-b1-audio',title_ar:'قصص صوتية B1',title_en:'Audio Stories B1',lang:'en',skill:'audio',progress:100,done:true}
 ];
-const MOCK_ORDERS=[
-  {id:'ord_001',title:'الاستماع B1 — مواقف حياتية يومية',amount:89,status:'paid',date:'2026-04-15'},
-  {id:'ord_002',title:'باقة B1 الكاملة',amount:249,status:'paid',date:'2026-05-01'},
-  {id:'ord_003',title:'قصص صوتية B1',amount:0,status:'paid',date:'2026-03-20'},
-];
-const imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
-const cmap={en:'#534AB7',tr:'#0B5E46',zh:'#993C1D'};
 
-function logout(){auth.logout();}
-function showTab(name,el){
-  document.querySelectorAll('[id^="tab-"]').forEach(t=>t.classList.add('hidden'));
-  document.getElementById('tab-'+name)?.classList.remove('hidden');
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  if(el)el.classList.add('active');
-}
+var imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
 
-function renderCourses(enrollments){
-  if(!enrollments.length){
-    document.getElementById('coursesList').innerHTML='<div style="text-align:center;padding:3rem;color:var(--ink-3)"><i class="ti ti-books" style="font-size:48px;display:block;margin:0 auto 1rem;opacity:.3"></i><p>لا يوجد دروس بعد — <a href="index.html" style="color:var(--plum)">تصفح المتجر</a></p></div>';
-    return;
-  }
-  document.getElementById('coursesList').innerHTML=enrollments.map(e=>`
-    <div class="enrollment-card">
-      <div class="e-thumb ${e.lang}"><i class="ti ${imap[e.skill]||'ti-book-2'}" style="color:${cmap[e.lang]||'#534AB7'}"></i></div>
-      <div class="e-info">
-        <div class="e-title">${e.title}</div>
-        <div class="e-meta">${e.level} · ${e.lang==='en'?'إنجليزية':e.lang==='tr'?'تركية':'صينية'} ${e.completed?'· <span class="badge badge-jade">✓ مكتمل</span>':''}</div>
-        <div class="progress-wrap"><div class="progress-fill" style="width:${e.progress}%"></div></div>
-        <div class="progress-pct">${e.progress}% مكتمل</div>
-      </div>
-      <div class="e-action">
-        <a class="btn-sm btn-primary" href="product.html?id=${e.product_id}"><i class="ti ti-player-play"></i> ${e.completed?'مراجعة':'استمر'}</a>
-      </div>
-    </div>`).join('');
-}
-
-function renderOrders(orders){
-  if(!orders.length){
-    document.getElementById('ordersList').innerHTML='<div style="text-align:center;padding:2rem;color:var(--ink-3)">لا توجد طلبات بعد</div>';
-    return;
-  }
-  document.getElementById('ordersList').innerHTML=orders.map(o=>`
-    <div class="order-row">
-      <div class="order-icon"><i class="ti ti-receipt"></i></div>
-      <div class="order-info">
-        <div class="order-id">#${o.id.toUpperCase()}</div>
-        <div class="order-title">${o.title}</div>
-        <div class="order-date">${new Date(o.date).toLocaleDateString('ar-SA')}</div>
-      </div>
-      <div style="text-align:left">
-        <div class="order-amount">${o.amount>0?o.amount.toFixed(0)+' ر.س':'مجاني'}</div>
-        <span class="badge badge-jade">مدفوع ✓</span>
-      </div>
-    </div>`).join('');
-}
-
-(async()=>{
-  const user=auth.getUser();
-  const name=user?.name||'الطالب';
-  document.getElementById('pageTitle').textContent='👋 مرحباً، '+name.split(' ')[0]+'!';
-  document.getElementById('userName').textContent=name.split(' ')[0];
-  document.getElementById('userInitial').textContent=name.slice(0,2);
-
-  let enrollments=MOCK_ENROLLMENTS, orders=MOCK_ORDERS;
+function renderAll(){
+  var lang=L();
+  var name=user.name||'محمد';
+  document.getElementById('greetName').textContent=name.split(' ')[0];
+  document.getElementById('userName').textContent=name;
+  document.getElementById('userAvatar').textContent=(name||'م').slice(0,1);
   
-  if(auth.isLoggedIn()){
-    try{const r=await fetch(API_BASE+'/me/enrollments',{headers:{Authorization:'Bearer '+auth.getToken()}});if(r.ok){const d=await r.json();enrollments=d.enrollments||enrollments;}}catch(e){}
-    try{const r=await fetch(API_BASE+'/me/orders',{headers:{Authorization:'Bearer '+auth.getToken()}});if(r.ok){const d=await r.json();orders=d.orders||orders;}}catch(e){}
+  // دروس مشتراة من السلة + demo
+  var courses=[...demoCourses];
+  cart.forEach(function(c){
+    if(!courses.find(function(x){return x.id===c.id;})){
+      courses.push({id:c.id,title_ar:c.title,title_en:c.title,lang:c.lang||'en',skill:c.skill||'bundle',progress:0,done:false});
+    }
+  });
+  
+  document.getElementById('statTotal').textContent=courses.length;
+  var done=courses.filter(function(c){return c.done;}).length;
+  document.getElementById('statDone').textContent=done;
+  var avgP=courses.length?Math.round(courses.reduce(function(s,c){return s+c.progress;},0)/courses.length):0;
+  document.getElementById('statProgress').textContent=avgP+'%';
+  
+  if(!courses.length){
+    document.getElementById('coursesList').innerHTML='<div class="empty-state"><i class="ti ti-books"></i><p>'+(lang==='ar'?'لا توجد دروس بعد — ابدأ بشراء درسك الأول!':'No courses yet — buy your first course!')+' </p><a class="btn-browse" href="../index.html"><i class="ti ti-shopping-bag"></i>'+(lang==='ar'?'تصفح الدروس':'Browse Courses')+'</a></div>';
+    return;
   }
+  
+  document.getElementById('coursesList').innerHTML=courses.map(function(c){
+    var title=lang==='ar'?c.title_ar:c.title_en;
+    var ico=imap[c.skill]||'ti-book-2';
+    var langLabel={en:'English 🇬🇧',tr:'Turkish 🇹🇷',zh:'Chinese 🇨🇳'}[c.lang]||c.lang;
+    var progressColor=c.done?'done':'';
+    var doneBadge=c.done?'<span class="badge-done">'+(lang==='ar'?'✓ مكتمل':'✓ Done')+'</span>':'';
+    var btn=c.done
+      ?'<button class="btn-continue" style="background:var(--jade)" onclick="reviewCourse(''+c.id+'')"><i class="ti ti-rotate"></i>'+(lang==='ar'?'مراجعة':'Review')+'</button>'
+      :'<button class="btn-continue" onclick="openCourse(''+c.id+'')"><i class="ti ti-player-play"></i>'+(lang==='ar'?'استمر':'Continue')+'</button>';
+    return '<div class="course-card">'
+      +'<div class="course-icon '+c.lang+'"><i class="ti '+ico+'"></i></div>'
+      +'<div class="course-info">'
+      +'<div class="course-name">'+title+' '+doneBadge+'</div>'
+      +'<div class="course-meta"><span>'+langLabel+'</span></div>'
+      +'<div class="progress-bar"><div class="progress-fill '+progressColor+'" style="width:'+c.progress+'%"></div></div>'
+      +'<div class="course-pct">'+c.progress+'% '+(lang==='ar'?'مكتمل':'complete')+'</div>'
+      +'</div>'+btn+'</div>';
+  }).join('');
+  
+  // Certs
+  var doneCourses=courses.filter(function(c){return c.done;});
+  if(!doneCourses.length){
+    document.getElementById('certsList').innerHTML='<div class="empty-state"><i class="ti ti-certificate"></i><p>'+(lang==='ar'?'أكمل درساً للحصول على شهادة':'Complete a course to earn a certificate')+'</p></div>';
+  } else {
+    document.getElementById('certsList').innerHTML=doneCourses.map(function(c){
+      var title=lang==='ar'?c.title_ar:c.title_en;
+      return '<div class="cert-card"><div class="cert-icon"><i class="ti ti-certificate"></i></div><div><div class="cert-name">'+title+'</div><div class="cert-sub">'+(lang==='ar'?'تم الإتمام بنجاح':'Completed Successfully')+'</div></div><button class="cert-btn">'+(lang==='ar'?'تحميل':'Download')+'</button></div>';
+    }).join('');
+  }
+}
 
-  const completed=enrollments.filter(e=>e.completed||e.progress===100).length;
-  const avgProgress=enrollments.length?Math.round(enrollments.reduce((s,e)=>s+(e.progress||0),0)/enrollments.length):0;
-  document.getElementById('statCourses').textContent=enrollments.length;
-  document.getElementById('statCompleted').textContent=completed;
-  document.getElementById('statProgress').textContent=avgProgress+'%';
+function showSection(name,btn){
+  document.querySelectorAll('.main>[id^="sec-"]').forEach(function(s){s.style.display='none';});
+  document.getElementById('sec-'+name).style.display='block';
+  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+}
+function openCourse(id){location.href='product.html?id='+id;}
+function reviewCourse(id){location.href='product.html?id='+id;}
+function logout(){localStorage.removeItem('lingua_token');localStorage.removeItem('lingua_user');location.href='auth.html';}
 
-  renderCourses(enrollments);
-  renderOrders(orders);
-})();
-</script></body></html>
+// تحقق من الجلسة
+if(!localStorage.getItem('lingua_token')){location.href='auth.html';}
+renderAll();
+</script>
+</body>
+</html>
