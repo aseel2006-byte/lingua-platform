@@ -1,53 +1,67 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"><head>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>تم الدفع — Lingua</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
-:root{--plum:#1E1648;--gold:#C4983A;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--border:#E5E2F0;--r-lg:16px;--r-xl:22px;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}
+:root{--plum:#1E1648;--gold:#C4983A;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--border:#E5E2F0;--r-lg:16px;--r-xl:22px;--ink-2:#3A3852;--ink-3:#8886A0;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}
+[data-lang="en"]{direction:ltr;font-family:'IBM Plex Sans',sans-serif}
+.ar{display:block}.en{display:none}[data-lang="en"] .ar{display:none}[data-lang="en"] .en{display:block}
+span.ar,span.en{display:inline}[data-lang="en"] span.ar{display:none}[data-lang="ar"] span.en{display:none}
 .card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:3rem 2.5rem;text-align:center;max-width:520px;width:100%;box-shadow:0 8px 40px rgba(30,22,72,.1);}
 .check-circle{width:90px;height:90px;background:var(--jade-l);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;}
 .check-circle i{font-size:44px;color:var(--jade);}
 h1{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--plum);margin-bottom:.75rem;}
-.sub{font-size:14px;color:#8886A0;line-height:1.7;margin-bottom:2rem;}
+.sub{font-size:14px;color:var(--ink-3);line-height:1.7;margin-bottom:2rem;}
 .order-box{background:var(--sand);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1.5rem;text-align:right;}
+[data-lang="en"] .order-box{text-align:left}
 .order-label{font-size:12px;font-weight:700;color:var(--plum);margin-bottom:10px;display:flex;align-items:center;gap:6px;}.order-label i{color:var(--gold);}
-.order-item{font-size:13px;color:#3A3852;padding:7px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}.order-item:last-child{border-bottom:none;}.order-item i{color:var(--jade);}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 24px;border:none;border-radius:var(--r-lg);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;margin-bottom:10px;}.btn:hover{opacity:.88;}
-.btn-gold{background:var(--gold);color:var(--plum);}.btn-ghost{background:transparent;border:1px solid var(--border);color:#3A3852;}
+.order-item{font-size:13px;color:var(--ink-2);padding:7px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}.order-item:last-child{border-bottom:none;}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 24px;border:none;border-radius:var(--r-lg);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;margin-bottom:10px;text-decoration:none;}.btn:hover{opacity:.88;}
+.btn-gold{background:var(--gold);color:var(--plum);}.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--ink-2);}
 .badges{display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;}
-.trust-badge{display:flex;align-items:center;gap:5px;font-size:12px;color:#8886A0;}.trust-badge i{font-size:14px;color:var(--jade);}
+.trust-badge{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--ink-3);}.trust-badge i{font-size:14px;color:var(--jade);}
+.lang-btn{position:fixed;top:1rem;background:rgba(30,22,72,.1);border:1px solid rgba(30,22,72,.15);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--plum);cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+[data-lang="ar"] .lang-btn{left:1rem}[data-lang="en"] .lang-btn{right:1rem}
 </style>
-</head><body>
+</head>
+<body>
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
 <div class="card">
   <div class="check-circle"><i class="ti ti-check"></i></div>
-  <h1>🎉 تم الدفع بنجاح!</h1>
-  <p class="sub" id="mainSub">شكراً لثقتك بـ Lingua — سيصلك رابط الدرس فوراً عبر البريد الإلكتروني.</p>
+  <h1 class="ar">🎉 تم الدفع بنجاح!</h1>
+  <h1 class="en">🎉 Payment Successful!</h1>
+  <p class="sub ar">شكراً لثقتك بـ Lingua — سيصلك رابط الدرس فوراً عبر البريد الإلكتروني والواتساب.</p>
+  <p class="sub en">Thank you for trusting Lingua — your course link will be sent immediately via email and WhatsApp.</p>
   <div class="order-box" id="orderBox">
-    <div class="order-label"><i class="ti ti-shopping-bag"></i> الدروس المشتراة</div>
-    <div id="orderItems"></div>
+    <div class="order-label"><i class="ti ti-shopping-bag"></i><span class="ar">الدروس المشتراة</span><span class="en">Purchased Courses</span></div>
+    <div id="orderItems"><div style="color:var(--ink-3);font-size:13px;text-align:center;padding:.5rem"><span class="ar">لا توجد عناصر</span><span class="en">No items</span></div></div>
   </div>
-  <button class="btn btn-gold" onclick="location.href='dashboard.html'"><i class="ti ti-books"></i> ابدأ التعلّم الآن</button>
-  <button class="btn btn-ghost" onclick="location.href='index.html'"><i class="ti ti-shopping-bag"></i> تصفح المزيد</button>
+  <button class="btn btn-gold" onclick="location.href='dashboard.html'">
+    <i class="ti ti-books"></i>
+    <span class="ar">ابدأ التعلّم الآن</span><span class="en">Start Learning Now</span>
+  </button>
+  <button class="btn btn-ghost" onclick="location.href='../index.html'">
+    <i class="ti ti-shopping-bag"></i>
+    <span class="ar">تصفح المزيد</span><span class="en">Browse More Courses</span>
+  </button>
   <div class="badges">
-    <div class="trust-badge"><i class="ti ti-shield-check"></i> دفع آمن</div>
-    <div class="trust-badge"><i class="ti ti-infinity"></i> وصول مدى الحياة</div>
-    <div class="trust-badge"><i class="ti ti-mail"></i> رابط فوري</div>
+    <div class="trust-badge"><i class="ti ti-shield-check"></i><span class="ar">دفع آمن</span><span class="en">Secure Payment</span></div>
+    <div class="trust-badge"><i class="ti ti-infinity"></i><span class="ar">وصول مدى الحياة</span><span class="en">Lifetime Access</span></div>
+    <div class="trust-badge"><i class="ti ti-mail"></i><span class="ar">رابط فوري</span><span class="en">Instant Link</span></div>
   </div>
 </div>
 <script>
-// عرض آخر طلب من localStorage
-const cart = JSON.parse(localStorage.getItem('lingua_cart')||'[]');
+function toggleLang(){var h=document.documentElement,cur=h.getAttribute('data-lang'),next=cur==='ar'?'en':'ar';h.setAttribute('data-lang',next);h.setAttribute('lang',next);h.setAttribute('dir',next==='ar'?'rtl':'ltr');document.getElementById('langBtn').textContent=next==='ar'?'EN':'عربي';}
+var cart=JSON.parse(localStorage.getItem('lingua_cart')||'[]');
 if(cart.length){
-  document.getElementById('orderItems').innerHTML = cart.map(p=>
-    '<div class="order-item"><span>'+p.title+'</span><span style="font-weight:700;color:var(--plum)">'+Number(p.price).toFixed(0)+' ر.س</span></div>'
-  ).join('');
-} else {
-  document.getElementById('orderBox').style.display='none';
+  document.getElementById('orderItems').innerHTML=cart.map(function(p){return '<div class="order-item"><span>'+p.title+'</span><span style="font-weight:700;color:var(--plum);font-family:'IBM Plex Sans',sans-serif">'+(p.price===0?'Free':p.price+' SAR')+'</span></div>';}).join('');
 }
-// مسح السلة
 localStorage.removeItem('lingua_cart');
 </script>
-</body></html>
+</body>
+</html>
