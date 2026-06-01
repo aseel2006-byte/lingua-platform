@@ -1,528 +1,461 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lingua â ÙØ¹ÙØ¯ Ø§ÙÙØºØ§Øª Ø§ÙØ£ÙØ§Ø¯ÙÙÙ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-  <style>
-    :root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--gold-m:#E8C96A;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--sand-d:#F0EDE6;--white:#FFFFFF;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--border-d:#D0CCEC;--r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:22px;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:'IBM Plex Sans Arabic','Segoe UI',Arial,sans-serif;background:var(--sand);color:var(--ink);line-height:1.6;min-height:100vh}
-    a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit}img{max-width:100%;display:block}
-    .container{max-width:1180px;margin:0 auto;padding:0 2rem}
-    .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:var(--r-md);font-size:13px;font-weight:600;letter-spacing:.03em;transition:opacity .15s,transform .1s;border:none}
-    .btn:active{transform:scale(.98)}.btn-primary{background:var(--plum);color:var(--white)}.btn-primary:hover{opacity:.88}
-    .btn-gold{background:var(--gold);color:var(--plum)}.btn-gold:hover{opacity:.88}
-    .btn-ghost{background:transparent;color:var(--ink-2);border:1px solid var(--border-d)}.btn-ghost:hover{background:var(--sand-d)}
-    .btn-jade{background:var(--jade);color:var(--white)}.btn-sm{padding:6px 13px;font-size:12px}
-    .nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;height:64px;display:flex;align-items:center}
-    .nav .container{display:flex;align-items:center;justify-content:space-between;width:100%}
-    .nav-logo{display:flex;align-items:center;gap:10px}
-    .logo-mark{width:38px;height:38px;background:var(--plum);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .logo-mark i{font-size:20px;color:var(--white)}
-    .logo-text .word{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--plum);display:block;line-height:1.1}
-    .logo-text .sub{font-size:10px;color:var(--gold);letter-spacing:.1em;font-weight:500}
-    .nav-links{display:flex;align-items:center;gap:2rem}
-    .nav-links a{font-size:14px;color:var(--ink-2);transition:color .15s;font-weight:500}
-    .nav-links a:hover{color:var(--plum)}.nav-links a.active{color:var(--plum);border-bottom:2px solid var(--plum);padding-bottom:2px}
-    .nav-ctas{display:flex;gap:8px;align-items:center}
-    .cart-btn{position:relative;background:transparent;border:1px solid var(--border-d);border-radius:var(--r-md);padding:8px 12px;color:var(--ink-2);font-size:15px;display:flex;align-items:center}
-    .cart-count{position:absolute;top:-6px;left:-6px;background:var(--gold);color:var(--plum);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-    .hero{background:var(--plum);padding:5rem 0 4rem;position:relative;overflow:hidden}
-    .hero-deco{position:absolute;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
-    .hero-deco-1{width:420px;height:420px;top:-120px;left:-100px}.hero-deco-2{width:280px;height:280px;bottom:-80px;right:-40px}.hero-deco-3{width:150px;height:150px;top:40%;left:30%}
-    .hero .container{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:center;position:relative;z-index:2}
-    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:5px 14px;margin-bottom:1.5rem}
-    .hero-eyebrow span{font-size:12px;color:#CECBF6;letter-spacing:.08em;font-weight:500}.hero-eyebrow i{font-size:14px;color:var(--gold-m)}
-    .hero-title{font-family:'Playfair Display',serif;font-size:46px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:1.2rem}
-    .hero-title em{color:var(--gold-m);font-style:normal}
-    .hero-desc{font-size:15px;color:#CECBF6;line-height:1.85;margin-bottom:2rem;max-width:520px}
-    .hero-actions{display:flex;gap:12px;align-items:center;margin-bottom:3rem}.hero-actions .btn{font-size:14px;padding:12px 26px}
-    .hero-link{font-size:13px;color:#AFA9EC;display:flex;align-items:center;gap:5px}.hero-link:hover{color:var(--white)}
-    .hero-stats{display:flex;gap:0;border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);overflow:hidden}
-    .hero-stat{flex:1;padding:1rem;text-align:center;border-left:1px solid rgba(255,255,255,.1)}.hero-stat:last-child{border-left:none}
-    .hero-stat-val{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);display:block}
-    .hero-stat-lbl{font-size:11px;color:#AFA9EC;letter-spacing:.04em}
-    .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-xl);padding:1.5rem}
-    .hero-card-label{font-size:11px;color:var(--gold-m);letter-spacing:.1em;font-weight:600;margin-bottom:1rem}
-    .lang-option{display:flex;align-items:center;gap:12px;padding:12px;border-radius:var(--r-md);background:rgba(255,255,255,.06);margin-bottom:8px;border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:background .15s}
-    .lang-option:hover{background:rgba(255,255,255,.12)}.lang-option.active{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25)}
-    .lang-flag{font-size:24px;flex-shrink:0}.lang-info{flex:1}
-    .lang-name{font-size:14px;font-weight:600;color:var(--white);display:block}.lang-levels{font-size:11px;color:#AFA9EC}
-    .lang-progress-wrap{width:60px}.lang-progress-bar{height:4px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden;margin-bottom:3px}
-    .lang-progress-fill{height:100%;background:var(--gold-m);border-radius:2px}.lang-pct{font-size:10px;color:#AFA9EC;text-align:center;display:block}
-    .hero-card-cta{margin-top:1.2rem;padding:10px;background:var(--gold);border-radius:var(--r-md);text-align:center;font-size:13px;font-weight:700;color:var(--plum);letter-spacing:.04em;cursor:pointer;transition:opacity .15s}
-    .hero-card-cta:hover{opacity:.88}
-    .trust-strip{background:var(--white);border-bottom:1px solid var(--border);padding:.9rem 0}
-    .trust-strip .container{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
-    .trust-item{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-2);font-weight:500}.trust-item i{font-size:16px;color:var(--gold)}
-    .trust-sep{width:1px;height:18px;background:var(--border)}
-    .main{padding:3rem 0 4rem}.main .container{display:grid;grid-template-columns:260px 1fr;gap:2.5rem;align-items:start}
-    .sidebar{position:sticky;top:80px}
-    .sidebar-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1rem}
-    .sidebar-title{font-size:13px;font-weight:600;color:var(--plum);margin-bottom:12px;display:flex;align-items:center;gap:7px}.sidebar-title i{font-size:15px;color:var(--gold)}
-    .lang-filter-btn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--sand);font-size:13px;color:var(--ink-2);margin-bottom:6px;font-weight:500;transition:background .12s,border-color .12s}
-    .lang-filter-btn:hover{background:var(--plum-l);border-color:#AFA9EC}.lang-filter-btn.active{background:var(--plum-l);border-color:#534AB7;color:var(--plum)}
-    .lang-filter-btn .flag-sm{font-size:18px}.lang-filter-btn .count{margin-right:auto;font-size:10px;background:var(--plum);color:var(--white);padding:2px 7px;border-radius:10px;font-weight:600}
-    .level-filter{display:flex;flex-direction:column;gap:5px}
-    .lvl-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--sand);font-size:12px;color:var(--ink-3);font-weight:500;transition:.12s}
-    .lvl-btn .lvl-code{font-weight:700;font-size:13px;min-width:30px}.lvl-btn .lvl-name{flex:1}.lvl-btn .lvl-check{font-size:13px;color:var(--jade)}
-    .lvl-btn.done{background:var(--jade-l);border-color:#9FE1CB;color:var(--jade)}.lvl-btn.active{background:var(--plum);border-color:var(--plum);color:var(--white)}.lvl-btn.active .lvl-code{color:var(--gold-m)}
-    .skill-filter{display:flex;flex-direction:column;gap:5px}
-    .skill-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--sand);font-size:13px;color:var(--ink-2);font-weight:500;transition:.12s}
-    .skill-btn i{font-size:15px;color:var(--ink-3)}.skill-btn:hover{background:var(--plum-l);border-color:#AFA9EC}.skill-btn.active{background:var(--plum-l);border-color:#534AB7;color:var(--plum)}.skill-btn.active i{color:var(--plum-m)}
-    .price-filter{display:flex;flex-direction:column;gap:8px}.price-range-wrap{padding:4px 0}
-    .price-range-wrap input[type="range"]{width:100%;accent-color:var(--plum)}.price-display{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3)}
-    .featured-banner{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;display:flex;margin-bottom:2rem}
-    .featured-accent{width:6px;background:var(--gold);flex-shrink:0}.featured-body{padding:1.75rem;flex:1}
-    .featured-badge{display:inline-flex;align-items:center;gap:5px;background:var(--gold-l);color:var(--gold);border:1px solid #E8C96A;border-radius:5px;padding:4px 11px;font-size:11px;font-weight:700;letter-spacing:.07em;margin-bottom:12px}.featured-badge i{font-size:13px}
-    .featured-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--plum);margin-bottom:8px}
-    .featured-desc{font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:1.2rem}
-    .skills-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem}
-    .skill-chip{display:flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;border:1px solid var(--border);font-size:12px;color:var(--ink-2);background:var(--sand)}.skill-chip i{font-size:13px;color:var(--plum-m)}
-    .featured-footer{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
-    .featured-price{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--plum)}.featured-price del{font-size:14px;color:var(--ink-3);font-family:inherit;font-weight:400;margin-left:8px}
-    .save-badge{font-size:12px;color:var(--jade);background:var(--jade-l);padding:3px 9px;border-radius:5px;font-weight:600}
-    .toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
-    .toolbar-count{font-size:14px;color:var(--ink-3)}.toolbar-count strong{color:var(--plum);font-weight:700}
-    .toolbar-sort{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2)}
-    .toolbar-sort select{padding:6px 10px;border:1px solid var(--border-d);border-radius:var(--r-sm);background:var(--white);font-size:13px;color:var(--ink);font-family:inherit;outline:none}
-    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-bottom:2.5rem}
-    .pcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:border-color .15s,transform .15s}
-    .pcard:hover{border-color:var(--plum-m);transform:translateY(-2px)}.pcard.featured-border{border:2px solid var(--plum)}
-    .pcard-thumb{height:110px;display:flex;align-items:center;justify-content:center;position:relative}
-    .pcard-thumb.en{background:var(--plum-l)}.pcard-thumb.tr{background:var(--jade-l)}.pcard-thumb.zh{background:#FAECE7}
-    .pcard-thumb i{font-size:36px}.pcard-thumb .en-icon{color:#534AB7}.pcard-thumb .tr-icon{color:var(--jade)}.pcard-thumb .zh-icon{color:#993C1D}
-    .pcard-badge{position:absolute;top:8px;right:8px;font-size:10px;font-weight:700;padding:3px 9px;border-radius:5px;letter-spacing:.04em}
-    .badge-hot{background:var(--plum);color:var(--white)}.badge-new{background:var(--gold);color:var(--plum)}.badge-free{background:var(--jade-l);color:var(--jade);border:1px solid #9FE1CB}
-    .pcard-body{padding:13px 14px;flex:1;display:flex;flex-direction:column}
-    .pcard-title{font-size:13px;font-weight:600;color:var(--plum);margin-bottom:5px;line-height:1.4}
-    .pcard-meta{font-size:11px;color:var(--ink-3);margin-bottom:9px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-    .meta-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-3);display:inline-block}
-    .pcard-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}.pcard-tag{font-size:10px;padding:2px 7px;border-radius:4px;background:var(--sand);color:var(--ink-2);border:1px solid var(--border)}
-    .pcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
-    .pcard-price{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--plum)}.pcard-price del{font-size:11px;color:var(--ink-3);font-family:inherit;font-weight:400;margin-left:4px}
-    .pcard-price.free-price{color:var(--jade)}.pcard-stars{display:flex;align-items:center;gap:2px;font-size:11px;color:var(--gold)}
-    .pagination{display:flex;justify-content:center;gap:6px;margin-top:1.5rem}
-    .page-btn{width:36px;height:36px;border-radius:var(--r-md);border:1px solid var(--border-d);background:var(--white);font-size:13px;color:var(--ink-2);display:flex;align-items:center;justify-content:center;font-weight:500}
-    .page-btn.active{background:var(--plum);color:var(--white);border-color:var(--plum)}.page-btn:hover:not(.active){background:var(--plum-l)}
-    .reviews-section{padding:3rem 0;background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-    .reviews-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--plum);margin-bottom:2rem}
-    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-    .rcard{background:var(--sand);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem}
-    .rcard-stars{display:flex;gap:2px;margin-bottom:10px;color:var(--gold);font-size:14px}
-    .rcard-text{font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:14px}.rcard-author{font-size:12px;font-weight:700;color:var(--plum)}.rcard-level{font-size:11px;color:var(--ink-3)}
-    .faq-section{padding:3rem 0}.faq-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--plum);margin-bottom:1.5rem}
-    .faq-list{display:flex;flex-direction:column;gap:8px}
-    .faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
-    .faq-q{display:flex;align-items:center;gap:10px;padding:1rem 1.25rem;cursor:pointer;font-size:15px;font-weight:600;color:var(--plum);user-select:none}
-    .faq-q i.faq-icon{font-size:16px;color:var(--gold);flex-shrink:0}.faq-q i.faq-arrow{margin-right:auto;font-size:15px;color:var(--ink-3);transition:transform .2s}
-    .faq-item.open .faq-arrow{transform:rotate(180deg)}
-    .faq-a{padding:0 1.25rem;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;font-size:14px;color:var(--ink-2);line-height:1.75}
-    .faq-item.open .faq-a{max-height:200px;padding:0 1.25rem 1rem}
-    .cta-section{padding:3rem 0;background:var(--sand-d)}
-    .cta-block{background:var(--plum);border-radius:var(--r-xl);padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-    .cta-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);margin-bottom:8px}.cta-sub{font-size:14px;color:#CECBF6}
-    .cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.cta-actions .btn{font-size:15px;padding:13px 30px}
-    .cta-badges{display:flex;gap:1.2rem;flex-wrap:wrap}.cta-badge{display:flex;align-items:center;gap:5px;font-size:12px;color:#AFA9EC}.cta-badge i{font-size:14px;color:var(--gold-m)}
-    footer{background:var(--white);border-top:1px solid var(--border);padding:2rem 0}
-    footer .container{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-    .footer-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum)}.footer-logo span{font-size:12px;color:var(--gold);display:block;font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:500;letter-spacing:.05em}
-    .footer-links{display:flex;gap:1.5rem}.footer-links a{font-size:13px;color:var(--ink-3);transition:color .12s}.footer-links a:hover{color:var(--plum)}.footer-note{font-size:12px;color:var(--ink-3)}
-    .toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--plum);color:var(--white);padding:12px 22px;border-radius:30px;font-size:14px;font-weight:500;z-index:999;transition:transform .3s cubic-bezier(.22,.68,0,1.2);display:flex;align-items:center;gap:8px}
-    .toast.show{transform:translateX(-50%) translateY(0)}
-    .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:200;opacity:0;pointer-events:none;transition:opacity .2s}.cart-overlay.open{opacity:1;pointer-events:all}
-    .cart-drawer{position:fixed;top:0;left:0;bottom:0;width:380px;background:var(--white);z-index:201;transform:translateX(-100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;border-right:1px solid var(--border)}
-    .cart-overlay.open .cart-drawer{transform:translateX(0)}
-    .cart-head{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}.cart-head h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum)}
-    .cart-close{background:none;border:none;font-size:20px;color:var(--ink-3);cursor:pointer}.cart-body{flex:1;overflow-y:auto;padding:1rem 1.5rem}
-    .cart-empty{text-align:center;padding:3rem 1rem;color:var(--ink-3);font-size:14px}.cart-empty i{font-size:40px;display:block;margin-bottom:1rem}
-    .cart-item{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
-    .cart-item-icon{width:44px;height:44px;border-radius:var(--r-md);background:var(--plum-l);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--plum-m);flex-shrink:0}
-    .cart-item-info{flex:1}.cart-item-title{font-size:13px;font-weight:600;color:var(--plum)}.cart-item-meta{font-size:11px;color:var(--ink-3)}
-    .cart-item-price{font-size:14px;font-weight:700;color:var(--plum);white-space:nowrap}.cart-item-remove{font-size:15px;color:var(--ink-3);background:none;border:none;cursor:pointer}.cart-item-remove:hover{color:#E24B4A}
-    .cart-foot{padding:1.25rem 1.5rem;border-top:1px solid var(--border)}
-    .cart-total{display:flex;justify-content:space-between;font-size:16px;font-weight:700;color:var(--plum);margin-bottom:1rem}
-    .cart-checkout{width:100%;padding:13px;background:var(--gold);color:var(--plum);border:none;border-radius:var(--r-md);font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.04em}
-    .eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-    .eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--gold);flex-shrink:0}
-    .eyebrow span{font-size:11px;letter-spacing:.12em;font-weight:600;color:var(--gold);text-transform:uppercase}
-    @media(max-width:900px){.hero .container{grid-template-columns:1fr}.hero-card{display:none}.main .container{grid-template-columns:1fr}.sidebar{position:static}}
-    @media(max-width:640px){.nav-links{display:none}.hero-title{font-size:32px}.reviews-grid{grid-template-columns:1fr}.cta-block{flex-direction:column}}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lingua — معهد اللغات الأكاديمي</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--gold-m:#E8C96A;--jade:#0B5E46;--jade-l:#E0F5EE;--red:#993C1D;--red-l:#FAECE7;--sand:#F9F7F3;--sand-d:#F0EDE6;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:22px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh}
+[data-lang="en"]{direction:ltr}[data-lang="en"] body{font-family:'IBM Plex Sans',sans-serif}
+a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.ar{display:block}.en{display:none}[data-lang="en"] .ar{display:none}[data-lang="en"] .en{display:block}
+span.ar,span.en,small.ar,small.en{display:inline}
+[data-lang="en"] span.ar,[data-lang="en"] small.ar{display:none}[data-lang="ar"] span.en,[data-lang="ar"] small.en{display:none}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:var(--r-md);font-size:13px;font-weight:600;border:none;transition:.15s;white-space:nowrap;cursor:pointer;font-family:inherit}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--plum);color:#fff}.btn-primary:hover{background:var(--plum-m)}
+.btn-gold{background:var(--gold);color:var(--plum)}.btn-gold:hover{opacity:.88}
+.btn-ghost{background:transparent;color:var(--ink-2);border:1px solid var(--border)}.btn-ghost:hover{background:var(--sand-d)}
+.btn-jade{background:var(--jade);color:#fff}.btn-sm{padding:6px 12px;font-size:12px}.btn-lg{padding:12px 26px;font-size:15px}
+.nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;height:64px;display:flex;align-items:center}
+.nav-inner{display:flex;align-items:center;gap:1rem;width:100%}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none}
+.logo-mk{width:36px;height:36px;background:var(--plum);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center}
+.logo-mk i{font-size:19px;color:#fff}
+.logo-word{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--plum);display:block;line-height:1.1}
+.logo-sub{font-size:9px;color:var(--gold);letter-spacing:.08em;font-weight:600}
+.nav-links{display:flex;align-items:center;gap:1.75rem;margin:0 auto}
+.nav-links a{font-size:14px;color:var(--ink-2);font-weight:500;transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:var(--plum)}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.lang-btn{background:var(--plum-l);border:1px solid var(--border);border-radius:var(--r-sm);padding:5px 12px;font-size:12px;font-weight:700;color:var(--plum);cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+.lang-btn:hover{background:var(--plum);color:#fff}
+.cart-btn{position:relative;background:transparent;border:1px solid var(--border);border-radius:var(--r-md);padding:8px 12px;font-size:16px;color:var(--ink-2);display:flex;align-items:center;transition:.15s}
+.cart-btn:hover{background:var(--plum-l)}
+.cart-count{position:absolute;top:-7px;background:var(--gold);color:var(--plum);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Sans',sans-serif}
+[data-lang="ar"] .cart-count{left:-7px}[data-lang="en"] .cart-count{right:-7px}
+@media(max-width:768px){.nav-links{display:none}}
+.hero{background:var(--plum);padding:5rem 0 4rem;position:relative;overflow:hidden}
+.hero-deco{position:absolute;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.hero-deco-1{width:500px;height:500px;top:-150px;left:-120px}
+.hero-deco-2{width:300px;height:300px;bottom:-80px;right:-60px}
+.hero .container{display:grid;grid-template-columns:1fr 360px;gap:3rem;align-items:center;position:relative;z-index:2}
+@media(max-width:900px){.hero .container{grid-template-columns:1fr}.hcard-wrap{display:none}}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:5px 15px;margin-bottom:1.5rem;font-size:12px;color:#CECBF6}
+.hero-eyebrow i{color:var(--gold-m)}
+.hero-title{font-family:'Playfair Display',serif;font-size:46px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:1.2rem}
+.hero-title em{color:var(--gold-m);font-style:normal}
+.hero-desc{font-size:15px;color:#CECBF6;line-height:1.85;margin-bottom:2rem}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:3rem}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);overflow:hidden}
+.hstat{padding:.9rem;text-align:center;border-left:1px solid rgba(255,255,255,.1)}
+.hstat:last-child{border-left:none}
+[data-lang="en"] .hstat{border-left:none;border-right:1px solid rgba(255,255,255,.1)}
+[data-lang="en"] .hstat:last-child{border-right:none}
+.hstat-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#fff;display:block}
+.hstat-lbl{font-size:11px;color:#AFA9EC}
+.hcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-xl);padding:1.5rem}
+.hcard-lbl{font-size:11px;color:var(--gold-m);letter-spacing:.1em;font-weight:600;margin-bottom:1rem}
+.lang-opt{display:flex;align-items:center;gap:12px;padding:11px;border-radius:var(--r-md);background:rgba(255,255,255,.06);margin-bottom:8px;border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:.15s}
+.lang-opt:hover,.lang-opt.active{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25)}
+.opt-name{font-size:14px;font-weight:600;color:#fff;display:block}
+.opt-sub{font-size:11px;color:#AFA9EC}
+.pbar{height:4px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden;margin-top:3px;width:55px}
+.pbar-fill{height:100%;background:var(--gold-m);border-radius:2px}
+.hcard-cta{margin-top:1.2rem;padding:11px;background:var(--gold);border-radius:var(--r-md);text-align:center;font-size:13px;font-weight:700;color:var(--plum);cursor:pointer;transition:.15s}
+.hcard-cta:hover{opacity:.88}
+.trust-strip{background:#fff;border-bottom:1px solid var(--border);padding:.85rem 0}
+.trust-strip .container{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2);font-weight:500}
+.trust-item i{font-size:15px;color:var(--gold)}
+.tsep{width:1px;height:16px;background:var(--border)}
+.store-section{padding:3rem 0 4rem}
+.store-grid{display:grid;grid-template-columns:256px 1fr;gap:2rem;align-items:start}
+@media(max-width:900px){.store-grid{grid-template-columns:1fr}.sidebar{display:none}}
+.sidebar{position:sticky;top:80px}
+.sb-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1rem}
+.sb-title{font-size:13px;font-weight:700;color:var(--plum);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.sb-title i{font-size:14px;color:var(--gold)}
+.lfbtn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--sand);font-size:13px;color:var(--ink-2);margin-bottom:6px;font-weight:500;transition:.12s;text-align:inherit}
+.lfbtn:hover,.lfbtn.active{background:var(--plum-l);border-color:#AFA9EC;color:var(--plum)}
+.lfcnt{font-size:10px;background:var(--plum);color:#fff;padding:2px 7px;border-radius:10px;font-weight:700}
+[data-lang="ar"] .lfcnt{margin-right:auto}[data-lang="en"] .lfcnt{margin-left:auto}
+.lvl-list{display:flex;flex-direction:column;gap:5px}
+.lvl-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--sand);font-size:12px;color:var(--ink-3);font-weight:500;transition:.12s;width:100%;text-align:inherit}
+.lvl-code{font-weight:700;font-size:13px;min-width:28px;font-family:'IBM Plex Sans',sans-serif}
+.lvl-name{flex:1}
+.lvl-btn:hover,.lvl-btn.active{background:var(--plum);border-color:var(--plum);color:#fff}
+.lvl-btn.active .lvl-code{color:var(--gold-m)}
+.skill-list{display:flex;flex-direction:column;gap:5px}
+.skill-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--sand);font-size:13px;color:var(--ink-2);font-weight:500;transition:.12s;width:100%;text-align:inherit}
+.skill-btn i{font-size:15px;color:var(--ink-3)}
+.skill-btn:hover,.skill-btn.active{background:var(--plum-l);border-color:#AFA9EC;color:var(--plum)}
+.skill-btn.active i{color:var(--plum-m)}
+.feat-banner{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;display:flex;margin-bottom:2rem}
+.feat-accent{width:6px;background:var(--gold);flex-shrink:0}
+.feat-body{padding:1.75rem;flex:1}
+.feat-badge{display:inline-flex;align-items:center;gap:5px;background:var(--gold-l);color:var(--gold);border:1px solid var(--gold-m);border-radius:5px;padding:4px 11px;font-size:11px;font-weight:700;letter-spacing:.07em;margin-bottom:12px}
+.feat-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--plum);margin-bottom:8px}
+.feat-desc{font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:1.2rem}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem}
+.chip{display:flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;border:1px solid var(--border);font-size:12px;color:var(--ink-2);background:var(--sand)}
+.chip i{font-size:13px;color:var(--plum-m)}
+.feat-foot{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.feat-price{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--plum)}
+.feat-price del{font-size:15px;color:var(--ink-3);font-weight:400;margin-left:8px;font-family:inherit}
+.save-tag{font-size:12px;color:var(--jade);background:var(--jade-l);padding:3px 10px;border-radius:5px;font-weight:600}
+.toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.5rem}
+.toolbar-count{font-size:14px;color:var(--ink-3)}
+.toolbar-count strong{color:var(--plum);font-weight:700}
+#sortSel{padding:7px 10px;border:1px solid var(--border);border-radius:var(--r-sm);background:#fff;font-size:13px;color:var(--ink);font-family:inherit;outline:none}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:14px;margin-bottom:2rem}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:.15s}
+.pcard:hover{border-color:var(--plum-m);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,22,72,.09)}
+.pthumb{height:108px;display:flex;align-items:center;justify-content:center;position:relative}
+.pthumb.en{background:var(--plum-l)}.pthumb.tr{background:var(--jade-l)}.pthumb.zh{background:var(--red-l)}
+.pthumb i{font-size:36px}
+.pbadge{position:absolute;top:8px;font-size:10px;font-weight:700;padding:3px 9px;border-radius:5px}
+[data-lang="ar"] .pbadge{right:8px}[data-lang="en"] .pbadge{left:8px}
+.badge-hot{background:var(--plum);color:#fff}.badge-new{background:var(--gold);color:var(--plum)}.badge-free{background:var(--jade-l);color:var(--jade);border:1px solid #9FE1CB}
+.pbody{padding:12px 13px;flex:1;display:flex;flex-direction:column}
+.ptitle{font-size:13px;font-weight:600;color:var(--plum);margin-bottom:5px;line-height:1.38}
+.pmeta{font-size:11px;color:var(--ink-3);margin-bottom:8px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.mdot{width:3px;height:3px;border-radius:50%;background:var(--ink-3);flex-shrink:0}
+.pfoot{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.pprice{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--plum)}
+.pprice del{font-size:11px;color:var(--ink-3);font-weight:400;margin-left:3px;font-family:inherit}
+.pprice.free{color:var(--jade)}
+.pstars{display:flex;align-items:center;gap:2px;font-size:11px;color:var(--gold)}
+.no-results{grid-column:1/-1;text-align:center;padding:3rem;color:var(--ink-3)}
+.no-results i{font-size:40px;display:block;margin-bottom:1rem;opacity:.3}
+.section-wrap{padding:3rem 0;background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--gold)}
+.eyebrow span{font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--gold);text-transform:uppercase}
+.section-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--plum);margin-bottom:1.75rem}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:14px}
+.rcard{background:var(--sand);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem}
+.rstars{display:flex;gap:2px;margin-bottom:10px;color:var(--gold);font-size:14px}
+.rtext{font-size:14px;color:var(--ink-2);line-height:1.75;margin-bottom:14px}
+.rauthor{font-size:12px;font-weight:700;color:var(--plum)}.rmeta{font-size:11px;color:var(--ink-3)}
+.faq-section{padding:3rem 0}
+.faq-list{display:flex;flex-direction:column;gap:8px}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.faq-q{display:flex;align-items:center;gap:10px;padding:1rem 1.25rem;cursor:pointer;font-size:15px;font-weight:600;color:var(--plum);user-select:none}
+.faq-q .fi{font-size:16px;color:var(--gold);flex-shrink:0}
+.faq-q .fa{font-size:15px;color:var(--ink-3);transition:transform .2s;flex-shrink:0}
+[data-lang="ar"] .faq-q .fa{margin-right:auto}[data-lang="en"] .faq-q .fa{margin-left:auto}
+.faq-item.open .fa{transform:rotate(180deg)}
+.faq-a{padding:0 1.25rem;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;font-size:14px;color:var(--ink-2);line-height:1.75}
+.faq-item.open .faq-a{max-height:220px;padding:0 1.25rem 1rem}
+.cta-section{padding:3rem 0;background:var(--sand-d)}
+.cta-block{background:var(--plum);border-radius:var(--r-xl);padding:2.75rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:8px}
+.cta-sub{font-size:14px;color:#CECBF6}
+.cta-badges{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1rem}
+.cta-badge{display:flex;align-items:center;gap:5px;font-size:12px;color:#AFA9EC}
+.cta-badge i{font-size:14px;color:var(--gold-m)}
+footer{background:#fff;border-top:1px solid var(--border);padding:2rem 0}
+footer .container{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.foot-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum)}
+.foot-logo small{font-size:11px;color:var(--gold);display:block;font-weight:500}
+.foot-links{display:flex;gap:1.5rem}
+.foot-links a{font-size:13px;color:var(--ink-3);transition:color .12s}
+.foot-links a:hover{color:var(--plum)}
+.foot-note{font-size:12px;color:var(--ink-3);font-family:'IBM Plex Sans',sans-serif}
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:300;opacity:0;pointer-events:none;transition:opacity .2s}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cdrawer{position:fixed;top:0;bottom:0;width:380px;background:#fff;z-index:301;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+[data-lang="ar"] .cdrawer{left:0;border-right:1px solid var(--border);transform:translateX(-100%)}
+[data-lang="en"] .cdrawer{right:0;border-left:1px solid var(--border);transform:translateX(100%)}
+.cart-overlay.open .cdrawer{transform:translateX(0)}
+.chead{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.chead h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum)}
+.cclose{background:none;border:none;font-size:20px;color:var(--ink-3);cursor:pointer}
+.cbody{flex:1;overflow-y:auto;padding:1rem 1.5rem}
+.cempty{text-align:center;padding:3rem;color:var(--ink-3);font-size:14px}
+.cempty i{font-size:40px;display:block;margin-bottom:1rem;opacity:.3}
+.ci{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.ci:last-child{border-bottom:none}
+.ci-icon{width:42px;height:42px;border-radius:var(--r-md);background:var(--plum-l);display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--plum-m);flex-shrink:0}
+.ci-info{flex:1}.ci-title{font-size:13px;font-weight:600;color:var(--plum)}.ci-sub{font-size:11px;color:var(--ink-3)}
+.ci-price{font-size:14px;font-weight:700;color:var(--plum);font-family:'IBM Plex Sans',sans-serif}
+.ci-rm{font-size:15px;color:var(--ink-3);background:none;border:none;cursor:pointer}.ci-rm:hover{color:#E24B4A}
+.cfoot{padding:1.25rem 1.5rem;border-top:1px solid var(--border)}
+.ctotal{display:flex;justify-content:space-between;font-size:16px;font-weight:700;color:var(--plum);margin-bottom:1rem}
+.ccheckout{width:100%;padding:13px;background:var(--gold);color:var(--plum);border:none;border-radius:var(--r-md);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;transition:.15s}
+.ccheckout:hover{opacity:.88}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--plum);color:#fff;padding:12px 22px;border-radius:30px;font-size:14px;font-weight:500;z-index:999;transition:transform .3s cubic-bezier(.22,.68,0,1.2);display:flex;align-items:center;gap:8px;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
-  <div class="container">
-    <div class="nav-logo">
-      <div class="logo-mark"><i class="ti ti-language"></i></div>
-      <div class="logo-text"><span class="word">Lingua</span><span class="sub">ÙØ¹ÙØ¯ Ø§ÙÙØºØ§Øª Ø§ÙØ£ÙØ§Ø¯ÙÙÙ</span></div>
-    </div>
+  <div class="container nav-inner">
+    <a class="logo" href="#">
+      <div class="logo-mk"><i class="ti ti-language"></i></div>
+      <div>
+        <span class="logo-word">Lingua</span>
+        <span class="logo-sub ar">معهد اللغات الأكاديمي</span>
+        <span class="logo-sub en">Academic Language Institute</span>
+      </div>
+    </a>
     <div class="nav-links">
-      <a href="#" class="active">Ø§ÙÙØªØ¬Ø±</a>
-      <a href="#levels">Ø§ÙÙØ³ØªÙÙØ§Øª</a>
-      <a href="#reviews">Ø§ÙØ·ÙØ§Ø¨</a>
-      <a href="#faq">Ø§ÙØ£Ø³Ø¦ÙØ©</a>
+      <a href="#store" class="active"><span class="ar">المتجر</span><span class="en">Store</span></a>
+      <a href="#levels"><span class="ar">المستويات</span><span class="en">Levels</span></a>
+      <a href="#reviews"><span class="ar">الطلاب</span><span class="en">Students</span></a>
+      <a href="#faq"><span class="ar">الأسئلة</span><span class="en">FAQ</span></a>
     </div>
-    <div class="nav-ctas">
+    <div class="nav-right">
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
       <button class="cart-btn" id="cartBtn"><i class="ti ti-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></button>
-      <button class="btn btn-ghost" id="navLogin">Ø¯Ø®ÙÙ</button>
-      <button class="btn btn-primary" id="navRegister">Ø§Ø¨Ø¯Ø£ ÙØ¬Ø§ÙØ§Ù</button>
+      <button class="btn btn-ghost" id="navLogin"><span class="ar">دخول</span><span class="en">Login</span></button>
+      <button class="btn btn-primary" id="navRegister"><span class="ar">ابدأ مجاناً</span><span class="en">Start Free</span></button>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-deco hero-deco-1"></div>
-  <div class="hero-deco hero-deco-2"></div>
-  <div class="hero-deco hero-deco-3"></div>
+  <div class="hero-deco hero-deco-1"></div><div class="hero-deco hero-deco-2"></div>
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-eyebrow"><i class="ti ti-award"></i><span>ÙÙØµØ© Ø£ÙØ§Ø¯ÙÙÙØ© ÙØ¹ØªÙØ¯Ø© Â· Ø®Ø¨Ø±Ø© 40 Ø¹Ø§ÙØ§Ù</span></div>
-      <h1 class="hero-title">Ø£ØªÙÙ Ø§ÙÙØºØ§Øª ÙØ¹<br><em>Ø§ÙØ£Ø³ØªØ§Ø° ÙØ±ÙÙ</em></h1>
-      <p class="hero-desc">ÙÙÙØ¬ Ø£ÙØ§Ø¯ÙÙÙ ÙØªÙØ§ÙÙ ÙÙ Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ© ÙØ§ÙØªØ±ÙÙØ© ÙØ§ÙØµÙÙÙØ© â ÙØªØ¨ ØªÙØ§Ø¹ÙÙØ© ÙØªØ³Ø¬ÙÙØ§Øª ØµÙØªÙØ© ÙØ­ØµØµ Ø­ÙØ© ÙÙ A0 Ø¥ÙÙ C2</p>
-      <div class="hero-actions">
-        <button class="btn btn-gold" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><i class="ti ti-player-play"></i>Ø§Ø®ØªØ¨Ø± ÙØ³ØªÙØ§Ù ÙØ¬Ø§ÙØ§Ù</button>
-        <a href="#products" class="hero-link">ØªØµÙØ­ Ø§ÙØ¯Ø±ÙØ³ <i class="ti ti-arrow-left"></i></a>
+    <div>
+      <div class="hero-eyebrow"><i class="ti ti-award"></i><span class="ar">منصة أكاديمية معتمدة · خبرة 40 عاماً</span><span class="en">Certified Academic Platform · 40 Years of Excellence</span></div>
+      <h1 class="hero-title"><span class="ar">أتقن اللغات مع<br><em>الأستاذ كريم</em></span><span class="en">Master Languages with<br><em>Prof. Kareem</em></span></h1>
+      <p class="hero-desc ar">منهج أكاديمي متكامل في الإنجليزية والتركية والصينية — كتب تفاعلية وتسجيلات صوتية وحصص من A0 إلى C2</p>
+      <p class="hero-desc en">A complete academic curriculum in English, Turkish & Chinese — interactive books, audio recordings, and live sessions from A0 to C2</p>
+      <div class="hero-ctas">
+        <button class="btn btn-gold btn-lg" onclick="scrollTo('store')"><i class="ti ti-player-play"></i><span class="ar">ابدأ التعلّم الآن</span><span class="en">Start Learning Now</span></button>
+        <button class="btn btn-lg" style="color:#AFA9EC;border:1px solid rgba(255,255,255,.25);background:transparent" onclick="scrollTo('store')"><span class="ar">تصفح الكتالوج</span><span class="en">Browse Catalog</span></button>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><span class="hero-stat-val">20K+</span><span class="hero-stat-lbl">Ø·Ø§ÙØ¨ ÙØ³ØªÙÙØ¯</span></div>
-        <div class="hero-stat"><span class="hero-stat-val">150+</span><span class="hero-stat-lbl">Ø¯Ø±Ø³ Ø£ÙØ§Ø¯ÙÙÙ</span></div>
-        <div class="hero-stat"><span class="hero-stat-val">3</span><span class="hero-stat-lbl">ÙØºØ§Øª Ø¹Ø§ÙÙÙØ©</span></div>
-        <div class="hero-stat"><span class="hero-stat-val">4.9</span><span class="hero-stat-lbl">ØªÙÙÙÙ Ø§ÙØ·ÙØ§Ø¨</span></div>
+        <div class="hstat"><span class="hstat-val">20K+</span><span class="hstat-lbl ar">طالب مستفيد</span><span class="hstat-lbl en">Students</span></div>
+        <div class="hstat"><span class="hstat-val">53</span><span class="hstat-lbl ar">درساً متاحاً</span><span class="hstat-lbl en">Courses</span></div>
+        <div class="hstat"><span class="hstat-val">3</span><span class="hstat-lbl ar">لغات عالمية</span><span class="hstat-lbl en">Languages</span></div>
+        <div class="hstat"><span class="hstat-val">4.9</span><span class="hstat-lbl ar">تقييم الطلاب</span><span class="hstat-lbl en">Rating</span></div>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hero-card-label">Ø§Ø®ØªØ± ÙØºØªÙ ÙØ§Ø¨Ø¯Ø£ Ø§ÙØ¢Ù</div>
-      <div class="lang-option active" onclick="filterLang('en',this)"><span class="lang-flag">ð¬ð§</span><div class="lang-info"><span class="lang-name">Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©</span><span class="lang-levels">10 ÙØ³ØªÙÙØ§Øª Â· 68 Ø¯Ø±Ø³Ø§Ù</span></div><div class="lang-progress-wrap"><div class="lang-progress-bar"><div class="lang-progress-fill" style="width:42%"></div></div><span class="lang-pct">A0âC2</span></div></div>
-      <div class="lang-option" onclick="filterLang('tr',this)"><span class="lang-flag">ð¹ð·</span><div class="lang-info"><span class="lang-name">Ø§ÙØªØ±ÙÙØ©</span><span class="lang-levels">10 ÙØ³ØªÙÙØ§Øª Â· 46 Ø¯Ø±Ø³Ø§Ù</span></div><div class="lang-progress-wrap"><div class="lang-progress-bar"><div class="lang-progress-fill" style="width:100%"></div></div><span class="lang-pct">A0âC2</span></div></div>
-      <div class="lang-option" onclick="filterLang('zh',this)"><span class="lang-flag">ð¨ð³</span><div class="lang-info"><span class="lang-name">Ø§ÙØµÙÙÙØ©</span><span class="lang-levels">10 ÙØ³ØªÙÙØ§Øª Â· 38 Ø¯Ø±Ø³Ø§Ù</span></div><div class="lang-progress-wrap"><div class="lang-progress-bar"><div class="lang-progress-fill" style="width:100%"></div></div><span class="lang-pct">A0âC2</span></div></div>
-      <div class="hero-card-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><i class="ti ti-books" style="font-size:14px;vertical-align:-2px;"></i> ØªØµÙØ­ Ø§ÙÙØªØ§ÙÙØ¬ Ø§ÙØ£ÙØ§Ø¯ÙÙÙ</div>
+    <div class="hcard-wrap">
+      <div class="hcard">
+        <div class="hcard-lbl ar">اختر لغتك وابدأ الآن</div>
+        <div class="hcard-lbl en">Choose Your Language</div>
+        <div class="lang-opt active" onclick="setLang('en',this)"><span style="font-size:22px">🇬🇧</span><div style="flex:1"><span class="opt-name ar">الإنجليزية</span><span class="opt-name en">English</span><span class="opt-sub">24 courses · A0→C2</span></div><div class="pbar"><div class="pbar-fill" style="width:40%"></div></div></div>
+        <div class="lang-opt" onclick="setLang('tr',this)"><span style="font-size:22px">🇹🇷</span><div style="flex:1"><span class="opt-name ar">التركية</span><span class="opt-name en">Turkish</span><span class="opt-sub">15 courses · A0→C1</span></div><div class="pbar"><div class="pbar-fill" style="width:100%"></div></div></div>
+        <div class="lang-opt" onclick="setLang('zh',this)"><span style="font-size:22px">🇨🇳</span><div style="flex:1"><span class="opt-name ar">الصينية</span><span class="opt-name en">Chinese</span><span class="opt-sub">14 courses · A0→C1</span></div><div class="pbar"><div class="pbar-fill" style="width:100%"></div></div></div>
+        <div class="hcard-cta" onclick="scrollTo('store')"><span class="ar"><i class="ti ti-books" style="font-size:13px;vertical-align:-2px"></i> تصفح الكتالوج الأكاديمي</span><span class="en"><i class="ti ti-books" style="font-size:13px;vertical-align:-2px"></i> Browse Academic Catalog</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST STRIP -->
 <div class="trust-strip"><div class="container">
-  <div class="trust-item"><i class="ti ti-infinity"></i> ÙØµÙÙ ÙØ¯Ù Ø§ÙØ­ÙØ§Ø©</div><div class="trust-sep"></div>
-  <div class="trust-item"><i class="ti ti-shield-check"></i> Ø¶ÙØ§Ù 7 Ø£ÙØ§Ù</div><div class="trust-sep"></div>
-  <div class="trust-item"><i class="ti ti-headphones"></i> ØªØ³Ø¬ÙÙØ§Øª Ø¨ØµÙØª Ø§ÙØ£Ø³ØªØ§Ø°</div><div class="trust-sep"></div>
-  <div class="trust-item"><i class="ti ti-device-mobile"></i> ÙØ¹ÙÙ Ø¹ÙÙ Ø¬ÙÙØ¹ Ø§ÙØ£Ø¬ÙØ²Ø©</div><div class="trust-sep"></div>
-  <div class="trust-item"><i class="ti ti-credit-card"></i> Ø¯ÙØ¹ ÙØ§Ø­Ø¯ Â· ÙØ§ Ø§Ø´ØªØ±Ø§Ù</div>
+  <div class="trust-item"><i class="ti ti-infinity"></i><span class="ar">وصول مدى الحياة</span><span class="en">Lifetime Access</span></div>
+  <div class="tsep"></div><div class="trust-item"><i class="ti ti-shield-check"></i><span class="ar">ضمان 7 أيام</span><span class="en">7-Day Guarantee</span></div>
+  <div class="tsep"></div><div class="trust-item"><i class="ti ti-headphones"></i><span class="ar">تسجيلات أكاديمية</span><span class="en">Academic Recordings</span></div>
+  <div class="tsep"></div><div class="trust-item"><i class="ti ti-device-mobile"></i><span class="ar">جميع الأجهزة</span><span class="en">All Devices</span></div>
+  <div class="tsep"></div><div class="trust-item"><i class="ti ti-credit-card"></i><span class="ar">دفع واحد لا اشتراك</span><span class="en">One Payment No Subscription</span></div>
 </div></div>
 
-<!-- MAIN -->
-<section class="main" id="products">
+<section class="store-section" id="store">
   <div class="container">
-    <aside class="sidebar">
-      <div class="sidebar-card">
-        <div class="sidebar-title"><i class="ti ti-flag"></i> Ø§ÙÙØºØ©</div>
-        <button class="lang-filter-btn active" onclick="filterLang('en',this)"><span class="flag-sm">ð¬ð§</span> Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©<span class="count">68</span></button>
-        <button class="lang-filter-btn" onclick="filterLang('tr',this)"><span class="flag-sm">ð¹ð·</span> Ø§ÙØªØ±ÙÙØ©<span class="count">46</span></button>
-        <button class="lang-filter-btn" onclick="filterLang('zh',this)"><span class="flag-sm">ð¨ð³</span> Ø§ÙØµÙÙÙØ©<span class="count">38</span></button>
-      </div>
-      <div class="sidebar-card" id="levels">
-        <div class="sidebar-title"><i class="ti ti-stairs"></i> Ø§ÙÙØ³ØªÙÙ</div>
-        <div class="level-filter">
-          <button class="lvl-btn done" onclick="filterLevel('A0',this)"><span class="lvl-code">A0</span><span class="lvl-name">ÙØ¨ØªØ¯Ø¦ ÙØ·ÙÙ</span><i class="ti ti-check lvl-check"></i></button>
-          <button class="lvl-btn done" onclick="filterLevel('A1',this)"><span class="lvl-code">A1</span><span class="lvl-name">ÙØ¨ØªØ¯Ø¦</span><i class="ti ti-check lvl-check"></i></button>
-          <button class="lvl-btn done" onclick="filterLevel('A2',this)"><span class="lvl-code">A2</span><span class="lvl-name">ÙØ§ ÙØ¨Ù Ø§ÙÙØªÙØ³Ø·</span><i class="ti ti-check lvl-check"></i></button>
-          <button class="lvl-btn active" onclick="filterLevel('B1',this)"><span class="lvl-code">B1</span><span class="lvl-name">ÙØªÙØ³Ø·</span></button>
-          <button class="lvl-btn" onclick="filterLevel('B2',this)"><span class="lvl-code">B2</span><span class="lvl-name">ÙÙÙ Ø§ÙÙØªÙØ³Ø·</span></button>
-          <button class="lvl-btn" onclick="filterLevel('C1',this)"><span class="lvl-code">C1</span><span class="lvl-name">ÙØªÙØ¯Ù</span></button>
-          <button class="lvl-btn" onclick="filterLevel('C2',this)"><span class="lvl-code">C2</span><span class="lvl-name">Ø§Ø­ØªØ±Ø§ÙÙ</span></button>
+    <div class="store-grid">
+      <aside class="sidebar">
+        <div class="sb-card">
+          <div class="sb-title"><i class="ti ti-flag"></i><span class="ar">اللغة</span><span class="en">Language</span></div>
+          <button class="lfbtn active" onclick="filterLang('en',this)"><span>🇬🇧</span><span class="ar">الإنجليزية</span><span class="en">English</span><span class="lfcnt" id="cnt-en">24</span></button>
+          <button class="lfbtn" onclick="filterLang('tr',this)"><span>🇹🇷</span><span class="ar">التركية</span><span class="en">Turkish</span><span class="lfcnt" id="cnt-tr">15</span></button>
+          <button class="lfbtn" onclick="filterLang('zh',this)"><span>🇨🇳</span><span class="ar">الصينية</span><span class="en">Chinese</span><span class="lfcnt" id="cnt-zh">14</span></button>
         </div>
-      </div>
-      <div class="sidebar-card">
-        <div class="sidebar-title"><i class="ti ti-layout-grid"></i> Ø§ÙÙÙØ§Ø±Ø©</div>
-        <div class="skill-filter">
-          <button class="skill-btn active" onclick="filterSkill('all',this)"><i class="ti ti-stack-2"></i> Ø¬ÙÙØ¹ Ø§ÙÙÙØ§Ø±Ø§Øª</button>
-          <button class="skill-btn" onclick="filterSkill('listening',this)"><i class="ti ti-ear"></i> Ø§ÙØ§Ø³ØªÙØ§Ø¹</button>
-          <button class="skill-btn" onclick="filterSkill('speaking',this)"><i class="ti ti-microphone"></i> Ø§ÙÙØ­Ø§Ø¯Ø«Ø©</button>
-          <button class="skill-btn" onclick="filterSkill('reading',this)"><i class="ti ti-book-2"></i> Ø§ÙÙØ±Ø§Ø¡Ø©</button>
-          <button class="skill-btn" onclick="filterSkill('writing',this)"><i class="ti ti-pencil"></i> Ø§ÙÙØªØ§Ø¨Ø©</button>
-          <button class="skill-btn" onclick="filterSkill('pdf',this)"><i class="ti ti-file-type-pdf"></i> ÙØªØ¨ PDF</button>
-          <button class="skill-btn" onclick="filterSkill('audio',this)"><i class="ti ti-player-play"></i> ÙØµØµ ØµÙØªÙØ©</button>
-        </div>
-      </div>
-    </aside>
-    <div class="content-area">
-      <div class="featured-banner">
-        <div class="featured-accent"></div>
-        <div class="featured-body">
-          <div class="featured-badge"><i class="ti ti-star"></i> Ø§ÙØ¨Ø§ÙØ© Ø§ÙØ£ÙØ§Ø¯ÙÙÙØ© Ø§ÙÙÙÙØ²Ø©</div>
-          <div class="featured-title">Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ© Ø§ÙÙØ§ÙÙØ© A0-C2</div>
-          <div class="featured-desc">Ø§ÙÙÙÙØ¬ Ø§ÙØ£ÙØ§Ø¯ÙÙÙ Ø§ÙÙØªÙØ§ÙÙ ÙÙØ£Ø³ØªØ§Ø° ÙØ±ÙÙ â Ø¬ÙÙØ¹ Ø§ÙÙØ³ØªÙÙØ§Øª ÙØ§ÙÙÙØ§Ø±Ø§Øª ÙÙ Ø­ØµØ© ÙØ§Ø­Ø¯Ø© ÙØ¹ ÙØªØ¨ ØªÙØ§Ø¹ÙÙØ© ÙØªØ³Ø¬ÙÙØ§Øª Ø­ÙØ©</div>
-          <div class="skills-chips"><span class="skill-chip"><i class="ti ti-ear"></i> Ø§Ø³ØªÙØ§Ø¹</span><span class="skill-chip"><i class="ti ti-microphone"></i> ÙØ­Ø§Ø¯Ø«Ø©</span><span class="skill-chip"><i class="ti ti-book-2"></i> ÙØ±Ø§Ø¡Ø©</span><span class="skill-chip"><i class="ti ti-pencil"></i> ÙØªØ§Ø¨Ø©</span><span class="skill-chip"><i class="ti ti-file-type-pdf"></i> ÙØªØ¨ PDF</span><span class="skill-chip"><i class="ti ti-player-play"></i> ÙØµØµ ØµÙØªÙØ©</span></div>
-          <div class="featured-footer">
-            <div class="featured-price"><del>799 Ø±.Ø³</del> 399 Ø±.Ø³</div>
-            <span class="save-badge"><i class="ti ti-tag" style="font-size:12px;vertical-align:-2px;"></i> ÙÙÙØ± 50%</span>
-            <button class="btn btn-gold" onclick="addProd({id:'full-en',title:'Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ© Ø§ÙÙØ§ÙÙØ© A0-C2',price:399,skill:'bundle',lang:'en'})"><i class="ti ti-shopping-cart"></i> Ø£Ø¶Ù ÙÙØ³ÙØ©</button>
+        <div class="sb-card" id="levels">
+          <div class="sb-title"><i class="ti ti-stairs"></i><span class="ar">المستوى</span><span class="en">Level</span></div>
+          <div class="lvl-list">
+            <button class="lvl-btn" onclick="filterLevel('all',this)"><span class="lvl-code">ALL</span><span class="lvl-name ar">جميع المستويات</span><span class="lvl-name en">All Levels</span></button>
+            <button class="lvl-btn" onclick="filterLevel('A0',this)"><span class="lvl-code">A0</span><span class="lvl-name ar">مبتدئ مطلق</span><span class="lvl-name en">Absolute Beginner</span></button>
+            <button class="lvl-btn" onclick="filterLevel('A1',this)"><span class="lvl-code">A1</span><span class="lvl-name ar">مبتدئ</span><span class="lvl-name en">Beginner</span></button>
+            <button class="lvl-btn" onclick="filterLevel('A2',this)"><span class="lvl-code">A2</span><span class="lvl-name ar">ما قبل المتوسط</span><span class="lvl-name en">Pre-Intermediate</span></button>
+            <button class="lvl-btn active" onclick="filterLevel('B1',this)"><span class="lvl-code">B1</span><span class="lvl-name ar">متوسط</span><span class="lvl-name en">Intermediate</span></button>
+            <button class="lvl-btn" onclick="filterLevel('B2',this)"><span class="lvl-code">B2</span><span class="lvl-name ar">فوق المتوسط</span><span class="lvl-name en">Upper-Intermediate</span></button>
+            <button class="lvl-btn" onclick="filterLevel('C1',this)"><span class="lvl-code">C1</span><span class="lvl-name ar">متقدم</span><span class="lvl-name en">Advanced</span></button>
+            <button class="lvl-btn" onclick="filterLevel('C2',this)"><span class="lvl-code">C2</span><span class="lvl-name ar">احترافي</span><span class="lvl-name en">Mastery</span></button>
           </div>
         </div>
+        <div class="sb-card">
+          <div class="sb-title"><i class="ti ti-layout-grid"></i><span class="ar">المهارة</span><span class="en">Skill</span></div>
+          <div class="skill-list">
+            <button class="skill-btn active" onclick="filterSkill('all',this)"><i class="ti ti-stack-2"></i><span class="ar">كل المهارات</span><span class="en">All Skills</span></button>
+            <button class="skill-btn" onclick="filterSkill('listening',this)"><i class="ti ti-ear"></i><span class="ar">الاستماع</span><span class="en">Listening</span></button>
+            <button class="skill-btn" onclick="filterSkill('speaking',this)"><i class="ti ti-microphone"></i><span class="ar">المحادثة</span><span class="en">Speaking</span></button>
+            <button class="skill-btn" onclick="filterSkill('reading',this)"><i class="ti ti-book-2"></i><span class="ar">القراءة</span><span class="en">Reading</span></button>
+            <button class="skill-btn" onclick="filterSkill('writing',this)"><i class="ti ti-pencil"></i><span class="ar">الكتابة</span><span class="en">Writing</span></button>
+            <button class="skill-btn" onclick="filterSkill('pdf',this)"><i class="ti ti-file-type-pdf"></i><span class="ar">كتب PDF</span><span class="en">PDF Books</span></button>
+            <button class="skill-btn" onclick="filterSkill('audio',this)"><i class="ti ti-player-play"></i><span class="ar">قصص صوتية</span><span class="en">Audio Stories</span></button>
+            <button class="skill-btn" onclick="filterSkill('bundle',this)"><i class="ti ti-package"></i><span class="ar">الباقات</span><span class="en">Bundles</span></button>
+          </div>
+        </div>
+      </aside>
+      <div>
+        <div class="feat-banner">
+          <div class="feat-accent"></div>
+          <div class="feat-body">
+            <div class="feat-badge"><i class="ti ti-star"></i><span class="ar">الباقة الأكاديمية المميزة</span><span class="en">Premium Academic Bundle</span></div>
+            <div class="feat-title ar" id="ft-ar">الإنجليزية الكاملة A0-C2</div>
+            <div class="feat-title en" id="ft-en">Complete English A0-C2</div>
+            <div class="feat-desc ar" id="fd-ar">المنهج الأكاديمي المتكامل — جميع المستويات والمهارات مع كتب تفاعلية وتسجيلات حية</div>
+            <div class="feat-desc en" id="fd-en">The complete academic curriculum — all levels and skills with interactive books and live recordings</div>
+            <div class="chips">
+              <span class="chip"><i class="ti ti-ear"></i><span class="ar">استماع</span><span class="en">Listening</span></span>
+              <span class="chip"><i class="ti ti-microphone"></i><span class="ar">محادثة</span><span class="en">Speaking</span></span>
+              <span class="chip"><i class="ti ti-book-2"></i><span class="ar">قراءة</span><span class="en">Reading</span></span>
+              <span class="chip"><i class="ti ti-pencil"></i><span class="ar">كتابة</span><span class="en">Writing</span></span>
+              <span class="chip"><i class="ti ti-player-play"></i><span class="ar">صوتية</span><span class="en">Audio</span></span>
+            </div>
+            <div class="feat-foot">
+              <div class="feat-price" id="fp">399 SAR <del>799</del></div>
+              <span class="save-tag ar">وفّر 50%</span><span class="save-tag en">Save 50%</span>
+              <button class="btn btn-gold" id="feat-btn"><i class="ti ti-shopping-cart"></i><span class="ar">أضف للسلة</span><span class="en">Add to Cart</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="toolbar">
+          <div class="toolbar-count"><span class="ar">عرض <strong id="pc-ar">0</strong> منتجاً</span><span class="en">Showing <strong id="pc-en">0</strong> courses</span></div>
+          <select id="sortSel" onchange="doSort(this.value)"><option value="pop">الأكثر مبيعاً</option><option value="price-asc">السعر: الأدنى</option><option value="price-desc">السعر: الأعلى</option><option value="rating">التقييم</option></select>
+        </div>
+        <div class="pgrid" id="pgrid"><div style="text-align:center;padding:2rem;color:var(--ink-3);grid-column:1/-1"><i class="ti ti-loader" style="font-size:32px;opacity:.4"></i></div></div>
       </div>
-      <div class="toolbar">
-        <div class="toolbar-count">Ø¹Ø±Ø¶ <strong id="productCount">6</strong> ÙÙØªØ¬Ø§Ù â Ø§ÙÙØ³ØªÙÙ B1 Â· Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©</div>
-        <div class="toolbar-sort"><span>ØªØ±ØªÙØ¨:</span><select><option>Ø§ÙØ£ÙØ«Ø± ÙØ¨ÙØ¹Ø§Ù</option><option>Ø§ÙØ£Ø­Ø¯Ø«</option><option>Ø§ÙØ³Ø¹Ø±: Ø§ÙØ£Ø¯ÙÙ Ø£ÙÙØ§Ù</option><option>Ø§ÙØªÙÙÙÙ</option></select></div>
-      </div>
-      <div class="products-grid" id="productsGrid">
-        <div class="pcard" onclick="window.location.href='pages/product.html?id=listen-b1'"><div class="pcard-thumb en"><i class="ti ti-ear en-icon"></i><span class="pcard-badge badge-hot">Ø§ÙØ£ÙØ«Ø± ÙØ¨ÙØ¹Ø§Ù</span></div><div class="pcard-body"><div class="pcard-title">Ø§ÙØ§Ø³ØªÙØ§Ø¹ B1 â ÙÙØ§ÙÙ Ø­ÙØ§ØªÙØ© ÙÙÙÙØ©</div><div class="pcard-meta">B1 <span class="meta-dot"></span> Ø¥ÙØ¬ÙÙØ²ÙØ© <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 4.9</span></div><div class="pcard-tags"><span class="pcard-tag">Ø§Ø³ØªÙØ§Ø¹</span><span class="pcard-tag">ØªØ³Ø¬ÙÙØ§Øª ØµÙØªÙØ©</span></div><div class="pcard-foot"><div class="pcard-price">89 Ø±.Ø³</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'listen-b1',title:'Ø§ÙØ§Ø³ØªÙØ§Ø¹ B1',price:89,skill:'listening',lang:'en'})"><i class="ti ti-plus"></i> Ø£Ø¶Ù</button></div></div></div>
-        <div class="pcard" onclick="window.location.href='pages/product.html?id=speak-b1'"><div class="pcard-thumb en"><i class="ti ti-messages en-icon"></i><span class="pcard-badge badge-new">Ø¬Ø¯ÙØ¯</span></div><div class="pcard-body"><div class="pcard-title">Ø§ÙÙØ­Ø§Ø¯Ø«Ø© B1 â Ø§ÙÙØ·Ø§Ø± ÙØ§ÙØ³ÙØ±</div><div class="pcard-meta">B1 <span class="meta-dot"></span> Ø¥ÙØ¬ÙÙØ²ÙØ© <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 4.8</span></div><div class="pcard-tags"><span class="pcard-tag">ÙØ­Ø§Ø¯Ø«Ø©</span><span class="pcard-tag">Ø£Ø¯ÙØ§Ø± Ø­ÙØ§ØªÙØ©</span></div><div class="pcard-foot"><div class="pcard-price"><del>99</del> 75 Ø±.Ø³</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'speak-b1',title:'Ø§ÙÙØ­Ø§Ø¯Ø«Ø© B1',price:75,skill:'speaking',lang:'en'})"><i class="ti ti-plus"></i> Ø£Ø¶Ù</button></div></div></div>
-        <div class="pcard" onclick="window.location.href='pages/product.html?id=read-b1'"><div class="pcard-thumb en"><i class="ti ti-book-2 en-icon"></i></div><div class="pcard-body"><div class="pcard-title">Ø§ÙÙØ±Ø§Ø¡Ø© B1 â ÙØªØ§Ø¨ ØªÙØ§Ø¹ÙÙ ÙØ¹ ØªÙØ§Ø±ÙÙ</div><div class="pcard-meta">B1 <span class="meta-dot"></span> Ø¥ÙØ¬ÙÙØ²ÙØ© <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 4.9</span></div><div class="pcard-tags"><span class="pcard-tag">ÙØ±Ø§Ø¡Ø©</span><span class="pcard-tag">PDF ØªÙØ§Ø¹ÙÙ</span></div><div class="pcard-foot"><div class="pcard-price">79 Ø±.Ø³</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'read-b1',title:'Ø§ÙÙØ±Ø§Ø¡Ø© B1',price:79,skill:'reading',lang:'en'})"><i class="ti ti-plus"></i> Ø£Ø¶Ù</button></div></div></div>
-        <div class="pcard" onclick="window.location.href='pages/product.html?id=write-b1'"><div class="pcard-thumb en"><i class="ti ti-pencil en-icon"></i></div><div class="pcard-body"><div class="pcard-title">Ø§ÙÙØªØ§Ø¨Ø© B1 â Ø±Ø³Ø§Ø¦Ù ÙÙØµÙØµ ÙÙÙÙØ©</div><div class="pcard-meta">B1 <span class="meta-dot"></span> Ø¥ÙØ¬ÙÙØ²ÙØ© <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 4.7</span></div><div class="pcard-tags"><span class="pcard-tag">ÙØªØ§Ø¨Ø©</span><span class="pcard-tag">ØªÙØ§Ø±ÙÙ Ø°ÙÙØ©</span></div><div class="pcard-foot"><div class="pcard-price">79 Ø±.Ø³</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'write-b1',title:'Ø§ÙÙØªØ§Ø¨Ø© B1',price:79,skill:'writing',lang:'en'})"><i class="ti ti-plus"></i> Ø£Ø¶Ù</button></div></div></div>
-        <div class="pcard" onclick="window.location.href='pages/product.html?id=audio-b1'"><div class="pcard-thumb en"><i class="ti ti-player-play" style="color:#0B5E46"></i><span class="pcard-badge badge-free">ÙØ¬Ø§ÙÙ</span></div><div class="pcard-body"><div class="pcard-title">ÙØµØµ ØµÙØªÙØ© B1 â Ø«ÙØ§Ø« ÙØµØµ ÙØµÙØ±Ø©</div><div class="pcard-meta">B1 <span class="meta-dot"></span> Ø¥ÙØ¬ÙÙØ²ÙØ© <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 5.0</span></div><div class="pcard-tags"><span class="pcard-tag">ÙØµØµ ØµÙØªÙØ©</span><span class="pcard-tag">ÙØ¬Ø§ÙÙ</span></div><div class="pcard-foot"><div class="pcard-price free-price">ÙØ¬Ø§ÙÙ</div><button class="btn btn-jade btn-sm" onclick="event.stopPropagation();showToast('Ø¬Ø§Ø±Ù Ø§ÙØªØ­ÙÙÙ...')"><i class="ti ti-download"></i> Ø­ÙÙÙ</button></div></div></div>
-        <div class="pcard featured-border" onclick="window.location.href='pages/product.html?id=bundle-b1'"><div class="pcard-thumb en"><i class="ti ti-package en-icon"></i></div><div class="pcard-body"><div class="pcard-title">Ø¨Ø§ÙØ© B1 Ø§ÙÙØ§ÙÙØ© â ÙÙ Ø§ÙÙÙØ§Ø±Ø§Øª</div><div class="pcard-meta">B1 <span class="meta-dot"></span> Ø¥ÙØ¬ÙÙØ²ÙØ© <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> 5.0</span></div><div class="pcard-tags"><span class="pcard-tag">Ø§Ø³ØªÙØ§Ø¹</span><span class="pcard-tag">ÙØ­Ø§Ø¯Ø«Ø©</span><span class="pcard-tag">ÙØ±Ø§Ø¡Ø©</span><span class="pcard-tag">+3</span></div><div class="pcard-foot"><div class="pcard-price"><del>350</del> 249 Ø±.Ø³</div><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:'bundle-b1',title:'Ø¨Ø§ÙØ© B1 Ø§ÙÙØ§ÙÙØ©',price:249,skill:'bundle',lang:'en'})"><i class="ti ti-plus"></i> Ø£Ø¶Ù</button></div></div></div>
-      </div>
-      <div class="pagination"><button class="page-btn active">1</button><button class="page-btn">2</button><button class="page-btn">3</button><button class="page-btn"><i class="ti ti-chevron-left" style="font-size:14px;"></i></button></div>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="reviews-section" id="reviews">
+<section class="section-wrap" id="reviews">
   <div class="container">
-    <div class="eyebrow"><span>Ø´ÙØ§Ø¯Ø§Øª Ø§ÙØ·ÙØ§Ø¨</span></div>
-    <h2>ÙØ§Ø°Ø§ ÙÙÙÙ Ø·ÙØ§Ø¨ÙØ§</h2>
-    <div class="reviews-grid">
-      <div class="rcard"><div class="rcard-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rcard-text">Ø¬ÙØ§Ù Ø¬Ø¯Ø§Ù ÙÙÙÙØ¯ ÙØªØ·ÙØ± ÙÙÙØªØ¹. Ø§ÙÙØªØ¨ Ø§ÙØªÙØ§Ø¹ÙÙØ© ÙØ§ÙØªØ³Ø¬ÙÙØ§Øª Ø§ÙØµÙØªÙØ© Ø£ÙØ¶Ù ÙØ§ ÙØ¬Ø¯ØªÙ ÙÙ Ø­ÙØ§ØªÙ. Ø£ØµØ¨Ø­ Ø§Ø³ØªØ«ÙØ§Ø±Ù ÙÙ Ø­ÙØ§ØªÙ.</p><div class="rcard-author">ÙØ­ÙØ¯ Ø§ÙØ¹ØªÙØ¨Ù</div><div class="rcard-level">Ø·Ø§ÙØ¨ Ø¥ÙØ¬ÙÙØ²ÙØ© Â· Ø§ÙÙØ³ØªÙÙ B2</div></div>
-      <div class="rcard"><div class="rcard-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rcard-text">ÙÙØ¯Ù ÙØ§Ù ÙØ­Ø¨ Ø§ÙÙØºØ© Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©Ø Ø¨Ø¹Ø¯ ÙØ§ Ø§Ø´ØªØ±ÙØª Ø¨Ø§ÙÙØªØ¨ ÙØ§ÙÙØ­Ø§Ø¯Ø«Ø© ÙØ§ÙÙØ±Ø§Ø¡Ø© Ø§ÙØ­ÙØ¯ ÙÙÙ ØªØ·ÙØ± ÙØ«ÙØ±Ø§Ù Ø¶Ø±Ø¨ Ø¨Ø§ÙÙØ³Ø¨Ø© ÙØ±Ø§ØªØ¨Ù.</p><div class="rcard-author">Ø³Ø§Ø±Ø© Ø§ÙØ­Ø±Ø¨Ù</div><div class="rcard-level">Ø£Ù Ø·Ø§ÙØ¨ Â· Ø§ÙÙØ³ØªÙÙ A2</div></div>
-      <div class="rcard"><div class="rcard-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rcard-text">Ø£ÙØ¶Ù ÙÙØµØ© ÙØªØ¹ÙÙÙ Ø§ÙÙØºØ© Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ© Ø¨Ø§ÙÙÙÙØ¬ Ø§ÙØ£ÙØ§Ø¯ÙÙÙ Ø§ÙÙØªØ³ÙØ³Ù ÙØ§ÙÙØ¯Ø±ÙØ³ ÙØ§ÙØ¹Ø§ÙÙ ÙÙÙØ³ØªÙÙØ§Øª Ø¨Ø¶Ù Ø¹Ø§ÙÙØ©.</p><div class="rcard-author">Ø®Ø§ÙØ¯ Ø§ÙØ¯ÙØ³Ø±Ù</div><div class="rcard-level">Ø·Ø§ÙØ¨ Ø¥ÙØ¬ÙÙØ²ÙØ© Â· Ø§ÙÙØ³ØªÙÙ C1</div></div>
-      <div class="rcard"><div class="rcard-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rcard-text">ØªØ¹ÙÙØª ÙÙÙØ¬ Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ© ÙÙ 3 Ø£Ø´ÙØ± Ø¨Ø¹Ø¯ Ø³ÙÙØ§Øª ÙØ§Ø´ÙØ©. Ø§ÙÙÙÙØ¬ Ø§ÙÙØªØ³ÙØ³Ù ÙÙ A0 Ø­ØªÙ ÙÙØ¶ ÙÙ Ø¨Ø§ÙÙØºØ© ÙÙ.</p><div class="rcard-author">ÙÙØ±Ø© Ø§ÙÙØ·ÙØ±Ù</div><div class="rcard-level">Ø·Ø§ÙØ¨Ø© Ø¥ÙØ¬ÙÙØ²ÙØ© Â· Ø§ÙÙØ³ØªÙÙ B1</div></div>
+    <div class="eyebrow"><span class="ar">شهادات الطلاب</span><span class="en">Student Testimonials</span></div>
+    <h2 class="section-title ar">ماذا يقول طلابنا</h2>
+    <h2 class="section-title en">What Our Students Say</h2>
+    <div class="rgrid">
+      <div class="rcard"><div class="rstars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rtext ar">"الكتب التفاعلية والتسجيلات الصوتية أفضل ما وجدته. تطورت في الإنجليزية خلال 3 أشهر."</p><p class="rtext en">"The interactive books and audio recordings are the best I've found. I improved my English noticeably in just 3 months."</p><div class="rauthor">محمد العتيبي</div><div class="rmeta">🇬🇧 <span class="ar">إنجليزية · B2</span><span class="en">English · B2</span></div></div>
+      <div class="rcard"><div class="rstars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rtext ar">"تعلمت التركية في 8 أشهر! المنهج المنظّم من A0 يجعل اللغة أسهل بكثير."</p><p class="rtext en">"I learned Turkish in 8 months! The organized A0 curriculum makes the language much easier."</p><div class="rauthor">لمياء الشهري</div><div class="rmeta">🇹🇷 <span class="ar">تركية · B1</span><span class="en">Turkish · B1</span></div></div>
+      <div class="rcard"><div class="rstars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rtext ar">"الصينية كانت مخيفة لكن منهج الأستاذ كريم جعلها ممتعة. أصدقائي الصينيون انبهروا!"</p><p class="rtext en">"Chinese seemed terrifying but Prof. Kareem's curriculum made it fun. My Chinese friends were amazed!"</p><div class="rauthor">هالة المنصور</div><div class="rmeta">🇨🇳 <span class="ar">صينية · A2</span><span class="en">Chinese · A2</span></div></div>
+      <div class="rcard"><div class="rstars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div><p class="rtext ar">"حصلت على وظيفة في شركة بريطانية بعد درس مقابلات العمل. الأستاذ كريم غيّر حياتي!"</p><p class="rtext en">"I got a job at a British company after the job interview lesson. Prof. Kareem changed my life!"</p><div class="rauthor">سلطان الغامدي</div><div class="rmeta">🇬🇧 <span class="ar">إنجليزية · B2</span><span class="en">English · B2</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="container">
-    <div class="eyebrow"><span>Ø§ÙØ£Ø³Ø¦ÙØ© Ø§ÙØ´Ø§Ø¦Ø¹Ø©</span></div>
-    <h2>ÙÙ ÙØ§ ØªØ±ÙØ¯ ÙØ¹Ø±ÙØªÙ</h2>
+    <div class="eyebrow"><span class="ar">الأسئلة الشائعة</span><span class="en">FAQ</span></div>
+    <h2 class="section-title ar">كل ما تريد معرفته</h2>
+    <h2 class="section-title en">Everything You Need to Know</h2>
     <div class="faq-list">
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>ÙÙÙ Ø£Ø­ØµÙ Ø¹ÙÙ Ø§ÙØ¯Ø±Ø³ Ø¨Ø¹Ø¯ Ø§ÙØ´Ø±Ø§Ø¡Ø<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">ÙØµÙÙ Ø±Ø§Ø¨Ø· Ø§ÙÙØµÙÙ Ø§ÙÙÙØ±Ù Ø¨Ø¹Ø¯ Ø§ÙØ¯ÙØ¹ ÙØ¨Ø§Ø´Ø±Ø© Ø¹Ø¨Ø± Ø§ÙØ¨Ø±ÙØ¯ Ø§ÙØ¥ÙÙØªØ±ÙÙÙ ÙØ¹Ø¨Ø± Ø§ÙØ¨Ø±ÙØ¯ ÙØ§ÙÙØ§ØªØ³Ø§Ø¨. Ø§ÙÙØµÙÙ Ø¯Ø§Ø¦Ù ÙÙØ§ ÙÙØªÙÙ Ø£Ø¨Ø¯Ø§Ù.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>ÙÙ Ø§ÙÙØªØ¨ PDF Ø¹Ø§Ø¯ÙØ© Ø£Ù ØªÙØ§Ø¹ÙÙØ©Ø<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">Ø¬ÙÙØ¹ Ø§ÙÙØªØ¨ Ø§ÙØªÙØ§Ø¹ÙÙØ© ÙØªÙØ§ÙÙØ© â ØªÙØ§Ø±ÙÙ ÙØ¥Ø¬Ø§Ø¨Ø§Øª ÙØªØ³Ø¬ÙÙØ§Øª ØµÙØªÙØ© ÙØ¯ÙØ¬Ø© ÙØ¹ ÙÙ ÙØ­Ø¯Ø©. ØªØ¬Ø±Ø¨ Ø§ÙØ£ÙØ§Ø¯ÙÙÙØ© Ø§ÙÙØªÙØ§ÙÙØ© ÙÙØ§ ÙÙ Ø¢Ø®Ø±.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>ÙÙ Ø§ÙØ¯ÙØ¹ ÙÙØ±Ø© Ø£Ù ÙÙØ§Ø´ØªØ±Ø§Ù Ø§ÙØ´ÙØ±ÙØ<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">ÙØ¯ÙÙØ§ Ø§Ø®ØªÙØ§Ø± ØªØ­Ø¯ÙØ« Ø§ÙÙØ³ØªÙÙØ§Øª Ø§ÙÙØ­Ø¯Ø¯Ø© Ø£Ù ÙØ³ØªÙÙ ÙØ§ÙÙ Ø¹Ù Ø®ÙØ§Ù 10 Ø¯ÙØ§Ø¦Ù. Ø§Ø¨Ø¯Ø£ Ø§ÙØ¢Ù Ø¨Ø¯ÙÙ Ø«ÙÙ.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>ÙÙÙ Ø£Ø¹Ø±Ù ÙØ³ØªÙÙ Ø§ÙØ­Ø§ÙÙ Ø£Ù Ø£ÙÙ Ø±Ø§Ø¶ÙØ§ÙØ<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">ÙØ¯ÙÙØ§ Ø§Ø®ØªØ¨Ø§Ø± ÙØ¬Ø§ÙÙ ÙØ­Ø¯Ø¯ ÙØ³ØªÙÙØ§ØªÙ Ø§ÙÙØ­Ø¯Ø¯Ø© Ø£Ù ÙØ³ØªÙÙ ÙØ§ÙÙ Ø¹Ù Ø®ÙØ§Ù 10 Ø¯ÙØ§Ø¦Ù. Ø§Ø¨Ø¯Ø£ Ø§ÙØ¢Ù Ø¨Ø¯ÙÙ Ø«ÙÙ.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check faq-icon"></i>ÙÙ ÙÙÙÙÙÙ Ø§Ø³ØªØ±Ø¯Ø§Ø¯ Ø§ÙØ§Ø³ØªØ±Ø¯Ø§Ø¯ÙØ© Ø¥Ø°Ø§ ÙÙ Ø£ÙÙ Ø±Ø§Ø¶ÙØ§ÙØ<i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">ÙØ¹ÙØ ÙØ¶ÙÙ Ø§Ø³ØªØ±Ø¯Ø§Ø¯ Ø§ÙØ£ÙÙØ§Ù Ø®ÙØ§Ù 7 Ø£ÙØ§Ù ÙÙ Ø§ÙØ´Ø±Ø§Ø¡ Ø¨Ø¯ÙÙ Ø£Ù Ø´Ø±ÙØ·.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check fi"></i><span class="ar">كيف أحصل على الدرس بعد الشراء؟</span><span class="en">How do I access the course after purchase?</span><i class="ti ti-chevron-down fa"></i></div><div class="faq-a ar">يصلك رابط الوصول الفوري بعد الدفع عبر البريد والواتساب. الوصول دائم ولا ينتهي أبداً.</div><div class="faq-a en">You receive immediate access via email and WhatsApp right after payment. Access is permanent and never expires.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check fi"></i><span class="ar">هل الدروس بالعربي أم بالإنجليزي؟</span><span class="en">Are lessons in Arabic or English?</span><i class="ti ti-chevron-down fa"></i></div><div class="faq-a ar">الشرح بالعربية، والمحتوى باللغة المدروسة. المنصة ثنائية اللغة عربي وإنجليزي كاملاً.</div><div class="faq-a en">Explanations are in Arabic, and learning content is in the target language. The platform is fully bilingual (Arabic & English).</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check fi"></i><span class="ar">هل يمكنني استرداد المبلغ؟</span><span class="en">Can I get a refund?</span><i class="ti ti-chevron-down fa"></i></div><div class="faq-a ar">نعم، نضمن استرداد الأموال خلال 7 أيام بدون أي شروط.</div><div class="faq-a en">Yes, we guarantee a full refund within 7 days, no questions asked.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><i class="ti ti-circle-check fi"></i><span class="ar">هل الدفع مرة واحدة؟</span><span class="en">Is payment one-time?</span><i class="ti ti-chevron-down fa"></i></div><div class="faq-a ar">دفعة واحدة فقط. لا اشتراكات ولا رسوم خفية. ادفع مرة وتعلّم مدى الحياة.</div><div class="faq-a en">One-time payment per product. No subscriptions, no hidden fees. Pay once, learn for life.</div></div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta-section">
   <div class="container">
     <div class="cta-block">
-      <div><h2 class="cta-title">Ø§Ø¨Ø¯Ø£ Ø±Ø­ÙØªÙ Ø§ÙØ£ÙØ§Ø¯ÙÙÙØ© Ø§ÙÙÙÙ</h2><p class="cta-sub">Ø§ÙØ¶Ù ÙØ£ÙØ«Ø± ÙÙ 20,000 Ø·Ø§ÙØ¨ ÙØªØ¹ÙÙÙÙ ÙÙ Ø§ÙØ£Ø³ØªØ§Ø° ÙØ±ÙÙ</p></div>
-      <div class="cta-actions">
-        <button class="btn btn-gold" onclick="window.location.href='pages/auth.html?tab=register'"><i class="ti ti-player-play"></i>Ø§Ø®ØªØ¨Ø± ÙØ³ØªÙØ§Ù ÙØ¬Ø§ÙØ§Ù</button>
-        <div class="cta-badges"><div class="cta-badge"><i class="ti ti-shield-check"></i> Ø¶ÙØ§Ù 7 Ø£ÙØ§Ù</div><div class="cta-badge"><i class="ti ti-infinity"></i> ÙØµÙÙ ÙØ¯Ù Ø§ÙØ­ÙØ§Ø©</div><div class="cta-badge"><i class="ti ti-lock"></i> Ø¯ÙØ¹ Ø¢ÙÙ 100%</div></div>
+      <div>
+        <h2 class="cta-title ar">ابدأ رحلتك الأكاديمية اليوم</h2>
+        <h2 class="cta-title en">Start Your Academic Journey Today</h2>
+        <p class="cta-sub ar">انضم لأكثر من 20,000 طالب يتعلمون مع الأستاذ كريم</p>
+        <p class="cta-sub en">Join over 20,000 students learning with Prof. Kareem</p>
+        <div class="cta-badges">
+          <div class="cta-badge"><i class="ti ti-shield-check"></i><span class="ar">ضمان 7 أيام</span><span class="en">7-Day Guarantee</span></div>
+          <div class="cta-badge"><i class="ti ti-infinity"></i><span class="ar">وصول مدى الحياة</span><span class="en">Lifetime Access</span></div>
+          <div class="cta-badge"><i class="ti ti-lock"></i><span class="ar">دفع آمن</span><span class="en">Secure Payment</span></div>
+        </div>
       </div>
+      <button class="btn btn-gold btn-lg" onclick="location.href='pages/auth.html'"><i class="ti ti-player-play"></i><span class="ar">اختبر مستواك مجاناً</span><span class="en">Test Your Level Free</span></button>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-logo">Lingua<span>ÙØ¹ÙØ¯ Ø§ÙÙØºØ§Øª Ø§ÙØ£ÙØ§Ø¯ÙÙÙ</span></div>
-    <div class="footer-links">
-      <a href="#">Ø³ÙØ§Ø³Ø© Ø§ÙØ®ØµÙØµÙØ©</a><a href="#">Ø§ÙØ´Ø±ÙØ· ÙØ§ÙØ£Ø­ÙØ§Ù</a><a href="#">ØªÙØ§ØµÙ ÙØ¹ÙØ§</a><a href="#">Ø§ÙÙØ¯ÙÙØ©</a>
-    </div>
-    <div class="footer-note">Â© 2026 Lingua Â· Ø¬ÙÙØ¹ Ø§ÙØ­ÙÙÙ ÙØ­ÙÙØ¸Ø©</div>
+    <div class="foot-logo">Lingua<small class="ar">معهد اللغات الأكاديمي</small><small class="en">Academic Language Institute</small></div>
+    <div class="foot-links"><a href="#"><span class="ar">الخصوصية</span><span class="en">Privacy</span></a><a href="#"><span class="ar">الشروط</span><span class="en">Terms</span></a><a href="#"><span class="ar">تواصل معنا</span><span class="en">Contact</span></a></div>
+    <div class="foot-note">© 2026 Lingua · All rights reserved</div>
   </div>
 </footer>
 
-<!-- TOAST -->
-<div class="toast" id="toast"><i class="ti ti-check"></i><span id="toastMsg">ØªÙØª Ø§ÙØ¥Ø¶Ø§ÙØ©</span></div>
-
-<!-- CART -->
+<div class="toast" id="toast"><i class="ti ti-check"></i><span id="toastMsg"></span></div>
 <div class="cart-overlay" id="cartOverlay">
-  <div class="cart-drawer">
-    <div class="cart-head"><h3>Ø³ÙØ© Ø§ÙÙØ´ØªØ±ÙØ§Øª</h3><button class="cart-close" onclick="closeCart()"><i class="ti ti-x"></i></button></div>
-    <div class="cart-body" id="cartBody"><div class="cart-empty"><i class="ti ti-shopping-cart"></i>Ø³ÙØªÙ ÙØ§Ø±ØºØ© Ø­Ø§ÙÙØ§Ù</div></div>
-    <div class="cart-foot" id="cartFoot" style="display:none;">
-      <div class="cart-total"><span>Ø§ÙØ¥Ø¬ÙØ§ÙÙ</span><span id="cartTotal">0 Ø±.Ø³</span></div>
-      <button class="cart-checkout" onclick="window.location.href='pages/checkout.html'"><i class="ti ti-credit-card" style="font-size:15px;vertical-align:-2px;"></i> Ø¥ØªÙØ§Ù Ø§ÙØ´Ø±Ø§Ø¡</button>
+  <div class="cdrawer">
+    <div class="chead"><h3><span class="ar">سلة المشتريات</span><span class="en">Shopping Cart</span></h3><button class="cclose" onclick="closeCart()"><i class="ti ti-x"></i></button></div>
+    <div class="cbody" id="cartBody"><div class="cempty"><i class="ti ti-shopping-cart"></i><span class="ar">سلتك فارغة</span><span class="en">Your cart is empty</span></div></div>
+    <div class="cfoot" id="cartFoot" style="display:none">
+      <div class="ctotal"><span><span class="ar">الإجمالي</span><span class="en">Total</span></span><span id="cartTotal" style="font-family:'IBM Plex Sans',sans-serif">0 SAR</span></div>
+      <button class="ccheckout" onclick="location.href='pages/checkout.html'"><i class="ti ti-credit-card"></i><span class="ar">إتمام الشراء</span><span class="en">Checkout</span></button>
     </div>
   </div>
 </div>
 
 <script>
+var DB=[{"id":"en-a0-audio","ar":"قصص صوتية A0 — مجانية","en":"Audio Stories A0 — Free","p":0,"o":null,"s":"audio","l":"en","lv":"A0","r":5,"c":589,"b":"free","f":true},{"id":"en-a0-listening","ar":"الاستماع A0 — أصوات الإنجليزية","en":"Listening A0 — English Sounds","p":49,"o":null,"s":"listening","l":"en","lv":"A0","r":4.8,"c":312,"b":"hot","f":false},{"id":"en-a0-speaking","ar":"المحادثة A0 — تعرّف بنفسك","en":"Speaking A0 — Introduce Yourself","p":49,"o":null,"s":"speaking","l":"en","lv":"A0","r":4.7,"c":198,"b":null,"f":false},{"id":"en-a0-reading","ar":"القراءة A0 — الأبجدية والكلمات","en":"Reading A0 — Alphabet & First Words","p":39,"o":null,"s":"reading","l":"en","lv":"A0","r":4.9,"c":445,"b":null,"f":false},{"id":"en-a1-listening","ar":"الاستماع A1 — الحياة اليومية","en":"Listening A1 — Simple Daily Life","p":59,"o":null,"s":"listening","l":"en","lv":"A1","r":4.8,"c":267,"b":null,"f":false},{"id":"en-a1-speaking","ar":"المحادثة A1 — في المطعم والمحل","en":"Speaking A1 — Restaurants & Shops","p":59,"o":null,"s":"speaking","l":"en","lv":"A1","r":4.7,"c":189,"b":"new","f":false},{"id":"en-a1-reading","ar":"القراءة A1 — نصوص يومية","en":"Reading A1 — Simple Daily Texts","p":55,"o":null,"s":"reading","l":"en","lv":"A1","r":4.8,"c":203,"b":null,"f":false},{"id":"en-a1-pdf","ar":"PDF A1 — مفردات مجانية","en":"PDF A1 — Daily Vocabulary (Free)","p":0,"o":null,"s":"pdf","l":"en","lv":"A1","r":5,"c":334,"b":"free","f":true},{"id":"en-a2-listening","ar":"الاستماع A2 — محادثات الأصدقاء","en":"Listening A2 — Friend Conversations","p":69,"o":null,"s":"listening","l":"en","lv":"A2","r":4.7,"c":156,"b":null,"f":false},{"id":"en-a2-speaking","ar":"المحادثة A2 — في العمل والمواصلات","en":"Speaking A2 — Work & Transport","p":69,"o":null,"s":"speaking","l":"en","lv":"A2","r":4.8,"c":178,"b":null,"f":false},{"id":"en-a2-pdf","ar":"PDF A2 — قواعد مجانية","en":"PDF A2 — Core Grammar (Free)","p":0,"o":null,"s":"pdf","l":"en","lv":"A2","r":5,"c":412,"b":"free","f":true},{"id":"en-b1-listening","ar":"الاستماع B1 — مواقف حياتية","en":"Listening B1 — Real Life Situations","p":89,"o":null,"s":"listening","l":"en","lv":"B1","r":4.9,"c":142,"b":"hot","f":false},{"id":"en-b1-speaking","ar":"المحادثة B1 — المطار والسفر","en":"Speaking B1 — Airport & Travel","p":75,"o":99,"s":"speaking","l":"en","lv":"B1","r":4.8,"c":98,"b":"new","f":false},{"id":"en-b1-reading","ar":"القراءة B1 — كتاب تفاعلي","en":"Reading B1 — Interactive Book","p":79,"o":null,"s":"reading","l":"en","lv":"B1","r":4.9,"c":76,"b":null,"f":false},{"id":"en-b1-writing","ar":"الكتابة B1 — رسائل ونصوص","en":"Writing B1 — Letters & Texts","p":79,"o":null,"s":"writing","l":"en","lv":"B1","r":4.7,"c":54,"b":null,"f":false},{"id":"en-b1-audio","ar":"قصص صوتية B1 — مجانية","en":"Audio Stories B1 — Free","p":0,"o":null,"s":"audio","l":"en","lv":"B1","r":5,"c":201,"b":"free","f":true},{"id":"en-b1-bundle","ar":"باقة B1 الكاملة","en":"Complete B1 Bundle — All Skills","p":249,"o":350,"s":"bundle","l":"en","lv":"B1","r":5,"c":189,"b":null,"f":false},{"id":"en-b2-listening","ar":"الاستماع B2 — وثائقيات","en":"Listening B2 — Documentaries & Shows","p":99,"o":null,"s":"listening","l":"en","lv":"B2","r":4.8,"c":89,"b":null,"f":false},{"id":"en-b2-speaking","ar":"المحادثة B2 — مقابلات العمل","en":"Speaking B2 — Job Interviews","p":99,"o":120,"s":"speaking","l":"en","lv":"B2","r":4.9,"c":112,"b":"hot","f":false},{"id":"en-b2-writing","ar":"الكتابة B2 — تقارير ومقالات","en":"Writing B2 — Reports & Essays","p":89,"o":null,"s":"writing","l":"en","lv":"B2","r":4.7,"c":67,"b":null,"f":false},{"id":"en-c1-listening","ar":"الاستماع C1 — محاضرات أكاديمية","en":"Listening C1 — Academic Lectures","p":119,"o":null,"s":"listening","l":"en","lv":"C1","r":4.9,"c":45,"b":null,"f":false},{"id":"en-c1-speaking","ar":"المحادثة C1 — النقاش والإقناع","en":"Speaking C1 — Debate & Persuasion","p":129,"o":150,"s":"speaking","l":"en","lv":"C1","r":4.8,"c":38,"b":null,"f":false},{"id":"en-c2-bundle","ar":"باقة C2 — الاحتراف الكامل","en":"C2 Bundle — Full Mastery","p":299,"o":450,"s":"bundle","l":"en","lv":"C2","r":5,"c":22,"b":null,"f":false},{"id":"en-full","ar":"الإنجليزية الكاملة A0-C2","en":"Complete English A0-C2","p":399,"o":799,"s":"bundle","l":"en","lv":"A0+","r":4.9,"c":342,"b":"hot","f":false},{"id":"tr-a0-audio","ar":"صوتيات A0 — حروف التركية","en":"Audio A0 — Turkish Sounds (Free)","p":0,"o":null,"s":"audio","l":"tr","lv":"A0","r":5,"c":234,"b":"free","f":true},{"id":"tr-a0-speaking","ar":"المحادثة A0 — التحية بالتركية","en":"Speaking A0 — Turkish Greetings","p":49,"o":null,"s":"speaking","l":"tr","lv":"A0","r":4.8,"c":167,"b":null,"f":false},{"id":"tr-a0-reading","ar":"القراءة A0 — الأبجدية التركية","en":"Reading A0 — Turkish Alphabet","p":39,"o":null,"s":"reading","l":"tr","lv":"A0","r":4.9,"c":289,"b":null,"f":false},{"id":"tr-a0-pdf","ar":"PDF A0 — مفردات التركية","en":"PDF A0 — Turkish Vocabulary (Free)","p":0,"o":null,"s":"pdf","l":"tr","lv":"A0","r":5,"c":198,"b":"free","f":true},{"id":"tr-a1-listening","ar":"الاستماع A1 — الحياة التركية","en":"Listening A1 — Turkish Daily Life","p":59,"o":null,"s":"listening","l":"tr","lv":"A1","r":4.7,"c":143,"b":null,"f":false},{"id":"tr-a1-speaking","ar":"المحادثة A1 — في إسطنبول","en":"Speaking A1 — In Istanbul","p":65,"o":null,"s":"speaking","l":"tr","lv":"A1","r":4.8,"c":112,"b":"new","f":false},{"id":"tr-a1-pdf","ar":"PDF A1 — قواعد التركية","en":"PDF A1 — Turkish Grammar (Free)","p":0,"o":null,"s":"pdf","l":"tr","lv":"A1","r":5,"c":356,"b":"free","f":true},{"id":"tr-a2-listening","ar":"الاستماع A2 — برامج تركية","en":"Listening A2 — Turkish TV Shows","p":69,"o":null,"s":"listening","l":"tr","lv":"A2","r":4.6,"c":88,"b":null,"f":false},{"id":"tr-a2-speaking","ar":"المحادثة A2 — في المؤسسات","en":"Speaking A2 — Work & Institutions","p":69,"o":null,"s":"speaking","l":"tr","lv":"A2","r":4.7,"c":76,"b":null,"f":false},{"id":"tr-a2-reading","ar":"القراءة A2 — نصوص تركية","en":"Reading A2 — Varied Turkish Texts","p":59,"o":null,"s":"reading","l":"tr","lv":"A2","r":4.8,"c":94,"b":null,"f":false},{"id":"tr-b1-listening","ar":"الاستماع B1 — أخبار تركية","en":"Listening B1 — Turkish News","p":85,"o":null,"s":"listening","l":"tr","lv":"B1","r":4.8,"c":67,"b":null,"f":false},{"id":"tr-b1-speaking","ar":"المحادثة B1 — مع الأتراك","en":"Speaking B1 — Fluent Turkish","p":85,"o":null,"s":"speaking","l":"tr","lv":"B1","r":4.9,"c":82,"b":"hot","f":false},{"id":"tr-b1-bundle","ar":"باقة التركية B1","en":"Complete Turkish B1 Bundle","p":229,"o":320,"s":"bundle","l":"tr","lv":"B1","r":4.9,"c":134,"b":null,"f":false},{"id":"tr-c1-speaking","ar":"المحادثة C1 — كمتحدث تركي","en":"Speaking C1 — Like a Native Turk","p":129,"o":null,"s":"speaking","l":"tr","lv":"C1","r":4.9,"c":28,"b":null,"f":false},{"id":"tr-full","ar":"التركية الكاملة A0-C1","en":"Complete Turkish A0-C1","p":349,"o":650,"s":"bundle","l":"tr","lv":"A0+","r":4.9,"c":167,"b":"hot","f":false},{"id":"zh-a0-audio","ar":"صوتيات A0 — نظام البينيين","en":"Audio A0 — Pinyin System (Free)","p":0,"o":null,"s":"audio","l":"zh","lv":"A0","r":5,"c":178,"b":"free","f":true},{"id":"zh-a0-speaking","ar":"المحادثة A0 — كلماتك الصينية الأولى","en":"Speaking A0 — Your First Chinese Words","p":49,"o":null,"s":"speaking","l":"zh","lv":"A0","r":4.8,"c":134,"b":null,"f":false},{"id":"zh-a0-reading","ar":"القراءة A0 — الحروف الصينية الأولى","en":"Reading A0 — First Chinese Characters","p":55,"o":null,"s":"reading","l":"zh","lv":"A0","r":4.7,"c":112,"b":null,"f":false},{"id":"zh-a1-listening","ar":"الاستماع A1 — محادثات صينية","en":"Listening A1 — Simple Conversations","p":59,"o":null,"s":"listening","l":"zh","lv":"A1","r":4.7,"c":98,"b":null,"f":false},{"id":"zh-a1-speaking","ar":"المحادثة A1 — في الصين السياحية","en":"Speaking A1 — Tourist China","p":65,"o":null,"s":"speaking","l":"zh","lv":"A1","r":4.8,"c":87,"b":"new","f":false},{"id":"zh-a1-pdf","ar":"PDF A1 — 500 كلمة صينية","en":"PDF A1 — 500 Chinese Words (Free)","p":0,"o":null,"s":"pdf","l":"zh","lv":"A1","r":5,"c":267,"b":"free","f":true},{"id":"zh-a2-listening","ar":"الاستماع A2 — برامج صينية","en":"Listening A2 — Chinese Children Shows","p":65,"o":null,"s":"listening","l":"zh","lv":"A2","r":4.6,"c":72,"b":null,"f":false},{"id":"zh-a2-speaking","ar":"المحادثة A2 — في السوق والبازار","en":"Speaking A2 — Shops & Bazaars","p":69,"o":null,"s":"speaking","l":"zh","lv":"A2","r":4.7,"c":63,"b":null,"f":false},{"id":"zh-a2-reading","ar":"القراءة A2 — نصوص صينية","en":"Reading A2 — Simplified Chinese Texts","p":65,"o":null,"s":"reading","l":"zh","lv":"A2","r":4.8,"c":58,"b":null,"f":false},{"id":"zh-b1-listening","ar":"الاستماع B1 — أخبار CCTV","en":"Listening B1 — Simplified CCTV News","p":89,"o":null,"s":"listening","l":"zh","lv":"B1","r":4.8,"c":45,"b":null,"f":false},{"id":"zh-b1-speaking","ar":"المحادثة B1 — مع الصينيين","en":"Speaking B1 — Fluent with Chinese","p":95,"o":null,"s":"speaking","l":"zh","lv":"B1","r":4.9,"c":38,"b":"hot","f":false},{"id":"zh-b1-bundle","ar":"باقة الصينية B1","en":"Complete Chinese B1 Bundle","p":239,"o":350,"s":"bundle","l":"zh","lv":"B1","r":4.9,"c":67,"b":null,"f":false},{"id":"zh-c1-speaking","ar":"المحادثة C1 — كمتحدث صيني","en":"Speaking C1 — Like a Native Chinese","p":149,"o":null,"s":"speaking","l":"zh","lv":"C1","r":5,"c":18,"b":null,"f":false},{"id":"zh-full","ar":"الصينية الكاملة A0-C1","en":"Complete Chinese A0-C1","p":369,"o":700,"s":"bundle","l":"zh","lv":"A0+","r":4.9,"c":89,"b":"hot","f":false}];
 
+var cLang='en',cLevel='B1',cSkill='all',cSort='pop';
+var IMAP={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
+var CMAP={en:'#534AB7',tr:'#0B5E46',zh:'#993C1D'};
+var LNAME={en:{ar:'إنجليزية',en:'English',flag:'🇬🇧'},tr:{ar:'تركية',en:'Turkish',flag:'🇹🇷'},zh:{ar:'صينية',en:'Chinese',flag:'🇨🇳'}};
+var SNAME={listening:{ar:'استماع',en:'Listening'},speaking:{ar:'محادثة',en:'Speaking'},reading:{ar:'قراءة',en:'Reading'},writing:{ar:'كتابة',en:'Writing'},pdf:{ar:'PDF',en:'PDF'},audio:{ar:'صوتي',en:'Audio'},bundle:{ar:'باقة',en:'Bundle'}};
+var FEAT={en:{ar:'الإنجليزية الكاملة A0-C2',en:'Complete English A0-C2',dar:'المنهج الأكاديمي المتكامل — جميع المستويات والمهارات',den:'The complete academic curriculum — all levels and skills',price:'399 SAR',del:'799',pct:'50',id:'en-full'},tr:{ar:'التركية الكاملة A0-C1',en:'Complete Turkish A0-C1',dar:'من الصفر حتى الطلاقة — منهج متكامل',den:'From zero to fluency — complete curriculum',price:'349 SAR',del:'650',pct:'46',id:'tr-full'},zh:{ar:'الصينية الكاملة A0-C1',en:'Complete Chinese A0-C1',dar:'الصينية ليست مستحيلة — تعلّمها مع الأستاذ كريم',den:"Chinese isn't impossible — learn with Prof. Kareem",price:'369 SAR',del:'700',pct:'47',id:'zh-full'}};
 
-// ===== قاعدة بيانات المنتجات الكاملة =====
-const PRODUCTS_DB = {
-  // الإنجليزية A0
-  'en-a0-audio': {id:'en-a0-audio',title:'قصص صوتية A0 — مجاني',price:0,skill:'audio',lang:'en',level:'A0',rating:4.9,cnt:589,badge:'free',free:true,orig:null},
-  'en-a0-listening': {id:'en-a0-listening',title:'الاستماع A0 — أصوات الإنجليزية الأولى',price:49,skill:'listening',lang:'en',level:'A0',rating:4.8,cnt:312,badge:'hot',free:false,orig:null},
-  'en-a0-speaking': {id:'en-a0-speaking',title:'المحادثة A0 — تعرّف بنفسك بالإنجليزية',price:49,skill:'speaking',lang:'en',level:'A0',rating:4.7,cnt:198,badge:null,free:false,orig:null},
-  'en-a0-reading': {id:'en-a0-reading',title:'القراءة A0 — الأبجدية والكلمات الأولى',price:39,skill:'reading',lang:'en',level:'A0',rating:4.9,cnt:445,badge:null,free:false,orig:null},
-  // الإنجليزية A1
-  'en-a1-listening': {id:'en-a1-listening',title:'الاستماع A1 — الحياة اليومية المبسّطة',price:59,skill:'listening',lang:'en',level:'A1',rating:4.8,cnt:267,badge:null,free:false,orig:null},
-  'en-a1-speaking': {id:'en-a1-speaking',title:'المحادثة A1 — في المطعم والمحل',price:59,skill:'speaking',lang:'en',level:'A1',rating:4.7,cnt:189,badge:'new',free:false,orig:null},
-  'en-a1-reading': {id:'en-a1-reading',title:'القراءة A1 — نصوص يومية مبسّطة',price:55,skill:'reading',lang:'en',level:'A1',rating:4.8,cnt:203,badge:null,free:false,orig:null},
-  'en-a1-pdf': {id:'en-a1-pdf',title:'كتاب PDF A1 — مفردات الحياة اليومية',price:0,skill:'pdf',lang:'en',level:'A1',rating:5.0,cnt:334,badge:'free',free:true,orig:null},
-  // الإنجليزية A2
-  'en-a2-listening': {id:'en-a2-listening',title:'الاستماع A2 — محادثات الأصدقاء',price:69,skill:'listening',lang:'en',level:'A2',rating:4.7,cnt:156,badge:null,free:false,orig:null},
-  'en-a2-speaking': {id:'en-a2-speaking',title:'المحادثة A2 — في العمل والمواصلات',price:69,skill:'speaking',lang:'en',level:'A2',rating:4.8,cnt:178,badge:null,free:false,orig:null},
-  'en-a2-pdf': {id:'en-a2-pdf',title:'كتاب PDF A2 — القواعد الأساسية',price:0,skill:'pdf',lang:'en',level:'A2',rating:5.0,cnt:412,badge:'free',free:true,orig:null},
-  // الإنجليزية B1
-  'listen-b1': {id:'listen-b1',title:'الاستماع B1 — مواقف حياتية يومية',price:89,skill:'listening',lang:'en',level:'B1',rating:4.9,cnt:142,badge:'hot',free:false,orig:null},
-  'speak-b1': {id:'speak-b1',title:'المحادثة B1 — المطار والسفر',price:75,skill:'speaking',lang:'en',level:'B1',rating:4.8,cnt:98,badge:'new',free:false,orig:99},
-  'read-b1': {id:'read-b1',title:'القراءة B1 — كتاب تفاعلي مع تمارين',price:79,skill:'reading',lang:'en',level:'B1',rating:4.9,cnt:76,badge:null,free:false,orig:null},
-  'write-b1': {id:'write-b1',title:'الكتابة B1 — رسائل ونصوص يومية',price:79,skill:'writing',lang:'en',level:'B1',rating:4.7,cnt:54,badge:null,free:false,orig:null},
-  'audio-b1': {id:'audio-b1',title:'قصص صوتية B1 — ثلاث قصص قصيرة',price:0,skill:'audio',lang:'en',level:'B1',rating:5.0,cnt:201,badge:'free',free:true,orig:null},
-  'bundle-b1': {id:'bundle-b1',title:'باقة B1 الكاملة — كل المهارات',price:249,skill:'bundle',lang:'en',level:'B1',rating:5.0,cnt:189,badge:null,free:false,orig:350},
-  // الإنجليزية B2
-  'en-b2-listening': {id:'en-b2-listening',title:'الاستماع B2 — برامج ووثائقيات',price:99,skill:'listening',lang:'en',level:'B2',rating:4.8,cnt:89,badge:null,free:false,orig:null},
-  'en-b2-speaking': {id:'en-b2-speaking',title:'المحادثة B2 — مقابلات العمل',price:99,skill:'speaking',lang:'en',level:'B2',rating:4.9,cnt:112,badge:'hot',free:false,orig:120},
-  'en-b2-writing': {id:'en-b2-writing',title:'الكتابة B2 — تقارير ومقالات',price:89,skill:'writing',lang:'en',level:'B2',rating:4.7,cnt:67,badge:null,free:false,orig:null},
-  // الإنجليزية C1-C2
-  'en-c1-listening': {id:'en-c1-listening',title:'الاستماع C1 — محاضرات أكاديمية',price:119,skill:'listening',lang:'en',level:'C1',rating:4.9,cnt:45,badge:null,free:false,orig:null},
-  'en-c1-speaking': {id:'en-c1-speaking',title:'المحادثة C1 — النقاش والإقناع',price:129,skill:'speaking',lang:'en',level:'C1',rating:4.8,cnt:38,badge:null,free:false,orig:150},
-  'full-en': {id:'full-en',title:'الإنجليزية الكاملة A0-C2',price:399,skill:'bundle',lang:'en',level:'A0-C2',rating:4.9,cnt:342,badge:'hot',free:false,orig:799},
-  // التركية
-  'tr-a0-audio': {id:'tr-a0-audio',title:'صوتيات A0 — حروف التركية وأصواتها',price:0,skill:'audio',lang:'tr',level:'A0',rating:5.0,cnt:234,badge:'free',free:true,orig:null},
-  'tr-a0-speaking': {id:'tr-a0-speaking',title:'المحادثة A0 — التحية بالتركية',price:49,skill:'speaking',lang:'tr',level:'A0',rating:4.8,cnt:167,badge:null,free:false,orig:null},
-  'tr-a0-reading': {id:'tr-a0-reading',title:'القراءة A0 — تعلّم الأبجدية التركية',price:39,skill:'reading',lang:'tr',level:'A0',rating:4.9,cnt:289,badge:null,free:false,orig:null},
-  'tr-a0-pdf': {id:'tr-a0-pdf',title:'كتاب PDF A0 — مفردات التركية الضرورية',price:0,skill:'pdf',lang:'tr',level:'A0',rating:5.0,cnt:198,badge:'free',free:true,orig:null},
-  'tr-a1-listening': {id:'tr-a1-listening',title:'الاستماع A1 — الحياة اليومية بالتركية',price:59,skill:'listening',lang:'tr',level:'A1',rating:4.7,cnt:143,badge:null,free:false,orig:null},
-  'tr-a1-speaking': {id:'tr-a1-speaking',title:'المحادثة A1 — في إسطنبول السياحية',price:65,skill:'speaking',lang:'tr',level:'A1',rating:4.8,cnt:112,badge:'new',free:false,orig:null},
-  'tr-a1-pdf': {id:'tr-a1-pdf',title:'كتاب PDF A1 — قواعد التركية للمبتدئين',price:0,skill:'pdf',lang:'tr',level:'A1',rating:5.0,cnt:356,badge:'free',free:true,orig:null},
-  'tr-a2-listening': {id:'tr-a2-listening',title:'الاستماع A2 — برامج تركية للمبتدئين',price:69,skill:'listening',lang:'tr',level:'A2',rating:4.6,cnt:88,badge:null,free:false,orig:null},
-  'tr-a2-speaking': {id:'tr-a2-speaking',title:'المحادثة A2 — في العمل والمؤسسات',price:69,skill:'speaking',lang:'tr',level:'A2',rating:4.7,cnt:76,badge:null,free:false,orig:null},
-  'tr-a2-reading': {id:'tr-a2-reading',title:'القراءة A2 — نصوص تركية متنوعة',price:59,skill:'reading',lang:'tr',level:'A2',rating:4.8,cnt:94,badge:null,free:false,orig:null},
-  'tr-b1-listening': {id:'tr-b1-listening',title:'الاستماع B1 — أخبار ومجلات تركية',price:85,skill:'listening',lang:'tr',level:'B1',rating:4.8,cnt:67,badge:null,free:false,orig:null},
-  'tr-b1-speaking': {id:'tr-b1-speaking',title:'المحادثة B1 — نقاشات الأصدقاء الأتراك',price:85,skill:'speaking',lang:'tr',level:'B1',rating:4.9,cnt:82,badge:'hot',free:false,orig:null},
-  'tr-b1-bundle': {id:'tr-b1-bundle',title:'باقة التركية B1 الكاملة',price:229,skill:'bundle',lang:'tr',level:'B1',rating:4.9,cnt:134,badge:null,free:false,orig:320},
-  'tr-c1-speaking': {id:'tr-c1-speaking',title:'المحادثة C1 — كمتحدث تركي',price:129,skill:'speaking',lang:'tr',level:'C1',rating:4.9,cnt:28,badge:null,free:false,orig:null},
-  'tr-full': {id:'tr-full',title:'التركية الكاملة A0-C1',price:349,skill:'bundle',lang:'tr',level:'A0-C1',rating:4.9,cnt:167,badge:'hot',free:false,orig:650},
-  // الصينية
-  'zh-a0-audio': {id:'zh-a0-audio',title:'صوتيات A0 — نظام البينيين الصيني',price:0,skill:'audio',lang:'zh',level:'A0',rating:5.0,cnt:178,badge:'free',free:true,orig:null},
-  'zh-a0-speaking': {id:'zh-a0-speaking',title:'المحادثة A0 — كلماتك الصينية الأولى',price:49,skill:'speaking',lang:'zh',level:'A0',rating:4.8,cnt:134,badge:null,free:false,orig:null},
-  'zh-a0-reading': {id:'zh-a0-reading',title:'القراءة A0 — الحروف الصينية الأولى',price:55,skill:'reading',lang:'zh',level:'A0',rating:4.7,cnt:112,badge:null,free:false,orig:null},
-  'zh-a1-listening': {id:'zh-a1-listening',title:'الاستماع A1 — محادثات صينية بسيطة',price:59,skill:'listening',lang:'zh',level:'A1',rating:4.7,cnt:98,badge:null,free:false,orig:null},
-  'zh-a1-speaking': {id:'zh-a1-speaking',title:'المحادثة A1 — في الصين السياحية',price:65,skill:'speaking',lang:'zh',level:'A1',rating:4.8,cnt:87,badge:'new',free:false,orig:null},
-  'zh-a1-pdf': {id:'zh-a1-pdf',title:'كتاب PDF A1 — 500 كلمة صينية',price:0,skill:'pdf',lang:'zh',level:'A1',rating:5.0,cnt:267,badge:'free',free:true,orig:null},
-  'zh-a2-listening': {id:'zh-a2-listening',title:'الاستماع A2 — برامج صينية للأطفال',price:65,skill:'listening',lang:'zh',level:'A2',rating:4.6,cnt:72,badge:null,free:false,orig:null},
-  'zh-a2-speaking': {id:'zh-a2-speaking',title:'المحادثة A2 — في المتجر والبازار',price:69,skill:'speaking',lang:'zh',level:'A2',rating:4.7,cnt:63,badge:null,free:false,orig:null},
-  'zh-a2-reading': {id:'zh-a2-reading',title:'القراءة A2 — نصوص ومقالات مبسّطة',price:65,skill:'reading',lang:'zh',level:'A2',rating:4.8,cnt:58,badge:null,free:false,orig:null},
-  'zh-b1-listening': {id:'zh-b1-listening',title:'الاستماع B1 — أخبار CCTV مبسّطة',price:89,skill:'listening',lang:'zh',level:'B1',rating:4.8,cnt:45,badge:null,free:false,orig:null},
-  'zh-b1-speaking': {id:'zh-b1-speaking',title:'المحادثة B1 — مع الصينيين الطلقاء',price:95,skill:'speaking',lang:'zh',level:'B1',rating:4.9,cnt:38,badge:'hot',free:false,orig:null},
-  'zh-b1-bundle': {id:'zh-b1-bundle',title:'باقة الصينية B1 الكاملة',price:239,skill:'bundle',lang:'zh',level:'B1',rating:4.9,cnt:67,badge:null,free:false,orig:350},
-  'zh-c1-speaking': {id:'zh-c1-speaking',title:'المحادثة C1 — كمتحدث صيني',price:149,skill:'speaking',lang:'zh',level:'C1',rating:5.0,cnt:18,badge:null,free:false,orig:null},
-  'zh-full': {id:'zh-full',title:'الصينية الكاملة A0-C1',price:369,skill:'bundle',lang:'zh',level:'A0-C1',rating:4.9,cnt:89,badge:'hot',free:false,orig:700}
-};
-
-
-const imap={listening:'ti-ear',speaking:'ti-messages',reading:'ti-book-2',writing:'ti-pencil',pdf:'ti-file-type-pdf',audio:'ti-player-play',bundle:'ti-package'};
-const cmap={en:'#534AB7',tr:'#0B5E46',zh:'#993C1D'};
-const lname={en:'إنجليزية',tr:'تركية',zh:'صينية'};
-let cLang='en',cLevel='B1',cSkill='all';
-
-function loadProductsFromAPI(){
-  const grid=document.getElementById('productsGrid');
-  if(!grid)return;
-  
-  let prods = Object.values(PRODUCTS_DB).filter(p => p.lang===cLang);
-  if(cLevel!=='all') prods=prods.filter(p=>p.level===cLevel||p.level.includes(cLevel.slice(0,1)));
-  if(cSkill!=='all') prods=prods.filter(p=>p.skill===cSkill);
-  
-  const cntEl=document.getElementById('productCount');
-  if(cntEl)cntEl.textContent=prods.length;
-  
-  if(!prods.length){
-    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--ink-3)"><i class="ti ti-search" style="font-size:36px;display:block;margin:0 auto 1rem;opacity:.3"></i>لا توجد منتجات لهذا التصفية</div>';
-    return;
-  }
-  
-  grid.innerHTML=prods.slice(0,12).map(p=>{
-    const ico=imap[p.skill]||'ti-book-2';
-    const color=cmap[p.lang]||'#534AB7';
-    const badge=p.badge?'<span class="pcard-badge badge-'+p.badge+'">'+(p.badge==='hot'?'🔥 الأكثر':p.badge==='new'?'✨ جديد':'مجاني')+'</span>':'';
-    const price=p.free?'<div class="pcard-price free-price">مجاني</div>':'<div class="pcard-price">'+(p.orig?'<del>'+p.orig+'</del> ':'')+p.price+' ر.س</div>';
-    const btn=p.free?'<button class="btn btn-jade btn-sm" onclick="event.stopPropagation();showToast('تحميل...')"><i class="ti ti-download"></i> حمّل</button>':'<button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addProd({id:''+p.id+'',title:''+p.title+'',price:'+p.price+',skill:''+p.skill+'',lang:''+p.lang+''})"><i class="ti ti-plus"></i> أضف</button>';
-    return '<div class="pcard" onclick="window.location.href='product.html?id='+p.id+''"><div class="pcard-thumb '+p.lang+'"><i class="ti '+ico+'" style="color:'+color+'"></i>'+badge+'</div><div class="pcard-body"><div class="pcard-title">'+p.title+'</div><div class="pcard-meta">'+p.level+' <span class="meta-dot"></span> '+lname[p.lang]+' <span class="meta-dot"></span><span class="pcard-stars"><i class="ti ti-star-filled"></i> '+p.rating+'</span></div><div class="pcard-foot">'+price+btn+'</div></div></div>';
+function L(){return document.documentElement.getAttribute('data-lang')||'ar';}
+function toggleLang(){var h=document.documentElement,cur=h.getAttribute('data-lang'),next=cur==='ar'?'en':'ar';h.setAttribute('data-lang',next);h.setAttribute('lang',next);h.setAttribute('dir',next==='ar'?'rtl':'ltr');document.getElementById('langBtn').textContent=next==='ar'?'EN':'عربي';document.title=next==='ar'?'Lingua — معهد اللغات الأكاديمي':'Lingua — Academic Language Institute';render();}
+function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+function setLang(lang,btn){document.querySelectorAll('.lang-opt').forEach(function(b){b.classList.remove('active');});if(btn)btn.classList.add('active');filterLang(lang,document.querySelector('.lfbtn[onclick*="''+lang+''"]'));}
+function filterLang(lang,btn){cLang=lang;document.querySelectorAll('.lfbtn').forEach(function(b){b.classList.remove('active');});if(btn)btn.classList.add('active');updateFeat();render();}
+function filterLevel(lvl,btn){cLevel=lvl;document.querySelectorAll('.lvl-btn').forEach(function(b){b.classList.remove('active');});if(btn)btn.classList.add('active');render();}
+function filterSkill(sk,btn){cSkill=sk;document.querySelectorAll('.skill-btn').forEach(function(b){b.classList.remove('active');});if(btn)btn.classList.add('active');render();}
+function doSort(v){cSort=v;render();}
+function updateFeat(){var f=FEAT[cLang];if(!f)return;document.getElementById('ft-ar').textContent=f.ar;document.getElementById('ft-en').textContent=f.en;document.getElementById('fd-ar').textContent=f.dar;document.getElementById('fd-en').textContent=f.den;document.getElementById('fp').innerHTML=f.price+' <del>'+f.del+'</del>';document.querySelector('.save-tag.ar').textContent='وفّر '+f.pct+'%';document.querySelector('.save-tag.en').textContent='Save '+f.pct+'%';}
+document.getElementById('feat-btn').addEventListener('click',function(){var f=FEAT[cLang];var p=DB.find(function(x){return x.id===f.id;});if(p)addProd(p);});
+function render(){
+  var lang=L();
+  document.getElementById('cnt-en').textContent=DB.filter(function(p){return p.l==='en';}).length;
+  document.getElementById('cnt-tr').textContent=DB.filter(function(p){return p.l==='tr';}).length;
+  document.getElementById('cnt-zh').textContent=DB.filter(function(p){return p.l==='zh';}).length;
+  var prods=DB.filter(function(p){return p.l===cLang;});
+  if(cLevel!=='all'){if(cLevel==='C2')prods=prods.filter(function(p){return p.lv==='C2';});else prods=prods.filter(function(p){return p.lv===cLevel||p.lv==='A0+';});}
+  if(cSkill!=='all')prods=prods.filter(function(p){return p.s===cSkill;});
+  if(cSort==='price-asc')prods.sort(function(a,b){return a.p-b.p;});else if(cSort==='price-desc')prods.sort(function(a,b){return b.p-a.p;});else if(cSort==='rating')prods.sort(function(a,b){return b.r-a.r;});else prods.sort(function(a,b){return b.c-a.c;});
+  document.getElementById('pc-ar').textContent=prods.length;
+  document.getElementById('pc-en').textContent=prods.length;
+  var grid=document.getElementById('pgrid');
+  if(!prods.length){grid.innerHTML='<div class="no-results"><i class="ti ti-search"></i><p>'+(lang==='ar'?'لا توجد دروس لهذا التصفية':'No courses match this filter')+'</p></div>';return;}
+  grid.innerHTML=prods.map(function(p){
+    var ico=IMAP[p.s]||'ti-book-2';var col=CMAP[p.l]||'#534AB7';
+    var title=lang==='ar'?p.ar:p.en;
+    var ln=LNAME[p.l]||{};var sk=SNAME[p.s]||{ar:p.s,en:p.s};
+    var badge='';
+    if(p.b==='hot')badge='<span class="pbadge badge-hot">🔥 '+(lang==='ar'?'الأكثر مبيعاً':'Best Seller')+'</span>';
+    else if(p.b==='new')badge='<span class="pbadge badge-new">✨ '+(lang==='ar'?'جديد':'New')+'</span>';
+    else if(p.b==='free')badge='<span class="pbadge badge-free">🄓 '+(lang==='ar'?'مجاني':'Free')+'</span>';
+    var price=p.f?'<div class="pprice free">'+(lang==='ar'?'مجاني':'Free')+'</div>':'<div class="pprice">'+(p.o?'<del>'+p.o+'</del> ':'')+p.p+' <small style="font-size:10px;font-weight:400">SAR</small></div>';
+    var btn=p.f?'<button class="btn btn-jade btn-sm" onclick="event.stopPropagation();dlFree(''+p.id+'')"><i class="ti ti-download"></i>'+(lang==='ar'?'حمّل':'Get')+'</button>':'<button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addById(''+p.id+'')"><i class="ti ti-plus"></i>'+(lang==='ar'?'أضف':'Add')+'</button>';
+    return '<div class="pcard" onclick="openProduct(''+p.id+'')">'+'<div class="pthumb '+p.l+'"><i class="ti '+ico+'" style="color:'+col+'"></i>'+badge+'</div>'+'<div class="pbody"><div class="ptitle">'+title+'</div><div class="pmeta"><span style="font-family:'IBM Plex Sans',sans-serif">'+p.lv+'</span><span class="mdot"></span><span>'+(lang==='ar'?sk.ar:sk.en)+'</span><span class="mdot"></span><span class="pstars"><i class="ti ti-star-filled"></i> '+p.r+'</span></div><div class="pfoot">'+price+btn+'</div></div></div>';
   }).join('');
 }
-
-function filterLang(lang,btn){
-  cLang=lang;
-  document.querySelectorAll('.lang-filter-btn,.lang-option').forEach(b=>b.classList.remove('active'));
-  if(btn)btn.classList.add('active');
-  // تحديث عدد المنتجات في الأزرار
-  ['en','tr','zh'].forEach(l=>{
-    const c=Object.values(PRODUCTS_DB).filter(p=>p.lang===l).length;
-    const el=document.querySelector('.lang-filter-btn[onclick*="filterLang(''+l+''"] .count');
-    if(el)el.textContent=c;
-  });
-  loadProductsFromAPI();
-}
-function filterLevel(lvl,btn){
-  cLevel=lvl;
-  document.querySelectorAll('.lvl-btn:not(.done)').forEach(b=>b.classList.remove('active'));
-  if(btn)btn.classList.add('active');
-  loadProductsFromAPI();
-}
-function filterSkill(s,btn){
-  cSkill=s;
-  document.querySelectorAll('.skill-btn').forEach(b=>b.classList.remove('active'));
-  if(btn)btn.classList.add('active');
-  loadProductsFromAPI();
-}
-
-const cartStore={
-  get:()=>JSON.parse(localStorage.getItem('lingua_cart')||'[]'),
-  save:c=>localStorage.setItem('lingua_cart',JSON.stringify(c)),
-  add:p=>{const c=cartStore.get();if(!c.find(i=>i.id===p.id))c.push(p);cartStore.save(c);updateCartUI();},
-  remove:id=>{cartStore.save(cartStore.get().filter(i=>i.id!==id));updateCartUI();},
-  total:()=>cartStore.get().reduce((s,i)=>s+Number(i.price),0)
-};
-function addProd(product){cartStore.add(product);showToast('تمت إضافة "'+product.title+'" للسلة');}
-function updateCartUI(){
-  const items=cartStore.get();
-  const cnt=document.getElementById('cartCount');if(cnt)cnt.textContent=items.length;
-  const body=document.getElementById('cartBody'),foot=document.getElementById('cartFoot');
-  if(!body)return;
-  if(!items.length){body.innerHTML='<div class="cart-empty"><i class="ti ti-shopping-cart"></i>سلتك فارغة</div>';if(foot)foot.style.display='none';return;}
-  body.innerHTML=items.map(item=>'<div class="cart-item"><div class="cart-item-icon"><i class="ti '+(imap[item.skill]||'ti-book-2')+'"></i></div><div class="cart-item-info"><div class="cart-item-title">'+item.title+'</div><div class="cart-item-meta">'+(lname[item.lang]||'')+'</div></div><div class="cart-item-price">'+Number(item.price).toFixed(0)+' ر.س</div><button class="cart-item-remove" onclick="cartStore.remove(''+item.id+'')"><i class="ti ti-trash"></i></button></div>').join('');
-  const ct=document.getElementById('cartTotal');if(ct)ct.textContent=cartStore.total().toFixed(0)+' ر.س';
-  if(foot)foot.style.display='block';
-}
-function closeCart(){document.getElementById('cartOverlay')?.classList.remove('open');}
-(function(){
-  const li=document.getElementById('navLogin'),re=document.getElementById('navRegister');
-  if(!li||!re)return;
-  const t=localStorage.getItem('lingua_token');
-  const u=JSON.parse(localStorage.getItem('lingua_user')||'null');
-  if(t&&u){
-    li.textContent=u.name?.split(' ')[0]||'حسابي';
-    li.onclick=()=>location.href='dashboard.html';
-    re.textContent=u.role==='admin'?'Admin':'لوحتي';
-    re.onclick=()=>location.href=u.role==='admin'?'admin.html':'dashboard.html';
-  }else{
-    li.onclick=()=>location.href='auth.html';
-    re.onclick=()=>location.href='auth.html?tab=register';
-  }
-})();
-let _tt;
-function showToast(msg){const t=document.getElementById('toast'),m=document.getElementById('toastMsg');if(t&&m){m.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>t.classList.remove('show'),2800);}}
-function toggleFaq(el){const item=el.closest('.faq-item'),isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
-document.addEventListener('DOMContentLoaded',()=>{
-  const cb=document.getElementById('cartBtn'),co=document.getElementById('cartOverlay');
-  if(cb)cb.addEventListener('click',()=>{co?.classList.toggle('open');updateCartUI();});
-  if(co)co.addEventListener('click',function(e){if(e.target===this)closeCart();});
-});
-updateCartUI();
-loadProductsFromAPI();
-
+function openProduct(id){location.href='pages/product.html?id='+id;}
+function addById(id){var p=DB.find(function(x){return x.id===id;});if(p)addProd(p);}
+function dlFree(id){showToast(L()==='ar'?'جارٍ التحميل... ✓':'Downloading... ✓');}
+var CART={get:function(){return JSON.parse(localStorage.getItem('lingua_cart')||'[]');},save:function(c){localStorage.setItem('lingua_cart',JSON.stringify(c));},add:function(p){var c=CART.get();if(!c.find(function(i){return i.id===p.id;}))c.push(p);CART.save(c);updateCartUI();},remove:function(id){CART.save(CART.get().filter(function(i){return i.id!==id;}));updateCartUI();},total:function(){return CART.get().reduce(function(s,i){return s+Number(i.p||i.price||0);},0);}};
+function addProd(p){var lang=L();CART.add({id:p.id,title:lang==='ar'?p.ar:p.en,price:p.p||p.price||0,skill:p.s||p.skill,lang:p.l||p.lang});showToast(lang==='ar'?'تمت الإضافة للسلة ✓':'Added to cart ✓');}
+function updateCartUI(){var lang=L();var items=CART.get();var cnt=document.getElementById('cartCount');if(cnt)cnt.textContent=items.length;var body=document.getElementById('cartBody'),foot=document.getElementById('cartFoot');if(!body)return;if(!items.length){body.innerHTML='<div class="cempty"><i class="ti ti-shopping-cart"></i><span>'+(lang==='ar'?'سلتك فارغة':'Your cart is empty')+'</span></div>';if(foot)foot.style.display='none';return;}body.innerHTML=items.map(function(item){return'<div class="ci"><div class="ci-icon"><i class="ti '+(IMAP[item.skill||item.s]||'ti-book-2')+'"></i></div><div class="ci-info"><div class="ci-title">'+item.title+'</div><div class="ci-sub">'+({en:'English 🇬🇧',tr:'Turkish 🇹🇷',zh:'Chinese 🇨🇳'}[item.lang||item.l]||'')+'</div></div><div class="ci-price">'+(Number(item.price||0)===0?(lang==='ar'?'مجاني':'Free'):(Number(item.price||0)+' SAR'))+'</div><button class="ci-rm" onclick="CART.remove(''+item.id+'')"><i class="ti ti-trash"></i></button></div>';}).join('');var tot=document.getElementById('cartTotal');if(tot)tot.textContent=CART.total().toFixed(0)+' SAR';if(foot)foot.style.display='block';}
+function closeCart(){document.getElementById('cartOverlay').classList.remove('open');}
+var _tt;function showToast(msg){var t=document.getElementById('toast'),m=document.getElementById('toastMsg');m.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},2800);}
+function toggleFaq(el){var item=el.closest('.faq-item'),isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});if(!isOpen)item.classList.add('open');}
+function initNav(){var token=localStorage.getItem('lingua_token');var user=JSON.parse(localStorage.getItem('lingua_user')||'null');var lang=L();var li=document.getElementById('navLogin');var re=document.getElementById('navRegister');if(!li||!re)return;if(token&&user){li.innerHTML='<i class="ti ti-user-circle"></i> '+(user.name||'').split(' ')[0];li.onclick=function(){location.href='pages/dashboard.html';};re.innerHTML=user.role==='admin'?'<i class="ti ti-settings"></i> Admin':'<i class="ti ti-layout-dashboard"></i> '+(lang==='ar'?'لوحتي':'Dashboard');re.onclick=function(){location.href=user.role==='admin'?'pages/admin.html':'pages/dashboard.html';};}else{li.onclick=function(){location.href='pages/auth.html';};re.onclick=function(){location.href='pages/auth.html?tab=register';};}}
+document.addEventListener('DOMContentLoaded',function(){var cb=document.getElementById('cartBtn'),co=document.getElementById('cartOverlay');if(cb)cb.addEventListener('click',function(){co.classList.toggle('open');updateCartUI();});if(co)co.addEventListener('click',function(e){if(e.target===co)closeCart();});updateFeat();render();updateCartUI();initNav();});
 </script>
 </body>
 </html>
