@@ -1,176 +1,160 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-lang="ar">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>لوحة الإدارة — Lingua</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
-:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--danger:#E24B4A;}
+:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--danger:#E24B4A;--r-md:10px;--r-lg:16px;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh;display:flex;}
-.sidebar{width:220px;background:var(--plum);min-height:100vh;display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;}
-.sb-logo{padding:1.5rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.1);}
-.sb-logo-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;}
-.sb-logo-sub{font-size:10px;color:var(--gold);letter-spacing:.08em;margin-top:2px;}
-.sb-nav{padding:.75rem 0;flex:1;}
-.nav-lbl{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;font-weight:600;padding:10px 1.25rem 4px;text-transform:uppercase;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 1.25rem;font-size:13px;font-weight:500;color:#AFA9EC;cursor:pointer;border-right:3px solid transparent;transition:.12s;background:none;border-top:none;border-bottom:none;border-left:none;width:100%;font-family:inherit;text-align:right;}
-.nav-item:hover{color:#fff;background:rgba(255,255,255,.06);}
-.nav-item.active{color:#fff;background:rgba(255,255,255,.1);border-right-color:var(--gold);}
-.nav-item i{font-size:17px;}
-.sb-foot{padding:1rem 1.25rem;border-top:1px solid rgba(255,255,255,.1);}
-.logout-btn{display:flex;align-items:center;gap:8px;font-size:12px;color:#AFA9EC;cursor:pointer;padding:8px;border-radius:8px;background:none;border:none;font-family:inherit;width:100%;}
-.logout-btn:hover{color:#fff;background:rgba(255,255,255,.08);}
-.main{flex:1;padding:2rem;overflow-x:hidden;}
-.page-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--plum);margin-bottom:1.5rem;}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem;}
-@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
-.sc{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1rem 1.25rem;}
-.sc-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px;}
-.sc-icon.p{background:var(--plum-l);color:var(--plum-m);}
-.sc-icon.g{background:var(--gold-l);color:var(--gold);}
-.sc-icon.j{background:var(--jade-l);color:var(--jade);}
-.sc-icon.r{background:#FCEBEB;color:var(--danger);}
-.sc-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--plum);display:block;}
-.sc-lbl{font-size:11px;color:var(--ink-3);margin-top:2px;}
-.sc-trend{font-size:11px;color:var(--jade);margin-top:4px;display:flex;align-items:center;gap:3px;}
-.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.25rem;margin-bottom:1rem;overflow-x:auto;}
-.card-title{font-size:14px;font-weight:700;color:var(--plum);margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
-.card-title i{color:var(--gold);}
-table{width:100%;border-collapse:collapse;min-width:500px;}
-th{font-size:11px;color:var(--ink-3);font-weight:600;text-align:right;padding:8px 12px;border-bottom:1px solid var(--border);background:var(--sand);white-space:nowrap;}
-td{font-size:13px;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--ink-2);vertical-align:middle;}
-tr:last-child td{border-bottom:none;}
-tr:hover td{background:#fafafe;}
-.badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:5px;font-size:11px;font-weight:700;}
-.badge-jade{background:var(--jade-l);color:var(--jade);}
-.badge-danger{background:#FCEBEB;color:var(--danger);}
-.badge-gold{background:var(--gold-l);color:var(--gold);}
-.badge-plum{background:var(--plum-l);color:var(--plum-m);}
+[data-lang="en"]{direction:ltr;font-family:'IBM Plex Sans',sans-serif}
+.ar{display:block}.en{display:none}[data-lang="en"] .ar{display:none}[data-lang="en"] .en{display:block}
+span.ar,span.en{display:inline}[data-lang="en"] span.ar{display:none}[data-lang="ar"] span.en{display:none}
+.sidebar{width:220px;background:var(--plum);min-height:100vh;display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh}
+.sb-header{padding:1.5rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.sb-logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px}
+.sb-logo i{font-size:18px;color:var(--gold)}
+.sb-subtitle{font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.1em;margin-top:2px}
+.sb-nav{padding:.75rem 0;flex:1}
+.nav-lbl{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;font-weight:600;padding:10px 1.25rem 4px;text-transform:uppercase}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 1.25rem;font-size:13px;font-weight:500;color:#AFA9EC;cursor:pointer;border-right:3px solid transparent;transition:.12s;background:none;border-top:none;border-bottom:none;border-left:none;width:100%;font-family:inherit;text-align:inherit}
+[data-lang="en"] .nav-item{border-right:none;border-left:3px solid transparent}
+.nav-item i{font-size:17px}.nav-item:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-item.active{color:#fff;background:rgba(255,255,255,.1);border-right-color:var(--gold)}
+[data-lang="en"] .nav-item.active{border-right-color:transparent;border-left-color:var(--gold)}
+.sb-footer{padding:1rem 1.25rem;border-top:1px solid rgba(255,255,255,.1)}
+.logout-btn{display:flex;align-items:center;gap:7px;font-size:12px;color:rgba(255,255,255,.5);cursor:pointer;padding:6px;border-radius:6px;background:none;border:none;font-family:inherit;width:100%}
+.logout-btn:hover{color:#fff;background:rgba(255,255,255,.08)}
+.main{flex:1;display:flex;flex-direction:column}
+.demo-bar{background:linear-gradient(135deg,var(--gold),#E8A020);color:var(--plum);padding:8px 1.5rem;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px}
+.content{padding:2rem;flex:1}
+.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.75rem;flex-wrap:wrap;gap:.75rem}
+.page-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--plum)}
+.lang-btn{background:var(--plum-l);border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--plum);cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+.sc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1rem 1.25rem}
+.sc-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
+.sc-icon.p{background:var(--plum-l);color:var(--plum-m)}.sc-icon.g{background:var(--gold-l);color:var(--gold)}.sc-icon.j{background:var(--jade-l);color:var(--jade)}
+.sc-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--plum);display:block}
+.sc-lbl{font-size:11px;color:var(--ink-3)}.sc-trend{font-size:11px;color:var(--jade);margin-top:4px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1rem;overflow-x:auto}
+.card-title{font-size:14px;font-weight:700;color:var(--plum);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.card-title i{color:var(--gold)}
+table{width:100%;border-collapse:collapse;min-width:500px}
+th{font-size:11px;color:var(--ink-3);font-weight:600;text-align:inherit;padding:8px 12px;border-bottom:1px solid var(--border);background:var(--sand);white-space:nowrap}
+td{font-size:13px;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--ink-2);vertical-align:middle}
+tr:last-child td{border-bottom:none}tr:hover td{background:#fafafe}
+.badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:5px;font-size:11px;font-weight:700}
+.badge-jade{background:var(--jade-l);color:var(--jade)}.badge-danger{background:#FCEBEB;color:var(--danger)}.badge-gold{background:var(--gold-l);color:var(--gold)}.badge-plum{background:var(--plum-l);color:var(--plum-m)}
 .hidden{display:none!important}
-.demo-bar{background:linear-gradient(135deg,var(--gold),#E8A020);color:var(--plum);padding:8px 1.5rem;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px;}
-@media(max-width:768px){.sidebar{width:56px;}.sb-logo-name,.sb-logo-sub,.nav-lbl{display:none;}.nav-item{justify-content:center;padding:12px;}.nav-item span{display:none;}.sb-foot{padding:.5rem;}}
+@media(max-width:768px){.sidebar{width:52px}.sb-logo span,.sb-subtitle,.nav-lbl{display:none}.nav-item{justify-content:center;padding:12px}.nav-item span{display:none}}
 </style>
 </head>
 <body>
 <aside class="sidebar">
-  <div class="sb-logo">
-    <div class="sb-logo-name">Lingua</div>
-    <div class="sb-logo-sub">ADMIN PANEL</div>
+  <div class="sb-header">
+    <div class="sb-logo"><i class="ti ti-language"></i><span>Lingua</span></div>
+    <div class="sb-subtitle">ADMIN PANEL</div>
   </div>
   <nav class="sb-nav">
     <div class="nav-lbl">Overview</div>
-    <button class="nav-item active" onclick="show('overview',this)"><i class="ti ti-dashboard"></i><span>نظرة عامة</span></button>
-    <button class="nav-item" onclick="show('orders',this)"><i class="ti ti-receipt"></i><span>الطلبات</span></button>
-    <button class="nav-item" onclick="show('users',this)"><i class="ti ti-users"></i><span>الطلاب</span></button>
-    <button class="nav-item" onclick="show('products',this)"><i class="ti ti-books"></i><span>المنتجات</span></button>
+    <button class="nav-item active" onclick="show('overview',this)"><i class="ti ti-dashboard"></i><span class="ar">نظرة عامة</span><span class="en">Overview</span></button>
+    <button class="nav-item" onclick="show('orders',this)"><i class="ti ti-receipt"></i><span class="ar">الطلبات</span><span class="en">Orders</span></button>
+    <button class="nav-item" onclick="show('users',this)"><i class="ti ti-users"></i><span class="ar">الطلاب</span><span class="en">Students</span></button>
+    <button class="nav-item" onclick="show('products',this)"><i class="ti ti-books"></i><span class="ar">المنتجات</span><span class="en">Products</span></button>
     <div class="nav-lbl">Links</div>
-    <button class="nav-item" onclick="location.href='index.html'"><i class="ti ti-home"></i><span>الرئيسية</span></button>
-    <button class="nav-item" onclick="location.href='dashboard.html'"><i class="ti ti-layout-dashboard"></i><span>لوحتي</span></button>
+    <button class="nav-item" onclick="location.href='../index.html'"><i class="ti ti-home"></i><span class="ar">الرئيسية</span><span class="en">Store</span></button>
+    <button class="nav-item" onclick="location.href='dashboard.html'"><i class="ti ti-layout-dashboard"></i><span class="ar">لوحتي</span><span class="en">My Dashboard</span></button>
   </nav>
-  <div class="sb-foot">
-    <button class="logout-btn" onclick="logout()"><i class="ti ti-logout" style="font-size:16px"></i><span>خروج</span></button>
+  <div class="sb-footer">
+    <button class="logout-btn" onclick="logout()"><i class="ti ti-logout" style="font-size:16px"></i><span class="ar">خروج</span><span class="en">Logout</span></button>
   </div>
 </aside>
-
-<div style="flex:1;display:flex;flex-direction:column;">
-  <div class="demo-bar"><i class="ti ti-info-circle"></i> وضع عرض تجريبي — سيتم توصيل البيانات الحقيقية عند تفعيل الـ Backend</div>
-
-  <div class="main">
-
-    <!-- OVERVIEW -->
+<div style="flex:1;display:flex;flex-direction:column">
+  <div class="demo-bar"><i class="ti ti-info-circle"></i> <span class="ar">وضع عرض تجريبي — سيتم توصيل البيانات الحقيقية عند تفعيل الـ Backend</span><span class="en">Demo Mode — Real data will connect when Backend is enabled</span></div>
+  <div class="content">
+    <div class="page-header">
+      <div class="page-title" id="pageTitle"><span class="ar">نظرة عامة</span><span class="en">Overview</span></div>
+      <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+    </div>
     <div id="s-overview">
-      <div class="page-title">نظرة عامة</div>
-      <div class="stats-grid">
-        <div class="sc"><div class="sc-icon p"><i class="ti ti-users"></i></div><span class="sc-val">2,847</span><div class="sc-lbl">إجمالي الطلاب</div><div class="sc-trend"><i class="ti ti-trending-up"></i>+12% هذا الشهر</div></div>
-        <div class="sc"><div class="sc-icon g"><i class="ti ti-cash"></i></div><span class="sc-val">148K</span><div class="sc-lbl">الإيرادات (ر.س)</div><div class="sc-trend"><i class="ti ti-trending-up"></i>+8% هذا الشهر</div></div>
-        <div class="sc"><div class="sc-icon j"><i class="ti ti-books"></i></div><span class="sc-val">152</span><div class="sc-lbl">إجمالي المنتجات</div><div class="sc-trend"><i class="ti ti-plus"></i>4 جديدة</div></div>
-        <div class="sc"><div class="sc-icon g"><i class="ti ti-star"></i></div><span class="sc-val">4.9</span><div class="sc-lbl">متوسط التقييم</div><div class="sc-trend"><i class="ti ti-award"></i>ممتاز</div></div>
+      <div class="stats">
+        <div class="sc"><div class="sc-icon p"><i class="ti ti-users"></i></div><span class="sc-val">2,847</span><div class="sc-lbl"><span class="ar">إجمالي الطلاب</span><span class="en">Total Students</span></div><div class="sc-trend">+12% <span class="ar">هذا الشهر</span><span class="en">this month</span></div></div>
+        <div class="sc"><div class="sc-icon g"><i class="ti ti-cash"></i></div><span class="sc-val">148K</span><div class="sc-lbl"><span class="ar">الإيرادات (ر.س)</span><span class="en">Revenue (SAR)</span></div><div class="sc-trend">+8% <span class="ar">هذا الشهر</span><span class="en">this month</span></div></div>
+        <div class="sc"><div class="sc-icon j"><i class="ti ti-books"></i></div><span class="sc-val">53</span><div class="sc-lbl"><span class="ar">إجمالي المنتجات</span><span class="en">Total Courses</span></div><div class="sc-trend">EN+TR+ZH</div></div>
+        <div class="sc"><div class="sc-icon g"><i class="ti ti-star"></i></div><span class="sc-val">4.9</span><div class="sc-lbl"><span class="ar">متوسط التقييم</span><span class="en">Avg. Rating</span></div><div class="sc-trend"><span class="ar">ممتاز</span><span class="en">Excellent</span></div></div>
       </div>
       <div class="card">
-        <div class="card-title"><span><i class="ti ti-receipt"></i> آخر الطلبات</span></div>
+        <div class="card-title"><i class="ti ti-receipt"></i><span class="ar">آخر الطلبات</span><span class="en">Recent Orders</span></div>
         <table>
-          <thead><tr><th>الطالب</th><th>المنتج</th><th>المبلغ</th><th>الحالة</th><th>التاريخ</th></tr></thead>
+          <thead><tr><th><span class="ar">الطالب</span><span class="en">Student</span></th><th><span class="ar">المنتج</span><span class="en">Course</span></th><th><span class="ar">المبلغ</span><span class="en">Amount</span></th><th><span class="ar">الحالة</span><span class="en">Status</span></th><th><span class="ar">التاريخ</span><span class="en">Date</span></th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600">محمد العتيبي</td><td>باقة B1 الكاملة</td><td style="font-weight:700;color:var(--plum)">249 ر.س</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">31/05/2026</td></tr>
-            <tr><td style="font-weight:600">سارة الحربي</td><td>الإنجليزية الكاملة</td><td style="font-weight:700;color:var(--plum)">399 ر.س</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">30/05/2026</td></tr>
-            <tr><td style="font-weight:600">خالد الدوسري</td><td>الاستماع B1</td><td style="font-weight:700;color:var(--plum)">89 ر.س</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">29/05/2026</td></tr>
-            <tr><td style="font-weight:600">نورة المطيري</td><td>المحادثة B1</td><td style="font-weight:700;color:var(--plum)">75 ر.س</td><td><span class="badge badge-gold">معلق</span></td><td style="color:var(--ink-3)">29/05/2026</td></tr>
-            <tr><td style="font-weight:600">فهد القحطاني</td><td>باقة B1 الكاملة</td><td style="font-weight:700;color:var(--plum)">249 ر.س</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">28/05/2026</td></tr>
+            <tr><td style="font-weight:600">محمد العتيبي</td><td>باقة B1 الكاملة</td><td style="font-weight:700;color:var(--plum)">249 SAR</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">31/05/2026</td></tr>
+            <tr><td style="font-weight:600">سارة الحربي</td><td>الإنجليزية A0-C2</td><td style="font-weight:700;color:var(--plum)">399 SAR</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">30/05/2026</td></tr>
+            <tr><td style="font-weight:600">خالد الدوسري</td><td>الاستماع B1</td><td style="font-weight:700;color:var(--plum)">89 SAR</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">29/05/2026</td></tr>
+            <tr><td style="font-weight:600">نورة المطيري</td><td>التركية A1</td><td style="font-weight:700;color:var(--plum)">65 SAR</td><td><span class="badge badge-gold">معلق</span></td><td style="color:var(--ink-3)">29/05/2026</td></tr>
+            <tr><td style="font-weight:600">فهد القحطاني</td><td>الصينية B1</td><td style="font-weight:700;color:var(--plum)">239 SAR</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">28/05/2026</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-
-    <!-- ORDERS -->
     <div id="s-orders" class="hidden">
-      <div class="page-title">جميع الطلبات</div>
       <div class="card">
+        <div class="card-title"><i class="ti ti-receipt"></i><span class="ar">جميع الطلبات</span><span class="en">All Orders</span></div>
         <table>
-          <thead><tr><th>رقم الطلب</th><th>الطالب</th><th>المنتج</th><th>المبلغ</th><th>الحالة</th><th>التاريخ</th></tr></thead>
+          <thead><tr><th>#</th><th><span class="ar">الطالب</span><span class="en">Student</span></th><th><span class="ar">المنتج</span><span class="en">Course</span></th><th><span class="ar">اللغة</span><span class="en">Lang</span></th><th><span class="ar">المبلغ</span><span class="en">Amount</span></th><th><span class="ar">الحالة</span><span class="en">Status</span></th></tr></thead>
           <tbody>
-            <tr><td style="font-family:monospace;font-size:11px;color:var(--ink-3)">#ORD-2847</td><td style="font-weight:600">محمد العتيبي</td><td>باقة B1 الكاملة</td><td style="font-weight:700;color:var(--plum)">249 ر.س</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">31/05/2026</td></tr>
-            <tr><td style="font-family:monospace;font-size:11px;color:var(--ink-3)">#ORD-2846</td><td style="font-weight:600">سارة الحربي</td><td>الإنجليزية A0-C2</td><td style="font-weight:700;color:var(--plum)">399 ر.س</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">30/05/2026</td></tr>
-            <tr><td style="font-family:monospace;font-size:11px;color:var(--ink-3)">#ORD-2845</td><td style="font-weight:600">خالد الدوسري</td><td>الاستماع B1</td><td style="font-weight:700;color:var(--plum)">89 ر.س</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">29/05/2026</td></tr>
-            <tr><td style="font-family:monospace;font-size:11px;color:var(--ink-3)">#ORD-2844</td><td style="font-weight:600">نورة المطيري</td><td>المحادثة B1</td><td style="font-weight:700;color:var(--plum)">75 ر.س</td><td><span class="badge badge-gold">معلق</span></td><td style="color:var(--ink-3)">29/05/2026</td></tr>
-            <tr><td style="font-family:monospace;font-size:11px;color:var(--ink-3)">#ORD-2843</td><td style="font-weight:600">فهد القحطاني</td><td>باقة B1 الكاملة</td><td style="font-weight:700;color:var(--plum)">249 ر.س</td><td><span class="badge badge-jade">مدفوع</span></td><td style="color:var(--ink-3)">28/05/2026</td></tr>
-            <tr><td style="font-family:monospace;font-size:11px;color:var(--ink-3)">#ORD-2842</td><td style="font-weight:600">ريم العبدالله</td><td>القراءة B1</td><td style="font-weight:700;color:var(--plum)">79 ر.س</td><td><span class="badge badge-danger">مسترد</span></td><td style="color:var(--ink-3)">27/05/2026</td></tr>
+            <tr><td style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:var(--ink-3)">#2847</td><td style="font-weight:600">محمد العتيبي</td><td>باقة B1</td><td>🇬🇧</td><td style="font-weight:700">249 SAR</td><td><span class="badge badge-jade">مدفوع</span></td></tr>
+            <tr><td style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:var(--ink-3)">#2846</td><td style="font-weight:600">سارة الحربي</td><td>إنجليزية A0-C2</td><td>🇬🇧</td><td style="font-weight:700">399 SAR</td><td><span class="badge badge-jade">مدفوع</span></td></tr>
+            <tr><td style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:var(--ink-3)">#2845</td><td style="font-weight:600">لمياء الشهري</td><td>تركية A0-C1</td><td>🇹🇷</td><td style="font-weight:700">349 SAR</td><td><span class="badge badge-jade">مدفوع</span></td></tr>
+            <tr><td style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:var(--ink-3)">#2844</td><td style="font-weight:600">هالة المنصور</td><td>صينية A2</td><td>🇨🇳</td><td style="font-weight:700">65 SAR</td><td><span class="badge badge-gold">معلق</span></td></tr>
+            <tr><td style="font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:var(--ink-3)">#2843</td><td style="font-weight:600">ريم العبدالله</td><td>PDF A1</td><td>🇬🇧</td><td style="font-weight:700">مجاني</td><td><span class="badge badge-plum">مجاني</span></td></tr>
           </tbody>
         </table>
       </div>
     </div>
-
-    <!-- USERS -->
     <div id="s-users" class="hidden">
-      <div class="page-title">الطلاب المسجّلون</div>
       <div class="card">
+        <div class="card-title"><i class="ti ti-users"></i><span class="ar">الطلاب المسجّلون</span><span class="en">Registered Students</span></div>
         <table>
-          <thead><tr><th>الاسم</th><th>البريد</th><th>الدروس</th><th>الإنفاق</th><th>تاريخ التسجيل</th><th>الحالة</th></tr></thead>
+          <thead><tr><th><span class="ar">الاسم</span><span class="en">Name</span></th><th><span class="ar">البريد</span><span class="en">Email</span></th><th><span class="ar">الدروس</span><span class="en">Courses</span></th><th><span class="ar">الإنفاق</span><span class="en">Spent</span></th><th><span class="ar">الحالة</span><span class="en">Status</span></th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--plum)">محمد العتيبي</td><td dir="ltr" style="font-size:12px">mohammed@example.com</td><td>3 دروس</td><td style="font-weight:700">249 ر.س</td><td style="color:var(--ink-3)">15/01/2026</td><td><span class="badge badge-jade">نشط</span></td></tr>
-            <tr><td style="font-weight:600;color:var(--plum)">سارة الحربي</td><td dir="ltr" style="font-size:12px">sara@example.com</td><td>1 درس</td><td style="font-weight:700">399 ر.س</td><td style="color:var(--ink-3)">20/03/2026</td><td><span class="badge badge-jade">نشط</span></td></tr>
-            <tr><td style="font-weight:600;color:var(--plum)">خالد الدوسري</td><td dir="ltr" style="font-size:12px">khalid@example.com</td><td>2 درس</td><td style="font-weight:700">168 ر.س</td><td style="color:var(--ink-3)">05/04/2026</td><td><span class="badge badge-jade">نشط</span></td></tr>
-            <tr><td style="font-weight:600;color:var(--plum)">نورة المطيري</td><td dir="ltr" style="font-size:12px">noura@example.com</td><td>1 درس</td><td style="font-weight:700">75 ر.س</td><td style="color:var(--ink-3)">12/05/2026</td><td><span class="badge badge-plum">جديد</span></td></tr>
-            <tr><td style="font-weight:600;color:var(--plum)">فهد القحطاني</td><td dir="ltr" style="font-size:12px">fahad@example.com</td><td>1 درس</td><td style="font-weight:700">249 ر.س</td><td style="color:var(--ink-3)">18/05/2026</td><td><span class="badge badge-jade">نشط</span></td></tr>
+            <tr><td style="font-weight:600">محمد العتيبي</td><td dir="ltr" style="font-size:12px">mohammed@ex.com</td><td>3</td><td style="font-weight:700">249 SAR</td><td><span class="badge badge-jade">نشط</span></td></tr>
+            <tr><td style="font-weight:600">سارة الحربي</td><td dir="ltr" style="font-size:12px">sara@ex.com</td><td>1</td><td style="font-weight:700">399 SAR</td><td><span class="badge badge-jade">نشط</span></td></tr>
+            <tr><td style="font-weight:600">لمياء الشهري</td><td dir="ltr" style="font-size:12px">lamia@ex.com</td><td>1</td><td style="font-weight:700">349 SAR</td><td><span class="badge badge-jade">نشط</span></td></tr>
+            <tr><td style="font-weight:600">هالة المنصور</td><td dir="ltr" style="font-size:12px">hala@ex.com</td><td>2</td><td style="font-weight:700">134 SAR</td><td><span class="badge badge-plum">جديد</span></td></tr>
           </tbody>
         </table>
       </div>
     </div>
-
-    <!-- PRODUCTS -->
     <div id="s-products" class="hidden">
-      <div class="page-title">المنتجات</div>
       <div class="card">
+        <div class="card-title"><i class="ti ti-books"></i><span class="ar">المنتجات (53 درس)</span><span class="en">Products (53 Courses)</span></div>
         <table>
-          <thead><tr><th>المنتج</th><th>اللغة</th><th>المستوى</th><th>السعر</th><th>التقييم</th><th>المبيعات</th></tr></thead>
+          <thead><tr><th><span class="ar">المنتج</span><span class="en">Course</span></th><th><span class="ar">اللغة</span><span class="en">Lang</span></th><th><span class="ar">المستوى</span><span class="en">Level</span></th><th><span class="ar">السعر</span><span class="en">Price</span></th><th><span class="ar">التقييم</span><span class="en">Rating</span></th><th><span class="ar">المبيعات</span><span class="en">Sales</span></th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--plum)">الإنجليزية الكاملة A0-C2</td><td>إنجليزية</td><td>A0→C2</td><td style="font-weight:700">399 ر.س</td><td>4.9 ★</td><td style="font-weight:700;color:var(--jade)">342</td></tr>
-            <tr><td style="font-weight:600;color:var(--plum)">باقة B1 الكاملة</td><td>إنجليزية</td><td>B1</td><td style="font-weight:700">249 ر.س</td><td>5.0 ★</td><td style="font-weight:700;color:var(--jade)">189</td></tr>
-            <tr><td style="font-weight:600;color:var(--plum)">قصص صوتية B1</td><td>إنجليزية</td><td>B1</td><td style="font-weight:700">مجاني</td><td>5.0 ★</td><td style="font-weight:700;color:var(--jade)">201</td></tr>
-            <tr><td style="font-weight:600;color:var(--plum)">الاستماع B1</td><td>إنجليزية</td><td>B1</td><td style="font-weight:700">89 ر.س</td><td>4.9 ★</td><td style="font-weight:700;color:var(--jade)">142</td></tr>
-            <tr><td style="font-weight:600;color:var(--plum)">المحادثة B1</td><td>إنجليزية</td><td>B1</td><td style="font-weight:700">75 ر.س</td><td>4.8 ★</td><td style="font-weight:700;color:var(--jade)">98</td></tr>
+            <tr><td style="font-weight:600">الإنجليزية A0-C2</td><td>🇬🇧</td><td>A0+</td><td style="font-weight:700">399 SAR</td><td>4.9 ★</td><td style="font-weight:700;color:var(--jade)">342</td></tr>
+            <tr><td style="font-weight:600">باقة B1 الكاملة</td><td>🇬🇧</td><td>B1</td><td style="font-weight:700">249 SAR</td><td>5.0 ★</td><td style="font-weight:700;color:var(--jade)">189</td></tr>
+            <tr><td style="font-weight:600">التركية A0-C1</td><td>🇹🇷</td><td>A0+</td><td style="font-weight:700">349 SAR</td><td>4.9 ★</td><td style="font-weight:700;color:var(--jade)">167</td></tr>
+            <tr><td style="font-weight:600">الصينية A0-C1</td><td>🇨🇳</td><td>A0+</td><td style="font-weight:700">369 SAR</td><td>4.9 ★</td><td style="font-weight:700;color:var(--jade)">89</td></tr>
+            <tr><td style="font-weight:600">قصص صوتية B1</td><td>🇬🇧</td><td>B1</td><td style="font-weight:700">مجاني</td><td>5.0 ★</td><td style="font-weight:700;color:var(--jade)">201</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-
   </div>
 </div>
-
 <script>
-function show(name,btn){
-  document.querySelectorAll('[id^="s-"]').forEach(function(s){s.classList.add('hidden');});
-  document.getElementById('s-'+name).classList.remove('hidden');
-  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
-  if(btn)btn.classList.add('active');
-}
-function logout(){
-  localStorage.removeItem('lingua_token');
-  localStorage.removeItem('lingua_user');
-  location.href='index.html';
-}
+function L(){return document.documentElement.getAttribute('data-lang')||'ar';}
+function toggleLang(){var h=document.documentElement,cur=h.getAttribute('data-lang'),next=cur==='ar'?'en':'ar';h.setAttribute('data-lang',next);h.setAttribute('lang',next);h.setAttribute('dir',next==='ar'?'rtl':'ltr');document.getElementById('langBtn').textContent=next==='ar'?'EN':'عربي';}
+function show(name,btn){document.querySelectorAll('[id^="s-"]').forEach(function(s){s.classList.add('hidden');});document.getElementById('s-'+name).classList.remove('hidden');document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});if(btn)btn.classList.add('active');}
+function logout(){localStorage.removeItem('lingua_token');localStorage.removeItem('lingua_user');location.href='auth.html';}
+if(!localStorage.getItem('lingua_token')){location.href='auth.html';}
+var user=JSON.parse(localStorage.getItem('lingua_user')||'null');
+if(user&&user.role!=='admin'){location.href='dashboard.html';}
 </script>
 </body>
 </html>
