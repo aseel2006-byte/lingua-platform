@@ -1,156 +1,151 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"><head>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>الدفع — Lingua</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
-:root{--plum:#1E1648;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--r-md:10px;--r-lg:16px;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);min-height:100vh;color:var(--ink);}
-.checkout-nav{background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 2rem;gap:1.5rem;}
-.logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum);text-decoration:none;display:flex;align-items:center;gap:8px;}
-.logo-mark{width:30px;height:30px;background:var(--plum);border-radius:8px;display:flex;align-items:center;justify-content:center;}.logo-mark i{color:#fff;font-size:15px;}
-.steps{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-3);margin-right:auto;}
-.step{display:flex;align-items:center;gap:4px;}.step.active{color:var(--plum);font-weight:600;}.step i{font-size:14px;}
-.sep{color:var(--border);}
-.main{max-width:900px;margin:0 auto;padding:2rem 1.5rem;display:grid;grid-template-columns:1fr 320px;gap:1.5rem;align-items:start;}
-@media(max-width:700px){.main{grid-template-columns:1fr;}.checkout-nav .steps{display:none;}}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;margin-bottom:1rem;}
-.card-title{font-size:14px;font-weight:700;color:var(--plum);margin-bottom:1rem;display:flex;align-items:center;gap:8px;}.card-title i{font-size:16px;color:var(--gold);}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
-.form-row.single{grid-template-columns:1fr;}
-label{font-size:12px;font-weight:600;color:var(--ink-2);display:block;margin-bottom:5px;}
-.input-wrap{position:relative;}
-.input-wrap i{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:15px;color:var(--ink-3);}
-input[type=text],input[type=email],input[type=tel]{width:100%;padding:10px 12px 10px 36px;border:1px solid var(--border);border-radius:var(--r-md);font-size:13px;font-family:inherit;outline:none;color:var(--ink);}
-input[type=text]:focus,input[type=email]:focus,input[type=tel]:focus{border-color:#AFA9EC;}
-.card-visual{background:linear-gradient(135deg,var(--plum),var(--plum-m));border-radius:12px;padding:1.5rem;margin-bottom:1rem;color:#fff;min-height:130px;position:relative;overflow:hidden;}
-.card-visual::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:rgba(255,255,255,.06);border-radius:50%;}
-.card-visual::after{content:'';position:absolute;bottom:-20px;left:20px;width:80px;height:80px;background:rgba(255,255,255,.04);border-radius:50%;}
-.card-chip{width:32px;height:24px;background:var(--gold);border-radius:4px;margin-bottom:1rem;opacity:.85;}
-.card-num{font-size:15px;letter-spacing:.2em;margin-bottom:.75rem;opacity:.9;}
-.card-info{display:flex;justify-content:space-between;font-size:11px;opacity:.7;}
-.card-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.card-field input{padding:10px 12px;border:1px solid var(--border);border-radius:var(--r-md);font-size:13px;font-family:inherit;outline:none;width:100%;}
-.card-field input:focus{border-color:#AFA9EC;}
-.card-field label{font-size:11px;color:var(--ink-3);font-weight:600;}
-.secure-note{font-size:11px;color:var(--ink-3);text-align:center;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:5px;}
-.secure-note i{color:var(--jade);}
-.order-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;}
-.order-item:last-of-type{border-bottom:none;}
-.order-item-name{color:var(--ink-2);flex:1;}
-.order-item-price{font-weight:700;color:var(--plum);white-space:nowrap;}
-.order-total{display:flex;justify-content:space-between;font-size:15px;font-weight:700;color:var(--plum);padding-top:12px;margin-top:4px;border-top:2px solid var(--border);}
-.pay-btn{width:100%;padding:14px;background:var(--gold);color:var(--plum);border:none;border-radius:var(--r-md);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:1rem;transition:.15s;letter-spacing:.04em;}
-.pay-btn:hover{opacity:.88;}
-.guarantees{display:flex;flex-direction:column;gap:6px;margin-top:1rem;}
-.g{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-3);}.g i{color:var(--jade);font-size:13px;}
-.empty-cart{text-align:center;padding:2rem;color:var(--ink-3);}
-.empty-cart i{font-size:40px;display:block;margin:0 auto 1rem;opacity:.3;}
-.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--plum);color:#fff;padding:12px 22px;border-radius:30px;font-size:14px;font-weight:500;z-index:999;transition:transform .3s;display:flex;align-items:center;gap:8px;}
-.toast.show{transform:translateX(-50%) translateY(0);}
+:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--r-md:10px;--r-lg:16px;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh;}
+[data-lang="en"]{direction:ltr;font-family:'IBM Plex Sans',sans-serif}
+.ar{display:block}.en{display:none}[data-lang="en"] .ar{display:none}[data-lang="en"] .en{display:block}
+span.ar,span.en{display:inline}[data-lang="en"] span.ar{display:none}[data-lang="ar"] span.en{display:none}
+.nav{background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 2rem;gap:1rem}
+.logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--plum);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-mk{width:30px;height:30px;background:var(--plum);border-radius:8px;display:flex;align-items:center;justify-content:center}.logo-mk i{color:#fff;font-size:15px}
+.steps{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-3)}
+[data-lang="ar"] .steps{margin-right:auto}[data-lang="en"] .steps{margin-left:auto}
+.step{display:flex;align-items:center;gap:4px}.step.active{color:var(--plum);font-weight:600}.sep{color:var(--border)}
+.lang-btn{background:var(--plum-l);border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--plum);cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+[data-lang="ar"] .lang-btn{margin-left:auto}[data-lang="en"] .lang-btn{margin-right:auto}
+.main{max-width:900px;margin:0 auto;padding:2rem 1.5rem;display:grid;grid-template-columns:1fr 320px;gap:1.5rem;align-items:start}
+@media(max-width:700px){.main{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;margin-bottom:1rem}
+.card-title{font-size:14px;font-weight:700;color:var(--plum);margin-bottom:1rem;display:flex;align-items:center;gap:8px}.card-title i{color:var(--gold)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.form-row.one{grid-template-columns:1fr}
+label{font-size:12px;font-weight:600;color:var(--ink-2);display:block;margin-bottom:5px}
+.input-w{position:relative}.input-w i{position:absolute;top:50%;transform:translateY(-50%);font-size:15px;color:var(--ink-3)}
+[data-lang="ar"] .input-w i{left:12px}[data-lang="en"] .input-w i{right:12px}
+.input-w input{width:100%;padding:10px 12px 10px 36px;border:1px solid var(--border);border-radius:var(--r-md);font-size:13px;font-family:inherit;outline:none;color:var(--ink);transition:.15s}
+[data-lang="ar"] .input-w input{padding:10px 12px 10px 36px}[data-lang="en"] .input-w input{padding:10px 36px 10px 12px}
+.input-w input:focus{border-color:#AFA9EC}
+.card-visual{background:linear-gradient(135deg,var(--plum),var(--plum-m));border-radius:12px;padding:1.5rem;margin-bottom:1rem;color:#fff;min-height:130px;position:relative;overflow:hidden}
+.card-visual::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:rgba(255,255,255,.06);border-radius:50%}
+.card-chip{width:32px;height:24px;background:var(--gold);border-radius:4px;margin-bottom:1rem;opacity:.85}
+.card-num-display{font-size:15px;letter-spacing:.2em;margin-bottom:.75rem;opacity:.9;font-family:'IBM Plex Sans',sans-serif}
+.card-info{display:flex;justify-content:space-between;font-size:11px;opacity:.7}
+.card-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card-fields input{padding:10px 12px;border:1px solid var(--border);border-radius:var(--r-md);font-size:13px;font-family:inherit;outline:none;width:100%}
+.secure{font-size:11px;color:var(--ink-3);text-align:center;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:5px}
+.secure i{color:var(--jade)}
+.order-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.order-item:last-of-type{border-bottom:none}
+.order-total{display:flex;justify-content:space-between;font-size:15px;font-weight:700;color:var(--plum);padding-top:12px;margin-top:4px;border-top:2px solid var(--border)}
+.pay-btn{width:100%;padding:14px;background:var(--gold);color:var(--plum);border:none;border-radius:var(--r-md);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:1rem;transition:.15s}
+.pay-btn:hover{opacity:.88}
+.gs{display:flex;flex-direction:column;gap:6px;margin-top:1rem}
+.g{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-3)}.g i{color:var(--jade);font-size:13px}
+.empty{text-align:center;padding:2rem;color:var(--ink-3)}
+.empty i{font-size:40px;display:block;margin-bottom:1rem;opacity:.3}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--plum);color:#fff;padding:12px 22px;border-radius:30px;font-size:14px;font-weight:500;z-index:999;transition:transform .3s;display:flex;align-items:center;gap:8px}
+.toast.show{transform:translateX(-50%) translateY(0)}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
-</head><body>
-<nav class="checkout-nav">
-  <a class="logo" href="index.html"><div class="logo-mark"><i class="ti ti-language"></i></div>Lingua</a>
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="../index.html"><div class="logo-mk"><i class="ti ti-language"></i></div>Lingua</a>
   <div class="steps">
-    <div class="step"><i class="ti ti-shopping-cart"></i> السلة</div>
+    <div class="step"><i class="ti ti-shopping-cart"></i><span class="ar">السلة</span><span class="en">Cart</span></div>
     <span class="sep">›</span>
-    <div class="step active"><i class="ti ti-credit-card"></i> الدفع</div>
+    <div class="step active"><i class="ti ti-credit-card"></i><span class="ar">الدفع</span><span class="en">Payment</span></div>
     <span class="sep">›</span>
-    <div class="step"><i class="ti ti-circle-check"></i> التأكيد</div>
+    <div class="step"><i class="ti ti-circle-check"></i><span class="ar">التأكيد</span><span class="en">Confirm</span></div>
   </div>
+  <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
 </nav>
 <div class="main">
   <div>
     <div class="card">
-      <div class="card-title"><i class="ti ti-user"></i> معلومات الطالب</div>
+      <div class="card-title"><i class="ti ti-user"></i><span class="ar">معلومات الطالب</span><span class="en">Student Information</span></div>
       <div class="form-row">
-        <div><label>الاسم الكامل</label><div class="input-wrap"><i class="ti ti-user"></i><input type="text" id="fullName" placeholder="اسمك الكريم"/></div></div>
-        <div><label>البريد الإلكتروني</label><div class="input-wrap"><i class="ti ti-mail"></i><input type="email" id="email" placeholder="you@example.com"/></div></div>
+        <div><label><span class="ar">الاسم الكامل</span><span class="en">Full Name</span></label><div class="input-w"><i class="ti ti-user"></i><input type="text" id="fullName" placeholder="Mohammed Al-Otaibi"/></div></div>
+        <div><label><span class="ar">البريد الإلكتروني</span><span class="en">Email</span></label><div class="input-w"><i class="ti ti-mail"></i><input type="email" id="email" placeholder="you@example.com"/></div></div>
       </div>
-      <div class="form-row single">
-        <div><label>رقم الجوال (واتساب)</label><div class="input-wrap"><i class="ti ti-device-mobile"></i><input type="tel" id="phone" placeholder="+966 5X XXX XXXX"/></div></div>
+      <div class="form-row one">
+        <div><label><span class="ar">رقم الجوال</span><span class="en">Phone (WhatsApp)</span></label><div class="input-w"><i class="ti ti-device-mobile"></i><input type="tel" id="phone" placeholder="+966 5X XXX XXXX"/></div></div>
       </div>
     </div>
     <div class="card">
-      <div class="card-title"><i class="ti ti-credit-card"></i> بيانات البطاقة</div>
+      <div class="card-title"><i class="ti ti-credit-card"></i><span class="ar">بيانات البطاقة</span><span class="en">Card Details</span></div>
       <div class="card-visual">
         <div class="card-chip"></div>
-        <div class="card-num" id="cardNumDisplay">•••• •••• •••• ••••</div>
-        <div class="card-info"><span id="cardNameDisplay">اسم حامل البطاقة</span><span>VALID THRU <span id="expiryDisplay">MM/YY</span></span></div>
+        <div class="card-num-display" id="numDisplay">•••• •••• •••• ••••</div>
+        <div class="card-info"><span id="nameDisplay"><span class="ar">اسم حامل البطاقة</span><span class="en">Cardholder Name</span></span><span>VALID <span id="expDisplay">MM/YY</span></span></div>
       </div>
-      <div class="form-row single" style="margin-bottom:10px;">
-        <div><label>رقم البطاقة</label><div class="input-wrap"><i class="ti ti-credit-card"></i><input type="text" id="cardNum" maxlength="19" placeholder="•••• •••• •••• ••••" oninput="formatCard(this)"/></div></div>
+      <div class="form-row one" style="margin-bottom:10px">
+        <div><label><span class="ar">رقم البطاقة</span><span class="en">Card Number</span></label><div class="input-w"><i class="ti ti-credit-card"></i><input type="text" id="cardNum" maxlength="19" placeholder="•••• •••• •••• ••••" oninput="fmtCard(this)"/></div></div>
       </div>
       <div class="card-fields">
-        <div class="card-field"><label>تاريخ الانتهاء</label><input type="text" id="expiry" maxlength="5" placeholder="MM/YY" oninput="formatExpiry(this)"/></div>
-        <div class="card-field"><label>CVV</label><input type="text" id="cvv" maxlength="3" placeholder="•••"/></div>
+        <div><label><span class="ar">تاريخ الانتهاء</span><span class="en">Expiry</span></label><input type="text" id="expiry" maxlength="5" placeholder="MM/YY" oninput="fmtExp(this)"/></div>
+        <div><label>CVV</label><input type="text" id="cvv" maxlength="3" placeholder="•••"/></div>
       </div>
-      <div class="secure-note"><i class="ti ti-lock"></i> دفع آمن 100% عبر TLS 1.3 · Stripe مشفّر</div>
+      <div class="secure"><i class="ti ti-lock"></i><span class="ar">دفع آمن 100% · Stripe مشفّر</span><span class="en">100% Secure · Stripe Encrypted</span></div>
     </div>
   </div>
   <div>
     <div class="card">
-      <div class="card-title"><i class="ti ti-shopping-bag"></i> ملخص الطلب</div>
-      <div id="orderSummary"><div class="empty-cart"><i class="ti ti-shopping-cart"></i>السلة فارغة</div></div>
-      <button class="pay-btn" id="payBtn" onclick="pay()"><i class="ti ti-credit-card"></i> ادفع الآن</button>
-      <div class="guarantees">
-        <div class="g"><i class="ti ti-shield-check"></i> ضمان استرداد 7 أيام</div>
-        <div class="g"><i class="ti ti-infinity"></i> وصول دائم مدى الحياة</div>
-        <div class="g"><i class="ti ti-mail"></i> رابط الدرس يصلك فوراً</div>
+      <div class="card-title"><i class="ti ti-shopping-bag"></i><span class="ar">ملخص الطلب</span><span class="en">Order Summary</span></div>
+      <div id="orderSummary"><div class="empty"><i class="ti ti-shopping-cart"></i><span class="ar">السلة فارغة</span><span class="en">Cart is empty</span></div></div>
+      <button class="pay-btn" id="payBtn" onclick="pay()">
+        <i class="ti ti-credit-card"></i>
+        <span class="ar">ادفع الآن</span><span class="en">Pay Now</span>
+      </button>
+      <div class="gs">
+        <div class="g"><i class="ti ti-shield-check"></i><span class="ar">ضمان استرداد 7 أيام</span><span class="en">7-Day Money-Back</span></div>
+        <div class="g"><i class="ti ti-infinity"></i><span class="ar">وصول مدى الحياة</span><span class="en">Lifetime Access</span></div>
+        <div class="g"><i class="ti ti-mail"></i><span class="ar">رابط الدرس فوراً</span><span class="en">Instant Access Link</span></div>
       </div>
     </div>
   </div>
 </div>
 <div class="toast" id="toast"><i class="ti ti-check"></i><span id="toastMsg"></span></div>
 <script>
-let _tt;
-function showToast(msg,type='ok'){const t=document.getElementById('toast'),m=document.getElementById('toastMsg');t.style.background=type==='err'?'#E24B4A':'#1E1648';m.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>t.classList.remove('show'),3000);}
-
-// تحميل السلة
-const cartItems = JSON.parse(localStorage.getItem('lingua_cart')||'[]');
-const total = cartItems.reduce((s,i)=>s+Number(i.price),0);
-
-if(cartItems.length){
-  document.getElementById('orderSummary').innerHTML =
-    cartItems.map(p=>'<div class="order-item"><span class="order-item-name">'+p.title+'</span><span class="order-item-price">'+Number(p.price).toFixed(0)+' ر.س</span></div>').join('')
-    +'<div class="order-total"><span>الإجمالي</span><span>'+total.toFixed(0)+' ر.س</span></div>';
-} else {
-  document.getElementById('payBtn').style.display='none';
+function L(){return document.documentElement.getAttribute('data-lang')||'ar';}
+function toggleLang(){var h=document.documentElement,cur=h.getAttribute('data-lang'),next=cur==='ar'?'en':'ar';h.setAttribute('data-lang',next);h.setAttribute('lang',next);h.setAttribute('dir',next==='ar'?'rtl':'ltr');document.getElementById('langBtn').textContent=next==='ar'?'EN':'عربي';renderOrder();}
+var _tt;
+function toast(msg,err){var t=document.getElementById('toast'),m=document.getElementById('toastMsg');t.style.background=err?'#DC2626':'var(--plum)';m.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},3000);}
+function fmtCard(el){var v=el.value.replace(/D/g,'').slice(0,16);el.value=v.match(/.{1,4}/g)?.join(' ')||v;document.getElementById('numDisplay').textContent=(v+'•'.repeat(16-v.length)).replace(/(.{4})/g,'$1 ').trim();}
+function fmtExp(el){var v=el.value.replace(/D/g,'').slice(0,4);if(v.length>=3)v=v.slice(0,2)+'/'+v.slice(2);el.value=v;document.getElementById('expDisplay').textContent=v||'MM/YY';}
+document.getElementById('fullName')?.addEventListener('input',function(e){document.getElementById('nameDisplay').textContent=e.target.value||'Cardholder Name';});
+var cart=JSON.parse(localStorage.getItem('lingua_cart')||'[]');
+var total=cart.reduce(function(s,i){return s+Number(i.price);},0);
+function renderOrder(){var lang=L();
+  if(!cart.length){document.getElementById('payBtn').style.display='none';return;}
+  var h=cart.map(function(p){return '<div class="order-item"><span style="color:var(--ink-2)">'+p.title+'</span><span style="font-weight:700;color:var(--plum);font-family:'IBM Plex Sans',sans-serif">'+p.price+' SAR</span></div>';}).join('');
+  h+='<div class="order-total"><span>'+(lang==='ar'?'الإجمالي':'Total')+'</span><span style="font-family:'IBM Plex Sans',sans-serif">'+total.toFixed(0)+' SAR</span></div>';
+  document.getElementById('orderSummary').innerHTML=h;
 }
-
-// تنسيق البطاقة
-function formatCard(el){
-  let v=el.value.replace(/D/g,'').slice(0,16);
-  el.value=v.match(/.{1,4}/g)?.join(' ')||v;
-  document.getElementById('cardNumDisplay').textContent = (v+'•'.repeat(16-v.length)).replace(/(.{4})/g,'$1 ').trim();
-}
-function formatExpiry(el){
-  let v=el.value.replace(/D/g,'').slice(0,4);
-  if(v.length>=3)v=v.slice(0,2)+'/'+v.slice(2);
-  el.value=v;
-  document.getElementById('expiryDisplay').textContent=v||'MM/YY';
-}
-document.getElementById('cardNum')?.addEventListener('input',()=>{
-  const n=document.getElementById('cardNum').value.replace(/D/g,'');
-  document.getElementById('cardNumDisplay').textContent=(n+'•'.repeat(Math.max(0,16-n.length))).replace(/(.{4})/g,'$1 ').trim();
-});
-document.getElementById('fullName')?.addEventListener('input',e=>{
-  document.getElementById('cardNameDisplay').textContent=e.target.value||'اسم حامل البطاقة';
-});
-
+renderOrder();
 function pay(){
-  const name=document.getElementById('fullName').value.trim();
-  const email=document.getElementById('email').value.trim();
-  const cardNum=document.getElementById('cardNum').value.replace(/s/g,'');
-  if(!name){showToast('أدخل اسمك الكامل','err');return;}
-  if(!email||!email.includes('@')){showToast('أدخل بريداً إلكترونياً صحيحاً','err');return;}
-  if(cardNum.length<16){showToast('أدخل رقم البطاقة كاملاً','err');return;}
-  const btn=document.getElementById('payBtn');
-  btn.disabled=true;btn.innerHTML='<i class="ti ti-loader" style="animation:spin .7s linear infinite"></i> جارٍ المعالجة...';
-  setTimeout(()=>{ location.href='success.html'; },2000);
+  var lang=L();
+  var name=document.getElementById('fullName').value.trim();
+  var email=document.getElementById('email').value.trim();
+  var card=document.getElementById('cardNum').value.replace(/s/g,'');
+  if(!name){toast(lang==='ar'?'أدخل اسمك الكامل':'Enter your full name',true);return;}
+  if(!email||!email.includes('@')){toast(lang==='ar'?'أدخل بريداً صحيحاً':'Enter valid email',true);return;}
+  if(card.length<16){toast(lang==='ar'?'أدخل رقم البطاقة كاملاً':'Enter complete card number',true);return;}
+  var btn=document.getElementById('payBtn');
+  btn.disabled=true;
+  btn.innerHTML='<i class="ti ti-loader" style="animation:spin .7s linear infinite"></i> '+(lang==='ar'?'جارٍ المعالجة...':'Processing...');
+  setTimeout(function(){location.href='success.html';},2000);
 }
+// Pre-fill from user
+var user=JSON.parse(localStorage.getItem('lingua_user')||'null');
+if(user){document.getElementById('fullName').value=user.name||'';document.getElementById('email').value=user.email||'';}
 </script>
-<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
-</body></html>
+</body>
+</html>
