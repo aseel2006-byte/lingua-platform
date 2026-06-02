@@ -196,7 +196,7 @@ function initNav(){
 }
 
 function initApp(){
-  // تحميل DB من window.LINGUA_DB (محمّلة من db.js inline)
+  // \u062A\u062D\u0645\u064A\u0644 DB \u0645\u0646 window.LINGUA_DB (\u0645\u062D\u0645\u0651\u0644\u0629 \u0645\u0646 db.js inline)
   if(window.LINGUA_DB&&window.LINGUA_DB.length){
     DB=window.LINGUA_DB;
   } else {
@@ -204,7 +204,7 @@ function initApp(){
     if(g)g.innerHTML='<div class="no-results"><i class="ti ti-alert-circle"></i><p>Database error. Please refresh.</p></div>';
     return;
   }
-  // إعداد أزرار اللغة
+  // \u0625\u0639\u062F\u0627\u062F \u0623\u0632\u0631\u0627\u0631 \u0627\u0644\u0644\u063A\u0629
   document.querySelectorAll('.lfbtn').forEach(function(b){
     var oc=b.getAttribute('onclick')||'';
     var m=oc.match(/filterLang\('([^']+)'/);
