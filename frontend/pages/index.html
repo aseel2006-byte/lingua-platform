@@ -399,6 +399,7 @@ footer .container{display:flex;align-items:center;justify-content:space-between;
   </div>
 </div>
 
+<script src="db.js"></script>
 <script>
 var DB=[];
 var cLang='en',cLevel='B1',cSkill='all',cSort='pop';
@@ -561,9 +562,7 @@ function initNav(){
 function scrollTo(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
 
 // \u062a\u062d\u0645\u064a\u0644 DB \u0645\u0646 \u0645\u0644\u0641 JSON \u062e\u0627\u0631\u062c\u064a
-function loadDB(){
-  fetch('pages/db.json?_='+(Date.now()))
-  .then(function(r){return r.json();})
+function loadDB(){if(window.LINGUA_DB&&window.LINGUA_DB.length){DB=window.LINGUA_DB;initNav();updateFeat();render();updateCartUI();}else{var g=document.getElementById("pgrid");if(g)g.innerHTML='<div class="no-results"><p>Error loading. Please refresh.</p></div>';}})
   .then(function(data){
     DB=data;
     updateFeat(); render(); updateCartUI(); initNav();
