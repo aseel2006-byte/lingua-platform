@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>اختبار المستوى — Lingua</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+:root{--plum:#1E1648;--plum-m:#3D2F8A;--plum-l:#EEEDFE;--gold:#C4983A;--gold-l:#FBF4E3;--jade:#0B5E46;--jade-l:#E0F5EE;--sand:#F9F7F3;--white:#fff;--ink:#0F0E1A;--ink-2:#3A3852;--ink-3:#8886A0;--border:#E5E2F0;--r-md:10px;--r-lg:16px;--r-xl:22px;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh;}
+[data-lang="en"]{direction:ltr;font-family:'IBM Plex Sans',sans-serif}
+.ar{display:block}.en{display:none}[data-lang="en"] .ar{display:none}[data-lang="en"] .en{display:block}
+span.ar,span.en{display:inline}[data-lang="en"] span.ar{display:none}[data-lang="ar"] span.en{display:none}
+.nav{background:var(--plum);height:60px;display:flex;align-items:center;padding:0 2rem;gap:1rem}
+.logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-mk{width:32px;height:32px;background:rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.logo-mk i{color:var(--gold);font-size:17px}
+.nav-right{margin-right:auto;display:flex;gap:8px}[data-lang="en"] .nav-right{margin-right:0;margin-left:auto}
+.lang-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;color:#fff;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+.main{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
+/* Intro */
+.intro-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:3rem;text-align:center;margin-bottom:2rem}
+.intro-icon{width:80px;height:80px;background:var(--plum-l);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:36px;color:var(--plum)}
+.intro-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--plum);margin-bottom:1rem}
+.intro-desc{font-size:15px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem}
+.lang-select{display:flex;gap:12px;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
+.lang-opt{padding:12px 24px;border:2px solid var(--border);border-radius:var(--r-lg);cursor:pointer;font-size:14px;font-weight:600;color:var(--ink-2);background:var(--white);transition:.15s;display:flex;align-items:center;gap:8px}
+.lang-opt:hover,.lang-opt.active{border-color:var(--plum);background:var(--plum-l);color:var(--plum)}
+.btn-start{padding:14px 32px;background:var(--gold);color:var(--plum);border:none;border-radius:var(--r-lg);font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:8px;margin:0 auto;transition:.15s}
+.btn-start:hover{opacity:.88}
+/* Quiz */
+#quiz-section{display:none}
+.progress-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden;margin-bottom:.5rem}
+.progress-fill{height:100%;background:var(--plum);border-radius:4px;transition:.4s}
+.progress-info{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);margin-bottom:1.5rem}
+.q-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;margin-bottom:1rem}
+.q-level{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin-bottom:.75rem}
+.q-text{font-size:16px;font-weight:600;color:var(--plum);margin-bottom:1.5rem;line-height:1.6}
+.q-options{display:flex;flex-direction:column;gap:10px}
+.q-opt{padding:12px 18px;border:1.5px solid var(--border);border-radius:var(--r-md);cursor:pointer;font-size:14px;color:var(--ink-2);background:var(--white);transition:.15s;text-align:inherit;font-family:inherit;font-weight:500;display:flex;align-items:center;gap:10px}
+.q-opt:hover{border-color:#AFA9EC;background:var(--plum-l);color:var(--plum)}
+.q-opt.correct{border-color:var(--jade);background:var(--jade-l);color:var(--jade)}
+.q-opt.wrong{border-color:#E24B4A;background:#FCEBEB;color:#DC2626}
+.q-opt.disabled{pointer-events:none;opacity:.6}
+.q-num{width:24px;height:24px;border-radius:50%;background:var(--plum-l);color:var(--plum);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* Result */
+#result-section{display:none}
+.result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:3rem;text-align:center}
+.result-icon{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:40px}
+.result-level{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--plum);margin-bottom:.5rem}
+.result-name{font-size:18px;color:var(--ink-2);margin-bottom:1rem}
+.result-score{font-size:14px;color:var(--ink-3);margin-bottom:2rem}
+.result-desc{font-size:15px;color:var(--ink-2);line-height:1.8;max-width:500px;margin:0 auto 2rem;padding:1.25rem;background:var(--sand);border-radius:var(--r-lg)}
+.result-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-shop{padding:13px 28px;background:var(--plum);color:#fff;border:none;border-radius:var(--r-lg);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:8px;text-decoration:none}
+.btn-retry{padding:13px 28px;background:var(--white);color:var(--plum);border:2px solid var(--border);border-radius:var(--r-lg);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:8px}
+.score-bar{display:flex;gap:4px;justify-content:center;margin-bottom:1.5rem}
+.score-dot{width:12px;height:12px;border-radius:50%}
+.score-dot.correct{background:var(--jade)}
+.score-dot.wrong{background:#E24B4A}
+.score-dot.skip{background:var(--border)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="logo" href="index.html">
+    <div class="logo-mk"><i class="ti ti-language"></i></div>
+    Lingua
+  </a>
+  <div class="nav-right">
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<div class="main">
+  <!-- Intro -->
+  <div id="intro-section">
+    <div class="intro-card">
+      <div class="intro-icon"><i class="ti ti-brain"></i></div>
+      <h1 class="intro-title ar">اكتشف مستواك الحقيقي</h1>
+      <h1 class="intro-title en">Discover Your True Level</h1>
+      <p class="intro-desc ar">اختبار مجاني يتضمّن 20 سؤالاً مدرجية من A0 حتى C2 — يستغرق 5 دقائق فقط</p>
+      <p class="intro-desc en">A free test with 20 graded questions from A0 to C2 — takes only 5 minutes</p>
+      <p style="font-size:13px;color:var(--ink-3);margin-bottom:1.5rem">
+        <span class="ar">اختر اللغة التي تريد اختبارها:</span>
+        <span class="en">Choose the language you want to test:</span>
+      </p>
+      <div class="lang-select">
+        <button class="lang-opt active" onclick="selectLang('en',this)"><span>🇬🇧</span><span class="ar">الإنجليزية</span><span class="en">English</span></button>
+        <button class="lang-opt" onclick="selectLang('tr',this)"><span>🇹🇷</span><span class="ar">التركية</span><span class="en">Turkish</span></button>
+        <button class="lang-opt" onclick="selectLang('zh',this)"><span>🇨🇳</span><span class="ar">الصينية</span><span class="en">Chinese</span></button>
+      </div>
+      <button class="btn-start" onclick="startTest()">
+        <i class="ti ti-player-play"></i>
+        <span class="ar">ابدأ الاختبار</span>
+        <span class="en">Start Test</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Quiz -->
+  <div id="quiz-section">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-info">
+      <span id="progressText"></span>
+      <span id="scoreText"></span>
+    </div>
+    <div class="q-card" id="qCard">
+      <div class="q-level" id="qLevel"></div>
+      <div class="q-text" id="qText"></div>
+      <div class="q-options" id="qOptions"></div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div id="result-section">
+    <div class="result-card">
+      <div class="result-icon" id="resultIcon"></div>
+      <div class="result-level" id="resultLevel"></div>
+      <div class="result-name" id="resultName"></div>
+      <div class="score-bar" id="scoreDots"></div>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-desc" id="resultDesc"></div>
+      <div class="result-actions">
+        <a class="btn-shop" href="index.html" id="shopBtn">
+          <i class="ti ti-shopping-bag"></i>
+          <span class="ar">تصفح الدروس</span>
+          <span class="en">Browse Courses</span>
+        </a>
+        <button class="btn-retry" onclick="restartTest()">
+          <i class="ti ti-refresh"></i>
+          <span class="ar">إعادة الاختبار</span>
+          <span class="en">Retry Test</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// أسئلة الاختبار
+// ═══════════════════════════════════════════════
+var QUESTIONS = {
+  en: [
+    // A0
+    {lv:'A0', q_ar:'ما معنى "Hello"?', q_en:'What does "Hello" mean?', opts_ar:['مرحبا','مع السلامة','شكراً','من فضلك'], opts_en:['Hi','Goodbye','Thank you','Please'], ans:0},
+    {lv:'A0', q_ar:'أي رقم يسبق "Three"?', q_en:'Which number comes before "Three"?', opts_ar:['أربعة','اثنان','خمسة','واحد'], opts_en:['Four','Two','Five','One'], ans:1},
+    // A1
+    {lv:'A1', q_ar:'أكمل الجملة: "I ___ a student."', q_en:'Complete: "I ___ a student."', opts_ar:['am','is','are','be'], opts_en:['am','is','are','be'], ans:0},
+    {lv:'A1', q_ar:'ما الجمع الصحيح لكلمة "child"?', q_en:'What is the correct plural of "child"?', opts_ar:['childs','childes','children','childrens'], opts_en:['childs','childes','children','childrens'], ans:2},
+    // A2
+    {lv:'A2', q_ar:'أي إجابة صحيحة? "Where ___ you go yesterday?"', q_en:'Which is correct? "Where ___ you go yesterday?"', opts_ar:['did','do','does','done'], opts_en:['did','do','does','done'], ans:0},
+    {lv:'A2', q_ar:'ما معنى "She is looking forward to the party"?', q_en:'What does "She is looking forward to the party" mean?', opts_ar:['تتطلع إلى الحفلة بسرور','تبحث عن حفلة','لا تريد الحفلة','تتذكر حفلة ماضية'], opts_en:['She is excited about the party','She is searching for a party','She does not want the party','She remembers a past party'], ans:0},
+    // B1
+    {lv:'B1', q_ar:'أكمل: "If I had more time, I ___ travel more."', q_en:'Complete: "If I had more time, I ___ travel more."', opts_ar:['will','would','can','shall'], opts_en:['will','would','can','shall'], ans:1},
+    {lv:'B1', q_ar:'ما معنى "Despite the rain, they continued the match."?', q_en:'What does "Despite the rain, they continued the match." mean?', opts_ar:['بسبب المطر لم يكملوا','بالرغم من المطر استمروا','طلبوا إيقاف المباراة','انتظروا حتى انتهى المطر'], opts_en:['Due to rain they stopped','Despite rain they continued','They asked to stop the match','They waited until rain ended'], ans:1},
+    // B2
+    {lv:'B2', q_ar:'ما الدلالة الصحيحة لـ "ambiguous"?', q_en:'What is the correct meaning of "ambiguous"?', opts_ar:['واضح تماماً','غامض ويحتمل تفسيرين','بسيط وسهل','محدد ودقيق'], opts_en:['Perfectly clear','Unclear with two interpretations','Simple and easy','Specific and precise'], ans:1},
+    {lv:'B2', q_ar:'أكمل: "The report ___ by the team before the deadline."', q_en:'Complete: "The report ___ by the team before the deadline."', opts_ar:['was completed','is completing','has complete','were completed'], opts_en:['was completed','is completing','has complete','were completed'], ans:0},
+    // C1
+    {lv:'C1', q_ar:'ما معنى التعبير "to turn a blind eye to"?', q_en:'What does "to turn a blind eye to" mean?', opts_ar:['تجاهل شيئاً متعمداً','النظر بدقة','إعطاء اهتمام زائد','أن تفقد بصرك'], opts_en:['To deliberately ignore something','To look very carefully','To give extra attention','To lose your sight'], ans:0},
+    {lv:'C1', q_ar:'أي الجمل أكثر رسمية?', q_en:'Which sentence is most formal?', opts_ar:['I want to ask about the job.','I would like to enquire about the position.','Can I ask about the job?','Tell me about the job please.'], opts_en:['I want to ask about the job.','I would like to enquire about the position.','Can I ask about the job?','Tell me about the job please.'], ans:1},
+    // C2
+    {lv:'C2', q_ar:'ما معنى "perspicacious"?', q_en:'What does "perspicacious" mean?', opts_ar:['غامض وغير واضح','ذكي وسريع الفهم','بطيء ومتأخر','صاخب ومتعجرف'], opts_en:['Vague and unclear','Having sharp insight and intelligence','Slow and delayed','Loud and boastful'], ans:1},
+    {lv:'C2', q_ar:'أكمل بالتعبير الأصح: "Had she known about the consequences, she ___ differently."', q_en:'Complete: "Had she known about the consequences, she ___ differently."', opts_ar:['would have acted','would act','will have acted','had acted'], opts_en:['would have acted','would act','will have acted','had acted'], ans:0}
+  ],
+  tr: [
+    {lv:'A0', q_ar:'ما معنى "Merhaba" بالعربية?', q_en:'What does "Merhaba" mean in English?', opts_ar:['وداعاً','مرحباً','شكراً','من فضلك'], opts_en:['Goodbye','Hello','Thank you','Please'], ans:1},
+    {lv:'A0', q_ar:'ما معنى "Evet"?', q_en:'What does "Evet" mean?', opts_ar:['لا','ربما','نعم','لا أعرف'], opts_en:['No','Maybe','Yes','I don't know'], ans:2},
+    {lv:'A1', q_ar:'أي إجابة صحيحة? "Ben ___ öğrenciyim." (أنا طالب)', q_en:'Which is correct? "Ben ___ öğrenciyim." (I am a student)', opts_ar:['bir','iki','بلا شيء','var'], opts_en:['bir','iki','nothing','var'], ans:0},
+    {lv:'A1', q_ar:'ما معنى "Çay"?', q_en:'What does "Çay" mean?', opts_ar:['ماء','قهوة','شاي','عصير'], opts_en:['Water','Coffee','Tea','Juice'], ans:2},
+    {lv:'A2', q_ar:'ما هو ماضي "gitmek" (ذهاب) لـ "Ben"?', q_en:'What is the past tense of "gitmek" (to go) for "Ben"?', opts_ar:['giderim','gittim','gidiyorum','gitmek'], opts_en:['giderim','gittim','gidiyorum','gitmek'], ans:1},
+    {lv:'A2', q_ar:'ما معنى "Güzel"?', q_en:'What does "Güzel" mean?', opts_ar:['قبيح','كبير','جميل','صغير'], opts_en:['Ugly','Big','Beautiful','Small'], ans:2},
+    {lv:'B1', q_ar:'أكمل بالتركية: "Çok ___ konuyorsun."', q_en:'Complete in Turkish: "Çok ___ konuyorsun."', opts_ar:['güzel','hızlı','yüksek','uzun'], opts_en:['güzel','hızlı','yüksek','uzun'], ans:1},
+    {lv:'B1', q_ar:'ما معنى "Önce düşün, sonra konuş"?', q_en:'What does "Önce düşün, sonra konuş" mean?', opts_ar:['تكلم أولاً ثم فكّر','فكّر أولاً ثم تكلم','لا تتكلم أبداً','تكلم بسرعة'], opts_en:['Talk first then think','Think first then talk','Never speak','Talk quickly'], ans:1},
+    {lv:'B2', q_ar:'ما معنى "Üstelik" بالعربية?', q_en:'What does "Üstelik" mean in English?', opts_ar:['بالرغم من ذلك','فضلاً عن ذلك','بسبب ذلك','لذلك'], opts_en:['Despite that','Furthermore / In addition','Because of that','Therefore'], ans:1},
+    {lv:'B2', q_ar:'أكمل: "O toplantıya ___ gitseydi, haberi olurdu."', q_en:'Complete: "O toplantıya ___ gitseydi, haberi olurdu."', opts_ar:['git','gitmiş','gitsey','gitmiş olsa'], opts_en:['git','gitmiş','gitsey','gitmiş olsa'], ans:3},
+    {lv:'C1', q_ar:'ما معنى المثل التركي "Damlaya damlaya göl olur"?', q_en:'What does the Turkish proverb "Damlaya damlaya göl olur" mean?', opts_ar:['الماء كثير','الجهد المتراكم يؤدي إلى نتائج كبيرة','الماء يسقط بسرعة','لا تهدر الماء'], opts_en:['Water is plentiful','Accumulated effort leads to great results','Water falls quickly','Don't waste water'], ans:1},
+    {lv:'C1', q_ar:'ما هو التعبير الأكثر رسمية لـ "I want to say"?', q_en:'What is the most formal Turkish equivalent of "I want to say"?', opts_ar:['Demek istiyorum','Söylemek istiyorum','Belirtmek istiyorum','Anlatmak istiyorum'], opts_en:['Demek istiyorum','Söylemek istiyorum','Belirtmek istiyorum','Anlatmak istiyorum'], ans:2},
+    {lv:'C2', q_ar:'ما معنى "İçinden geçmek" (تعبير اصطلاحي)?', q_en:'What does "İçinden geçmek" mean (idiom)?', opts_ar:['المرور عبر شيء حرفياً','التفكير في شيء ما / خطور بباله','تجاوز العقبات','التنقل بداخل شيء'], opts_en:['To physically pass through something','To think about something / cross one's mind','To overcome obstacles','To move inside something'], ans:1},
+    {lv:'C2', q_ar:'أي الجمل أكثر دقة نحوية?', q_en:'Which sentence has the most accurate Turkish grammar?', opts_ar:['Siz gitmiyor musunuz?','Siz gitmez misin?','Siz gitmiyorsunuz mu?','Siz gitmiyor mu?'], opts_en:['Siz gitmiyor musunuz?','Siz gitmez misin?','Siz gitmiyorsunuz mu?','Siz gitmiyor mu?'], ans:0}
+  ],
+  zh: [
+    {lv:'A0', q_ar:'ما معنى "你好" (Nǐ hǎo)?', q_en:'What does "你好" (Nǐ hǎo) mean?', opts_ar:['شكراً','مع السلامة','مرحباً / أهلاً','نعم'], opts_en:['Thank you','Goodbye','Hello','Yes'], ans:2},
+    {lv:'A0', q_ar:'كيف تقول "1" بالصينية?', q_en:'How do you say "1" in Chinese?', opts_ar:['二 (rèr)','一 (yī)','三 (sān)','五 (wǔ)'], opts_en:['二 (rèr)','一 (yī)','三 (sān)','五 (wǔ)'], ans:1},
+    {lv:'A1', q_ar:'ما معنى "我是学生" (Wǒ shì xuéshēng)?', q_en:'What does "我是学生" (Wǒ shì xuéshēng) mean?', opts_ar:['أنا معلم','أنا طالب','أنا من الصين','أنا بخير'], opts_en:['I am a teacher','I am a student','I am Chinese','I am fine'], ans:1},
+    {lv:'A1', q_ar:'ما معنى "谢谢" (Xièxiè)?', q_en:'What does "谢谢" (Xièxiè) mean?', opts_ar:['مرحباً','وداعاً','شكراً','آسفاً'], opts_en:['Hello','Goodbye','Thank you','Sorry'], ans:2},
+    {lv:'A2', q_ar:'أي إجابة صحيحة? "我昨天_没有去学校."', q_en:'Which is correct? "我昨天_没有去学校."', opts_ar:['是','也','(بلا شيء)','都'], opts_en:['是','也','(nothing)','都'], ans:2},
+    {lv:'A2', q_ar:'ما معنى "平常" (Píngcháng)?', q_en:'What does "平常" (Píngcháng) mean?', opts_ar:['أحياناً','دائماً','عادةً / عادياً','نادراً'], opts_en:['Sometimes','Always','Usually / Normally','Rarely'], ans:2},
+    {lv:'B1', q_ar:'ما معنى "虽然...但是..." (Suīshí... dànshì...)?', q_en:'What does "虽然....但是...." mean?', opts_ar:['لأن... لذلك...','بالرغم من... إلا أن...','إذا... فإن...','كلما... كلما...'], opts_en:['Because... therefore...','Although... but...','If... then...','The more... the more...'], ans:1},
+    {lv:'B1', q_ar:'أي من التعابير صحيحة لـ "for the sake of"?', q_en:'Which expression correctly means "for the sake of"?', opts_ar:['因为','为了','由于','准备'], opts_en:['因为','为了','由于','准备'], ans:1},
+    {lv:'B2', q_ar:'ما معنى "迄迴其诞" (Miğhuí qí shén)?', q_en:'What does "迄迴其诞" (Miğhuí qí shén) mean?', opts_ar:['واضح تماماً','غامض غير مفهوم','مثير للاهتمام','سريع وسهل'], opts_en:['Perfectly clear','Mysterious and hard to understand','Interesting and captivating','Quick and easy'], ans:1},
+    {lv:'B2', q_ar:'ما الفرق بين "也" (yě) و "还" (hái)?', q_en:'What is the difference between "也" (yě) and "还" (hái)?', opts_ar:['لا فرق بينهما','也 تعني "أيضاً" بينما 还 تعني "لا يزال" أو "أيضاً" في سياق آخر','\u4e5f تعني "لا يزال"','还 تعني "أيضاً" فقط'], opts_en:['No difference','也 means "also" while 还 means "still" or "also" in different contexts','也 means "still"','还 means "also" only'], ans:1},
+    {lv:'C1', q_ar:'ما معنى التعبير "放长线" (Fàng cháng xiàn)?', q_en:'What does the idiom "放长线" mean?', opts_ar:['شد الحبل','إعطاء مجال أوسع / الترك يتصرف بحرية','قطع التواصل','تحكيم القبضة'], opts_en:['To tighten control','To give more freedom / let go of control','To cut communication','To tighten the grip'], ans:1},
+    {lv:'C1', q_ar:'ما الفرق بين "对" (duì) و "关于" (guānyú)?', q_en:'What is the difference between "对" (duì) and "关于" (guānyú)?', opts_ar:['لا فرق','对 تشير إلى شيء و 关于 تشير إلى موضوع ما','对 تعني "حول" و 关于 تعني "إلى"','هما نفس الكلمة'], opts_en:['No difference','对 refers to something specific while 关于 refers to a general topic','Both mean the same','They are synonyms'], ans:1},
+    {lv:'C2', q_ar:'ما معنى التعبير "千载难逢" (Qiān zǎi nán féng)?', q_en:'What does "千载难逢" (Qiān zǎi nán féng) mean?', opts_ar:['شيء يحدث كثيراً','فرصة نادرة جداً لا تتكرر','صعب ولكنه ممكن','شيء بسيط وسهل'], opts_en:['Something that happens often','A once-in-a-thousand-years chance / Extremely rare','Difficult but possible','Something simple and easy'], ans:1},
+    {lv:'C2', q_ar:'أي من الجمل أكثر رسمية ودقة بالصينية?', q_en:'Which sentence is the most formal and accurate in Chinese?', opts_ar:['我要去','本人拟前往','我想去那边','我去一下'], opts_en:['我要去','本人拟前往','我想去那边','我去一下'], ans:1}
+  ]
+};
+
+var LEVEL_NAMES = {
+  A0:{ar:'مبتدئ مطلق',en:'Absolute Beginner'},
+  A1:{ar:'مبتدئ',en:'Beginner'},
+  A2:{ar:'ما قبل المتوسط',en:'Pre-Intermediate'},
+  B1:{ar:'متوسط',en:'Intermediate'},
+  B2:{ar:'فوق المتوسط',en:'Upper-Intermediate'},
+  C1:{ar:'متقدم',en:'Advanced'},
+  C2:{ar:'احترافي',en:'Mastery'}
+};
+
+var LEVEL_DESC = {
+  A0:{ar:'أنت في بداية رحلتك! ابدأ من أساسيات اللغة وستتقدم بسرعة.',en:"You're at the very beginning! Start with the basics and you'll progress quickly."},
+  A1:{ar:'لديك معرفة بسيطة. الدروس الأساسية ستبني قاعدتك.',en:"You have basic knowledge. Foundation courses will build your skills."},
+  A2:{ar:'أنت على الطريق الصحيح! طور مهاراتك التواصلية.',en:"You're on the right track! Develop your communication skills."},
+  B1:{ar:'تتواصل بشكل جيد. ركّز على المواضيع المتخصصة.',en:"You communicate well. Focus on specialized topics."},
+  B2:{ar:'مستوى ممتاز! طور أسلوبك ودقتك.',en:"Excellent level! Refine your style and precision."},
+  C1:{ar:'متقدم جداً! أنت قريب من الإتقان الكامل.',en:"Very advanced! You're close to full mastery."},
+  C2:{ar:'إتقان كامل! أنت على مستوى الناطق الأصيل.',en:"Full mastery! You're at native speaker level."}
+};
+
+var ICONS = {A0:'🌱',A1:'🌳',A2:'🌿',B1:'🌺',B2:'⭐',C1:'🌟',C2:'🏆'};
+var COLORS = {A0:'#jade',A1:'var(--jade)',A2:'#0B5E46',B1:'var(--plum)',B2:'#3D2F8A',C1:'var(--gold)',C2:'#C4983A'};
+
+var selectedLang = 'en';
+var currentQ = 0;
+var score = 0;
+var answers = [];
+var questions = [];
+
+function L(){return document.documentElement.getAttribute('data-lang')||'ar';}
+function toggleLang(){var h=document.documentElement,cur=h.getAttribute('data-lang'),next=cur==='ar'?'en':'ar';h.setAttribute('data-lang',next);h.setAttribute('lang',next);h.setAttribute('dir',next==='ar'?'rtl':'ltr');document.getElementById('langBtn').textContent=next==='ar'?'EN':'عربي';}
+
+function selectLang(lang, btn){
+  selectedLang = lang;
+  document.querySelectorAll('.lang-opt').forEach(function(b){b.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+}
+
+function startTest(){
+  questions = QUESTIONS[selectedLang] || QUESTIONS['en'];
+  currentQ = 0; score = 0; answers = [];
+  document.getElementById('intro-section').style.display = 'none';
+  document.getElementById('quiz-section').style.display = 'block';
+  showQuestion();
+}
+
+function showQuestion(){
+  if(currentQ >= questions.length){ showResult(); return; }
+  var q = questions[currentQ];
+  var lang = L();
+  var total = questions.length;
+  var pct = Math.round((currentQ/total)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressText').textContent = (lang==='ar'?'سؤال ':' Question ') + (currentQ+1) + (lang==='ar'?' من ':' of ') + total;
+  document.getElementById('scoreText').textContent = (lang==='ar'?'النتيجة: ':'Score: ') + score + '/' + currentQ;
+  document.getElementById('qLevel').textContent = (lang==='ar'?'مستوى ':'Level ') + q.lv;
+  document.getElementById('qText').textContent = lang==='ar'?q.q_ar:q.q_en;
+  var opts = lang==='ar'?q.opts_ar:q.opts_en;
+  var letters = ['A','B','C','D'];
+  document.getElementById('qOptions').innerHTML = opts.map(function(opt,i){
+    return '<button class="q-opt" onclick="answer('+i+')">'
+      +'<span class="q-num">'+letters[i]+'</span>'
+      +'<span>'+opt+'</span>'
+      +'</button>';
+  }).join('');
+}
+
+function answer(idx){
+  var q = questions[currentQ];
+  var correct = q.ans;
+  var btns = document.querySelectorAll('.q-opt');
+  btns.forEach(function(b){b.classList.add('disabled');});
+  if(idx === correct){ score++; btns[idx].classList.add('correct'); answers.push('correct'); }
+  else { btns[idx].classList.add('wrong'); btns[correct].classList.add('correct'); answers.push('wrong'); }
+  currentQ++;
+  setTimeout(function(){showQuestion();}, 1200);
+}
+
+function showResult(){
+  document.getElementById('quiz-section').style.display = 'none';
+  document.getElementById('result-section').style.display = 'block';
+  var total = questions.length;
+  var pct = Math.round((score/total)*100);
+  var level;
+  if(pct<=14) level='A0';
+  else if(pct<=28) level='A1';
+  else if(pct<=42) level='A2';
+  else if(pct<=57) level='B1';
+  else if(pct<=71) level='B2';
+  else if(pct<=85) level='C1';
+  else level='C2';
+  var lang = L();
+  document.getElementById('resultIcon').innerHTML = ICONS[level];
+  document.getElementById('resultIcon').style.background = 'var(--plum-l)';
+  document.getElementById('resultLevel').textContent = level;
+  document.getElementById('resultName').textContent = lang==='ar'?LEVEL_NAMES[level].ar:LEVEL_NAMES[level].en;
+  document.getElementById('resultScore').textContent = (lang==='ar'?'نتيجتك: ':'Your score: ') + score + '/' + total + ' (' + pct + '%)';
+  document.getElementById('resultDesc').textContent = lang==='ar'?LEVEL_DESC[level].ar:LEVEL_DESC[level].en;
+  var dots = answers.map(function(a){ return '<span class="score-dot '+a+'"></span>'; }).join('');
+  document.getElementById('scoreDots').innerHTML = dots;
+  document.getElementById('shopBtn').href = 'index.html?lang='+selectedLang+'&level='+level;
+}
+
+function restartTest(){
+  currentQ=0; score=0; answers=[];
+  document.getElementById('result-section').style.display = 'none';
+  document.getElementById('intro-section').style.display = 'block';
+}
+</script>
+</body>
+</html>
