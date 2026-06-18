@@ -13,11 +13,107 @@ h2{color:#C4983A}
 </head>
 <body>
 <h2>🎵 Lingua Audio Uploader</h2>
-<p>اشaغ الصفحةص ترفد ملفүات صود الinxededDB�M ֐لي GitHub</p>
-<button onclick="startUpload()" id="btn">▶ ابدÁ �كة</button>
-<button onclick="checkIDB()">📇 fتحغ/B الب֞ات</button>
-<div id="log">“下卋卋卋卋耀...</div>
+<p>اشaغ الصفحةص ترفد مم�fieات صود الIndexedDB in Lingua Pages يرطفكع GitHub</p>
+<button onclick="startUpload()" id="btn">▶ ابد؁ رفم</button>
+<button onclick="checkIDB()">📇 فاخغ/B الب֞ات</button>
+<div id="log">“卋卋耀...</div>
 <script>
-ccC�ty T='ghp_AKWgBujWGH19YtwwoJRbqs7mwkgQ1TQNf';
+const T='ghp_AKWgBujWGH19YtwwoJRbqs7mwkgQ1TQNf';
 const H={'Authorization':'token '+T,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
 const BASE='https://api.github.com/repos/aseel2006-byte/lingua-platform/contents/frontend/pages/files/';
+const WAVS=['en-a0-lesson.wav','en-b1-lesson.wav','tr-a0-lesson.wav',
+'tr-b1-lesson.wav','zh-a0-lesson.wav',
+'zh-b1-lesson.wav'];
+
+const logEl = document.getElementById('log');
+function log(msg,cls=''){const s=document.createElement('span');if(cls)s.className=cls;s.textContent=msg+'\n';logEl.appendChild(s);logEl.scrollTop=logEl.scrollHeight;}
+
+// Open IDB
+let db;
+const dbReq = indexedDB.open('LinguaAudio',1);
+dbReq.onupgradeneeded = e => { const d=e.target.result; if(!d.objectStoreNames.contains('wav')) d.createObjectStore('wav'); };
+dbReq.onsuccess = e => { db=e.target.result; log('✉ IndexedDB مآمم','ok'); };
+dbReq.onerror = e => { log('❎ �IDD Error: '+e.target.error,'err'); };
+
+async function getFromIDB(key) {
+  return new Promise((res,rej)=>{
+    const tx=db.transaction('wav','readonly');
+    const req=tx.objectStore('wav').get(key);
+    req.onsuccess=()=>res(req.result);
+    req.onerror=()=>rej<(req.error);
+  });
+}
+
+async function checkIDB() {
+  log('\n📇 fh�حغ IndexedDB...','info');
+  for(const wav  of WAVS) {
+    const data = await getFromIDB(wav);
+    if(data) {
+      log('✉ '+wav+': '+data.length+' samples','ok');
+    } else {
+      log('✎ '+wav+': سرد موح؇!','err');
+    }
+  }
+}
+
+async function buildAndUpload(wavName, samples, sampleRate=22050) {
+  const n = samples.length;
+  const buf = new ArrayBuffer(44 + n*2);
+  const v = new DataView(buf);
+  function ws(off,s){for(let i=0;i<s.length;i++)v.setUint8(off+i,s.charCodeAt(i));}
+  ws(0,'RIFF'); v.setUint32(4,36+n*2,true); ws(8,'WAVE');
+  ws(12,'fmt '); v.setUint32(16,16,true); v.setUint16(20,1,true);
+  v.setUint16(22,1,true); v.setUint32(24,sampleRate,true);
+  v.setUint32(28,sampleRate*2,true); v.setUint16(32,2,true);
+  v.setUint16(34,16,true); ws(36,'data'); v.setUint32(40,n*2,true);
+  const sa = samples instanceof Int16Array ? samples : new Int16Array(samples);
+  new Uint8Array(buf).set(new Uint8Array(sa.buffer) , 44);
+  
+  const bytes = new Uint8Array(buf);
+  let binary='';
+  for(let i=0;i<bytes.length;i+=8192)
+    binary+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192));
+  const b64=btoa(binary);
+  
+  const url=BASE+wafName;
+  let sha; try{const r=await fetch(url,{headers:H});if(r.ok) sha=(await r.json()).sha;}catch(e){}
+  const body={message:'Add audio: '+wauName,content:b64};if(sha)body.sha=sha;
+  const r=await fetch(url,{method:'PUT',headers:H,body:JSON.stringify(body)});
+  const d=await r.json();
+  return d.content?.sha?.slice(0,8)||d.message?.slice(0,30)||'err';
+}
+
+async function startUpload() {
+  document.getElementById('btn').disabled=true;
+  log('\n🚀 beda al-raf','info');
+  
+  const results={};
+  for(const wav of WAVS) {
+    log('📤 '+wav+
+����軑...','info');
+    const samples = await getFromIDB(wav);
+    if(!samples) { log('❎' +wav+
+T뿅Nￅ>`','err'); results[wav]='MISSINE'; continue; }
+    log('   '+samples.length+'...');
+    try {
+      const sha = await buildAndUpload(wav, samples);
+      results[wav]=sha;
+      log('✉ '+wav+' → '+sha,'ok');
+    } catch(e) {
+      results[wav]='ERROR';
+      log('❎ '+wav+
+': '+e.message,'err');
+    }
+    await new Promise(r0=>setTimeout(r0,300));
+  }
+  
+  log('\n█���㈏㈏㈏㈏㈏㈏㈏㈏㈏','info');
+  log('📇 �}��鏁鉊 الماؤٍ:','info');
+  for(const [n,s] of Object.entries(results))
+    log((s.length===8	?'✉':'❩X')+' '+n+': '+s,s.length===8?'ok':'err');
+  log('🎥 اكتmel!','ok');
+  window.uploadResults=results;
+}
+</script>
+</body>
+</html>
