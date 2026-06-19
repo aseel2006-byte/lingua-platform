@@ -2,8 +2,83 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lingua — تسأيل الدخ١ل </title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lingua - دخول</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',sans-serif;background:#0F0E1A;color:#F0EDE8;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:radial-gradient(ellipse at 20% 50%,rgba(196,152,58,.08) 0%,transparent 60%)}
+.box{width:100%;max-width:420px;padding:20px}
+.logo{text-align:center;margin-bottom:32px}
+.logo h1{font-size:28px;font-weight:900;color:#C4983A}
+.logo p{color:#8886A0;font-size:13px}
+.card{background:#1E1648;border-radius:20px;padding:32px;border:1px solid rgba(196,152,58,.15)}
+.tabs{display:flex;background:#0F0E1A;border-radius:10px;padding:4px;margin-bottom:24px}
+.tab{flex:1;padding:10px;text-align:center;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;color:#8886A0;transition:.3s}
+.tab.on{ibackground:#C4983A;color:#0F0E1A}
+.demo{background:rgba(196,152,58,.1);border:1.5px solid rgba(196,152,58,.3);border-radius:12px;padding:14px;margin-bottom:18px;text-align:center}
+.demo h3{color:#C4983A;font-size:13px;margin-bottom:8px}
+.creds{display:flex;gap:8px;justify-content:center;margin-bottom:10px}
+.cred{background:#0F0E1A;border-radius:8px;padding:6px 12px;font-size:12px}
+.cred span{color:#8886A0;display:block;font-size:10px}
+.cred strong{color:#E5B84A}
+.fg{margin-bottom:16px}
+label{display:block;font-size:12px;font-weight:600;color:#8886A0;margin-bottom:6px}
+input{width:100%;padding:12px 14px;background:#0F0E1A;border:1.5px solid rgba(255,255,255,.1);border-radius:10px;color:#F0EDE8;font-size:14px;font-family:inherit;outline:none;transition:.3s}
+input:focus{border-color:#C4983A}
+.btn{width:100%;padding:14px;background:#C4983A;color:#0F0E1A;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:6px;transition:.3s}
+.btn:hover{oفckground:#E5B84A}
+.btn2{width:100%;padding:11px;background:transparent;border:1.5px solid #C4983A;color:#C4983A;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:6px;transition:.3s}
+.btn2:hover{oفckground:rgba(196,152,58,.1)}
+.msg{text-align:center;font-size:12px;margin-top:12px;padding:8px;border-radius:8px;display:none}
+.msg.err{background:rgba(2.1);color:#f44336;border:1px solid rgba(244,67,54,.3);display:block}
+.msg.ok{background:rgba(76,175,80,.1);color:#4CAF50;border:1px solid rgba(76,175,80,.3);display:block}
+</style>
+</head>
+<body>
+<div class="box">
+<div class="logo"><h1>🎓 Lingua</h1><p>معهد اللغات الأكاديمي</p></div>
+<div class="card">
+<div class="tabs">
+<div class="tab on" id="t1" onclick="tab('login')">دخول</div>
+<div class="tab" id="t2" onclick="tab('reg')">حساب جديد</div>
+</div>
+<div class="demo">
+<h3>🧪 جرّب الموقع مجاناً</h3>
+<div class="creds">
+<div class="cred"><span>المستخدم</span><strong>demo</strong></div>
+<div class="cred"><span>كلمة المرور</span><strong>demo123</strong></div>
+</div>
+<button class="btn2" onclick="demoLogin()">⚡ دخول تجريبي فوري</button>
+</div>
+<div id="login-f">
+<div class="fg"><label>اسم المستخدم أو البريد</label><input id="lu" type="text" placeholder="demo" autocomplete="username"></div>
+<div class="fg"><label>كلمة المرور</label><input id="lp" type="password" placeholder="••••••••"></div>
+<button class="btn" onclick="doLogin()">تسجيل الدخول</button>
+<div class="msg" id="lm"></div>
+</div>
+<div id="reg-f" style="display:none">
+<div class="fg"><label>الاسم الكامل</label><input id="rn" type="text" autocomplete="name"></div>
+<div class="fg"><label>البريد الإلكتروني</label><input id="re" type="email" autocomplete="email"></div>
+<div class="fg"><label>كلمة المرور</label><input id="rp" type="password"></div>
+<button class="btn" onclick="doReg()">إنشاء الحساب</button>
+<div class="msg" id="rm"></div>
+</div>
+</div>
+</div>
+<script>
+const UK='lingua_users',SK='lingua_session';
+const DU={id:'demo_001',username:'demo',name:'مستخدم تجريبي',email:'demo@lingua.com',password:'demo123',role:'demo',createdAt:new Date().toISOString(),progress:{completedLessons:['en-a0-listening','en-a0-speaking','en-a0-reading'],enrolledCourses:['english','turkish'],xp:350,streak:7,level:'A1',skillScores:{listening:75,speaking:60,reading:80,writing:45},cart:[]}};
+function gU(){try{return JSON.parse(localStorage.getItem(UK)||'{}')}catch(e){return{}}}
+function sU(u){const us=gU();us[u.username]=u;localStorage.setItem(UK,JSON.stringify(us))}
+function cS(u){const s={userId:u.id,username:u.username,name:u.name,email:u.email,role:u.role,loginAt:new Date().toISOString(),expiresAt:new Date(Date.now()+7*24*60*60*1000).toISOString()};localStorage.setItem(SK,JSON.stringify(s));if(u.progress)localStorage.setItem('lingua_progress_'+u.id,JSON.stringify(u.progress));return s}
+function tab(t){document.getElementById('login-f').style.display=t==='login'?'block':'none';document.getElementById('reg-f').style.display=t==='reg'?'block':'none';document.getElementById('t1').className='tab'+(t==='login'?' on':'');document.getElementById('t2').className='tab'+(t==='reg'?' on':'')}
+function demoLogin(){sU(DU);cS(DU);msg('lm','ok','✅ مرحباً! جاري التحويل...');setTimeout(()=>location.href='dashboard.html',600)}
+function doLogin(){const u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value;if(!u||!p){msg('lm','err','يرجى ملء الحقول');return}if((u==='demo'||u==='demo@lingua.com')&&p==='demo123'){sU(DU);cS(DU);msg('lm','ok','✅ أهلاً!');setTimeout(()=>location.href='dashboard.html',500);return}const us=gU(),f=Object.values(us).find(x=>(x.username===u||x.email===u)&&x.password===p);if(f){cS(f);msg('lm','ok','✅ أهلاً '+f.name+'!');setTimeout(()=>location.href='dashboard.html',500)}else msg('lm','err','❌ بيانات خاطئة')}
+function doReg(){const n=document.getElementById('rn').value.trim(),e=document.getElementById('re').value.trim(),p=document.getElementById('rp').value;if(!n||!e||!p){msg('rm','err','يرجى ملء جميع الحقول');return}if(p.length<6){msg('rm','err','كلمة المرور 6 أحرف على الأقل');return}const us=gU();if(Object.values(us).find(x=>x.email===e)){msg('rm','err','البريد مسجل مسبقاً');return}const nu={id:'u_'+Date.now(),username:e.split('@')[0]+'_'+Math.random().toString(36).slice(2,5),name:n,email:e,password:p,role:'user',createdAt:new Date().toISOString(),progress:{completedLessons:[],enrolledCourses:[],xp:0,streak:0,level:'A0',skillScores:{listening:0,speaking:0,reading:0,writing:0},cart:[]}};sU(nu);cS(nu);msg('rm','ok','✅ تم إنشاء حسابك!');setTimeout(()=>location.href='dashboard.html',600)}
+function msg(id,cls,txt){const el=document.getElementById(id);el.className='msg '+cls;el.textContent=txt}
+(function(){try{const s=JSON.parse(localStorage.getItem(SK)||'null');if(s&&new Date(s.expiresAt)>new Date())location.href='dashboard.html'}catch(e){}}());
+document.addEventListener('keydown',e=>{if(e.key==='Enter'){if(document.getElementById('login-f').style.display!=='none')doLogin();else doReg()}});
+</script>
+</body>
+</html>
