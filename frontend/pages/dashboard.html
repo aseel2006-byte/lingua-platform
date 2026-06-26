@@ -582,11 +582,11 @@ function showLessonModal(lesson, isNew, xp) {
   modal.id = 'lm';
   modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(4px);';
   const badge = isNew
-    ? '<div style="background:#4CAF50;color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:14px;display:inline-block">🎉 +' + xp + ' XP مكتسبة!</div>'
-    : '<div style="background:#C4983A;color:#000;padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:14px;display:inline-block">▶ مراجعة الدرس</div>';
-  const pdfBtn = pdf ? '<a href="' + pdf + '" target="_blank" style="display:inline-block;background:#C4983A;color:#0F0E1A;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin:5px">📄 PDF</a>' : '';
-  const audioBtn = audio ? '<a href="' + audio + '" target="_blank" style="display:inline-block;background:#2196F3;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin:5px">🎵 صوت</a>' : '';
-  const noRes = (!pdf && !audio) ? '<p style="color:#888;font-size:13px">لا توجد مرفقات</p>' : '';
+    ? '<div style="background:#4CAF50;color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:14px;display:inline-block">🎉 +' + xp + ' XP!</div>'
+    : '<div style="background:#C4983A;color:#000;padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:14px;display:inline-block">▶ مراجعة</div>';
+  const pdfBtn = pdf ? '<a href="' + pdf + '" target="_blank" style="display:inline-block;background:#C4983A;color:#0F0E1A;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin:5px">PDF</a>' : '';
+  const audioBtn = audio ? '<a href="' + audio + '" target="_blank" style="display:inline-block;background:#2196F3;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin:5px">🎵</a>' : '';
+  const noRes = (!pdf && !audio) ? '<p style="color:#888;font-size:13px">لا مرفقات</p>' : '';
   modal.innerHTML = '<div style="background:#1E1648;border-radius:16px;padding:32px;max-width:460px;width:90%;text-align:center;border:1px solid rgba(196,152,58,.3);position:relative">'
     + '<button onclick="document.getElementById(\'lm\').remove()" style="position:absolute;top:12px;left:14px;background:none;border:none;color:#aaa;font-size:22px;cursor:pointer">×</button>'
     + badge
