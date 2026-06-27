@@ -86,7 +86,7 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);min-
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(196,152,58,.4)}50%{box-shadow:0 0 0 8px rgba(196,152,58,0)}}
 .linfo{flex:1}
 .ltitle{font-size:13px;font-weight:600}.lmeta{font-size:11px;color:var(--muted);margin-top:2px}
-.lbadge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;flex-shrink:0}
+.lbadge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;flex-shrink:0}.start-btn{background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;flex-shrink:0;transition:.2s;white-space:nowrap}.start-btn:hover{transform:scale(1.05)}
 .bd{background:rgba(76,175,80,.15);color:var(--ok)}.ba{background:rgba(196,152,58,.15);color:var(--gold)}.bl{background:rgba(255,255,255,.05);color:var(--muted)}
 .sbtn{padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:.2s;flex-shrink:0}
 .sbp{background:var(--gold);color:var(--bg)}.sbo{background:transparent;border:1.5px solid rgba(255,255,255,.15);color:var(--txt)}
@@ -362,14 +362,17 @@ function renderHome() {
 }
 
 function lessonItem(l, isDone) {
-  return `<div class="li" onclick="startLesson('${l.id}','${l.lid}','${l.skId}','${l.lvId}',${l.xp})">
-    <div class="lc ${isDone?'done':'act'}">${isDone?'✓':'▶'}</div>
-    <div class="linfo">
-      <div class="ltitle">${l.langFlag} ${l.title}</div>
-      <div class="lmeta">${l.min} دق • +${l.xp} XP • ${l.lvId}${l.tags?(' • '+l.tags.slice(0,2).join(' • ')):''}</div>
-    </div>
-    <span class="lbadge ${isDone?'bd':'ba'}">${isDone?'✅ مكتمل':'▶ ابدأ'}</span>
-  </div>`;
+  const btn = isDone
+    ? '<span class="lbadge bd">✅ مكتمل</span>'
+    : '<button class="start-btn" onclick="event.stopPropagation();startLesson(\'' + l.id + '\',\'' + l.lid + '\',\'' + l.skId + '\',\'' + l.lvId + '\',' + l.xp + ')">▶ ابدأ الدرس</button>';
+  return '<div class="li" onclick="startLesson(\'' + l.id + '\',\'' + l.lid + '\',\'' + l.skId + '\',\'' + l.lvId + '\',' + l.xp + ')">'
+    + '<div class="lc ' + (isDone?'done':'act') + '">' + (isDone?'✓':'▶') + '</div>'
+    + '<div class="linfo">'
+    + '<div class="ltitle">' + l.langFlag + ' ' + l.title + '</div>'
+    + '<div class="lmeta">' + l.min + ' دق • +' + l.xp + ' XP • ' + l.lvId + (l.tags?' • '+l.tags.slice(0,2).join(' • '):'') + '</div>'
+    + '</div>'
+    + btn
+    + '</div>';
 }
 
 // ===== SKILLS =====
