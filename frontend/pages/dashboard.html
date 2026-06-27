@@ -572,32 +572,94 @@ function startLesson(id, lid, sk, lvId, xp) {
 function showLessonModal(lesson, isNew, xp) {
   const old = document.getElementById('lm');
   if(old) old.remove();
+  
   const title = lesson ? lesson.title : 'درس';
   const desc = lesson ? lesson.desc : '';
-  const pdf = lesson ? lesson.pdf : null;
-  const audio = lesson ? lesson.audio : null;
-  const tags = lesson && lesson.tags ? lesson.tags.join(' • ') : '';
-  const minTime = lesson ? lesson.min : '?';
+  const tags = lesson && lesson.tags ? lesson.tags : [];
+  const minTime = lesson ? lesson.min : 15;
+  const lid = lesson ? lesson.id : '';
+  
+  // محتوى تعليمي مبني على بيانات الدرس
+  const langMap = {'en':'الإنجليزية','tr':'التركية','zh':'الصينية'};
+  const skillMap = {
+    'l':'استماع',
+    's':'محادثة',
+    'r':'قراءة',
+    'w':'كتابة'
+  };
+  const parts = lid.split('-');
+  const lang = parts[0] || 'en';
+  const skillKey = parts[2] ? parts[2][0] : 'l';
+  const langName = langMap[lang] || lang;
+  const skillName = skillMap[skillKey] || 'تدريب';
+  
+  // نصائح تعليمية بناءً على نوع المهارة
+  const tips = {
+    l: [
+      '🎧 استمع بتركيز وأعد الاستماع مرتين على الأقل',
+      '📝 دوّن المفردات الجديدة في دفتر',
+      '🔄 ركّز على فهم السياق لا كل كلمة'
+    ],
+    s: [
+      '🗣️ تحدث بصوت عالٍ وواضح',
+      '🎯 قلد النطق الطبيعي من المتحدثين الأصليين',
+      '🔁 كرّر الجمل حتى تتقن النطق'
+    ],
+    r: [
+      '📖 اقرأ ببطء وافهم كل جملة',
+      '💡 خمّن معنى الكلمات الغريبة من السياق',
+      '📋 حدّد الفكرة الرئيسية من كل فقرة'
+    ],
+    w: [
+      '✏️ ابدأ بجمل بسيطة ثم طوّلها',
+      '📝 استخدم المفردات المتعلمة في جمل حقيقية',
+      '🔄 راجع كتابتك وصحّح الأخطاء'
+    ]
+  };
+  
+  const currentTips = tips[skillKey] || tips.l;
+  const tipsHTML = currentTips.map(t => 
+    '<div style="display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);text-align:right">'
+    + '<span style="font-size:16px;flex-shrink:0">' + t.split(' ')[0] + '</span>'
+    + '<span style="font-size:13px;color:#C4B8D0">' + t.slice(t.indexOf(' ')+1) + '</span>'
+    + '</div>'
+  ).join('');
+  
+  const tagsHTML = tags.length ? '<div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:14px">'
+    + tags.map(t=>'<span style="background:rgba(196,152,58,.2);color:#C4983A;padding:3px 10px;border-radius:20px;font-size:12px">'+t+'</span>').join('')
+    + '</div>' : '';
+  
+  const badge = isNew
+    ? '<div style="background:#4CAF50;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;margin-bottom:16px;display:inline-block">🎉 +' + xp + ' XP مكتسبة!</div>'
+    : '<div style="background:rgba(196,152,58,.2);color:#C4983A;border:1px solid rgba(196,152,58,.4);padding:6px 18px;border-radius:20px;font-size:13px;margin-bottom:16px;display:inline-block">📚 مراجعة الدرس</div>';
+
   const modal = document.createElement('div');
   modal.id = 'lm';
-  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(4px);';
-  const badge = isNew
-    ? '<div style="background:#4CAF50;color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:14px;display:inline-block">🎉 +' + xp + ' XP!</div>'
-    : '<div style="background:#C4983A;color:#000;padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:14px;display:inline-block">▶ مراجعة</div>';
-  const pdfBtn = pdf ? '<a href="' + pdf + '" target="_blank" style="display:inline-block;background:#C4983A;color:#0F0E1A;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin:5px">PDF</a>' : '';
-  const audioBtn = audio ? '<a href="' + audio + '" target="_blank" style="display:inline-block;background:#2196F3;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin:5px">🎵</a>' : '';
-  const noRes = (!pdf && !audio) ? '<p style="color:#888;font-size:13px">لا مرفقات</p>' : '';
-  modal.innerHTML = '<div style="background:#1E1648;border-radius:16px;padding:32px;max-width:460px;width:90%;text-align:center;border:1px solid rgba(196,152,58,.3);position:relative">'
-    + '<button onclick="document.getElementById(\'lm\').remove()" style="position:absolute;top:12px;left:14px;background:none;border:none;color:#aaa;font-size:22px;cursor:pointer">×</button>'
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(6px);';
+  
+  modal.innerHTML = '<div style="background:#1E1648;border-radius:20px;padding:28px;max-width:480px;width:92%;border:1px solid rgba(196,152,58,.25);position:relative;max-height:85vh;overflow-y:auto;">'
+    + '<button onclick="document.getElementById(\'lm\').remove()" style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,.1);border:none;color:#eee;font-size:18px;cursor:pointer;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center">×</button>'
+    + '<div style="text-align:center;margin-bottom:20px">'
     + badge
-    + '<div style="font-size:36px;margin:8px 0">📚</div>'
-    + '<h2 style="color:#F0EDE8;margin:0 0 10px;font-size:20px">' + title + '</h2>'
-    + (desc ? '<p style="color:#C4983A;margin:0 0 12px;font-size:14px">' + desc + '</p>' : '')
-    + (tags ? '<div style="color:#888;font-size:12px;margin-bottom:12px">' + tags + '</div>' : '')
-    + '<div style="color:#777;font-size:13px;margin-bottom:20px">⏱ ' + minTime + ' دق</div>'
-    + '<div>' + pdfBtn + audioBtn + noRes + '</div>'
-    + '<button onclick="document.getElementById(\'lm\').remove()" style="margin-top:20px;background:#2d2a4a;color:#F0EDE8;border:none;padding:10px 28px;border-radius:8px;cursor:pointer">إغلاق</button>'
+    + '<div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px">'
+    + '<span style="background:rgba(33,150,243,.2);color:#2196F3;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">' + langName + '</span>'
+    + '<span style="background:rgba(156,39,176,.2);color:#CE93D8;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">' + skillName + '</span>'
+    + '<span style="background:rgba(255,255,255,.08);color:#aaa;padding:3px 10px;border-radius:20px;font-size:11px">⏱ ' + minTime + ' دق</span>'
+    + '</div>'
+    + '<h2 style="color:#F0EDE8;margin:10px 0 6px;font-size:20px;font-weight:800">' + title + '</h2>'
+    + '<p style="color:#C4983A;font-size:14px;margin:0 0 10px">' + desc + '</p>'
+    + tagsHTML
+    + '</div>'
+    + '<div style="background:rgba(15,14,26,.5);border-radius:12px;padding:16px;margin-bottom:16px">'
+    + '<div style="font-size:13px;font-weight:700;color:#C4983A;margin-bottom:8px;display:flex;align-items:center;gap:6px">💡 نصائح لهذا الدرس</div>'
+    + tipsHTML
+    + '</div>'
+    + '<div style="display:flex;gap:10px">'
+    + '<button onclick="document.getElementById(\'lm\').remove()" style="flex:1;background:#2d2a4a;color:#F0EDE8;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit">إغلاق</button>'
+    + '<button onclick="document.getElementById(\'lm\').remove();showToast(\'\u2705 تم تسجيل الدرس!\')" style="flex:2;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:800;font-family:inherit">✅ تم الدرس!</button>'
+    + '</div>'
     + '</div>';
+  
   document.body.appendChild(modal);
   modal.addEventListener('click', e => { if(e.target===modal) modal.remove(); });
 }
