@@ -657,26 +657,76 @@ function logout() { localStorage.removeItem('lingua_session'); location.href = '
 // ===== STORE =====
 const STORE_VIDEOS = {
   listening: [
-    {id:'sv-en-1',lang:'🇬🇧',title:'English Pronunciation for Beginners',level:'A0',duration:'8:24',channel:'BBC Learning English',thumb:'https://i.ytimg.com/vi/dtvd4g4eiAg/hqdefault.jpg',url:'https://www.youtube.com/watch?v=dtvd4g4eiAg',desc:'تعلم نطق الحروف الإنجليزية مع BBC'},
-    {id:'sv-en-2',lang:'🇬🇧',title:'Learn English Conversation - All Levels',level:'A1',duration:'45:30',channel:'English Singsing',thumb:'https://i.ytimg.com/vi/URnbeHo_hYA/hqdefault.jpg',url:'https://www.youtube.com/watch?v=URnbeHo_hYA',desc:'محادثات إنجليزية يومية للمبتدئين'},
-    {id:'sv-en-3',lang:'🇬🇧',title:'English Listening Practice - Daily Life',level:'A2',duration:'32:15',channel:'Learn English with TV',thumb:'https://i.ytimg.com/vi/3JZ_D3ELwOQ/hqdefault.jpg',url:'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',desc:'استماع لمواقف الحياة اليومية'},
-    {id:'sv-en-4',lang:'🇬🇧',title:'TED Talks for English Learners',level:'B1',duration:'18:45',channel:'TED',thumb:'https://i.ytimg.com/vi/8jPQjjsBbIc/hqdefault.jpg',url:'https://www.youtube.com/watch?v=8jPQjjsBbIc',desc:'محادثات TED لمتعلمي الإنجليزية'},
-    {id:'sv-en-5',lang:'🇬🇧',title:'BBC News in Easy English',level:'B2',duration:'15:00',channel:'BBC News',thumb:'https://i.ytimg.com/vi/NJ3GBv8LlYs/hqdefault.jpg',url:'https://www.youtube.com/watch?v=NJ3GBv8LlYs',desc:'أخبار BBC بالإنجليزية المبسطة'},
-    {id:'sv-tr-1',lang:'🇹🇷',title:'Türkçe Öğreniyorum - Yeni Başlayanlar',level:'A0',duration:'20:10',channel:'Turkish Language',thumb:'https://i.ytimg.com/vi/QI1JxLbMDfo/hqdefault.jpg',url:'https://www.youtube.com/watch?v=QI1JxLbMDfo',desc:'تعلم التركية من الصفر'},
-    {id:'sv-tr-2',lang:'🇹🇷',title:'Türkçe Dinleme Pratiği',level:'A2',duration:'25:30',channel:'Learn Turkish',thumb:'https://i.ytimg.com/vi/HmWFR97bBgM/hqdefault.jpg',url:'https://www.youtube.com/watch?v=HmWFR97bBgM',desc:'تدريب الاستماع للتركية'},
-    {id:'sv-zh-1',lang:'🇨🇳',title:'Learn Chinese - Beginner Listening',level:'A0',duration:'16:45',channel:'ChinesePod',thumb:'https://i.ytimg.com/vi/Vt-HxgcCEAE/hqdefault.jpg',url:'https://www.youtube.com/watch?v=Vt-HxgcCEAE',desc:'استماع للصينية المبتدئين'},
-    {id:'sv-zh-2',lang:'🇨🇳',title:'Chinese Conversations for Daily Life',level:'A2',duration:'28:20',channel:'Mandarin Corner',thumb:'https://i.ytimg.com/vi/CzRKGD_KPKU/hqdefault.jpg',url:'https://www.youtube.com/watch?v=CzRKGD_KPKU',desc:'محادثات صينية يومية'}
+    {id:'sv-en-1', lang:'🇬🇧', title:'English Pronunciation for Beginners', level:'A0', duration:'8:24', channel:'BBC Learning English', thumb:'https://i.ytimg.com/vi/dtvd4g4eiAg/hqdefault.jpg', url:'https://www.youtube.com/watch?v=dtvd4g4eiAg', desc:'تعلم نطق الحروف الإنجليزية مع BBC'},
+    {id:'sv-en-2', lang:'🇬🇧', title:'Learn English Conversation - All Levels', level:'A1', duration:'45:30', channel:'English Singsing', thumb:'https://i.ytimg.com/vi/URnbeHo_hYA/hqdefault.jpg', url:'https://www.youtube.com/watch?v=URnbeHo_hYA', desc:'محادثات إنجليزية يومية للمبتدئين'},
+    {id:'sv-en-3', lang:'🇬🇧', title:'English Listening Practice - Daily Life', level:'A2', duration:'32:15', channel:'Learn English with TV Series', thumb:'https://i.ytimg.com/vi/3JZ_D3ELwOQ/hqdefault.jpg', url:'https://www.youtube.com/watch?v=3JZ_D3ELwOQ', desc:'استماع لمواقف الحياة اليومية'},
+    {id:'sv-en-4', lang:'🇬🇧', title:'TED Talks for English Learners', level:'B1', duration:'18:45', channel:'TED', thumb:'https://i.ytimg.com/vi/8jPQjjsBbIc/hqdefault.jpg', url:'https://www.youtube.com/watch?v=8jPQjjsBbIc', desc:'محادثات TED لمتعلمي الإنجليزية'},
+    {id:'sv-en-5', lang:'🇬🇧', title:'BBC News in Easy English', level:'B2', duration:'15:00', channel:'BBC News', thumb:'https://i.ytimg.com/vi/NJ3GBv8LlYs/hqdefault.jpg', url:'https://www.youtube.com/watch?v=NJ3GBv8LlYs', desc:'أخبار BBC بالإنجليزية المبسطة'},
+    {id:'sv-tr-1', lang:'🇹🇷', title:'Türkçe Öğreniyorum - Yeni Başlayanlar', level:'A0', duration:'20:10', channel:'Turkish Language', thumb:'https://i.ytimg.com/vi/QI1JxLbMDfo/hqdefault.jpg', url:'https://www.youtube.com/watch?v=QI1JxLbMDfo', desc:'تعلم التركية من الصفر'},
+    {id:'sv-tr-2', lang:'🇹🇷', title:'Türkçe Dinleme Pratiği', level:'A2', duration:'25:30', channel:'Learn Turkish', thumb:'https://i.ytimg.com/vi/HmWFR97bBgM/hqdefault.jpg', url:'https://www.youtube.com/watch?v=HmWFR97bBgM', desc:'تدريب الاستماع للتركية'},
+    {id:'sv-zh-1', lang:'🇨🇳', title:'Learn Chinese - Beginner Listening', level:'A0', duration:'16:45', channel:'ChinesePod', thumb:'https://i.ytimg.com/vi/Vt-HxgcCEAE/hqdefault.jpg', url:'https://www.youtube.com/watch?v=Vt-HxgcCEAE', desc:'استماع للصينية المبتدئين'},
+    {id:'sv-zh-2', lang:'🇨🇳', title:'Chinese Conversations for Daily Life', level:'A2', duration:'28:20', channel:'Mandarin Corner', thumb:'https://i.ytimg.com/vi/CzRKGD_KPKU/hqdefault.jpg', url:'https://www.youtube.com/watch?v=CzRKGD_KPKU', desc:'محادثات صينية يومية'}
   ],
   reading: [
-    {id:'sr-en-1',lang:'🇬🇧',title:'The Three Little Pigs',level:'A0',duration:'5:30',channel:'Fairy Tales',thumb:'https://i.ytimg.com/vi/QLKGMKDrJoE/hqdefault.jpg',url:'https://www.youtube.com/watch?v=QLKGMKDrJoE',desc:'قصة الخنازير الثلاثة',text:'Once upon a time, three little pigs built houses of straw, sticks, and bricks. A big bad wolf came and blew the first two houses down! But he could NOT blow the brick house down. He tried the chimney but the pigs had hot water. The wolf ran away forever!\n\nMoral: Hard work keeps you safe.'},
-    {id:'sr-en-2',lang:'🇬🇧',title:'Little Red Riding Hood',level:'A1',duration:'7:15',channel:'Fairy Tales',thumb:'https://i.ytimg.com/vi/TtNBJQvbkto/hqdefault.jpg',url:'https://www.youtube.com/watch?v=TtNBJQvbkto',desc:'ذات الرداء الأحمر',text:'A little girl took food to her sick grandmother. On the way she met a wolf who ran ahead. She noticed: "Big eyes!" - "To see you!" "Big ears!" - "To hear you!" "Big teeth!" - "To EAT you!" A woodcutter saved them.\n\nMoral: Never talk to strangers!'},
-    {id:'sr-en-3',lang:'🇬🇧',title:'Goldilocks and the Three Bears',level:'A1',duration:'6:45',channel:'Story Time',thumb:'https://i.ytimg.com/vi/0nEMVpOtd1c/hqdefault.jpg',url:'https://www.youtube.com/watch?v=0nEMVpOtd1c',desc:'غولديلوكس والدببة',text:'Goldilocks found a house in the forest. She tried 3 bowls: too hot, too cold, just right! 3 chairs: too hard, too soft, just right (it broke!). 3 beds: she fell asleep in the small one. The bears came home and she ran away!\n\nMoral: Respect others property!'},
-    {id:'sr-en-4',lang:'🇬🇧',title:'The Tortoise and the Hare',level:'A2',duration:'5:00',channel:'Aesop Fables',thumb:'https://i.ytimg.com/vi/XRCopKAHCcQ/hqdefault.jpg',url:'https://www.youtube.com/watch?v=XRCopKAHCcQ',desc:'السلحفاة والأرنب',text:'A boastful hare challenged a slow tortoise to a race. The hare ran fast, then napped under a tree. The tortoise walked steadily without stopping. When the hare woke up, the tortoise had crossed the finish line!\n\nMoral: Slow and steady wins the race!'},
-    {id:'sr-en-5',lang:'🇬🇧',title:'Cinderella',level:'B1',duration:'12:30',channel:'Classic Tales',thumb:'https://i.ytimg.com/vi/4bvKHCMqceQ/hqdefault.jpg',url:'https://www.youtube.com/watch?v=4bvKHCMqceQ',desc:'سندريلا',text:'Kind Cinderella was forbidden from the royal ball. Her fairy godmother gave her a gown, glass slippers, and a carriage - but she must leave by midnight! The prince danced only with her all night. At midnight she fled, leaving one glass slipper. The prince searched the kingdom and found her.\n\nMoral: Kindness is always rewarded!'},
-    {id:'sr-tr-1',lang:'🇹🇷',title:'Keloğlan - قصة شعبية تركية',level:'A1',duration:'8:00',channel:'Turkish Tales',thumb:'https://i.ytimg.com/vi/rO_Pj4Kxjcw/hqdefault.jpg',url:'https://www.youtube.com/watch?v=rO_Pj4Kxjcw',desc:'كيلوغلان والأميرة',text:'Bir zamanlar Keloğlan yaşıyordu. (Once there was Keloğlan.) Bir gün yaralı bir kuş buldu. (One day he found an injured bird.) Kuş onu saraya götürdü. (The bird took him to the palace.) Padişahın kızı onu sevdi. (The king\'s daughter loved him.) Evlendiler. (They married.)\n\nÖğüt/Moral: İyilik eden iyilik bulur - Kindness is rewarded!'},
-    {id:'sr-zh-1',lang:'🇨🇳',title:'守株待兔 — المزارع والأرنب',level:'A2',duration:'6:30',channel:'Chinese Stories',thumb:'https://i.ytimg.com/vi/RmrDpKSwGsA/hqdefault.jpg',url:'https://www.youtube.com/watch?v=RmrDpKSwGsA',desc:'قصة صينية مع ترجمة',text:'从前有个农夫。(Once there was a farmer.) 一只兔子撞树死了。(A rabbit hit a tree and died.) 农夫很高兴，不再工作，只等兔子。(The farmer was happy and stopped working, just waiting.) 但再也没有兔子来了！(But no more rabbits came!) 庄稼都死了。(His crops all died.)\n\n寓意/Moral: 不要指望侥幸！Do not rely on luck!'}
+    {id:'sr-en-1', lang:'🇬🇧', title:'The Three Little Pigs', level:'A0', duration:'5:30', channel:'Fairy Tales', thumb:'https://i.ytimg.com/vi/QLKGMKDrJoE/hqdefault.jpg', url:'https://www.youtube.com/watch?v=QLKGMKDrJoE', text:'Once upon a time, there were three little pigs. The first pig built a house of straw. The second pig built a house of sticks. The third pig built a house of bricks.
+
+One day, a big bad wolf came along. "Little pig, little pig, let me in!" "Not by the hair of my chinny chin chin!" said the pig.
+
+The wolf huffed and puffed and blew the house in! The first pig ran to his brother's stick house. The wolf blew that down too! Both pigs ran to their brother's brick house.
+
+The wolf huffed and puffed but could not blow the brick house down. He tried to come down the chimney, but the pigs had a pot of hot water. The wolf ran away and never came back!', desc:'قصة الخنازير الثلاثة الصغيرة'},
+    {id:'sr-en-2', lang:'🇬🇧', title:'Little Red Riding Hood', level:'A1', duration:'7:15', channel:'Fairy Tales', thumb:'https://i.ytimg.com/vi/TtNBJQvbkto/hqdefault.jpg', url:'https://www.youtube.com/watch?v=TtNBJQvbkto', text:'Once there was a little girl called Little Red Riding Hood. One day, her mother said: "Take this basket of food to Grandmother. She is sick in bed."
+
+On the way, Little Red Riding Hood met a wolf. "Where are you going?" asked the wolf. "To Grandmother's house," she said. The wolf ran ahead to Grandmother's house.
+
+When Little Red Riding Hood arrived, she noticed something strange. "Grandmother, what big eyes you have!" "All the better to see you with!" "What big ears you have!" "All the better to hear you with!" "What big teeth you have!" "All the better to EAT you with!" shouted the wolf.
+
+A woodcutter heard her scream and saved them both. The wolf ran away and was never seen again.', desc:'ذات الرداء الأحمر'},
+    {id:'sr-en-3', lang:'🇬🇧', title:'Goldilocks and the Three Bears', level:'A1', duration:'6:45', channel:'Story Time', thumb:'https://i.ytimg.com/vi/0nEMVpOtd1c/hqdefault.jpg', url:'https://www.youtube.com/watch?v=0nEMVpOtd1c', text:'Once upon a time, a girl named Goldilocks found a house in the forest. Inside were three bowls of porridge. She tasted the first bowl - it was too hot. The second was too cold. The third was just right, and she ate it all.
+
+Then she found three chairs. The big chair was too hard. The middle chair was too soft. The little chair was just right - but it broke!
+
+Upstairs were three beds. The first was too hard. The second was too soft. The third was just right, and she fell asleep.
+
+When the three bears came home, they found someone had eaten Baby Bear's porridge and was sleeping in his bed! Goldilocks woke up, saw the three bears, screamed, and ran home as fast as she could!', desc:'غولديلوكس والدببة الثلاثة'},
+    {id:'sr-en-4', lang:'🇬🇧', title:'The Tortoise and the Hare', level:'A2', duration:'5:00', channel:'Aesop Fables', thumb:'https://i.ytimg.com/vi/XRCopKAHCcQ/hqdefault.jpg', url:'https://www.youtube.com/watch?v=XRCopKAHCcQ', text:'Once there was a hare who was very proud of his speed. He always boasted: "I am the fastest animal in the forest! No one can beat me!"
+
+A tortoise got tired of hearing this. "I challenge you to a race," said the tortoise. All the animals laughed at this idea.
+
+The race began. The hare ran so fast that he was soon far ahead. He thought: "I have plenty of time. I will take a little nap under this tree." And he fell asleep.
+
+Meanwhile, the tortoise walked slowly but steadily, never stopping. When the hare woke up, he saw the tortoise crossing the finish line!
+
+The moral of the story: Slow and steady wins the race!', desc:'السلحفاة والأرنب'},
+    {id:'sr-en-5', lang:'🇬🇧', title:'Cinderella Story', level:'B1', duration:'12:30', channel:'Classic Tales', thumb:'https://i.ytimg.com/vi/4bvKHCMqceQ/hqdefault.jpg', url:'https://www.youtube.com/watch?v=4bvKHCMqceQ', text:'Once upon a time, there was a kind girl named Cinderella who lived with her cruel stepmother and two stepsisters. They made her do all the work while they lived in luxury.
+
+One day, the king announced a royal ball to find a bride for the prince. Cinderella was forbidden to go. But her fairy godmother appeared and transformed her dress into a beautiful gown, her shoes into glass slippers, and a pumpkin into a carriage.
+
+"Be home by midnight," warned the fairy godmother. At the ball, the prince danced only with Cinderella all night. But at midnight, she fled, leaving one glass slipper on the steps.
+
+The prince searched the entire kingdom. When he found Cinderella and the slipper fit perfectly, he knew she was the one. They were married and lived happily ever after.', desc:'سندريلا - قصة للقراءة والاستماع'},
+    {id:'sr-tr-1', lang:'🇹🇷', title:'Türk Halk Masalı - Keloğlan', level:'A1', duration:'8:00', channel:'Turkish Tales', thumb:'https://i.ytimg.com/vi/rO_Pj4Kxjcw/hqdefault.jpg', url:'https://www.youtube.com/watch?v=rO_Pj4Kxjcw', text:'Bir zamanlar Keloğlan adında fakir bir çocuk yaşıyordu. Annesiyle birlikte küçük bir kulübede oturuyorlardı.
+
+Bir gün annesine "Anne, çarşıya gidip bir şeyler alayım" dedi. Annesi ona birkaç kuruş verdi.
+
+Keloğlan çarşıya giderken yolda yaralı bir kuş buldu. Kuşa acıdı ve onu satın aldı. Kuş, "Seni büyük bir padişahın kızına götüreceğim" dedi.
+
+Uçtular, uçtular ve sarayın önüne geldiler. Padişahın kızı Keloğlan'ı gördü ve onu çok sevdi. Evlendiler ve sonsuza dek mutlu yaşadılar.
+
+Öğüt: İyilik eden iyilik bulur.', desc:'كيلوغلان - حكاية شعبية تركية'},
+    {id:'sr-zh-1', lang:'🇨🇳', title:'守株待兔 - The Farmer and the Rabbit', level:'A2', duration:'6:30', channel:'Chinese Stories', thumb:'https://i.ytimg.com/vi/RmrDpKSwGsA/hqdefault.jpg', url:'https://www.youtube.com/watch?v=RmrDpKSwGsA', text:'从前，有一个农夫在田里工作。
+一天，一只兔子跑过来，撞到了树桩，死了。
+农夫很高兴，捡起了兔子。
+从那以后，农夫不再工作，只是坐在树桩旁边等兔子。
+但是，再也没有兔子来了。
+农夫的庄稼都死了，他也没有食物吃。
+寓意：不要指望侥幸，要努力工作。
+
+Once, a farmer was working in his field. One day, a rabbit ran by and bumped into a tree stump and died. The farmer was very happy and picked up the rabbit. After that, the farmer stopped working and just sat by the stump waiting for rabbits. But no more rabbits came. His crops all died and he had nothing to eat.
+Moral: Do not rely on luck. You must work hard.', desc:'قصة المزارع والأرنب - صينية مع ترجمة'}
   ]
 };
+
 let curStoreTab = 'listening';
 
 function showStoreTab(tab) {
