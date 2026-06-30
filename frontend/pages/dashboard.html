@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Lingua — لوحة التحكم</title>
+<title>Lingua â ÙÙØ­Ø© Ø§ÙØªØ­ÙÙ</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -114,40 +114,44 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);min-
 .toast.show{transform:translateX(-50%) translateY(0)}
 @media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{display:none}.g4{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.g4,.g2{grid-template-columns:1fr}.hero{flex-direction:column;gap:16px}}
+
+.sv-card{background:var(--sf);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:.3s;cursor:pointer}
+.sv-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.sv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-bottom:24px}
 </style>
 </head>
 <body>
 <nav class="nav">
-  <a class="nbrand" href="index.html">🎓 Lingua</a>
+  <a class="nbrand" href="index.html">ð Lingua</a>
   <div class="nright">
-    <button class="nbtn ng" onclick="showSec('store')">🛒 المتجر</button>
+    <button class="nbtn ng" onclick="showSec('store')">ð Ø§ÙÙØªØ¬Ø±</button>
     <div class="ubadge" onclick="showSec('progress')">
-      <div class="uav" id="uav">م</div>
-      <div><div class="uname" id="uname">...</div><div class="urole" id="urole">🧪</div></div>
+      <div class="uav" id="uav">Ù</div>
+      <div><div class="uname" id="uname">...</div><div class="urole" id="urole">ð§ª</div></div>
     </div>
-    <button class="nbtn ngh" onclick="logout()">خروج</button>
+    <button class="nbtn ngh" onclick="logout()">Ø®Ø±ÙØ¬</button>
   </div>
 </nav>
 <div class="layout">
   <aside class="sidebar">
     <div class="sbsec">
-      <div class="sbtitle">القائمة الرئيسية</div>
-      <a class="sbitem on" id="sb-home" onclick="showSec('home')"><span class="ic">🏠</span>الرئيسية</a>
-      <a class="sbitem" id="sb-skills" onclick="showSec('skills')"><span class="ic">⚡</span>مهاراتي</a>
-      <a class="sbitem" id="sb-lessons" onclick="showSec('lessons')"><span class="ic">📚</span>جميع الدروس<span class="bx" id="sb-cnt">0</span></a>
-      <a class="sbitem" id="sb-progress" onclick="showSec('progress')"><span class="ic">📊</span>تقدمي</a>
+      <div class="sbtitle">Ø§ÙÙØ§Ø¦ÙØ© Ø§ÙØ±Ø¦ÙØ³ÙØ©</div>
+      <a class="sbitem on" id="sb-home" onclick="showSec('home')"><span class="ic">ð </span>Ø§ÙØ±Ø¦ÙØ³ÙØ©</a>
+      <a class="sbitem" id="sb-skills" onclick="showSec('skills')"><span class="ic">â¡</span>ÙÙØ§Ø±Ø§ØªÙ</a>
+      <a class="sbitem" id="sb-lessons" onclick="showSec('lessons')"><span class="ic">ð</span>Ø¬ÙÙØ¹ Ø§ÙØ¯Ø±ÙØ³<span class="bx" id="sb-cnt">0</span></a>
+      <a class="sbitem" id="sb-progress" onclick="showSec('progress')"><span class="ic">ð</span>ØªÙØ¯ÙÙ</a>
     </div>
     <div class="sbsec">
-      <div class="sbtitle">اللغات</div>
-      <a class="sbitem" onclick="goLang('english')"><span class="ic">🇬🇧</span>الإنجليزية<span class="bx" id="lb-en">-</span></a>
-      <a class="sbitem" onclick="goLang('turkish')"><span class="ic">🇹🇷</span>التركية<span class="bx" id="lb-tr">-</span></a>
-      <a class="sbitem" onclick="goLang('chinese')"><span class="ic">🇨🇳</span>الصينية<span class="bx" id="lb-zh">-</span></a>
+      <div class="sbtitle">Ø§ÙÙØºØ§Øª</div>
+      <a class="sbitem" onclick="goLang('english')"><span class="ic">ð¬ð§</span>Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©<span class="bx" id="lb-en">-</span></a>
+      <a class="sbitem" onclick="goLang('turkish')"><span class="ic">ð¹ð·</span>Ø§ÙØªØ±ÙÙØ©<span class="bx" id="lb-tr">-</span></a>
+      <a class="sbitem" onclick="goLang('chinese')"><span class="ic">ð¨ð³</span>Ø§ÙØµÙÙÙØ©<span class="bx" id="lb-zh">-</span></a>
     </div>
     <div class="sbsec">
-      <div class="sbtitle">روابط</div>
-      <a class="sbitem" href="level-test.html"><span class="ic">🎯</span>اختبار المستوى</a>
-      <a class="sbitem" id="sb-store" onclick="showSec('store')"><span class="ic">🛍️</span>المتجر</a>
-      <a class="sbitem" onclick="logout()"><span class="ic">🚪</span>تسجيل الخروج</a>
+      <div class="sbtitle">Ø±ÙØ§Ø¨Ø·</div>
+      <a class="sbitem" href="level-test.html"><span class="ic">ð¯</span>Ø§Ø®ØªØ¨Ø§Ø± Ø§ÙÙØ³ØªÙÙ</a>
+      <a class="sbitem" id="sb-store" onclick="showSec('store')"><span class="ic">ðï¸</span>Ø§ÙÙØªØ¬Ø±</a>
+      <a class="sbitem" onclick="logout()"><span class="ic">ðª</span>ØªØ³Ø¬ÙÙ Ø§ÙØ®Ø±ÙØ¬</a>
     </div>
   </aside>
   <main class="main">
@@ -155,79 +159,92 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);min-
     <div id="sec-home">
       <div class="hero">
         <div class="ht">
-          <h2 id="welcome">مرحباً! 👋</h2>
-          <p>استمر في رحلتك اللغوية اليوم</p>
-          <div class="streak">🔥 <span id="streak">0</span> أيام</div>
+          <h2 id="welcome">ÙØ±Ø­Ø¨Ø§Ù! ð</h2>
+          <p>Ø§Ø³ØªÙØ± ÙÙ Ø±Ø­ÙØªÙ Ø§ÙÙØºÙÙØ© Ø§ÙÙÙÙ</p>
+          <div class="streak">ð¥ <span id="streak">0</span> Ø£ÙØ§Ù</div>
         </div>
         <div class="hstats">
           <div class="stat"><div class="n" id="s-xp">0</div><div class="l">XP</div></div>
-          <div class="stat"><div class="n" id="s-done">0</div><div class="l">مكتمل</div></div>
-          <div class="stat"><div class="n" id="s-lv">A0</div><div class="l">المستوى</div></div>
-          <div class="stat"><div class="n" id="s-tot">208</div><div class="l">إجمالي</div></div>
+          <div class="stat"><div class="n" id="s-done">0</div><div class="l">ÙÙØªÙÙ</div></div>
+          <div class="stat"><div class="n" id="s-lv">A0</div><div class="l">Ø§ÙÙØ³ØªÙÙ</div></div>
+          <div class="stat"><div class="n" id="s-tot">208</div><div class="l">Ø¥Ø¬ÙØ§ÙÙ</div></div>
         </div>
       </div>
       <div class="card" style="margin-bottom:18px">
-        <div class="ctitle">⭐ نقاط الخبرة</div>
+        <div class="ctitle">â­ ÙÙØ§Ø· Ø§ÙØ®Ø¨Ø±Ø©</div>
         <div class="xpbar">
-          <div class="xpi"><span id="xp-lbl" style="font-weight:600">نحو A1</span><span style="color:var(--gold)"><span id="xp-cur">0</span>/<span id="xp-max">300</span> XP</span></div>
+          <div class="xpi"><span id="xp-lbl" style="font-weight:600">ÙØ­Ù A1</span><span style="color:var(--gold)"><span id="xp-cur">0</span>/<span id="xp-max">300</span> XP</span></div>
           <div class="xpt"><div class="xpf" id="xpf" style="width:0%"></div></div>
         </div>
       </div>
-      <div class="sh"><h2>المهارات الأربع</h2><a onclick="showSec('skills')">عرض الكل ←</a></div>
+      <div class="sh"><h2>Ø§ÙÙÙØ§Ø±Ø§Øª Ø§ÙØ£Ø±Ø¨Ø¹</h2><a onclick="showSec('skills')">Ø¹Ø±Ø¶ Ø§ÙÙÙ â</a></div>
       <div class="g4">
-        <div class="skcard L" onclick="showSec('skills')"><div class="skim">🎧</div><div class="sknm">الاستماع</div><div class="sklv" id="lv-L">A0</div><div class="prog"><div class="pf" id="pf-L" style="width:0%;background:var(--CL)"></div></div><div class="spct" id="pp-L">0%</div></div>
-        <div class="skcard S" onclick="showSec('skills')"><div class="skim">🗣️</div><div class="sknm">المحادثة</div><div class="sklv" id="lv-S">A0</div><div class="prog"><div class="pf" id="pf-S" style="width:0%;background:var(--CS)"></div></div><div class="spct" id="pp-S">0%</div></div>
-        <div class="skcard R" onclick="showSec('skills')"><div class="skim">📖</div><div class="sknm">القراءة</div><div class="sklv" id="lv-R">A0</div><div class="prog"><div class="pf" id="pf-R" style="width:0%;background:var(--CR)"></div></div><div class="spct" id="pp-R">0%</div></div>
-        <div class="skcard W" onclick="showSec('skills')"><div class="skim">✍️</div><div class="sknm">الكتابة</div><div class="sklv" id="lv-W">A0</div><div class="prog"><div class="pf" id="pf-W" style="width:0%;background:var(--CW)"></div></div><div class="spct" id="pp-W">0%</div></div>
+        <div class="skcard L" onclick="showSec('skills')"><div class="skim">ð§</div><div class="sknm">Ø§ÙØ§Ø³ØªÙØ§Ø¹</div><div class="sklv" id="lv-L">A0</div><div class="prog"><div class="pf" id="pf-L" style="width:0%;background:var(--CL)"></div></div><div class="spct" id="pp-L">0%</div></div>
+        <div class="skcard S" onclick="showSec('skills')"><div class="skim">ð£ï¸</div><div class="sknm">Ø§ÙÙØ­Ø§Ø¯Ø«Ø©</div><div class="sklv" id="lv-S">A0</div><div class="prog"><div class="pf" id="pf-S" style="width:0%;background:var(--CS)"></div></div><div class="spct" id="pp-S">0%</div></div>
+        <div class="skcard R" onclick="showSec('skills')"><div class="skim">ð</div><div class="sknm">Ø§ÙÙØ±Ø§Ø¡Ø©</div><div class="sklv" id="lv-R">A0</div><div class="prog"><div class="pf" id="pf-R" style="width:0%;background:var(--CR)"></div></div><div class="spct" id="pp-R">0%</div></div>
+        <div class="skcard W" onclick="showSec('skills')"><div class="skim">âï¸</div><div class="sknm">Ø§ÙÙØªØ§Ø¨Ø©</div><div class="sklv" id="lv-W">A0</div><div class="prog"><div class="pf" id="pf-W" style="width:0%;background:var(--CW)"></div></div><div class="spct" id="pp-W">0%</div></div>
       </div>
-      <div class="sh"><h2>الدروس القادمة</h2><a onclick="showSec('lessons')">عرض الكل ←</a></div>
-      <div id="home-lessons"><div class="loading">⏳ جاري التحميل...</div></div>
+      <div class="sh"><h2>Ø§ÙØ¯Ø±ÙØ³ Ø§ÙÙØ§Ø¯ÙØ©</h2><a onclick="showSec('lessons')">Ø¹Ø±Ø¶ Ø§ÙÙÙ â</a></div>
+      <div id="home-lessons"><div class="loading">â³ Ø¬Ø§Ø±Ù Ø§ÙØªØ­ÙÙÙ...</div></div>
     </div>
     <!-- SKILLS -->
     <div id="sec-skills" style="display:none">
-      <div class="sh"><h2>⚡ مهاراتي التفصيلية</h2></div>
+      <div class="sh"><h2>â¡ ÙÙØ§Ø±Ø§ØªÙ Ø§ÙØªÙØµÙÙÙØ©</h2></div>
       <div class="ltabs" id="skills-tabs"></div>
       <div id="skills-content"></div>
     </div>
     <!-- LESSONS -->
     <div id="sec-lessons" style="display:none">
-      <div class="sh"><h2>📚 جميع الدروس (208 درس)</h2></div>
+      <div class="sh"><h2>ð Ø¬ÙÙØ¹ Ø§ÙØ¯Ø±ÙØ³ (208 Ø¯Ø±Ø³)</h2></div>
       <div class="ltabs" id="lessons-lang-tabs"></div>
       <div class="ltabs" id="lessons-lv-tabs" style="margin-top:-6px"></div>
       <div id="lessons-content"></div>
     </div>
     <!-- PROGRESS -->
     <div id="sec-progress" style="display:none">
-      <div class="sh"><h2>📊 تقدمي الكامل</h2></div>
+      <div class="sh"><h2>ð ØªÙØ¯ÙÙ Ø§ÙÙØ§ÙÙ</h2></div>
       <div class="g2">
         <div class="card">
-          <div class="ctitle">🏆 المستوى</div>
+          <div class="ctitle">ð Ø§ÙÙØ³ØªÙÙ</div>
           <div style="display:flex;align-items:center;gap:12px;background:var(--sf2);border-radius:10px;padding:14px;margin-bottom:12px">
             <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gl));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:var(--bg)" id="p-lv">A0</div>
-            <div><div style="font-size:16px;font-weight:700">مستوى <span id="p-lvn">A0</span></div><div style="font-size:12px;color:var(--muted)" id="p-lvd">مبتدئ تام</div></div>
+            <div><div style="font-size:16px;font-weight:700">ÙØ³ØªÙÙ <span id="p-lvn">A0</span></div><div style="font-size:12px;color:var(--muted)" id="p-lvd">ÙØ¨ØªØ¯Ø¦ ØªØ§Ù</div></div>
           </div>
-          <div class="xpbar" style="margin-bottom:12px"><div class="xpi"><span style="font-weight:600">نحو المستوى التالي</span><span style="color:var(--gold)"><span id="p-xp">0</span> XP</span></div><div class="xpt"><div class="xpf" id="p-xpf" style="width:0%"></div></div></div>
+          <div class="xpbar" style="margin-bottom:12px"><div class="xpi"><span style="font-weight:600">ÙØ­Ù Ø§ÙÙØ³ØªÙÙ Ø§ÙØªØ§ÙÙ</span><span style="color:var(--gold)"><span id="p-xp">0</span> XP</span></div><div class="xpt"><div class="xpf" id="p-xpf" style="width:0%"></div></div></div>
           <div class="lvgrid" id="lvgrid"></div>
         </div>
         <div class="card">
-          <div class="ctitle">📈 إحصائياتي</div>
+          <div class="ctitle">ð Ø¥Ø­ØµØ§Ø¦ÙØ§ØªÙ</div>
           <div class="g2" style="margin-bottom:0">
-            <div style="background:var(--sf2);border-radius:8px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:900;color:var(--gold)" id="p-done">0</div><div style="font-size:11px;color:var(--muted)">مكتمل</div></div>
-            <div style="background:var(--sf2);border-radius:8px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:900;color:var(--gold)" id="p-st">0</div><div style="font-size:11px;color:var(--muted)">أيام 🔥</div></div>
+            <div style="background:var(--sf2);border-radius:8px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:900;color:var(--gold)" id="p-done">0</div><div style="font-size:11px;color:var(--muted)">ÙÙØªÙÙ</div></div>
+            <div style="background:var(--sf2);border-radius:8px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:900;color:var(--gold)" id="p-st">0</div><div style="font-size:11px;color:var(--muted)">Ø£ÙØ§Ù ð¥</div></div>
             <div style="background:var(--sf2);border-radius:8px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:900;color:var(--gold)" id="p-xp2">0</div><div style="font-size:11px;color:var(--muted)">XP</div></div>
-            <div style="background:var(--sf2);border-radius:8px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:900;color:var(--gold)">208</div><div style="font-size:11px;color:var(--muted)">إجمالي</div></div>
+            <div style="background:var(--sf2);border-radius:8px;padding:14px;text-align:center"><div style="font-size:24px;font-weight:900;color:var(--gold)">208</div><div style="font-size:11px;color:var(--muted)">Ø¥Ø¬ÙØ§ÙÙ</div></div>
           </div>
         </div>
       </div>
-      <div class="card" style="margin-bottom:14px"><div class="ctitle">⚡ المهارات</div><div id="p-sk"></div></div>
-      <div class="card"><div class="ctitle">🌍 اللغات</div><div id="p-lg"></div></div>
+      <div class="card" style="margin-bottom:14px"><div class="ctitle">â¡ Ø§ÙÙÙØ§Ø±Ø§Øª</div><div id="p-sk"></div></div>
+      <div class="card"><div class="ctitle">ð Ø§ÙÙØºØ§Øª</div><div id="p-lg"></div></div>
     </div>
 
     <!-- STORE -->
     <div id="sec-store" style="display:none">
-      <div class="sh"><h2>🛍️ المتجر التعليمي</h2></div>
+      <div class="sh"><h2>ðï¸ Ø§ÙÙØªØ¬Ø± Ø§ÙØªØ¹ÙÙÙÙ</h2></div>
       <div class="ltabs" id="store-tabs">
-        <button class="lt on" id="st-listening" onclick="showStoreTab('listening')">🎧 مقاطع الاستماع</button>
+        <button class="lt on" id="st-listening" onclick="showStoreTab('listening')">ð§ ÙÙØ§Ø·Ø¹ Ø§ÙØ§Ø³ØªÙØ§Ø¹</button>
+        <button class="lt" id="st-reading" onclick="showStoreTab('reading')">ð ÙØµØµ Ø§ÙÙØ±Ø§Ø¡Ø©</button>
+      </div>
+      <div id="store-content"></div>
+    </div>
+
+    <!-- STORE AI CONTENT -->
+    <div id="sec-store" style="display:none">
+      <div class="sh">
+        <h2>🛍️ المتجر التعليمي</h2>
+        <span style="font-size:12px;padding:4px 12px;background:rgba(196,152,58,.2);color:#C4983A;border-radius:20px;font-weight:700">🤖 محتوى AI أصلي حصري</span>
+      </div>
+      <div class="ltabs" id="store-tabs" style="margin-bottom:20px">
+        <button class="lt on" id="st-listening" onclick="showStoreTab('listening')">🎧 الاستماع</button>
         <button class="lt" id="st-reading" onclick="showStoreTab('reading')">📖 قصص القراءة</button>
       </div>
       <div id="store-content"></div>
@@ -238,12 +255,12 @@ body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);min-
 
 <script>
 // ===== LESSONS DATABASE =====
-// يُجلب من lessons.json (مدمج هنا للأداء)
+// ÙÙØ¬ÙØ¨ ÙÙ lessons.json (ÙØ¯ÙØ¬ ÙÙØ§ ÙÙØ£Ø¯Ø§Ø¡)
 const LESSONS_URL = 'lessons.json';
 let DB = null;
 
-// بيانات احتياطية مدمجة
-const FALLBACK_DB = {"meta":{"version":"2.0","created":"2026-06-20","totalLessons":208,"languages":["english","turkish","chinese"],"levels":["A0","A1","A2","B1","B2","C1","C2"],"skills":["listening","speaking","reading","writing"]},"levelNames":{"A0":"مبتدئ تام","A1":"مبتدئ","A2":"ما دون المتوسط","B1":"متوسط","B2":"فوق المتوسط","C1":"متقدم","C2":"إتقان تام"},"levelXP":{"A0":0,"A1":300,"A2":700,"B1":1400,"B2":2500,"C1":4000,"C2":6500},"courses":{"english":{"id":"english","name":"الإنجليزية","nameEn":"English","flag":"🇬🇧","color":"#2196F3","levels":{"A0":{"skills":{"listening":[{"id":"en-a0-l1","title":"الحروف والأصوات","desc":"تعرف على الأبجدية وأصواتها","min":10,"xp":30,"tags":["أبجدية"],"pdf":"files/en-a0-vocabulary.pdf","audio":"files/en-a0-lesson.wav"},{"id":"en-a0-l2","title":"التحيات - استماع","desc":"استمع لتحيات يومية بسيطة","min":12,"xp":35,"tags":["تحيات"]},{"id":"en-a0-l3","title":"الأرقام 1-20","desc":"الأرقام الأساسية استماعاً","min":10,"xp":30,"tags":["أرقام"]}],"speaking":[{"id":"en-a0-s1","title":"تعريف النفس","desc":"تعلم تعريف نفسك بالإنجليزية","min":10,"xp":30,"tags":["مقدمات"]},{"id":"en-a0-s2","title":"Hello & Goodbye","desc":"التدرب على التحيات الشائعة","min":8,"xp":25,"tags":["تحيات"]},{"id":"en-a0-s3","title":"الألوان والأشكال","desc":"نطق أسماء الألوان والأشكال","min":10,"xp":30,"tags":["مفردات"]}],"reading":[{"id":"en-a0-r1","title":"الحروف الكبيرة والصغيرة","desc":"تمييز وقراءة الحروف بصيغتيها","min":12,"xp":35,"tags":["حروف"],"pdf":"files/en-a0-vocabulary.pdf"},{"id":"en-a0-r2","title":"كلمات قصيرة جداً","desc":"قراءة كلمات من 2-3 حروف","min":10,"xp":30,"tags":["كلمات"]},{"id":"en-a0-r3","title":"أسماء الحيوانات","desc":"قراءة أسماء حيوانات شائعة","min":10,"xp":30,"tags":["مفردات"]}],"writing":[{"id":"en-a0-w1","title":"كتابة الحروف","desc":"تعلم كتابة الحروف الإنجليزية","min":15,"xp":40,"tags":["كتابة"]},{"id":"en-a0-w2","title":"كتابة الأرقام","desc":"كتابة الأرقام بالكلمات","min":12,"xp":35,"tags":["أرقام"]}]}},"A1":{"skills":{"listening":[{"id":"en-a1-l1","title":"محادثات يومية بسيطة","desc":"فهم محادثات قصيرة يومية","min":15,"xp":50,"tags":["محادثة"]},{"id":"en-a1-l2","title":"الطقس والوقت","desc":"تعبيرات الطقس والوقت","min":15,"xp":50,"tags":["طقس"]},{"id":"en-a1-l3","title":"الأسرة والأصدقاء","desc":"مفردات الأسرة","min":15,"xp":50,"tags":["أسرة"]},{"id":"en-a1-l4","title":"الأطعمة والمطعم","desc":"محادثات في المطعم","min":18,"xp":55,"tags":["طعام"]}],"speaking":[{"id":"en-a1-s1","title":"معلوماتي الشخصية","desc":"التحدث عن نفسك","min":15,"xp":50,"tags":["مقدمات"]},{"id":"en-a1-s2","title":"طلب الأشياء بأدب","desc":"Can I / Could I...","min":15,"xp":50,"tags":["طلب"]},{"id":"en-a1-s3","title":"وصف الأماكن","desc":"وصف مكانك والأماكن","min":18,"xp":55,"tags":["أماكن"]},{"id":"en-a1-s4","title":"هواياتي","desc":"التعبير عن الهوايات","min":18,"xp":55,"tags":["هوايات"]}],"reading":[{"id":"en-a1-r1","title":"قراءة رسائل بسيطة","desc":"فهم رسائل قصيرة","min":15,"xp":50,"tags":["رسائل"]},{"id":"en-a1-r2","title":"لافتات وإعلانات","desc":"قراءة إعلانات بسيطة","min":12,"xp":45,"tags":["إعلانات"]},{"id":"en-a1-r3","title":"قصص للمبتدئين","desc":"قصص قصيرة مبسطة","min":20,"xp":60,"tags":["قصص"]}],"writing":[{"id":"en-a1-w1","title":"جمل بسيطة","desc":"بناء جمل بسيطة وصحيحة","min":15,"xp":50,"tags":["جمل"]},{"id":"en-a1-w2","title":"ملء استمارات","desc":"ملء النماذج الأساسية","min":15,"xp":50,"tags":["نماذج"]},{"id":"en-a1-w3","title":"تعريف بالنفس","desc":"كتابة فقرة تعريفية","min":20,"xp":60,"tags":["كتابة"]}]}},"A2":{"skills":{"listening":[{"id":"en-a2-l1","title":"في السوق","desc":"محادثات التسوق والأسعار","min":20,"xp":70,"tags":["تسوق"]},{"id":"en-a2-l2","title":"فهم الإرشادات","desc":"التعليمات والإرشادات","min":20,"xp":70,"tags":["إرشادات"]},{"id":"en-a2-l3","title":"أخبار مبسطة","desc":"فهم أخبار مبسطة","min":22,"xp":75,"tags":["أخبار"]},{"id":"en-a2-l4","title":"برامج تلفزيون","desc":"محتوى تلفزيوني مبسط","min":25,"xp":80,"tags":["تلفزيون"]}],"speaking":[{"id":"en-a2-s1","title":"التسوق والأسعار","desc":"التعبير عن الأسعار","min":20,"xp":70,"tags":["تسوق"]},{"id":"en-a2-s2","title":"الحجز والمواعيد","desc":"حجز مواعيد ومطاعم","min":20,"xp":70,"tags":["حجز"]},{"id":"en-a2-s3","title":"تجارب الماضي","desc":"استخدام الزمن الماضي","min":22,"xp":75,"tags":["ماضي"]},{"id":"en-a2-s4","title":"مشاعري","desc":"التحدث عن المشاعر","min":22,"xp":75,"tags":["مشاعر"]}],"reading":[{"id":"en-a2-r1","title":"مقالات قصيرة","desc":"مقالات بسيطة من الجرائد","min":20,"xp":70,"tags":["مقالات"],"pdf":"files/en-b1-grammar.pdf"},{"id":"en-a2-r2","title":"البريد الإلكتروني","desc":"قراءة وفهم emails","min":18,"xp":65,"tags":["بريد"]},{"id":"en-a2-r3","title":"قصص متوسطة","desc":"قصص بمفردات أغنى","min":25,"xp":80,"tags":["قصص"]}],"writing":[{"id":"en-a2-w1","title":"كتابة بريد إلكتروني","desc":"رسالة إلكترونية بسيطة","min":20,"xp":70,"tags":["بريد"]},{"id":"en-a2-w2","title":"وصف الصور","desc":"كتابة وصف لصورة","min":18,"xp":65,"tags":["وصف"]},{"id":"en-a2-w3","title":"قصة قصيرة","desc":"قصة من 3-4 فقرات","min":25,"xp":80,"tags":["قصة"]}]}},"B1":{"skills":{"listening":[{"id":"en-b1-l1","title":"محاضرات تعليمية","desc":"محتوى تعليمي معتدل","min":25,"xp":100,"tags":["تعليم"],"audio":"files/en-b1-lesson.wav"},{"id":"en-b1-l2","title":"أفلام بدون ترجمة","desc":"فهم الحوار في الأفلام","min":30,"xp":110,"tags":["أفلام"]},{"id":"en-b1-l3","title":"بودكاست","desc":"بودكاست متدرج الصعوبة","min":25,"xp":100,"tags":["بودكاست"]},{"id":"en-b1-l4","title":"اجتماعات عمل","desc":"محادثات بيئة العمل","min":30,"xp":110,"tags":["عمل"]}],"speaking":[{"id":"en-b1-s1","title":"التعبير عن الرأي","desc":"مشاركة آرائك ووجهات نظرك","min":25,"xp":100,"tags":["رأي"]},{"id":"en-b1-s2","title":"نقاشات أكاديمية","desc":"المشاركة في نقاشات","min":25,"xp":100,"tags":["أكاديمي"]},{"id":"en-b1-s3","title":"عروض تقديمية","desc":"تقديم موضوع بشكل منظم","min":30,"xp":110,"tags":["عرض"]},{"id":"en-b1-s4","title":"التفاوض","desc":"أساليب الإقناع","min":30,"xp":110,"tags":["تفاوض"]}],"reading":[{"id":"en-b1-r1","title":"مقالات صحفية","desc":"مقالات إخبارية حقيقية","min":25,"xp":100,"tags":["صحافة"],"pdf":"files/en-b1-grammar.pdf"},{"id":"en-b1-r2","title":"روايات مبسطة","desc":"روايات معدلة للمتوسط","min":30,"xp":110,"tags":["رواية"]},{"id":"en-b1-r3","title":"التقارير","desc":"تقارير أكاديمية مبسطة","min":25,"xp":100,"tags":["تقارير"]}],"writing":[{"id":"en-b1-w1","title":"كتابة المقال","desc":"مقال من 5 فقرات","min":30,"xp":110,"tags":["مقال"]},{"id":"en-b1-w2","title":"التقرير الرسمي","desc":"تقرير بأسلوب رسمي","min":30,"xp":110,"tags":["تقرير"]},{"id":"en-b1-w3","title":"خطابات المراسلة","desc":"خطابات تجارية ورسمية","min":25,"xp":100,"tags":["خطابات"]}]}},"B2":{"skills":{"listening":[{"id":"en-b2-l1","title":"البرامج الوثائقية","desc":"وثائقيات إنجليزية","min":30,"xp":130,"tags":["وثائقي"]},{"id":"en-b2-l2","title":"المقابلات","desc":"مقابلات العمل والمذيعين","min":30,"xp":130,"tags":["مقابلة"]},{"id":"en-b2-l3","title":"الأخبار المتقدمة","desc":"نشرات أخبار كاملة","min":30,"xp":130,"tags":["أخبار"]},{"id":"en-b2-l4","title":"المحاضرات الجامعية","desc":"محاضرات أكاديمية","min":35,"xp":140,"tags":["أكاديمي"]}],"speaking":[{"id":"en-b2-s1","title":"النقاش المعمق","desc":"نقاش في مواضيع متنوعة","min":30,"xp":130,"tags":["نقاش"]},{"id":"en-b2-s2","title":"مقابلات وظيفية","desc":"التدرب على مقابلات العمل","min":30,"xp":130,"tags":["وظيفة"]},{"id":"en-b2-s3","title":"الخطابة","desc":"إلقاء خطابات مؤثرة","min":30,"xp":130,"tags":["خطابة"]},{"id":"en-b2-s4","title":"حل النزاعات","desc":"استراتيجيات حل الخلافات","min":25,"xp":120,"tags":["تواصل"]}],"reading":[{"id":"en-b2-r1","title":"الأدب الإنجليزي","desc":"مقتطفات من الأدب الكلاسيكي","min":35,"xp":140,"tags":["أدب"]},{"id":"en-b2-r2","title":"أبحاث علمية","desc":"مقالات بحثية علمية","min":35,"xp":140,"tags":["علوم"]},{"id":"en-b2-r3","title":"النقد الأدبي","desc":"تحليل النصوص الأدبية","min":30,"xp":130,"tags":["نقد"]}],"writing":[{"id":"en-b2-w1","title":"الكتابة الإقناعية","desc":"نص إقناعي متقدم","min":35,"xp":140,"tags":["إقناع"]},{"id":"en-b2-w2","title":"التحليل النقدي","desc":"تحليل نقدي معمق","min":35,"xp":140,"tags":["تحليل"]},{"id":"en-b2-w3","title":"الكتابة الإبداعية","desc":"قصص ونصوص إبداعية","min":30,"xp":130,"tags":["إبداع"]}]}},"C1":{"skills":{"listening":[{"id":"en-c1-l1","title":"المناظرات السياسية","desc":"نقاشات سياسية متقدمة","min":35,"xp":160,"tags":["سياسة"]},{"id":"en-c1-l2","title":"المسرحيات الصوتية","desc":"أعمال أدبية مسموعة","min":40,"xp":170,"tags":["أدب"]},{"id":"en-c1-l3","title":"التحليلات الاقتصادية","desc":"محتوى اقتصادي متقدم","min":35,"xp":160,"tags":["اقتصاد"]}],"speaking":[{"id":"en-c1-s1","title":"الخطاب الأكاديمي","desc":"تقديم أبحاث أكاديمية","min":40,"xp":170,"tags":["أكاديمي"]},{"id":"en-c1-s2","title":"الإقناع والتأثير","desc":"مهارات إقناع متقدمة","min":35,"xp":160,"tags":["إقناع"]},{"id":"en-c1-s3","title":"الفكاهة والمجاز","desc":"الفكاهة والمجاز في الحديث","min":35,"xp":160,"tags":["فكاهة"]}],"reading":[{"id":"en-c1-r1","title":"النصوص الفلسفية","desc":"نصوص فلسفية وتحليلها","min":40,"xp":170,"tags":["فلسفة"]},{"id":"en-c1-r2","title":"الأدب الحديث","desc":"الأدب الإنجليزي الحديث","min":40,"xp":170,"tags":["أدب"]},{"id":"en-c1-r3","title":"التقارير المتخصصة","desc":"تقارير في تخصصات متنوعة","min":35,"xp":160,"tags":["تخصص"]}],"writing":[{"id":"en-c1-w1","title":"الرسائل الأكاديمية","desc":"رسائل وأبحاث أكاديمية","min":45,"xp":180,"tags":["أكاديمي"]},{"id":"en-c1-w2","title":"التحليل المتقدم","desc":"تحليلات معمقة احترافية","min":40,"xp":170,"tags":["تحليل"]},{"id":"en-c1-w3","title":"الصحافة","desc":"الكتابة الصحفية الاحترافية","min":40,"xp":170,"tags":["صحافة"]}]}},"C2":{"skills":{"listening":[{"id":"en-c2-l1","title":"اللهجات المتخصصة","desc":"لهجات مختلفة ومصطلحات","min":45,"xp":200,"tags":["لهجات"]},{"id":"en-c2-l2","title":"المحتوى الأكاديمي","desc":"أعقد المحتويات الأكاديمية","min":45,"xp":200,"tags":["أكاديمي"]}],"speaking":[{"id":"en-c2-s1","title":"الإتقان التام","desc":"التعبير الطليق بكل دقة","min":45,"xp":200,"tags":["إتقان"]},{"id":"en-c2-s2","title":"التدريس والشرح","desc":"شرح موضوعات معقدة","min":45,"xp":200,"tags":["تدريس"]}],"reading":[{"id":"en-c2-r1","title":"النصوص القانونية","desc":"نصوص متخصصة جداً","min":45,"xp":200,"tags":["قانوني"]},{"id":"en-c2-r2","title":"الشعر الكلاسيكي","desc":"تحليل الأعمال الشعرية","min":45,"xp":200,"tags":["شعر"]}],"writing":[{"id":"en-c2-w1","title":"الكتابة الاحترافية","desc":"نصوص احترافية في أي مجال","min":50,"xp":220,"tags":["احترافي"]},{"id":"en-c2-w2","title":"التأليف والنشر","desc":"كتابة كتب ومقالات للنشر","min":50,"xp":220,"tags":["تأليف"]}]}}}},"turkish":{"id":"turkish","name":"التركية","nameEn":"Türkçe","flag":"🇹🇷","color":"#E91E63","levels":{"A0":{"skills":{"listening":[{"id":"tr-a0-l1","title":"الأبجدية التركية","desc":"أصوات الحروف التركية","min":10,"xp":30,"tags":["أبجدية"],"audio":"files/tr-a0-lesson.wav","pdf":"files/tr-a0-starter.pdf"},{"id":"tr-a0-l2","title":"التحيات التركية","desc":"Merhaba وتحيات يومية","min":10,"xp":30,"tags":["تحيات"]},{"id":"tr-a0-l3","title":"الأرقام بالتركية","desc":"bir, iki, üç...","min":10,"xp":30,"tags":["أرقام"]}],"speaking":[{"id":"tr-a0-s1","title":"نطق الأبجدية","desc":"الأحرف الخاصة بالتركية ö ü ş ç","min":12,"xp":35,"tags":["نطق"]},{"id":"tr-a0-s2","title":"التحيات الأساسية","desc":"Merhaba, İyi günler, Hoşça kal","min":10,"xp":30,"tags":["تحيات"]}],"reading":[{"id":"tr-a0-r1","title":"قراءة الأبجدية","desc":"الحروف التركية الخاصة","min":12,"xp":35,"tags":["أبجدية"],"pdf":"files/tr-a0-starter.pdf"},{"id":"tr-a0-r2","title":"كلمات بسيطة","desc":"كلمات تركية يومية","min":10,"xp":30,"tags":["كلمات"]}],"writing":[{"id":"tr-a0-w1","title":"كتابة الحروف التركية","desc":"الأحرف الخاصة ö ü ş ç","min":15,"xp":40,"tags":["كتابة"]},{"id":"tr-a0-w2","title":"كتابة اسمك","desc":"الأسماء والكلمات البسيطة","min":10,"xp":30,"tags":["اسم"]}]}},"A1":{"skills":{"listening":[{"id":"tr-a1-l1","title":"في المقهى","desc":"طلبات المشروبات والطعام","min":15,"xp":50,"tags":["مقهى"]},{"id":"tr-a1-l2","title":"الاتجاهات","desc":"فهم تعليمات الطريق","min":15,"xp":50,"tags":["اتجاهات"]},{"id":"tr-a1-l3","title":"التقديم والتعريف","desc":"فهم تقديم الأشخاص","min":12,"xp":45,"tags":["تعريف"]}],"speaking":[{"id":"tr-a1-s1","title":"Benim adım...","desc":"تقديم نفسك بالتركية","min":15,"xp":50,"tags":["مقدمات"]},{"id":"tr-a1-s2","title":"طلب الطعام","desc":"الطلب في المطعم التركي","min":15,"xp":50,"tags":["طعام"]},{"id":"tr-a1-s3","title":"السؤال عن الطريق","desc":"Nerede? Nasıl gidebilirim?","min":15,"xp":50,"tags":["اتجاهات"]}],"reading":[{"id":"tr-a1-r1","title":"القراءة الأساسية","desc":"جمل يومية بسيطة","min":15,"xp":50,"tags":["قراءة"],"pdf":"files/tr-a0-starter.pdf"},{"id":"tr-a1-r2","title":"قوائم الطعام","desc":"قراءة menu التركي","min":12,"xp":45,"tags":["طعام"]}],"writing":[{"id":"tr-a1-w1","title":"جمل بسيطة","desc":"جمل مع الفعل olmak","min":15,"xp":50,"tags":["جمل"]},{"id":"tr-a1-w2","title":"رسائل قصيرة","desc":"كتابة SMS قصيرة","min":15,"xp":50,"tags":["رسائل"]}]}},"A2":{"skills":{"listening":[{"id":"tr-a2-l1","title":"برامج أطفال تركية","desc":"برامج أطفال بسيطة","min":20,"xp":70,"tags":["أطفال"]},{"id":"tr-a2-l2","title":"أغاني تركية","desc":"فهم كلمات الأغاني","min":20,"xp":70,"tags":["موسيقى"]},{"id":"tr-a2-l3","title":"الأخبار المبسطة","desc":"نشرة أخبار مبسطة","min":20,"xp":70,"tags":["أخبار"]}],"speaking":[{"id":"tr-a2-s1","title":"التسوق في البازار","desc":"التسوق والتفاوض","min":20,"xp":70,"tags":["تسوق"]},{"id":"tr-a2-s2","title":"يومي الروتيني","desc":"الحديث عن روتينك","min":20,"xp":70,"tags":["يومي"]},{"id":"tr-a2-s3","title":"حجز الفندق","desc":"حجز غرف الفندق","min":20,"xp":70,"tags":["فندق"]}],"reading":[{"id":"tr-a2-r1","title":"اللافتات","desc":"لافتات الشوارع","min":18,"xp":65,"tags":["إرشادات"]},{"id":"tr-a2-r2","title":"قصص شعبية","desc":"قصص شعبية تركية","min":22,"xp":75,"tags":["قصص"]}],"writing":[{"id":"tr-a2-w1","title":"بريد إلكتروني","desc":"رسالة بريدية بسيطة","min":20,"xp":70,"tags":["بريد"]},{"id":"tr-a2-w2","title":"وصف مكان","desc":"وصف مدينة أو حي","min":20,"xp":70,"tags":["وصف"]}]}},"B1":{"skills":{"listening":[{"id":"tr-b1-l1","title":"مسلسلات تركية","desc":"المسلسلات الشهيرة","min":25,"xp":100,"tags":["مسلسلات"],"audio":"files/tr-b1-lesson.wav"},{"id":"tr-b1-l2","title":"برامج الحوار","desc":"مقابلات وبرامج","min":25,"xp":100,"tags":["مقابلات"]},{"id":"tr-b1-l3","title":"أخبار تركية","desc":"نشرات الأخبار","min":25,"xp":100,"tags":["أخبار"]}],"speaking":[{"id":"tr-b1-s1","title":"التعبير عن الرأي","desc":"نقاش مواضيع يومية","min":25,"xp":100,"tags":["رأي"]},{"id":"tr-b1-s2","title":"حل المشكلات","desc":"حل المشكلات بالتركية","min":25,"xp":100,"tags":["مشكلات"]},{"id":"tr-b1-s3","title":"الأمثال التركية","desc":"استخدام الأمثال","min":25,"xp":100,"tags":["أمثال"],"pdf":"files/tr-b1-expressions.pdf"}],"reading":[{"id":"tr-b1-r1","title":"الصحف التركية","desc":"مقالات من صحف تركية","min":25,"xp":100,"tags":["صحافة"],"pdf":"files/tr-b1-expressions.pdf"},{"id":"tr-b1-r2","title":"الأدب التركي","desc":"قصص من التراث التركي","min":25,"xp":100,"tags":["أدب"]},{"id":"tr-b1-r3","title":"التاريخ العثماني","desc":"نصوص تاريخية عثمانية","min":30,"xp":110,"tags":["تاريخ"]}],"writing":[{"id":"tr-b1-w1","title":"كتابة مقال","desc":"مقال رأي بالتركية","min":30,"xp":110,"tags":["مقال"]},{"id":"tr-b1-w2","title":"التقارير الرسمية","desc":"كتابة تقرير رسمي","min":30,"xp":110,"tags":["تقرير"]}]}},"B2":{"skills":{"listening":[{"id":"tr-b2-l1","title":"البرامج الثقافية","desc":"الثقافة والتراث التركي","min":30,"xp":130,"tags":["ثقافة"]},{"id":"tr-b2-l2","title":"الخطابات الرسمية","desc":"خطابات رسمية","min":30,"xp":130,"tags":["خطابات"]}],"speaking":[{"id":"tr-b2-s1","title":"النقاش الثقافي","desc":"الثقافة والفنون","min":30,"xp":130,"tags":["ثقافة"]},{"id":"tr-b2-s2","title":"الخطابة","desc":"إلقاء خطاب رسمي","min":30,"xp":130,"tags":["خطابة"]}],"reading":[{"id":"tr-b2-r1","title":"الأدب الكلاسيكي","desc":"أعمال أدب تركي","min":35,"xp":140,"tags":["أدب"]},{"id":"tr-b2-r2","title":"النقد الأدبي","desc":"النقد الأدبي التركي","min":35,"xp":140,"tags":["نقد"]}],"writing":[{"id":"tr-b2-w1","title":"الكتابة الأدبية","desc":"نصوص أدبية بالتركية","min":35,"xp":140,"tags":["أدب"]},{"id":"tr-b2-w2","title":"الكتابة الصحفية","desc":"مقالات صحفية","min":35,"xp":140,"tags":["صحافة"]}]}},"C1":{"skills":{"listening":[{"id":"tr-c1-l1","title":"اللهجات التركية","desc":"اللهجات الإقليمية","min":40,"xp":170,"tags":["لهجات"]},{"id":"tr-c1-l2","title":"المحتوى الأكاديمي","desc":"محاضرات جامعية","min":40,"xp":170,"tags":["أكاديمي"]}],"speaking":[{"id":"tr-c1-s1","title":"الخطاب الأكاديمي","desc":"السياق الأكاديمي","min":40,"xp":170,"tags":["أكاديمي"]},{"id":"tr-c1-s2","title":"الفلسفة","desc":"مواضيع فلسفية","min":40,"xp":170,"tags":["فلسفة"]}],"reading":[{"id":"tr-c1-r1","title":"نصوص متخصصة","desc":"نصوص قانونية وطبية","min":40,"xp":170,"tags":["متخصص"]},{"id":"tr-c1-r2","title":"الشعر التركي","desc":"الشعر التركي الكلاسيكي","min":40,"xp":170,"tags":["شعر"]}],"writing":[{"id":"tr-c1-w1","title":"الكتابة الأكاديمية","desc":"أبحاث بالتركية","min":45,"xp":180,"tags":["أكاديمي"]},{"id":"tr-c1-w2","title":"الترجمة الأدبية","desc":"ترجمة النصوص الأدبية","min":45,"xp":180,"tags":["ترجمة"]}]}},"C2":{"skills":{"listening":[{"id":"tr-c2-l1","title":"الإتقان - استماع","desc":"أي محتوى تركي","min":45,"xp":200,"tags":["إتقان"]}],"speaking":[{"id":"tr-c2-s1","title":"الإتقان - كلام","desc":"طلاقة كالمواطن","min":45,"xp":200,"tags":["إتقان"]}],"reading":[{"id":"tr-c2-r1","title":"الإتقان - قراءة","desc":"أي نص تركي","min":45,"xp":200,"tags":["إتقان"]}],"writing":[{"id":"tr-c2-w1","title":"الإتقان - كتابة","desc":"كالكاتب التركي المحترف","min":50,"xp":220,"tags":["إتقان"]}]}}}},"chinese":{"id":"chinese","name":"الصينية","nameEn":"中文","flag":"🇨🇳","color":"#F44336","levels":{"A0":{"skills":{"listening":[{"id":"zh-a0-l1","title":"نظام البينيين","desc":"أصوات البينيين الأربعة","min":12,"xp":35,"tags":["بينيين"],"audio":"files/zh-a0-lesson.wav","pdf":"files/zh-a0-pinyin.pdf"},{"id":"zh-a0-l2","title":"تحيات صينية","desc":"Nǐ hǎo وتحيات يومية","min":10,"xp":30,"tags":["تحيات"]},{"id":"zh-a0-l3","title":"الأرقام الصينية","desc":"yī, èr, sān... 1-10","min":10,"xp":30,"tags":["أرقام"]}],"speaking":[{"id":"zh-a0-s1","title":"النبرات الأربع","desc":"تعلم النبرات الصينية","min":15,"xp":40,"tags":["نبرات"]},{"id":"zh-a0-s2","title":"Nǐ hǎo & Zài jiàn","desc":"التحيات الأساسية","min":10,"xp":30,"tags":["تحيات"]}],"reading":[{"id":"zh-a0-r1","title":"قراءة البينيين","desc":"نظام البينيين","min":15,"xp":40,"tags":["بينيين"],"pdf":"files/zh-a0-pinyin.pdf"},{"id":"zh-a0-r2","title":"أبسط 10 حروف","desc":"أبسط الحروف الصينية","min":15,"xp":40,"tags":["حروف"]},{"id":"zh-a0-r3","title":"الأرقام بالخط","desc":"الأرقام بالخط الصيني","min":12,"xp":35,"tags":["أرقام"]}],"writing":[{"id":"zh-a0-w1","title":"رسم الحروف","desc":"أبسط الحروف","min":20,"xp":50,"tags":["كتابة"]},{"id":"zh-a0-w2","title":"الأرقام الصينية","desc":"الأرقام بالخط الصيني","min":15,"xp":40,"tags":["أرقام"]}]}},"A1":{"skills":{"listening":[{"id":"zh-a1-l1","title":"محادثات بسيطة","desc":"جمل قصيرة يومية","min":15,"xp":50,"tags":["يومي"]},{"id":"zh-a1-l2","title":"الطقس والوقت","desc":"تعبيرات الطقس والوقت","min":15,"xp":50,"tags":["طقس"]},{"id":"zh-a1-l3","title":"في السوبرماركت","desc":"أسماء الأغذية الشائعة","min":15,"xp":50,"tags":["طعام"]}],"speaking":[{"id":"zh-a1-s1","title":"Wǒ jiào...","desc":"تعريف النفس","min":15,"xp":50,"tags":["مقدمات"]},{"id":"zh-a1-s2","title":"طلب الطعام","desc":"الطلب في المطعم","min":15,"xp":50,"tags":["طعام"]},{"id":"zh-a1-s3","title":"Duōshao qián?","desc":"السؤال عن الأسعار","min":12,"xp":45,"tags":["أسعار"]}],"reading":[{"id":"zh-a1-r1","title":"100 حرف أساسي","desc":"الحروف الأكثر شيوعاً","min":20,"xp":60,"tags":["حروف"]},{"id":"zh-a1-r2","title":"لافتات الشوارع","desc":"اللافتات الشائعة","min":15,"xp":50,"tags":["لافتات"]}],"writing":[{"id":"zh-a1-w1","title":"الكلمات الأساسية","desc":"كلمات يومية بالخط","min":20,"xp":60,"tags":["كلمات"]},{"id":"zh-a1-w2","title":"ترتيب الجملة","desc":"قاعدة ترتيب الكلمات","min":20,"xp":60,"tags":["قواعد"]}]}},"A2":{"skills":{"listening":[{"id":"zh-a2-l1","title":"كرتون صيني","desc":"برامج أطفال","min":20,"xp":70,"tags":["أطفال"]},{"id":"zh-a2-l2","title":"المكالمات الهاتفية","desc":"مكالمة هاتفية بسيطة","min":20,"xp":70,"tags":["هاتف"]},{"id":"zh-a2-l3","title":"وسائل النقل","desc":"إعلانات المترو والباص","min":18,"xp":65,"tags":["نقل"]}],"speaking":[{"id":"zh-a2-s1","title":"السوق الصيني","desc":"التسوق والمساومة","min":20,"xp":70,"tags":["تسوق"]},{"id":"zh-a2-s2","title":"وصف العائلة","desc":"عائلتك بالصينية","min":20,"xp":70,"tags":["عائلة"]},{"id":"zh-a2-s3","title":"على المائدة","desc":"المحادثة أثناء الطعام","min":20,"xp":70,"tags":["طعام"]}],"reading":[{"id":"zh-a2-r1","title":"300 حرف صيني","desc":"توسيع المعجم الحرفي","min":25,"xp":80,"tags":["حروف"]},{"id":"zh-a2-r2","title":"قصص شعبية","desc":"قصص شعبية مبسطة","min":22,"xp":75,"tags":["قصص"]}],"writing":[{"id":"zh-a2-w1","title":"رسائل WeChat","desc":"رسائل نصية قصيرة","min":20,"xp":70,"tags":["رسائل"]},{"id":"zh-a2-w2","title":"ملء النماذج","desc":"نماذج بالصينية","min":20,"xp":70,"tags":["نماذج"]}]}},"B1":{"skills":{"listening":[{"id":"zh-b1-l1","title":"الأفلام الصينية","desc":"حوار الأفلام","min":25,"xp":100,"tags":["أفلام"],"audio":"files/zh-b1-lesson.wav","pdf":"files/zh-b1-chengyu.pdf"},{"id":"zh-b1-l2","title":"بودكاست صيني","desc":"بودكاست متدرج","min":25,"xp":100,"tags":["بودكاست"]},{"id":"zh-b1-l3","title":"أخبار CCTV","desc":"أخبار التلفزيون الصيني","min":25,"xp":100,"tags":["أخبار"]}],"speaking":[{"id":"zh-b1-s1","title":"نقاش يومي","desc":"مناقشة مواضيع يومية","min":25,"xp":100,"tags":["نقاش"]},{"id":"zh-b1-s2","title":"成语 الأمثال","desc":"الأمثال الصينية الأربعة أحرف","min":25,"xp":100,"tags":["أمثال"],"pdf":"files/zh-b1-chengyu.pdf"},{"id":"zh-b1-s3","title":"السياحة في الصين","desc":"كسائح في الصين","min":25,"xp":100,"tags":["سياحة"]}],"reading":[{"id":"zh-b1-r1","title":"600 حرف صيني","desc":"مستوى القراءة المتوسط","min":30,"xp":110,"tags":["حروف"]},{"id":"zh-b1-r2","title":"الصحف الصينية","desc":"مقالات صحفية","min":25,"xp":100,"tags":["صحافة"]},{"id":"zh-b1-r3","title":"الأدب الصيني","desc":"أعمال أدبية مبسطة","min":30,"xp":110,"tags":["أدب"]}],"writing":[{"id":"zh-b1-w1","title":"مقال بسيط","desc":"مقال رأي","min":30,"xp":110,"tags":["مقال"]},{"id":"zh-b1-w2","title":"رسائل رسمية","desc":"خطابات رسمية","min":30,"xp":110,"tags":["رسمي"]}]}},"B2":{"skills":{"listening":[{"id":"zh-b2-l1","title":"البرامج الثقافية","desc":"الثقافة والتاريخ","min":30,"xp":130,"tags":["ثقافة"]},{"id":"zh-b2-l2","title":"المحاضرات","desc":"محاضرات أكاديمية","min":30,"xp":130,"tags":["أكاديمي"]}],"speaking":[{"id":"zh-b2-s1","title":"النقاش الثقافي","desc":"الفنون والثقافة","min":30,"xp":130,"tags":["ثقافة"]},{"id":"zh-b2-s2","title":"بيئة العمل","desc":"التواصل المهني","min":30,"xp":130,"tags":["عمل"]}],"reading":[{"id":"zh-b2-r1","title":"1000 حرف صيني","desc":"مستوى متقدم","min":35,"xp":140,"tags":["حروف"]},{"id":"zh-b2-r2","title":"الأدب الكلاسيكي","desc":"أعمال كلاسيكية","min":35,"xp":140,"tags":["أدب"]}],"writing":[{"id":"zh-b2-w1","title":"كتابة متقدمة","desc":"نصوص معقدة","min":35,"xp":140,"tags":["متقدم"]},{"id":"zh-b2-w2","title":"المراسلات التجارية","desc":"خطابات تجارية","min":35,"xp":140,"tags":["تجاري"]}]}},"C1":{"skills":{"listening":[{"id":"zh-c1-l1","title":"اللهجات الصينية","desc":"كانتونية وشانغهائية","min":40,"xp":170,"tags":["لهجات"]},{"id":"zh-c1-l2","title":"محاضرات متقدمة","desc":"محاضرات جامعية","min":40,"xp":170,"tags":["أكاديمي"]}],"speaking":[{"id":"zh-c1-s1","title":"الخطاب الرسمي","desc":"خطابات رسمية","min":40,"xp":170,"tags":["خطابة"]},{"id":"zh-c1-s2","title":"الشعر الصيني","desc":"قراءة وتحليل الشعر","min":40,"xp":170,"tags":["شعر"]}],"reading":[{"id":"zh-c1-r1","title":"2000 حرف (HSK5)","desc":"اجتياز HSK 5","min":40,"xp":170,"tags":["HSK"]},{"id":"zh-c1-r2","title":"الكلاسيكيات","desc":"كونفوشيوس وصن تزو","min":45,"xp":180,"tags":["كلاسيكي"]}],"writing":[{"id":"zh-c1-w1","title":"الكتابة الأدبية","desc":"نصوص أدبية راقية","min":45,"xp":180,"tags":["أدب"]},{"id":"zh-c1-w2","title":"بحث أكاديمي","desc":"أبحاث أكاديمية","min":45,"xp":180,"tags":["بحث"]}]}},"C2":{"skills":{"listening":[{"id":"zh-c2-l1","title":"الإتقان - استماع","desc":"أي محتوى صيني","min":45,"xp":200,"tags":["إتقان"]}],"speaking":[{"id":"zh-c2-s1","title":"الإتقان - كلام","desc":"كالمواطن الصيني","min":45,"xp":200,"tags":["إتقان"]}],"reading":[{"id":"zh-c2-r1","title":"3000+ حرف (HSK6)","desc":"إتقان HSK 6","min":45,"xp":200,"tags":["HSK","إتقان"]}],"writing":[{"id":"zh-c2-w1","title":"الإتقان - كتابة","desc":"كالكاتب الصيني","min":50,"xp":220,"tags":["إتقان"]}]}}}}}};
+// Ø¨ÙØ§ÙØ§Øª Ø§Ø­ØªÙØ§Ø·ÙØ© ÙØ¯ÙØ¬Ø©
+const FALLBACK_DB = {"meta":{"version":"2.0","created":"2026-06-20","totalLessons":208,"languages":["english","turkish","chinese"],"levels":["A0","A1","A2","B1","B2","C1","C2"],"skills":["listening","speaking","reading","writing"]},"levelNames":{"A0":"ÙØ¨ØªØ¯Ø¦ ØªØ§Ù","A1":"ÙØ¨ØªØ¯Ø¦","A2":"ÙØ§ Ø¯ÙÙ Ø§ÙÙØªÙØ³Ø·","B1":"ÙØªÙØ³Ø·","B2":"ÙÙÙ Ø§ÙÙØªÙØ³Ø·","C1":"ÙØªÙØ¯Ù","C2":"Ø¥ØªÙØ§Ù ØªØ§Ù"},"levelXP":{"A0":0,"A1":300,"A2":700,"B1":1400,"B2":2500,"C1":4000,"C2":6500},"courses":{"english":{"id":"english","name":"Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©","nameEn":"English","flag":"ð¬ð§","color":"#2196F3","levels":{"A0":{"skills":{"listening":[{"id":"en-a0-l1","title":"Ø§ÙØ­Ø±ÙÙ ÙØ§ÙØ£ØµÙØ§Øª","desc":"ØªØ¹Ø±Ù Ø¹ÙÙ Ø§ÙØ£Ø¨Ø¬Ø¯ÙØ© ÙØ£ØµÙØ§ØªÙØ§","min":10,"xp":30,"tags":["Ø£Ø¨Ø¬Ø¯ÙØ©"],"pdf":"files/en-a0-vocabulary.pdf","audio":"files/en-a0-lesson.wav"},{"id":"en-a0-l2","title":"Ø§ÙØªØ­ÙØ§Øª - Ø§Ø³ØªÙØ§Ø¹","desc":"Ø§Ø³ØªÙØ¹ ÙØªØ­ÙØ§Øª ÙÙÙÙØ© Ø¨Ø³ÙØ·Ø©","min":12,"xp":35,"tags":["ØªØ­ÙØ§Øª"]},{"id":"en-a0-l3","title":"Ø§ÙØ£Ø±ÙØ§Ù 1-20","desc":"Ø§ÙØ£Ø±ÙØ§Ù Ø§ÙØ£Ø³Ø§Ø³ÙØ© Ø§Ø³ØªÙØ§Ø¹Ø§Ù","min":10,"xp":30,"tags":["Ø£Ø±ÙØ§Ù"]}],"speaking":[{"id":"en-a0-s1","title":"ØªØ¹Ø±ÙÙ Ø§ÙÙÙØ³","desc":"ØªØ¹ÙÙ ØªØ¹Ø±ÙÙ ÙÙØ³Ù Ø¨Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©","min":10,"xp":30,"tags":["ÙÙØ¯ÙØ§Øª"]},{"id":"en-a0-s2","title":"Hello & Goodbye","desc":"Ø§ÙØªØ¯Ø±Ø¨ Ø¹ÙÙ Ø§ÙØªØ­ÙØ§Øª Ø§ÙØ´Ø§Ø¦Ø¹Ø©","min":8,"xp":25,"tags":["ØªØ­ÙØ§Øª"]},{"id":"en-a0-s3","title":"Ø§ÙØ£ÙÙØ§Ù ÙØ§ÙØ£Ø´ÙØ§Ù","desc":"ÙØ·Ù Ø£Ø³ÙØ§Ø¡ Ø§ÙØ£ÙÙØ§Ù ÙØ§ÙØ£Ø´ÙØ§Ù","min":10,"xp":30,"tags":["ÙÙØ±Ø¯Ø§Øª"]}],"reading":[{"id":"en-a0-r1","title":"Ø§ÙØ­Ø±ÙÙ Ø§ÙÙØ¨ÙØ±Ø© ÙØ§ÙØµØºÙØ±Ø©","desc":"ØªÙÙÙØ² ÙÙØ±Ø§Ø¡Ø© Ø§ÙØ­Ø±ÙÙ Ø¨ØµÙØºØªÙÙØ§","min":12,"xp":35,"tags":["Ø­Ø±ÙÙ"],"pdf":"files/en-a0-vocabulary.pdf"},{"id":"en-a0-r2","title":"ÙÙÙØ§Øª ÙØµÙØ±Ø© Ø¬Ø¯Ø§Ù","desc":"ÙØ±Ø§Ø¡Ø© ÙÙÙØ§Øª ÙÙ 2-3 Ø­Ø±ÙÙ","min":10,"xp":30,"tags":["ÙÙÙØ§Øª"]},{"id":"en-a0-r3","title":"Ø£Ø³ÙØ§Ø¡ Ø§ÙØ­ÙÙØ§ÙØ§Øª","desc":"ÙØ±Ø§Ø¡Ø© Ø£Ø³ÙØ§Ø¡ Ø­ÙÙØ§ÙØ§Øª Ø´Ø§Ø¦Ø¹Ø©","min":10,"xp":30,"tags":["ÙÙØ±Ø¯Ø§Øª"]}],"writing":[{"id":"en-a0-w1","title":"ÙØªØ§Ø¨Ø© Ø§ÙØ­Ø±ÙÙ","desc":"ØªØ¹ÙÙ ÙØªØ§Ø¨Ø© Ø§ÙØ­Ø±ÙÙ Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©","min":15,"xp":40,"tags":["ÙØªØ§Ø¨Ø©"]},{"id":"en-a0-w2","title":"ÙØªØ§Ø¨Ø© Ø§ÙØ£Ø±ÙØ§Ù","desc":"ÙØªØ§Ø¨Ø© Ø§ÙØ£Ø±ÙØ§Ù Ø¨Ø§ÙÙÙÙØ§Øª","min":12,"xp":35,"tags":["Ø£Ø±ÙØ§Ù"]}]}},"A1":{"skills":{"listening":[{"id":"en-a1-l1","title":"ÙØ­Ø§Ø¯Ø«Ø§Øª ÙÙÙÙØ© Ø¨Ø³ÙØ·Ø©","desc":"ÙÙÙ ÙØ­Ø§Ø¯Ø«Ø§Øª ÙØµÙØ±Ø© ÙÙÙÙØ©","min":15,"xp":50,"tags":["ÙØ­Ø§Ø¯Ø«Ø©"]},{"id":"en-a1-l2","title":"Ø§ÙØ·ÙØ³ ÙØ§ÙÙÙØª","desc":"ØªØ¹Ø¨ÙØ±Ø§Øª Ø§ÙØ·ÙØ³ ÙØ§ÙÙÙØª","min":15,"xp":50,"tags":["Ø·ÙØ³"]},{"id":"en-a1-l3","title":"Ø§ÙØ£Ø³Ø±Ø© ÙØ§ÙØ£ØµØ¯ÙØ§Ø¡","desc":"ÙÙØ±Ø¯Ø§Øª Ø§ÙØ£Ø³Ø±Ø©","min":15,"xp":50,"tags":["Ø£Ø³Ø±Ø©"]},{"id":"en-a1-l4","title":"Ø§ÙØ£Ø·Ø¹ÙØ© ÙØ§ÙÙØ·Ø¹Ù","desc":"ÙØ­Ø§Ø¯Ø«Ø§Øª ÙÙ Ø§ÙÙØ·Ø¹Ù","min":18,"xp":55,"tags":["Ø·Ø¹Ø§Ù"]}],"speaking":[{"id":"en-a1-s1","title":"ÙØ¹ÙÙÙØ§ØªÙ Ø§ÙØ´Ø®ØµÙØ©","desc":"Ø§ÙØªØ­Ø¯Ø« Ø¹Ù ÙÙØ³Ù","min":15,"xp":50,"tags":["ÙÙØ¯ÙØ§Øª"]},{"id":"en-a1-s2","title":"Ø·ÙØ¨ Ø§ÙØ£Ø´ÙØ§Ø¡ Ø¨Ø£Ø¯Ø¨","desc":"Can I / Could I...","min":15,"xp":50,"tags":["Ø·ÙØ¨"]},{"id":"en-a1-s3","title":"ÙØµÙ Ø§ÙØ£ÙØ§ÙÙ","desc":"ÙØµÙ ÙÙØ§ÙÙ ÙØ§ÙØ£ÙØ§ÙÙ","min":18,"xp":55,"tags":["Ø£ÙØ§ÙÙ"]},{"id":"en-a1-s4","title":"ÙÙØ§ÙØ§ØªÙ","desc":"Ø§ÙØªØ¹Ø¨ÙØ± Ø¹Ù Ø§ÙÙÙØ§ÙØ§Øª","min":18,"xp":55,"tags":["ÙÙØ§ÙØ§Øª"]}],"reading":[{"id":"en-a1-r1","title":"ÙØ±Ø§Ø¡Ø© Ø±Ø³Ø§Ø¦Ù Ø¨Ø³ÙØ·Ø©","desc":"ÙÙÙ Ø±Ø³Ø§Ø¦Ù ÙØµÙØ±Ø©","min":15,"xp":50,"tags":["Ø±Ø³Ø§Ø¦Ù"]},{"id":"en-a1-r2","title":"ÙØ§ÙØªØ§Øª ÙØ¥Ø¹ÙØ§ÙØ§Øª","desc":"ÙØ±Ø§Ø¡Ø© Ø¥Ø¹ÙØ§ÙØ§Øª Ø¨Ø³ÙØ·Ø©","min":12,"xp":45,"tags":["Ø¥Ø¹ÙØ§ÙØ§Øª"]},{"id":"en-a1-r3","title":"ÙØµØµ ÙÙÙØ¨ØªØ¯Ø¦ÙÙ","desc":"ÙØµØµ ÙØµÙØ±Ø© ÙØ¨Ø³Ø·Ø©","min":20,"xp":60,"tags":["ÙØµØµ"]}],"writing":[{"id":"en-a1-w1","title":"Ø¬ÙÙ Ø¨Ø³ÙØ·Ø©","desc":"Ø¨ÙØ§Ø¡ Ø¬ÙÙ Ø¨Ø³ÙØ·Ø© ÙØµØ­ÙØ­Ø©","min":15,"xp":50,"tags":["Ø¬ÙÙ"]},{"id":"en-a1-w2","title":"ÙÙØ¡ Ø§Ø³ØªÙØ§Ø±Ø§Øª","desc":"ÙÙØ¡ Ø§ÙÙÙØ§Ø°Ø¬ Ø§ÙØ£Ø³Ø§Ø³ÙØ©","min":15,"xp":50,"tags":["ÙÙØ§Ø°Ø¬"]},{"id":"en-a1-w3","title":"ØªØ¹Ø±ÙÙ Ø¨Ø§ÙÙÙØ³","desc":"ÙØªØ§Ø¨Ø© ÙÙØ±Ø© ØªØ¹Ø±ÙÙÙØ©","min":20,"xp":60,"tags":["ÙØªØ§Ø¨Ø©"]}]}},"A2":{"skills":{"listening":[{"id":"en-a2-l1","title":"ÙÙ Ø§ÙØ³ÙÙ","desc":"ÙØ­Ø§Ø¯Ø«Ø§Øª Ø§ÙØªØ³ÙÙ ÙØ§ÙØ£Ø³Ø¹Ø§Ø±","min":20,"xp":70,"tags":["ØªØ³ÙÙ"]},{"id":"en-a2-l2","title":"ÙÙÙ Ø§ÙØ¥Ø±Ø´Ø§Ø¯Ø§Øª","desc":"Ø§ÙØªØ¹ÙÙÙØ§Øª ÙØ§ÙØ¥Ø±Ø´Ø§Ø¯Ø§Øª","min":20,"xp":70,"tags":["Ø¥Ø±Ø´Ø§Ø¯Ø§Øª"]},{"id":"en-a2-l3","title":"Ø£Ø®Ø¨Ø§Ø± ÙØ¨Ø³Ø·Ø©","desc":"ÙÙÙ Ø£Ø®Ø¨Ø§Ø± ÙØ¨Ø³Ø·Ø©","min":22,"xp":75,"tags":["Ø£Ø®Ø¨Ø§Ø±"]},{"id":"en-a2-l4","title":"Ø¨Ø±Ø§ÙØ¬ ØªÙÙØ²ÙÙÙ","desc":"ÙØ­ØªÙÙ ØªÙÙØ²ÙÙÙÙ ÙØ¨Ø³Ø·","min":25,"xp":80,"tags":["ØªÙÙØ²ÙÙÙ"]}],"speaking":[{"id":"en-a2-s1","title":"Ø§ÙØªØ³ÙÙ ÙØ§ÙØ£Ø³Ø¹Ø§Ø±","desc":"Ø§ÙØªØ¹Ø¨ÙØ± Ø¹Ù Ø§ÙØ£Ø³Ø¹Ø§Ø±","min":20,"xp":70,"tags":["ØªØ³ÙÙ"]},{"id":"en-a2-s2","title":"Ø§ÙØ­Ø¬Ø² ÙØ§ÙÙÙØ§Ø¹ÙØ¯","desc":"Ø­Ø¬Ø² ÙÙØ§Ø¹ÙØ¯ ÙÙØ·Ø§Ø¹Ù","min":20,"xp":70,"tags":["Ø­Ø¬Ø²"]},{"id":"en-a2-s3","title":"ØªØ¬Ø§Ø±Ø¨ Ø§ÙÙØ§Ø¶Ù","desc":"Ø§Ø³ØªØ®Ø¯Ø§Ù Ø§ÙØ²ÙÙ Ø§ÙÙØ§Ø¶Ù","min":22,"xp":75,"tags":["ÙØ§Ø¶Ù"]},{"id":"en-a2-s4","title":"ÙØ´Ø§Ø¹Ø±Ù","desc":"Ø§ÙØªØ­Ø¯Ø« Ø¹Ù Ø§ÙÙØ´Ø§Ø¹Ø±","min":22,"xp":75,"tags":["ÙØ´Ø§Ø¹Ø±"]}],"reading":[{"id":"en-a2-r1","title":"ÙÙØ§ÙØ§Øª ÙØµÙØ±Ø©","desc":"ÙÙØ§ÙØ§Øª Ø¨Ø³ÙØ·Ø© ÙÙ Ø§ÙØ¬Ø±Ø§Ø¦Ø¯","min":20,"xp":70,"tags":["ÙÙØ§ÙØ§Øª"],"pdf":"files/en-b1-grammar.pdf"},{"id":"en-a2-r2","title":"Ø§ÙØ¨Ø±ÙØ¯ Ø§ÙØ¥ÙÙØªØ±ÙÙÙ","desc":"ÙØ±Ø§Ø¡Ø© ÙÙÙÙ emails","min":18,"xp":65,"tags":["Ø¨Ø±ÙØ¯"]},{"id":"en-a2-r3","title":"ÙØµØµ ÙØªÙØ³Ø·Ø©","desc":"ÙØµØµ Ø¨ÙÙØ±Ø¯Ø§Øª Ø£ØºÙÙ","min":25,"xp":80,"tags":["ÙØµØµ"]}],"writing":[{"id":"en-a2-w1","title":"ÙØªØ§Ø¨Ø© Ø¨Ø±ÙØ¯ Ø¥ÙÙØªØ±ÙÙÙ","desc":"Ø±Ø³Ø§ÙØ© Ø¥ÙÙØªØ±ÙÙÙØ© Ø¨Ø³ÙØ·Ø©","min":20,"xp":70,"tags":["Ø¨Ø±ÙØ¯"]},{"id":"en-a2-w2","title":"ÙØµÙ Ø§ÙØµÙØ±","desc":"ÙØªØ§Ø¨Ø© ÙØµÙ ÙØµÙØ±Ø©","min":18,"xp":65,"tags":["ÙØµÙ"]},{"id":"en-a2-w3","title":"ÙØµØ© ÙØµÙØ±Ø©","desc":"ÙØµØ© ÙÙ 3-4 ÙÙØ±Ø§Øª","min":25,"xp":80,"tags":["ÙØµØ©"]}]}},"B1":{"skills":{"listening":[{"id":"en-b1-l1","title":"ÙØ­Ø§Ø¶Ø±Ø§Øª ØªØ¹ÙÙÙÙØ©","desc":"ÙØ­ØªÙÙ ØªØ¹ÙÙÙÙ ÙØ¹ØªØ¯Ù","min":25,"xp":100,"tags":["ØªØ¹ÙÙÙ"],"audio":"files/en-b1-lesson.wav"},{"id":"en-b1-l2","title":"Ø£ÙÙØ§Ù Ø¨Ø¯ÙÙ ØªØ±Ø¬ÙØ©","desc":"ÙÙÙ Ø§ÙØ­ÙØ§Ø± ÙÙ Ø§ÙØ£ÙÙØ§Ù","min":30,"xp":110,"tags":["Ø£ÙÙØ§Ù"]},{"id":"en-b1-l3","title":"Ø¨ÙØ¯ÙØ§Ø³Øª","desc":"Ø¨ÙØ¯ÙØ§Ø³Øª ÙØªØ¯Ø±Ø¬ Ø§ÙØµØ¹ÙØ¨Ø©","min":25,"xp":100,"tags":["Ø¨ÙØ¯ÙØ§Ø³Øª"]},{"id":"en-b1-l4","title":"Ø§Ø¬ØªÙØ§Ø¹Ø§Øª Ø¹ÙÙ","desc":"ÙØ­Ø§Ø¯Ø«Ø§Øª Ø¨ÙØ¦Ø© Ø§ÙØ¹ÙÙ","min":30,"xp":110,"tags":["Ø¹ÙÙ"]}],"speaking":[{"id":"en-b1-s1","title":"Ø§ÙØªØ¹Ø¨ÙØ± Ø¹Ù Ø§ÙØ±Ø£Ù","desc":"ÙØ´Ø§Ø±ÙØ© Ø¢Ø±Ø§Ø¦Ù ÙÙØ¬ÙØ§Øª ÙØ¸Ø±Ù","min":25,"xp":100,"tags":["Ø±Ø£Ù"]},{"id":"en-b1-s2","title":"ÙÙØ§Ø´Ø§Øª Ø£ÙØ§Ø¯ÙÙÙØ©","desc":"Ø§ÙÙØ´Ø§Ø±ÙØ© ÙÙ ÙÙØ§Ø´Ø§Øª","min":25,"xp":100,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]},{"id":"en-b1-s3","title":"Ø¹Ø±ÙØ¶ ØªÙØ¯ÙÙÙØ©","desc":"ØªÙØ¯ÙÙ ÙÙØ¶ÙØ¹ Ø¨Ø´ÙÙ ÙÙØ¸Ù","min":30,"xp":110,"tags":["Ø¹Ø±Ø¶"]},{"id":"en-b1-s4","title":"Ø§ÙØªÙØ§ÙØ¶","desc":"Ø£Ø³Ø§ÙÙØ¨ Ø§ÙØ¥ÙÙØ§Ø¹","min":30,"xp":110,"tags":["ØªÙØ§ÙØ¶"]}],"reading":[{"id":"en-b1-r1","title":"ÙÙØ§ÙØ§Øª ØµØ­ÙÙØ©","desc":"ÙÙØ§ÙØ§Øª Ø¥Ø®Ø¨Ø§Ø±ÙØ© Ø­ÙÙÙÙØ©","min":25,"xp":100,"tags":["ØµØ­Ø§ÙØ©"],"pdf":"files/en-b1-grammar.pdf"},{"id":"en-b1-r2","title":"Ø±ÙØ§ÙØ§Øª ÙØ¨Ø³Ø·Ø©","desc":"Ø±ÙØ§ÙØ§Øª ÙØ¹Ø¯ÙØ© ÙÙÙØªÙØ³Ø·","min":30,"xp":110,"tags":["Ø±ÙØ§ÙØ©"]},{"id":"en-b1-r3","title":"Ø§ÙØªÙØ§Ø±ÙØ±","desc":"ØªÙØ§Ø±ÙØ± Ø£ÙØ§Ø¯ÙÙÙØ© ÙØ¨Ø³Ø·Ø©","min":25,"xp":100,"tags":["ØªÙØ§Ø±ÙØ±"]}],"writing":[{"id":"en-b1-w1","title":"ÙØªØ§Ø¨Ø© Ø§ÙÙÙØ§Ù","desc":"ÙÙØ§Ù ÙÙ 5 ÙÙØ±Ø§Øª","min":30,"xp":110,"tags":["ÙÙØ§Ù"]},{"id":"en-b1-w2","title":"Ø§ÙØªÙØ±ÙØ± Ø§ÙØ±Ø³ÙÙ","desc":"ØªÙØ±ÙØ± Ø¨Ø£Ø³ÙÙØ¨ Ø±Ø³ÙÙ","min":30,"xp":110,"tags":["ØªÙØ±ÙØ±"]},{"id":"en-b1-w3","title":"Ø®Ø·Ø§Ø¨Ø§Øª Ø§ÙÙØ±Ø§Ø³ÙØ©","desc":"Ø®Ø·Ø§Ø¨Ø§Øª ØªØ¬Ø§Ø±ÙØ© ÙØ±Ø³ÙÙØ©","min":25,"xp":100,"tags":["Ø®Ø·Ø§Ø¨Ø§Øª"]}]}},"B2":{"skills":{"listening":[{"id":"en-b2-l1","title":"Ø§ÙØ¨Ø±Ø§ÙØ¬ Ø§ÙÙØ«Ø§Ø¦ÙÙØ©","desc":"ÙØ«Ø§Ø¦ÙÙØ§Øª Ø¥ÙØ¬ÙÙØ²ÙØ©","min":30,"xp":130,"tags":["ÙØ«Ø§Ø¦ÙÙ"]},{"id":"en-b2-l2","title":"Ø§ÙÙÙØ§Ø¨ÙØ§Øª","desc":"ÙÙØ§Ø¨ÙØ§Øª Ø§ÙØ¹ÙÙ ÙØ§ÙÙØ°ÙØ¹ÙÙ","min":30,"xp":130,"tags":["ÙÙØ§Ø¨ÙØ©"]},{"id":"en-b2-l3","title":"Ø§ÙØ£Ø®Ø¨Ø§Ø± Ø§ÙÙØªÙØ¯ÙØ©","desc":"ÙØ´Ø±Ø§Øª Ø£Ø®Ø¨Ø§Ø± ÙØ§ÙÙØ©","min":30,"xp":130,"tags":["Ø£Ø®Ø¨Ø§Ø±"]},{"id":"en-b2-l4","title":"Ø§ÙÙØ­Ø§Ø¶Ø±Ø§Øª Ø§ÙØ¬Ø§ÙØ¹ÙØ©","desc":"ÙØ­Ø§Ø¶Ø±Ø§Øª Ø£ÙØ§Ø¯ÙÙÙØ©","min":35,"xp":140,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]}],"speaking":[{"id":"en-b2-s1","title":"Ø§ÙÙÙØ§Ø´ Ø§ÙÙØ¹ÙÙ","desc":"ÙÙØ§Ø´ ÙÙ ÙÙØ§Ø¶ÙØ¹ ÙØªÙÙØ¹Ø©","min":30,"xp":130,"tags":["ÙÙØ§Ø´"]},{"id":"en-b2-s2","title":"ÙÙØ§Ø¨ÙØ§Øª ÙØ¸ÙÙÙØ©","desc":"Ø§ÙØªØ¯Ø±Ø¨ Ø¹ÙÙ ÙÙØ§Ø¨ÙØ§Øª Ø§ÙØ¹ÙÙ","min":30,"xp":130,"tags":["ÙØ¸ÙÙØ©"]},{"id":"en-b2-s3","title":"Ø§ÙØ®Ø·Ø§Ø¨Ø©","desc":"Ø¥ÙÙØ§Ø¡ Ø®Ø·Ø§Ø¨Ø§Øª ÙØ¤Ø«Ø±Ø©","min":30,"xp":130,"tags":["Ø®Ø·Ø§Ø¨Ø©"]},{"id":"en-b2-s4","title":"Ø­Ù Ø§ÙÙØ²Ø§Ø¹Ø§Øª","desc":"Ø§Ø³ØªØ±Ø§ØªÙØ¬ÙØ§Øª Ø­Ù Ø§ÙØ®ÙØ§ÙØ§Øª","min":25,"xp":120,"tags":["ØªÙØ§ØµÙ"]}],"reading":[{"id":"en-b2-r1","title":"Ø§ÙØ£Ø¯Ø¨ Ø§ÙØ¥ÙØ¬ÙÙØ²Ù","desc":"ÙÙØªØ·ÙØ§Øª ÙÙ Ø§ÙØ£Ø¯Ø¨ Ø§ÙÙÙØ§Ø³ÙÙÙ","min":35,"xp":140,"tags":["Ø£Ø¯Ø¨"]},{"id":"en-b2-r2","title":"Ø£Ø¨Ø­Ø§Ø« Ø¹ÙÙÙØ©","desc":"ÙÙØ§ÙØ§Øª Ø¨Ø­Ø«ÙØ© Ø¹ÙÙÙØ©","min":35,"xp":140,"tags":["Ø¹ÙÙÙ"]},{"id":"en-b2-r3","title":"Ø§ÙÙÙØ¯ Ø§ÙØ£Ø¯Ø¨Ù","desc":"ØªØ­ÙÙÙ Ø§ÙÙØµÙØµ Ø§ÙØ£Ø¯Ø¨ÙØ©","min":30,"xp":130,"tags":["ÙÙØ¯"]}],"writing":[{"id":"en-b2-w1","title":"Ø§ÙÙØªØ§Ø¨Ø© Ø§ÙØ¥ÙÙØ§Ø¹ÙØ©","desc":"ÙØµ Ø¥ÙÙØ§Ø¹Ù ÙØªÙØ¯Ù","min":35,"xp":140,"tags":["Ø¥ÙÙØ§Ø¹"]},{"id":"en-b2-w2","title":"Ø§ÙØªØ­ÙÙÙ Ø§ÙÙÙØ¯Ù","desc":"ØªØ­ÙÙÙ ÙÙØ¯Ù ÙØ¹ÙÙ","min":35,"xp":140,"tags":["ØªØ­ÙÙÙ"]},{"id":"en-b2-w3","title":"Ø§ÙÙØªØ§Ø¨Ø© Ø§ÙØ¥Ø¨Ø¯Ø§Ø¹ÙØ©","desc":"ÙØµØµ ÙÙØµÙØµ Ø¥Ø¨Ø¯Ø§Ø¹ÙØ©","min":30,"xp":130,"tags":["Ø¥Ø¨Ø¯Ø§Ø¹"]}]}},"C1":{"skills":{"listening":[{"id":"en-c1-l1","title":"Ø§ÙÙÙØ§Ø¸Ø±Ø§Øª Ø§ÙØ³ÙØ§Ø³ÙØ©","desc":"ÙÙØ§Ø´Ø§Øª Ø³ÙØ§Ø³ÙØ© ÙØªÙØ¯ÙØ©","min":35,"xp":160,"tags":["Ø³ÙØ§Ø³Ø©"]},{"id":"en-c1-l2","title":"Ø§ÙÙØ³Ø±Ø­ÙØ§Øª Ø§ÙØµÙØªÙØ©","desc":"Ø£Ø¹ÙØ§Ù Ø£Ø¯Ø¨ÙØ© ÙØ³ÙÙØ¹Ø©","min":40,"xp":170,"tags":["Ø£Ø¯Ø¨"]},{"id":"en-c1-l3","title":"Ø§ÙØªØ­ÙÙÙØ§Øª Ø§ÙØ§ÙØªØµØ§Ø¯ÙØ©","desc":"ÙØ­ØªÙÙ Ø§ÙØªØµØ§Ø¯Ù ÙØªÙØ¯Ù","min":35,"xp":160,"tags":["Ø§ÙØªØµØ§Ø¯"]}],"speaking":[{"id":"en-c1-s1","title":"Ø§ÙØ®Ø·Ø§Ø¨ Ø§ÙØ£ÙØ§Ø¯ÙÙÙ","desc":"ØªÙØ¯ÙÙ Ø£Ø¨Ø­Ø§Ø« Ø£ÙØ§Ø¯ÙÙÙØ©","min":40,"xp":170,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]},{"id":"en-c1-s2","title":"Ø§ÙØ¥ÙÙØ§Ø¹ ÙØ§ÙØªØ£Ø«ÙØ±","desc":"ÙÙØ§Ø±Ø§Øª Ø¥ÙÙØ§Ø¹ ÙØªÙØ¯ÙØ©","min":35,"xp":160,"tags":["Ø¥ÙÙØ§Ø¹"]},{"id":"en-c1-s3","title":"Ø§ÙÙÙØ§ÙØ© ÙØ§ÙÙØ¬Ø§Ø²","desc":"Ø§ÙÙÙØ§ÙØ© ÙØ§ÙÙØ¬Ø§Ø² ÙÙ Ø§ÙØ­Ø¯ÙØ«","min":35,"xp":160,"tags":["ÙÙØ§ÙØ©"]}],"reading":[{"id":"en-c1-r1","title":"Ø§ÙÙØµÙØµ Ø§ÙÙÙØ³ÙÙØ©","desc":"ÙØµÙØµ ÙÙØ³ÙÙØ© ÙØªØ­ÙÙÙÙØ§","min":40,"xp":170,"tags":["ÙÙØ³ÙØ©"]},{"id":"en-c1-r2","title":"Ø§ÙØ£Ø¯Ø¨ Ø§ÙØ­Ø¯ÙØ«","desc":"Ø§ÙØ£Ø¯Ø¨ Ø§ÙØ¥ÙØ¬ÙÙØ²Ù Ø§ÙØ­Ø¯ÙØ«","min":40,"xp":170,"tags":["Ø£Ø¯Ø¨"]},{"id":"en-c1-r3","title":"Ø§ÙØªÙØ§Ø±ÙØ± Ø§ÙÙØªØ®ØµØµØ©","desc":"ØªÙØ§Ø±ÙØ± ÙÙ ØªØ®ØµØµØ§Øª ÙØªÙÙØ¹Ø©","min":35,"xp":160,"tags":["ØªØ®ØµØµ"]}],"writing":[{"id":"en-c1-w1","title":"Ø§ÙØ±Ø³Ø§Ø¦Ù Ø§ÙØ£ÙØ§Ø¯ÙÙÙØ©","desc":"Ø±Ø³Ø§Ø¦Ù ÙØ£Ø¨Ø­Ø§Ø« Ø£ÙØ§Ø¯ÙÙÙØ©","min":45,"xp":180,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]},{"id":"en-c1-w2","title":"Ø§ÙØªØ­ÙÙÙ Ø§ÙÙØªÙØ¯Ù","desc":"ØªØ­ÙÙÙØ§Øª ÙØ¹ÙÙØ© Ø§Ø­ØªØ±Ø§ÙÙØ©","min":40,"xp":170,"tags":["ØªØ­ÙÙÙ"]},{"id":"en-c1-w3","title":"Ø§ÙØµØ­Ø§ÙØ©","desc":"Ø§ÙÙØªØ§Ø¨Ø© Ø§ÙØµØ­ÙÙØ© Ø§ÙØ§Ø­ØªØ±Ø§ÙÙØ©","min":40,"xp":170,"tags":["ØµØ­Ø§ÙØ©"]}]}},"C2":{"skills":{"listening":[{"id":"en-c2-l1","title":"Ø§ÙÙÙØ¬Ø§Øª Ø§ÙÙØªØ®ØµØµØ©","desc":"ÙÙØ¬Ø§Øª ÙØ®ØªÙÙØ© ÙÙØµØ·ÙØ­Ø§Øª","min":45,"xp":200,"tags":["ÙÙØ¬Ø§Øª"]},{"id":"en-c2-l2","title":"Ø§ÙÙØ­ØªÙÙ Ø§ÙØ£ÙØ§Ø¯ÙÙÙ","desc":"Ø£Ø¹ÙØ¯ Ø§ÙÙØ­ØªÙÙØ§Øª Ø§ÙØ£ÙØ§Ø¯ÙÙÙØ©","min":45,"xp":200,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]}],"speaking":[{"id":"en-c2-s1","title":"Ø§ÙØ¥ØªÙØ§Ù Ø§ÙØªØ§Ù","desc":"Ø§ÙØªØ¹Ø¨ÙØ± Ø§ÙØ·ÙÙÙ Ø¨ÙÙ Ø¯ÙØ©","min":45,"xp":200,"tags":["Ø¥ØªÙØ§Ù"]},{"id":"en-c2-s2","title":"Ø§ÙØªØ¯Ø±ÙØ³ ÙØ§ÙØ´Ø±Ø­","desc":"Ø´Ø±Ø­ ÙÙØ¶ÙØ¹Ø§Øª ÙØ¹ÙØ¯Ø©","min":45,"xp":200,"tags":["ØªØ¯Ø±ÙØ³"]}],"reading":[{"id":"en-c2-r1","title":"Ø§ÙÙØµÙØµ Ø§ÙÙØ§ÙÙÙÙØ©","desc":"ÙØµÙØµ ÙØªØ®ØµØµØ© Ø¬Ø¯Ø§Ù","min":45,"xp":200,"tags":["ÙØ§ÙÙÙÙ"]},{"id":"en-c2-r2","title":"Ø§ÙØ´Ø¹Ø± Ø§ÙÙÙØ§Ø³ÙÙÙ","desc":"ØªØ­ÙÙÙ Ø§ÙØ£Ø¹ÙØ§Ù Ø§ÙØ´Ø¹Ø±ÙØ©","min":45,"xp":200,"tags":["Ø´Ø¹Ø±"]}],"writing":[{"id":"en-c2-w1","title":"Ø§ÙÙØªØ§Ø¨Ø© Ø§ÙØ§Ø­ØªØ±Ø§ÙÙØ©","desc":"ÙØµÙØµ Ø§Ø­ØªØ±Ø§ÙÙØ© ÙÙ Ø£Ù ÙØ¬Ø§Ù","min":50,"xp":220,"tags":["Ø§Ø­ØªØ±Ø§ÙÙ"]},{"id":"en-c2-w2","title":"Ø§ÙØªØ£ÙÙÙ ÙØ§ÙÙØ´Ø±","desc":"ÙØªØ§Ø¨Ø© ÙØªØ¨ ÙÙÙØ§ÙØ§Øª ÙÙÙØ´Ø±","min":50,"xp":220,"tags":["ØªØ£ÙÙÙ"]}]}}}},"turkish":{"id":"turkish","name":"Ø§ÙØªØ±ÙÙØ©","nameEn":"TÃ¼rkÃ§e","flag":"ð¹ð·","color":"#E91E63","levels":{"A0":{"skills":{"listening":[{"id":"tr-a0-l1","title":"Ø§ÙØ£Ø¨Ø¬Ø¯ÙØ© Ø§ÙØªØ±ÙÙØ©","desc":"Ø£ØµÙØ§Øª Ø§ÙØ­Ø±ÙÙ Ø§ÙØªØ±ÙÙØ©","min":10,"xp":30,"tags":["Ø£Ø¨Ø¬Ø¯ÙØ©"],"audio":"files/tr-a0-lesson.wav","pdf":"files/tr-a0-starter.pdf"},{"id":"tr-a0-l2","title":"Ø§ÙØªØ­ÙØ§Øª Ø§ÙØªØ±ÙÙØ©","desc":"Merhaba ÙØªØ­ÙØ§Øª ÙÙÙÙØ©","min":10,"xp":30,"tags":["ØªØ­ÙØ§Øª"]},{"id":"tr-a0-l3","title":"Ø§ÙØ£Ø±ÙØ§Ù Ø¨Ø§ÙØªØ±ÙÙØ©","desc":"bir, iki, Ã¼Ã§...","min":10,"xp":30,"tags":["Ø£Ø±ÙØ§Ù"]}],"speaking":[{"id":"tr-a0-s1","title":"ÙØ·Ù Ø§ÙØ£Ø¨Ø¬Ø¯ÙØ©","desc":"Ø§ÙØ£Ø­Ø±Ù Ø§ÙØ®Ø§ØµØ© Ø¨Ø§ÙØªØ±ÙÙØ© Ã¶ Ã¼ Å Ã§","min":12,"xp":35,"tags":["ÙØ·Ù"]},{"id":"tr-a0-s2","title":"Ø§ÙØªØ­ÙØ§Øª Ø§ÙØ£Ø³Ø§Ø³ÙØ©","desc":"Merhaba, Ä°yi gÃ¼nler, HoÅÃ§a kal","min":10,"xp":30,"tags":["ØªØ­ÙØ§Øª"]}],"reading":[{"id":"tr-a0-r1","title":"ÙØ±Ø§Ø¡Ø© Ø§ÙØ£Ø¨Ø¬Ø¯ÙØ©","desc":"Ø§ÙØ­Ø±ÙÙ Ø§ÙØªØ±ÙÙØ© Ø§ÙØ®Ø§ØµØ©","min":12,"xp":35,"tags":["Ø£Ø¨Ø¬Ø¯ÙØ©"],"pdf":"files/tr-a0-starter.pdf"},{"id":"tr-a0-r2","title":"ÙÙÙØ§Øª Ø¨Ø³ÙØ·Ø©","desc":"ÙÙÙØ§Øª ØªØ±ÙÙØ© ÙÙÙÙØ©","min":10,"xp":30,"tags":["ÙÙÙØ§Øª"]}],"writing":[{"id":"tr-a0-w1","title":"ÙØªØ§Ø¨Ø© Ø§ÙØ­Ø±ÙÙ Ø§ÙØªØ±ÙÙØ©","desc":"Ø§ÙØ£Ø­Ø±Ù Ø§ÙØ®Ø§ØµØ© Ã¶ Ã¼ Å Ã§","min":15,"xp":40,"tags":["ÙØªØ§Ø¨Ø©"]},{"id":"tr-a0-w2","title":"ÙØªØ§Ø¨Ø© Ø§Ø³ÙÙ","desc":"Ø§ÙØ£Ø³ÙØ§Ø¡ ÙØ§ÙÙÙÙØ§Øª Ø§ÙØ¨Ø³ÙØ·Ø©","min":10,"xp":30,"tags":["Ø§Ø³Ù"]}]}},"A1":{"skills":{"listening":[{"id":"tr-a1-l1","title":"ÙÙ Ø§ÙÙÙÙÙ","desc":"Ø·ÙØ¨Ø§Øª Ø§ÙÙØ´Ø±ÙØ¨Ø§Øª ÙØ§ÙØ·Ø¹Ø§Ù","min":15,"xp":50,"tags":["ÙÙÙÙ"]},{"id":"tr-a1-l2","title":"Ø§ÙØ§ØªØ¬Ø§ÙØ§Øª","desc":"ÙÙÙ ØªØ¹ÙÙÙØ§Øª Ø§ÙØ·Ø±ÙÙ","min":15,"xp":50,"tags":["Ø§ØªØ¬Ø§ÙØ§Øª"]},{"id":"tr-a1-l3","title":"Ø§ÙØªÙØ¯ÙÙ ÙØ§ÙØªØ¹Ø±ÙÙ","desc":"ÙÙÙ ØªÙØ¯ÙÙ Ø§ÙØ£Ø´Ø®Ø§Øµ","min":12,"xp":45,"tags":["ØªØ¹Ø±ÙÙ"]}],"speaking":[{"id":"tr-a1-s1","title":"Benim adÄ±m...","desc":"ØªÙØ¯ÙÙ ÙÙØ³Ù Ø¨Ø§ÙØªØ±ÙÙØ©","min":15,"xp":50,"tags":["ÙÙØ¯ÙØ§Øª"]},{"id":"tr-a1-s2","title":"Ø·ÙØ¨ Ø§ÙØ·Ø¹Ø§Ù","desc":"Ø§ÙØ·ÙØ¨ ÙÙ Ø§ÙÙØ·Ø¹Ù Ø§ÙØªØ±ÙÙ","min":15,"xp":50,"tags":["Ø·Ø¹Ø§Ù"]},{"id":"tr-a1-s3","title":"Ø§ÙØ³Ø¤Ø§Ù Ø¹Ù Ø§ÙØ·Ø±ÙÙ","desc":"Nerede? NasÄ±l gidebilirim?","min":15,"xp":50,"tags":["Ø§ØªØ¬Ø§ÙØ§Øª"]}],"reading":[{"id":"tr-a1-r1","title":"Ø§ÙÙØ±Ø§Ø¡Ø© Ø§ÙØ£Ø³Ø§Ø³ÙØ©","desc":"Ø¬ÙÙ ÙÙÙÙØ© Ø¨Ø³ÙØ·Ø©","min":15,"xp":50,"tags":["ÙØ±Ø§Ø¡Ø©"],"pdf":"files/tr-a0-starter.pdf"},{"id":"tr-a1-r2","title":"ÙÙØ§Ø¦Ù Ø§ÙØ·Ø¹Ø§Ù","desc":"ÙØ±Ø§Ø¡Ø© menu Ø§ÙØªØ±ÙÙ","min":12,"xp":45,"tags":["Ø·Ø¹Ø§Ù"]}],"writing":[{"id":"tr-a1-w1","title":"Ø¬ÙÙ Ø¨Ø³ÙØ·Ø©","desc":"Ø¬ÙÙ ÙØ¹ Ø§ÙÙØ¹Ù olmak","min":15,"xp":50,"tags":["Ø¬ÙÙ"]},{"id":"tr-a1-w2","title":"Ø±Ø³Ø§Ø¦Ù ÙØµÙØ±Ø©","desc":"ÙØªØ§Ø¨Ø© SMS ÙØµÙØ±Ø©","min":15,"xp":50,"tags":["Ø±Ø³Ø§Ø¦Ù"]}]}},"A2":{"skills":{"listening":[{"id":"tr-a2-l1","title":"Ø¨Ø±Ø§ÙØ¬ Ø£Ø·ÙØ§Ù ØªØ±ÙÙØ©","desc":"Ø¨Ø±Ø§ÙØ¬ Ø£Ø·ÙØ§Ù Ø¨Ø³ÙØ·Ø©","min":20,"xp":70,"tags":["Ø£Ø·ÙØ§Ù"]},{"id":"tr-a2-l2","title":"Ø£ØºØ§ÙÙ ØªØ±ÙÙØ©","desc":"ÙÙÙ ÙÙÙØ§Øª Ø§ÙØ£ØºØ§ÙÙ","min":20,"xp":70,"tags":["ÙÙØ³ÙÙÙ"]},{"id":"tr-a2-l3","title":"Ø§ÙØ£Ø®Ø¨Ø§Ø± Ø§ÙÙØ¨Ø³Ø·Ø©","desc":"ÙØ´Ø±Ø© Ø£Ø®Ø¨Ø§Ø± ÙØ¨Ø³Ø·Ø©","min":20,"xp":70,"tags":["Ø£Ø®Ø¨Ø§Ø±"]}],"speaking":[{"id":"tr-a2-s1","title":"Ø§ÙØªØ³ÙÙ ÙÙ Ø§ÙØ¨Ø§Ø²Ø§Ø±","desc":"Ø§ÙØªØ³ÙÙ ÙØ§ÙØªÙØ§ÙØ¶","min":20,"xp":70,"tags":["ØªØ³ÙÙ"]},{"id":"tr-a2-s2","title":"ÙÙÙÙ Ø§ÙØ±ÙØªÙÙÙ","desc":"Ø§ÙØ­Ø¯ÙØ« Ø¹Ù Ø±ÙØªÙÙÙ","min":20,"xp":70,"tags":["ÙÙÙÙ"]},{"id":"tr-a2-s3","title":"Ø­Ø¬Ø² Ø§ÙÙÙØ¯Ù","desc":"Ø­Ø¬Ø² ØºØ±Ù Ø§ÙÙÙØ¯Ù","min":20,"xp":70,"tags":["ÙÙØ¯Ù"]}],"reading":[{"id":"tr-a2-r1","title":"Ø§ÙÙØ§ÙØªØ§Øª","desc":"ÙØ§ÙØªØ§Øª Ø§ÙØ´ÙØ§Ø±Ø¹","min":18,"xp":65,"tags":["Ø¥Ø±Ø´Ø§Ø¯Ø§Øª"]},{"id":"tr-a2-r2","title":"ÙØµØµ Ø´Ø¹Ø¨ÙØ©","desc":"ÙØµØµ Ø´Ø¹Ø¨ÙØ© ØªØ±ÙÙØ©","min":22,"xp":75,"tags":["ÙØµØµ"]}],"writing":[{"id":"tr-a2-w1","title":"Ø¨Ø±ÙØ¯ Ø¥ÙÙØªØ±ÙÙÙ","desc":"Ø±Ø³Ø§ÙØ© Ø¨Ø±ÙØ¯ÙØ© Ø¨Ø³ÙØ·Ø©","min":20,"xp":70,"tags":["Ø¨Ø±ÙØ¯"]},{"id":"tr-a2-w2","title":"ÙØµÙ ÙÙØ§Ù","desc":"ÙØµÙ ÙØ¯ÙÙØ© Ø£Ù Ø­Ù","min":20,"xp":70,"tags":["ÙØµÙ"]}]}},"B1":{"skills":{"listening":[{"id":"tr-b1-l1","title":"ÙØ³ÙØ³ÙØ§Øª ØªØ±ÙÙØ©","desc":"Ø§ÙÙØ³ÙØ³ÙØ§Øª Ø§ÙØ´ÙÙØ±Ø©","min":25,"xp":100,"tags":["ÙØ³ÙØ³ÙØ§Øª"],"audio":"files/tr-b1-lesson.wav"},{"id":"tr-b1-l2","title":"Ø¨Ø±Ø§ÙØ¬ Ø§ÙØ­ÙØ§Ø±","desc":"ÙÙØ§Ø¨ÙØ§Øª ÙØ¨Ø±Ø§ÙØ¬","min":25,"xp":100,"tags":["ÙÙØ§Ø¨ÙØ§Øª"]},{"id":"tr-b1-l3","title":"Ø£Ø®Ø¨Ø§Ø± ØªØ±ÙÙØ©","desc":"ÙØ´Ø±Ø§Øª Ø§ÙØ£Ø®Ø¨Ø§Ø±","min":25,"xp":100,"tags":["Ø£Ø®Ø¨Ø§Ø±"]}],"speaking":[{"id":"tr-b1-s1","title":"Ø§ÙØªØ¹Ø¨ÙØ± Ø¹Ù Ø§ÙØ±Ø£Ù","desc":"ÙÙØ§Ø´ ÙÙØ§Ø¶ÙØ¹ ÙÙÙÙØ©","min":25,"xp":100,"tags":["Ø±Ø£Ù"]},{"id":"tr-b1-s2","title":"Ø­Ù Ø§ÙÙØ´ÙÙØ§Øª","desc":"Ø­Ù Ø§ÙÙØ´ÙÙØ§Øª Ø¨Ø§ÙØªØ±ÙÙØ©","min":25,"xp":100,"tags":["ÙØ´ÙÙØ§Øª"]},{"id":"tr-b1-s3","title":"Ø§ÙØ£ÙØ«Ø§Ù Ø§ÙØªØ±ÙÙØ©","desc":"Ø§Ø³ØªØ®Ø¯Ø§Ù Ø§ÙØ£ÙØ«Ø§Ù","min":25,"xp":100,"tags":["Ø£ÙØ«Ø§Ù"],"pdf":"files/tr-b1-expressions.pdf"}],"reading":[{"id":"tr-b1-r1","title":"Ø§ÙØµØ­Ù Ø§ÙØªØ±ÙÙØ©","desc":"ÙÙØ§ÙØ§Øª ÙÙ ØµØ­Ù ØªØ±ÙÙØ©","min":25,"xp":100,"tags":["ØµØ­Ø§ÙØ©"],"pdf":"files/tr-b1-expressions.pdf"},{"id":"tr-b1-r2","title":"Ø§ÙØ£Ø¯Ø¨ Ø§ÙØªØ±ÙÙ","desc":"ÙØµØµ ÙÙ Ø§ÙØªØ±Ø§Ø« Ø§ÙØªØ±ÙÙ","min":25,"xp":100,"tags":["Ø£Ø¯Ø¨"]},{"id":"tr-b1-r3","title":"Ø§ÙØªØ§Ø±ÙØ® Ø§ÙØ¹Ø«ÙØ§ÙÙ","desc":"ÙØµÙØµ ØªØ§Ø±ÙØ®ÙØ© Ø¹Ø«ÙØ§ÙÙØ©","min":30,"xp":110,"tags":["ØªØ§Ø±ÙØ®"]}],"writing":[{"id":"tr-b1-w1","title":"ÙØªØ§Ø¨Ø© ÙÙØ§Ù","desc":"ÙÙØ§Ù Ø±Ø£Ù Ø¨Ø§ÙØªØ±ÙÙØ©","min":30,"xp":110,"tags":["ÙÙØ§Ù"]},{"id":"tr-b1-w2","title":"Ø§ÙØªÙØ§Ø±ÙØ± Ø§ÙØ±Ø³ÙÙØ©","desc":"ÙØªØ§Ø¨Ø© ØªÙØ±ÙØ± Ø±Ø³ÙÙ","min":30,"xp":110,"tags":["ØªÙØ±ÙØ±"]}]}},"B2":{"skills":{"listening":[{"id":"tr-b2-l1","title":"Ø§ÙØ¨Ø±Ø§ÙØ¬ Ø§ÙØ«ÙØ§ÙÙØ©","desc":"Ø§ÙØ«ÙØ§ÙØ© ÙØ§ÙØªØ±Ø§Ø« Ø§ÙØªØ±ÙÙ","min":30,"xp":130,"tags":["Ø«ÙØ§ÙØ©"]},{"id":"tr-b2-l2","title":"Ø§ÙØ®Ø·Ø§Ø¨Ø§Øª Ø§ÙØ±Ø³ÙÙØ©","desc":"Ø®Ø·Ø§Ø¨Ø§Øª Ø±Ø³ÙÙØ©","min":30,"xp":130,"tags":["Ø®Ø·Ø§Ø¨Ø§Øª"]}],"speaking":[{"id":"tr-b2-s1","title":"Ø§ÙÙÙØ§Ø´ Ø§ÙØ«ÙØ§ÙÙ","desc":"Ø§ÙØ«ÙØ§ÙØ© ÙØ§ÙÙÙÙÙ","min":30,"xp":130,"tags":["Ø«ÙØ§ÙØ©"]},{"id":"tr-b2-s2","title":"Ø§ÙØ®Ø·Ø§Ø¨Ø©","desc":"Ø¥ÙÙØ§Ø¡ Ø®Ø·Ø§Ø¨ Ø±Ø³ÙÙ","min":30,"xp":130,"tags":["Ø®Ø·Ø§Ø¨Ø©"]}],"reading":[{"id":"tr-b2-r1","title":"Ø§ÙØ£Ø¯Ø¨ Ø§ÙÙÙØ§Ø³ÙÙÙ","desc":"Ø£Ø¹ÙØ§Ù Ø£Ø¯Ø¨ ØªØ±ÙÙ","min":35,"xp":140,"tags":["Ø£Ø¯Ø¨"]},{"id":"tr-b2-r2","title":"Ø§ÙÙÙØ¯ Ø§ÙØ£Ø¯Ø¨Ù","desc":"Ø§ÙÙÙØ¯ Ø§ÙØ£Ø¯Ø¨Ù Ø§ÙØªØ±ÙÙ","min":35,"xp":140,"tags":["ÙÙØ¯"]}],"writing":[{"id":"tr-b2-w1","title":"Ø§ÙÙØªØ§Ø¨Ø© Ø§ÙØ£Ø¯Ø¨ÙØ©","desc":"ÙØµÙØµ Ø£Ø¯Ø¨ÙØ© Ø¨Ø§ÙØªØ±ÙÙØ©","min":35,"xp":140,"tags":["Ø£Ø¯Ø¨"]},{"id":"tr-b2-w2","title":"Ø§ÙÙØªØ§Ø¨Ø© Ø§ÙØµØ­ÙÙØ©","desc":"ÙÙØ§ÙØ§Øª ØµØ­ÙÙØ©","min":35,"xp":140,"tags":["ØµØ­Ø§ÙØ©"]}]}},"C1":{"skills":{"listening":[{"id":"tr-c1-l1","title":"Ø§ÙÙÙØ¬Ø§Øª Ø§ÙØªØ±ÙÙØ©","desc":"Ø§ÙÙÙØ¬Ø§Øª Ø§ÙØ¥ÙÙÙÙÙØ©","min":40,"xp":170,"tags":["ÙÙØ¬Ø§Øª"]},{"id":"tr-c1-l2","title":"Ø§ÙÙØ­ØªÙÙ Ø§ÙØ£ÙØ§Ø¯ÙÙÙ","desc":"ÙØ­Ø§Ø¶Ø±Ø§Øª Ø¬Ø§ÙØ¹ÙØ©","min":40,"xp":170,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]}],"speaking":[{"id":"tr-c1-s1","title":"Ø§ÙØ®Ø·Ø§Ø¨ Ø§ÙØ£ÙØ§Ø¯ÙÙÙ","desc":"Ø§ÙØ³ÙØ§Ù Ø§ÙØ£ÙØ§Ø¯ÙÙÙ","min":40,"xp":170,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]},{"id":"tr-c1-s2","title":"Ø§ÙÙÙØ³ÙØ©","desc":"ÙÙØ§Ø¶ÙØ¹ ÙÙØ³ÙÙØ©","min":40,"xp":170,"tags":["ÙÙØ³ÙØ©"]}],"reading":[{"id":"tr-c1-r1","title":"ÙØµÙØµ ÙØªØ®ØµØµØ©","desc":"ÙØµÙØµ ÙØ§ÙÙÙÙØ© ÙØ·Ø¨ÙØ©","min":40,"xp":170,"tags":["ÙØªØ®ØµØµ"]},{"id":"tr-c1-r2","title":"Ø§ÙØ´Ø¹Ø± Ø§ÙØªØ±ÙÙ","desc":"Ø§ÙØ´Ø¹Ø± Ø§ÙØªØ±ÙÙ Ø§ÙÙÙØ§Ø³ÙÙÙ","min":40,"xp":170,"tags":["Ø´Ø¹Ø±"]}],"writing":[{"id":"tr-c1-w1","title":"Ø§ÙÙØªØ§Ø¨Ø© Ø§ÙØ£ÙØ§Ø¯ÙÙÙØ©","desc":"Ø£Ø¨Ø­Ø§Ø« Ø¨Ø§ÙØªØ±ÙÙØ©","min":45,"xp":180,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]},{"id":"tr-c1-w2","title":"Ø§ÙØªØ±Ø¬ÙØ© Ø§ÙØ£Ø¯Ø¨ÙØ©","desc":"ØªØ±Ø¬ÙØ© Ø§ÙÙØµÙØµ Ø§ÙØ£Ø¯Ø¨ÙØ©","min":45,"xp":180,"tags":["ØªØ±Ø¬ÙØ©"]}]}},"C2":{"skills":{"listening":[{"id":"tr-c2-l1","title":"Ø§ÙØ¥ØªÙØ§Ù - Ø§Ø³ØªÙØ§Ø¹","desc":"Ø£Ù ÙØ­ØªÙÙ ØªØ±ÙÙ","min":45,"xp":200,"tags":["Ø¥ØªÙØ§Ù"]}],"speaking":[{"id":"tr-c2-s1","title":"Ø§ÙØ¥ØªÙØ§Ù - ÙÙØ§Ù","desc":"Ø·ÙØ§ÙØ© ÙØ§ÙÙÙØ§Ø·Ù","min":45,"xp":200,"tags":["Ø¥ØªÙØ§Ù"]}],"reading":[{"id":"tr-c2-r1","title":"Ø§ÙØ¥ØªÙØ§Ù - ÙØ±Ø§Ø¡Ø©","desc":"Ø£Ù ÙØµ ØªØ±ÙÙ","min":45,"xp":200,"tags":["Ø¥ØªÙØ§Ù"]}],"writing":[{"id":"tr-c2-w1","title":"Ø§ÙØ¥ØªÙØ§Ù - ÙØªØ§Ø¨Ø©","desc":"ÙØ§ÙÙØ§ØªØ¨ Ø§ÙØªØ±ÙÙ Ø§ÙÙØ­ØªØ±Ù","min":50,"xp":220,"tags":["Ø¥ØªÙØ§Ù"]}]}}}},"chinese":{"id":"chinese","name":"Ø§ÙØµÙÙÙØ©","nameEn":"ä¸­æ","flag":"ð¨ð³","color":"#F44336","levels":{"A0":{"skills":{"listening":[{"id":"zh-a0-l1","title":"ÙØ¸Ø§Ù Ø§ÙØ¨ÙÙÙÙÙ","desc":"Ø£ØµÙØ§Øª Ø§ÙØ¨ÙÙÙÙÙ Ø§ÙØ£Ø±Ø¨Ø¹Ø©","min":12,"xp":35,"tags":["Ø¨ÙÙÙÙÙ"],"audio":"files/zh-a0-lesson.wav","pdf":"files/zh-a0-pinyin.pdf"},{"id":"zh-a0-l2","title":"ØªØ­ÙØ§Øª ØµÙÙÙØ©","desc":"NÇ hÇo ÙØªØ­ÙØ§Øª ÙÙÙÙØ©","min":10,"xp":30,"tags":["ØªØ­ÙØ§Øª"]},{"id":"zh-a0-l3","title":"Ø§ÙØ£Ø±ÙØ§Ù Ø§ÙØµÙÙÙØ©","desc":"yÄ«, Ã¨r, sÄn... 1-10","min":10,"xp":30,"tags":["Ø£Ø±ÙØ§Ù"]}],"speaking":[{"id":"zh-a0-s1","title":"Ø§ÙÙØ¨Ø±Ø§Øª Ø§ÙØ£Ø±Ø¨Ø¹","desc":"ØªØ¹ÙÙ Ø§ÙÙØ¨Ø±Ø§Øª Ø§ÙØµÙÙÙØ©","min":15,"xp":40,"tags":["ÙØ¨Ø±Ø§Øª"]},{"id":"zh-a0-s2","title":"NÇ hÇo & ZÃ i jiÃ n","desc":"Ø§ÙØªØ­ÙØ§Øª Ø§ÙØ£Ø³Ø§Ø³ÙØ©","min":10,"xp":30,"tags":["ØªØ­ÙØ§Øª"]}],"reading":[{"id":"zh-a0-r1","title":"ÙØ±Ø§Ø¡Ø© Ø§ÙØ¨ÙÙÙÙÙ","desc":"ÙØ¸Ø§Ù Ø§ÙØ¨ÙÙÙÙÙ","min":15,"xp":40,"tags":["Ø¨ÙÙÙÙÙ"],"pdf":"files/zh-a0-pinyin.pdf"},{"id":"zh-a0-r2","title":"Ø£Ø¨Ø³Ø· 10 Ø­Ø±ÙÙ","desc":"Ø£Ø¨Ø³Ø· Ø§ÙØ­Ø±ÙÙ Ø§ÙØµÙÙÙØ©","min":15,"xp":40,"tags":["Ø­Ø±ÙÙ"]},{"id":"zh-a0-r3","title":"Ø§ÙØ£Ø±ÙØ§Ù Ø¨Ø§ÙØ®Ø·","desc":"Ø§ÙØ£Ø±ÙØ§Ù Ø¨Ø§ÙØ®Ø· Ø§ÙØµÙÙÙ","min":12,"xp":35,"tags":["Ø£Ø±ÙØ§Ù"]}],"writing":[{"id":"zh-a0-w1","title":"Ø±Ø³Ù Ø§ÙØ­Ø±ÙÙ","desc":"Ø£Ø¨Ø³Ø· Ø§ÙØ­Ø±ÙÙ","min":20,"xp":50,"tags":["ÙØªØ§Ø¨Ø©"]},{"id":"zh-a0-w2","title":"Ø§ÙØ£Ø±ÙØ§Ù Ø§ÙØµÙÙÙØ©","desc":"Ø§ÙØ£Ø±ÙØ§Ù Ø¨Ø§ÙØ®Ø· Ø§ÙØµÙÙÙ","min":15,"xp":40,"tags":["Ø£Ø±ÙØ§Ù"]}]}},"A1":{"skills":{"listening":[{"id":"zh-a1-l1","title":"ÙØ­Ø§Ø¯Ø«Ø§Øª Ø¨Ø³ÙØ·Ø©","desc":"Ø¬ÙÙ ÙØµÙØ±Ø© ÙÙÙÙØ©","min":15,"xp":50,"tags":["ÙÙÙÙ"]},{"id":"zh-a1-l2","title":"Ø§ÙØ·ÙØ³ ÙØ§ÙÙÙØª","desc":"ØªØ¹Ø¨ÙØ±Ø§Øª Ø§ÙØ·ÙØ³ ÙØ§ÙÙÙØª","min":15,"xp":50,"tags":["Ø·ÙØ³"]},{"id":"zh-a1-l3","title":"ÙÙ Ø§ÙØ³ÙØ¨Ø±ÙØ§Ø±ÙØª","desc":"Ø£Ø³ÙØ§Ø¡ Ø§ÙØ£ØºØ°ÙØ© Ø§ÙØ´Ø§Ø¦Ø¹Ø©","min":15,"xp":50,"tags":["Ø·Ø¹Ø§Ù"]}],"speaking":[{"id":"zh-a1-s1","title":"WÇ jiÃ o...","desc":"ØªØ¹Ø±ÙÙ Ø§ÙÙÙØ³","min":15,"xp":50,"tags":["ÙÙØ¯ÙØ§Øª"]},{"id":"zh-a1-s2","title":"Ø·ÙØ¨ Ø§ÙØ·Ø¹Ø§Ù","desc":"Ø§ÙØ·ÙØ¨ ÙÙ Ø§ÙÙØ·Ø¹Ù","min":15,"xp":50,"tags":["Ø·Ø¹Ø§Ù"]},{"id":"zh-a1-s3","title":"DuÅshao qiÃ¡n?","desc":"Ø§ÙØ³Ø¤Ø§Ù Ø¹Ù Ø§ÙØ£Ø³Ø¹Ø§Ø±","min":12,"xp":45,"tags":["Ø£Ø³Ø¹Ø§Ø±"]}],"reading":[{"id":"zh-a1-r1","title":"100 Ø­Ø±Ù Ø£Ø³Ø§Ø³Ù","desc":"Ø§ÙØ­Ø±ÙÙ Ø§ÙØ£ÙØ«Ø± Ø´ÙÙØ¹Ø§Ù","min":20,"xp":60,"tags":["Ø­Ø±ÙÙ"]},{"id":"zh-a1-r2","title":"ÙØ§ÙØªØ§Øª Ø§ÙØ´ÙØ§Ø±Ø¹","desc":"Ø§ÙÙØ§ÙØªØ§Øª Ø§ÙØ´Ø§Ø¦Ø¹Ø©","min":15,"xp":50,"tags":["ÙØ§ÙØªØ§Øª"]}],"writing":[{"id":"zh-a1-w1","title":"Ø§ÙÙÙÙØ§Øª Ø§ÙØ£Ø³Ø§Ø³ÙØ©","desc":"ÙÙÙØ§Øª ÙÙÙÙØ© Ø¨Ø§ÙØ®Ø·","min":20,"xp":60,"tags":["ÙÙÙØ§Øª"]},{"id":"zh-a1-w2","title":"ØªØ±ØªÙØ¨ Ø§ÙØ¬ÙÙØ©","desc":"ÙØ§Ø¹Ø¯Ø© ØªØ±ØªÙØ¨ Ø§ÙÙÙÙØ§Øª","min":20,"xp":60,"tags":["ÙÙØ§Ø¹Ø¯"]}]}},"A2":{"skills":{"listening":[{"id":"zh-a2-l1","title":"ÙØ±ØªÙÙ ØµÙÙÙ","desc":"Ø¨Ø±Ø§ÙØ¬ Ø£Ø·ÙØ§Ù","min":20,"xp":70,"tags":["Ø£Ø·ÙØ§Ù"]},{"id":"zh-a2-l2","title":"Ø§ÙÙÙØ§ÙÙØ§Øª Ø§ÙÙØ§ØªÙÙØ©","desc":"ÙÙØ§ÙÙØ© ÙØ§ØªÙÙØ© Ø¨Ø³ÙØ·Ø©","min":20,"xp":70,"tags":["ÙØ§ØªÙ"]},{"id":"zh-a2-l3","title":"ÙØ³Ø§Ø¦Ù Ø§ÙÙÙÙ","desc":"Ø¥Ø¹ÙØ§ÙØ§Øª Ø§ÙÙØªØ±Ù ÙØ§ÙØ¨Ø§Øµ","min":18,"xp":65,"tags":["ÙÙÙ"]}],"speaking":[{"id":"zh-a2-s1","title":"Ø§ÙØ³ÙÙ Ø§ÙØµÙÙÙ","desc":"Ø§ÙØªØ³ÙÙ ÙØ§ÙÙØ³Ø§ÙÙØ©","min":20,"xp":70,"tags":["ØªØ³ÙÙ"]},{"id":"zh-a2-s2","title":"ÙØµÙ Ø§ÙØ¹Ø§Ø¦ÙØ©","desc":"Ø¹Ø§Ø¦ÙØªÙ Ø¨Ø§ÙØµÙÙÙØ©","min":20,"xp":70,"tags":["Ø¹Ø§Ø¦ÙØ©"]},{"id":"zh-a2-s3","title":"Ø¹ÙÙ Ø§ÙÙØ§Ø¦Ø¯Ø©","desc":"Ø§ÙÙØ­Ø§Ø¯Ø«Ø© Ø£Ø«ÙØ§Ø¡ Ø§ÙØ·Ø¹Ø§Ù","min":20,"xp":70,"tags":["Ø·Ø¹Ø§Ù"]}],"reading":[{"id":"zh-a2-r1","title":"300 Ø­Ø±Ù ØµÙÙÙ","desc":"ØªÙØ³ÙØ¹ Ø§ÙÙØ¹Ø¬Ù Ø§ÙØ­Ø±ÙÙ","min":25,"xp":80,"tags":["Ø­Ø±ÙÙ"]},{"id":"zh-a2-r2","title":"ÙØµØµ Ø´Ø¹Ø¨ÙØ©","desc":"ÙØµØµ Ø´Ø¹Ø¨ÙØ© ÙØ¨Ø³Ø·Ø©","min":22,"xp":75,"tags":["ÙØµØµ"]}],"writing":[{"id":"zh-a2-w1","title":"Ø±Ø³Ø§Ø¦Ù WeChat","desc":"Ø±Ø³Ø§Ø¦Ù ÙØµÙØ© ÙØµÙØ±Ø©","min":20,"xp":70,"tags":["Ø±Ø³Ø§Ø¦Ù"]},{"id":"zh-a2-w2","title":"ÙÙØ¡ Ø§ÙÙÙØ§Ø°Ø¬","desc":"ÙÙØ§Ø°Ø¬ Ø¨Ø§ÙØµÙÙÙØ©","min":20,"xp":70,"tags":["ÙÙØ§Ø°Ø¬"]}]}},"B1":{"skills":{"listening":[{"id":"zh-b1-l1","title":"Ø§ÙØ£ÙÙØ§Ù Ø§ÙØµÙÙÙØ©","desc":"Ø­ÙØ§Ø± Ø§ÙØ£ÙÙØ§Ù","min":25,"xp":100,"tags":["Ø£ÙÙØ§Ù"],"audio":"files/zh-b1-lesson.wav","pdf":"files/zh-b1-chengyu.pdf"},{"id":"zh-b1-l2","title":"Ø¨ÙØ¯ÙØ§Ø³Øª ØµÙÙÙ","desc":"Ø¨ÙØ¯ÙØ§Ø³Øª ÙØªØ¯Ø±Ø¬","min":25,"xp":100,"tags":["Ø¨ÙØ¯ÙØ§Ø³Øª"]},{"id":"zh-b1-l3","title":"Ø£Ø®Ø¨Ø§Ø± CCTV","desc":"Ø£Ø®Ø¨Ø§Ø± Ø§ÙØªÙÙØ²ÙÙÙ Ø§ÙØµÙÙÙ","min":25,"xp":100,"tags":["Ø£Ø®Ø¨Ø§Ø±"]}],"speaking":[{"id":"zh-b1-s1","title":"ÙÙØ§Ø´ ÙÙÙÙ","desc":"ÙÙØ§ÙØ´Ø© ÙÙØ§Ø¶ÙØ¹ ÙÙÙÙØ©","min":25,"xp":100,"tags":["ÙÙØ§Ø´"]},{"id":"zh-b1-s2","title":"æè¯­ Ø§ÙØ£ÙØ«Ø§Ù","desc":"Ø§ÙØ£ÙØ«Ø§Ù Ø§ÙØµÙÙÙØ© Ø§ÙØ£Ø±Ø¨Ø¹Ø© Ø£Ø­Ø±Ù","min":25,"xp":100,"tags":["Ø£ÙØ«Ø§Ù"],"pdf":"files/zh-b1-chengyu.pdf"},{"id":"zh-b1-s3","title":"Ø§ÙØ³ÙØ§Ø­Ø© ÙÙ Ø§ÙØµÙÙ","desc":"ÙØ³Ø§Ø¦Ø­ ÙÙ Ø§ÙØµÙÙ","min":25,"xp":100,"tags":["Ø³ÙØ§Ø­Ø©"]}],"reading":[{"id":"zh-b1-r1","title":"600 Ø­Ø±Ù ØµÙÙÙ","desc":"ÙØ³ØªÙÙ Ø§ÙÙØ±Ø§Ø¡Ø© Ø§ÙÙØªÙØ³Ø·","min":30,"xp":110,"tags":["Ø­Ø±ÙÙ"]},{"id":"zh-b1-r2","title":"Ø§ÙØµØ­Ù Ø§ÙØµÙÙÙØ©","desc":"ÙÙØ§ÙØ§Øª ØµØ­ÙÙØ©","min":25,"xp":100,"tags":["ØµØ­Ø§ÙØ©"]},{"id":"zh-b1-r3","title":"Ø§ÙØ£Ø¯Ø¨ Ø§ÙØµÙÙÙ","desc":"Ø£Ø¹ÙØ§Ù Ø£Ø¯Ø¨ÙØ© ÙØ¨Ø³Ø·Ø©","min":30,"xp":110,"tags":["Ø£Ø¯Ø¨"]}],"writing":[{"id":"zh-b1-w1","title":"ÙÙØ§Ù Ø¨Ø³ÙØ·","desc":"ÙÙØ§Ù Ø±Ø£Ù","min":30,"xp":110,"tags":["ÙÙØ§Ù"]},{"id":"zh-b1-w2","title":"Ø±Ø³Ø§Ø¦Ù Ø±Ø³ÙÙØ©","desc":"Ø®Ø·Ø§Ø¨Ø§Øª Ø±Ø³ÙÙØ©","min":30,"xp":110,"tags":["Ø±Ø³ÙÙ"]}]}},"B2":{"skills":{"listening":[{"id":"zh-b2-l1","title":"Ø§ÙØ¨Ø±Ø§ÙØ¬ Ø§ÙØ«ÙØ§ÙÙØ©","desc":"Ø§ÙØ«ÙØ§ÙØ© ÙØ§ÙØªØ§Ø±ÙØ®","min":30,"xp":130,"tags":["Ø«ÙØ§ÙØ©"]},{"id":"zh-b2-l2","title":"Ø§ÙÙØ­Ø§Ø¶Ø±Ø§Øª","desc":"ÙØ­Ø§Ø¶Ø±Ø§Øª Ø£ÙØ§Ø¯ÙÙÙØ©","min":30,"xp":130,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]}],"speaking":[{"id":"zh-b2-s1","title":"Ø§ÙÙÙØ§Ø´ Ø§ÙØ«ÙØ§ÙÙ","desc":"Ø§ÙÙÙÙÙ ÙØ§ÙØ«ÙØ§ÙØ©","min":30,"xp":130,"tags":["Ø«ÙØ§ÙØ©"]},{"id":"zh-b2-s2","title":"Ø¨ÙØ¦Ø© Ø§ÙØ¹ÙÙ","desc":"Ø§ÙØªÙØ§ØµÙ Ø§ÙÙÙÙÙ","min":30,"xp":130,"tags":["Ø¹ÙÙ"]}],"reading":[{"id":"zh-b2-r1","title":"1000 Ø­Ø±Ù ØµÙÙÙ","desc":"ÙØ³ØªÙÙ ÙØªÙØ¯Ù","min":35,"xp":140,"tags":["Ø­Ø±ÙÙ"]},{"id":"zh-b2-r2","title":"Ø§ÙØ£Ø¯Ø¨ Ø§ÙÙÙØ§Ø³ÙÙÙ","desc":"Ø£Ø¹ÙØ§Ù ÙÙØ§Ø³ÙÙÙØ©","min":35,"xp":140,"tags":["Ø£Ø¯Ø¨"]}],"writing":[{"id":"zh-b2-w1","title":"ÙØªØ§Ø¨Ø© ÙØªÙØ¯ÙØ©","desc":"ÙØµÙØµ ÙØ¹ÙØ¯Ø©","min":35,"xp":140,"tags":["ÙØªÙØ¯Ù"]},{"id":"zh-b2-w2","title":"Ø§ÙÙØ±Ø§Ø³ÙØ§Øª Ø§ÙØªØ¬Ø§Ø±ÙØ©","desc":"Ø®Ø·Ø§Ø¨Ø§Øª ØªØ¬Ø§Ø±ÙØ©","min":35,"xp":140,"tags":["ØªØ¬Ø§Ø±Ù"]}]}},"C1":{"skills":{"listening":[{"id":"zh-c1-l1","title":"Ø§ÙÙÙØ¬Ø§Øª Ø§ÙØµÙÙÙØ©","desc":"ÙØ§ÙØªÙÙÙØ© ÙØ´Ø§ÙØºÙØ§Ø¦ÙØ©","min":40,"xp":170,"tags":["ÙÙØ¬Ø§Øª"]},{"id":"zh-c1-l2","title":"ÙØ­Ø§Ø¶Ø±Ø§Øª ÙØªÙØ¯ÙØ©","desc":"ÙØ­Ø§Ø¶Ø±Ø§Øª Ø¬Ø§ÙØ¹ÙØ©","min":40,"xp":170,"tags":["Ø£ÙØ§Ø¯ÙÙÙ"]}],"speaking":[{"id":"zh-c1-s1","title":"Ø§ÙØ®Ø·Ø§Ø¨ Ø§ÙØ±Ø³ÙÙ","desc":"Ø®Ø·Ø§Ø¨Ø§Øª Ø±Ø³ÙÙØ©","min":40,"xp":170,"tags":["Ø®Ø·Ø§Ø¨Ø©"]},{"id":"zh-c1-s2","title":"Ø§ÙØ´Ø¹Ø± Ø§ÙØµÙÙÙ","desc":"ÙØ±Ø§Ø¡Ø© ÙØªØ­ÙÙÙ Ø§ÙØ´Ø¹Ø±","min":40,"xp":170,"tags":["Ø´Ø¹Ø±"]}],"reading":[{"id":"zh-c1-r1","title":"2000 Ø­Ø±Ù (HSK5)","desc":"Ø§Ø¬ØªÙØ§Ø² HSK 5","min":40,"xp":170,"tags":["HSK"]},{"id":"zh-c1-r2","title":"Ø§ÙÙÙØ§Ø³ÙÙÙØ§Øª","desc":"ÙÙÙÙÙØ´ÙÙØ³ ÙØµÙ ØªØ²Ù","min":45,"xp":180,"tags":["ÙÙØ§Ø³ÙÙÙ"]}],"writing":[{"id":"zh-c1-w1","title":"Ø§ÙÙØªØ§Ø¨Ø© Ø§ÙØ£Ø¯Ø¨ÙØ©","desc":"ÙØµÙØµ Ø£Ø¯Ø¨ÙØ© Ø±Ø§ÙÙØ©","min":45,"xp":180,"tags":["Ø£Ø¯Ø¨"]},{"id":"zh-c1-w2","title":"Ø¨Ø­Ø« Ø£ÙØ§Ø¯ÙÙÙ","desc":"Ø£Ø¨Ø­Ø§Ø« Ø£ÙØ§Ø¯ÙÙÙØ©","min":45,"xp":180,"tags":["Ø¨Ø­Ø«"]}]}},"C2":{"skills":{"listening":[{"id":"zh-c2-l1","title":"Ø§ÙØ¥ØªÙØ§Ù - Ø§Ø³ØªÙØ§Ø¹","desc":"Ø£Ù ÙØ­ØªÙÙ ØµÙÙÙ","min":45,"xp":200,"tags":["Ø¥ØªÙØ§Ù"]}],"speaking":[{"id":"zh-c2-s1","title":"Ø§ÙØ¥ØªÙØ§Ù - ÙÙØ§Ù","desc":"ÙØ§ÙÙÙØ§Ø·Ù Ø§ÙØµÙÙÙ","min":45,"xp":200,"tags":["Ø¥ØªÙØ§Ù"]}],"reading":[{"id":"zh-c2-r1","title":"3000+ Ø­Ø±Ù (HSK6)","desc":"Ø¥ØªÙØ§Ù HSK 6","min":45,"xp":200,"tags":["HSK","Ø¥ØªÙØ§Ù"]}],"writing":[{"id":"zh-c2-w1","title":"Ø§ÙØ¥ØªÙØ§Ù - ÙØªØ§Ø¨Ø©","desc":"ÙØ§ÙÙØ§ØªØ¨ Ø§ÙØµÙÙÙ","min":50,"xp":220,"tags":["Ø¥ØªÙØ§Ù"]}]}}}}}};
 
 // ===== SESSION =====
 const SK = 'lingua_session', PK = 'lingua_progress_';
@@ -266,8 +283,8 @@ function saveProg() { localStorage.setItem(PK + sess.userId, JSON.stringify(prog
 
 // ===== CONSTANTS =====
 const LEVELS = ['A0','A1','A2','B1','B2','C1','C2'];
-const LV_NAMES = {A0:'مبتدئ تام',A1:'مبتدئ',A2:'ما دون المتوسط',B1:'متوسط',B2:'فوق المتوسط',C1:'متقدم',C2:'إتقان تام'};
-const SK_MAP = {listening:{key:'L',icon:'🎧',name:'الاستماع',color:'var(--CL)'},speaking:{key:'S',icon:'🗣️',name:'المحادثة',color:'var(--CS)'},reading:{key:'R',icon:'📖',name:'القراءة',color:'var(--CR)'},writing:{key:'W',icon:'✍️',name:'الكتابة',color:'var(--CW)'}};
+const LV_NAMES = {A0:'ÙØ¨ØªØ¯Ø¦ ØªØ§Ù',A1:'ÙØ¨ØªØ¯Ø¦',A2:'ÙØ§ Ø¯ÙÙ Ø§ÙÙØªÙØ³Ø·',B1:'ÙØªÙØ³Ø·',B2:'ÙÙÙ Ø§ÙÙØªÙØ³Ø·',C1:'ÙØªÙØ¯Ù',C2:'Ø¥ØªÙØ§Ù ØªØ§Ù'};
+const SK_MAP = {listening:{key:'L',icon:'ð§',name:'Ø§ÙØ§Ø³ØªÙØ§Ø¹',color:'var(--CL)'},speaking:{key:'S',icon:'ð£ï¸',name:'Ø§ÙÙØ­Ø§Ø¯Ø«Ø©',color:'var(--CS)'},reading:{key:'R',icon:'ð',name:'Ø§ÙÙØ±Ø§Ø¡Ø©',color:'var(--CR)'},writing:{key:'W',icon:'âï¸',name:'Ø§ÙÙØªØ§Ø¨Ø©',color:'var(--CW)'}};
 
 // ===== HELPERS =====
 function getAll() {
@@ -301,7 +318,7 @@ function getNextLvXP() {
 
 // ===== INIT =====
 async function init() {
-  // محاولة جلب lessons.json
+  // ÙØ­Ø§ÙÙØ© Ø¬ÙØ¨ lessons.json
   try {
     const r = await fetch(LESSONS_URL);
     if (r.ok) DB = await r.json();
@@ -316,10 +333,10 @@ async function init() {
   // Navbar
   document.getElementById('uav').textContent = sess.name.charAt(0);
   document.getElementById('uname').textContent = sess.name;
-  document.getElementById('urole').textContent = sess.role==='demo' ? '🧪 تجريبي' : '👤 عضو';
+  document.getElementById('urole').textContent = sess.role==='demo' ? 'ð§ª ØªØ¬Ø±ÙØ¨Ù' : 'ð¤ Ø¹Ø¶Ù';
   
   // Hero
-  document.getElementById('welcome').textContent = 'مرحباً ' + sess.name + '! 👋';
+  document.getElementById('welcome').textContent = 'ÙØ±Ø­Ø¨Ø§Ù ' + sess.name + '! ð';
   document.getElementById('streak').textContent = prog.streak;
   document.getElementById('s-xp').textContent = prog.xp;
   document.getElementById('s-done').textContent = prog.completedLessons.length;
@@ -331,7 +348,7 @@ async function init() {
   document.getElementById('xp-cur').textContent = prog.xp;
   document.getElementById('xp-max').textContent = nx.max;
   document.getElementById('xpf').style.width = nx.pct + '%';
-  document.getElementById('xp-lbl').textContent = prog.level + ' → ' + (nx.nextLv||'C2');
+  document.getElementById('xp-lbl').textContent = prog.level + ' â ' + (nx.nextLv||'C2');
   
   // Skill bars
   Object.entries(SK_MAP).forEach(([sk,info]) => {
@@ -370,18 +387,18 @@ function renderHome() {
   
   document.getElementById('home-lessons').innerHTML = combined.length
     ? combined.map(l => lessonItem(l, done.has(l.id))).join('')
-    : '<div class="loading">لا توجد دروس</div>';
+    : '<div class="loading">ÙØ§ ØªÙØ¬Ø¯ Ø¯Ø±ÙØ³</div>';
 }
 
 function lessonItem(l, isDone) {
   const btn = isDone
-    ? `<span class="lbadge bd">✅ مكتمل</span>`
-    : `<button class="start-btn" onclick="event.stopPropagation();startLesson('${l.id}','${l.lid}','${l.skId}','${l.lvId}',${l.xp})">▶ ابدأ الدرس</button>`;
+    ? `<span class="lbadge bd">â ÙÙØªÙÙ</span>`
+    : `<button class="start-btn" onclick="event.stopPropagation();startLesson('${l.id}','${l.lid}','${l.skId}','${l.lvId}',${l.xp})">â¶ Ø§Ø¨Ø¯Ø£ Ø§ÙØ¯Ø±Ø³</button>`;
   return `<div class="li" onclick="startLesson('${l.id}','${l.lid}','${l.skId}','${l.lvId}',${l.xp})">
-    <div class="lc ${isDone?'done':'act'}">${isDone?'✓':'▶'}</div>
+    <div class="lc ${isDone?'done':'act'}">${isDone?'â':'â¶'}</div>
     <div class="linfo">
       <div class="ltitle">${l.langFlag} ${l.title}</div>
-      <div class="lmeta">${l.min} دق • +${l.xp} XP • ${l.lvId}${l.tags?(' • '+l.tags.slice(0,2).join(' • ')):''}</div>
+      <div class="lmeta">${l.min} Ø¯Ù â¢ +${l.xp} XP â¢ ${l.lvId}${l.tags?(' â¢ '+l.tags.slice(0,2).join(' â¢ ')):''}</div>
     </div>
     ${btn}
   </div>`;
@@ -417,12 +434,12 @@ function renderSkills(lid) {
     ls.slice(0,4).forEach(l => {
       const id = done.has(l.id);
       html += `<div class="li" onclick="startLesson('${l.id}','${lid}','${sk}','${l.lvId}',${l.xp})">
-        <div class="lc ${id?'done':''}">${id?'✓':'▶'}</div>
-        <div class="linfo"><div class="ltitle">${l.title} <small style="color:var(--muted)">${l.lvId}</small></div><div class="lmeta">${l.min} دق • +${l.xp} XP</div></div>
-        <button class="sbtn ${id?'sbo':'sbp'}">${id?'إعادة':'+'+l.xp+' XP'}</button>
+        <div class="lc ${id?'done':''}">${id?'â':'â¶'}</div>
+        <div class="linfo"><div class="ltitle">${l.title} <small style="color:var(--muted)">${l.lvId}</small></div><div class="lmeta">${l.min} Ø¯Ù â¢ +${l.xp} XP</div></div>
+        <button class="sbtn ${id?'sbo':'sbp'}">${id?'Ø¥Ø¹Ø§Ø¯Ø©':'+'+l.xp+' XP'}</button>
       </div>`;
     });
-    if(ls.length>4) html+=`<div style="text-align:center;margin-top:8px"><a style="color:var(--gold);font-size:13px;cursor:pointer" onclick="goLang('${lid}')">+${ls.length-4} دروس أخرى ←</a></div>`;
+    if(ls.length>4) html+=`<div style="text-align:center;margin-top:8px"><a style="color:var(--gold);font-size:13px;cursor:pointer" onclick="goLang('${lid}')">+${ls.length-4} Ø¯Ø±ÙØ³ Ø£Ø®Ø±Ù â</a></div>`;
     html += '</div>';
   });
   html += '</div>';
@@ -437,7 +454,7 @@ function initLessons() {
     const l = DB.courses[lid];
     return `<div class="lt${i===0?' on':''}" onclick="selLL('${lid}',this)">${l.flag} ${l.name}</div>`;
   }).join('');
-  document.getElementById('lessons-lv-tabs').innerHTML = ['الكل',...LEVELS].map((lv,i) => {
+  document.getElementById('lessons-lv-tabs').innerHTML = ['Ø§ÙÙÙ',...LEVELS].map((lv,i) => {
     return `<div class="lt${i===0?' on':''}" onclick="selLV('${i===0?'all':lv}',this)">${lv}</div>`;
   }).join('');
   renderLessons();
@@ -465,8 +482,8 @@ function renderLessons() {
     
     html += `<div class="card" style="margin-bottom:14px">
       <div class="ctitle" style="justify-content:space-between">
-        <span>📊 ${lvId} — ${LV_NAMES[lvId]||''}</span>
-        <span style="font-size:12px;color:var(--muted)">${dc}/${all.length} • ${xpReq} XP مطلوب</span>
+        <span>ð ${lvId} â ${LV_NAMES[lvId]||''}</span>
+        <span style="font-size:12px;color:var(--muted)">${dc}/${all.length} â¢ ${xpReq} XP ÙØ·ÙÙØ¨</span>
       </div>`;
     
     Object.entries(lv.skills).forEach(([sk,lessons]) => {
@@ -483,7 +500,7 @@ function renderLessons() {
     html += '</div>';
   });
   
-  document.getElementById('lessons-content').innerHTML = html || '<div class="loading">لا توجد دروس</div>';
+  document.getElementById('lessons-content').innerHTML = html || '<div class="loading">ÙØ§ ØªÙØ¬Ø¯ Ø¯Ø±ÙØ³</div>';
 }
 
 // ===== PROGRESS =====
@@ -541,6 +558,7 @@ function showSec(name) {
   });
   if(name==='skills') renderSkills(curSkLang);
   if(name==='lessons') renderLessons();
+  if(name==='store'){setTimeout(renderStore,50);}
   if(name==='store') renderStore();
   const sbStore = document.getElementById('sb-store');
   if(sbStore){sbStore.classList.remove('on');if(name==='store')sbStore.classList.add('on');}
@@ -576,43 +594,43 @@ function startLesson(id, lid, sk, lvId, xp) {
     renderHome();
   }
   
-  // فتح modal الدرس
+  // ÙØªØ­ modal Ø§ÙØ¯Ø±Ø³
   const all = getAll();
   const lesson = all.find(l=>l.id===id);
   showLessonModal(lesson, isNew, xp);
 }
 
 function showLessonModal(lesson, isNew, xp) {
-  // إزالة modal سابق إن وجد
+  // Ø¥Ø²Ø§ÙØ© modal Ø³Ø§Ø¨Ù Ø¥Ù ÙØ¬Ø¯
   const old = document.getElementById('lm');
   if(old) old.remove();
   
-  const langNames = {english:'الإنجليزية 🇬🇧', turkish:'التركية 🇹🇷', chinese:'الصينية 🇨🇳'};
-  const skillNames = {listening:'الاستماع 🎧', speaking:'المحادثة 🗣️', reading:'القراءة 📖', writing:'الكتابة ✍️'};
+  const langNames = {english:'Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ© ð¬ð§', turkish:'Ø§ÙØªØ±ÙÙØ© ð¹ð·', chinese:'Ø§ÙØµÙÙÙØ© ð¨ð³'};
+  const skillNames = {listening:'Ø§ÙØ§Ø³ØªÙØ§Ø¹ ð§', speaking:'Ø§ÙÙØ­Ø§Ø¯Ø«Ø© ð£ï¸', reading:'Ø§ÙÙØ±Ø§Ø¡Ø© ð', writing:'Ø§ÙÙØªØ§Ø¨Ø© âï¸'};
   
-  const title = lesson ? lesson.title : 'درس';
+  const title = lesson ? lesson.title : 'Ø¯Ø±Ø³';
   const desc = lesson ? lesson.desc : '';
   const pdf = lesson ? lesson.pdf : null;
   const audio = lesson ? lesson.audio : null;
-  const tags = lesson && lesson.tags ? lesson.tags.join(' • ') : '';
+  const tags = lesson && lesson.tags ? lesson.tags.join(' â¢ ') : '';
   const minTime = lesson ? lesson.min : '?';
   
   const modal = document.createElement('div');
   modal.id = 'lm';
   modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(4px);';
   
-  const badge = isNew ? `<div style="background:#4CAF50;color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;margin-bottom:12px;display:inline-block">🎉 +${xp} XP مكتسبة!</div>` : `<div style="background:#C4983A;color:#000;padding:6px 14px;border-radius:20px;font-size:13px;margin-bottom:12px;display:inline-block">▶ مراجعة الدرس</div>`;
+  const badge = isNew ? `<div style="background:#4CAF50;color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;margin-bottom:12px;display:inline-block">ð +${xp} XP ÙÙØªØ³Ø¨Ø©!</div>` : `<div style="background:#C4983A;color:#000;padding:6px 14px;border-radius:20px;font-size:13px;margin-bottom:12px;display:inline-block">â¶ ÙØ±Ø§Ø¬Ø¹Ø© Ø§ÙØ¯Ø±Ø³</div>`;
   
-  // نصائح تعليمية حسب المهارة
+  // ÙØµØ§Ø¦Ø­ ØªØ¹ÙÙÙÙØ© Ø­Ø³Ø¨ Ø§ÙÙÙØ§Ø±Ø©
   const lid2 = lesson ? lesson.lid : 'english';
   const skId = lesson ? lesson.skId : 'listening';
-  const langMap2 = {english:'🇬🇧 الإنجليزية', turkish:'🇹🇷 التركية', chinese:'🇨🇳 الصينية'};
-  const skMap2 = {listening:'🎧 استماع', speaking:'🗣️ محادثة', reading:'📖 قراءة', writing:'✍️ كتابة'};
+  const langMap2 = {english:'ð¬ð§ Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©', turkish:'ð¹ð· Ø§ÙØªØ±ÙÙØ©', chinese:'ð¨ð³ Ø§ÙØµÙÙÙØ©'};
+  const skMap2 = {listening:'ð§ Ø§Ø³ØªÙØ§Ø¹', speaking:'ð£ï¸ ÙØ­Ø§Ø¯Ø«Ø©', reading:'ð ÙØ±Ø§Ø¡Ø©', writing:'âï¸ ÙØªØ§Ø¨Ø©'};
   const tipsMap = {
-    listening:['🎧 استمع مرتين على الأقل قبل التقدم','📝 دوّن المفردات الجديدة','🔄 ركّز على السياق لا كل كلمة'],
-    speaking:['🗣️ تحدث بصوت عالٍ وواضح','🎯 قلّد النطق الطبيعي','🔁 كرّر الجمل حتى تتقنها'],
-    reading:['📖 اقرأ ببطء وافهم كل جملة','💡 خمّن معنى الكلمات من السياق','📋 حدّد الفكرة الرئيسية من كل فقرة'],
-    writing:['✏️ ابدأ بجملة بسيطة ثم طوّلها','📝 استخدم المفردات المتعلمة في جمل حقيقية','🔄 راجع كتابتك وصحّح الأخطاء']
+    listening:['ð§ Ø§Ø³ØªÙØ¹ ÙØ±ØªÙÙ Ø¹ÙÙ Ø§ÙØ£ÙÙ ÙØ¨Ù Ø§ÙØªÙØ¯Ù','ð Ø¯ÙÙÙ Ø§ÙÙÙØ±Ø¯Ø§Øª Ø§ÙØ¬Ø¯ÙØ¯Ø©','ð Ø±ÙÙØ² Ø¹ÙÙ Ø§ÙØ³ÙØ§Ù ÙØ§ ÙÙ ÙÙÙØ©'],
+    speaking:['ð£ï¸ ØªØ­Ø¯Ø« Ø¨ØµÙØª Ø¹Ø§ÙÙ ÙÙØ§Ø¶Ø­','ð¯ ÙÙÙØ¯ Ø§ÙÙØ·Ù Ø§ÙØ·Ø¨ÙØ¹Ù','ð ÙØ±ÙØ± Ø§ÙØ¬ÙÙ Ø­ØªÙ ØªØªÙÙÙØ§'],
+    reading:['ð Ø§ÙØ±Ø£ Ø¨Ø¨Ø·Ø¡ ÙØ§ÙÙÙ ÙÙ Ø¬ÙÙØ©','ð¡ Ø®ÙÙÙ ÙØ¹ÙÙ Ø§ÙÙÙÙØ§Øª ÙÙ Ø§ÙØ³ÙØ§Ù','ð Ø­Ø¯ÙØ¯ Ø§ÙÙÙØ±Ø© Ø§ÙØ±Ø¦ÙØ³ÙØ© ÙÙ ÙÙ ÙÙØ±Ø©'],
+    writing:['âï¸ Ø§Ø¨Ø¯Ø£ Ø¨Ø¬ÙÙØ© Ø¨Ø³ÙØ·Ø© Ø«Ù Ø·ÙÙÙÙØ§','ð Ø§Ø³ØªØ®Ø¯Ù Ø§ÙÙÙØ±Ø¯Ø§Øª Ø§ÙÙØªØ¹ÙÙØ© ÙÙ Ø¬ÙÙ Ø­ÙÙÙÙØ©','ð Ø±Ø§Ø¬Ø¹ ÙØªØ§Ø¨ØªÙ ÙØµØ­ÙØ­ Ø§ÙØ£Ø®Ø·Ø§Ø¡']
   };
   const tips = tipsMap[skId] || tipsMap.listening;
   const tipsHTML = tips.map(t => `<div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)"><span style="font-size:16px">${t.split(' ')[0]}</span><span style="font-size:13px;color:#C4B8D0">${t.slice(t.indexOf(' ')+1)}</span></div>`).join('');
@@ -620,25 +638,25 @@ function showLessonModal(lesson, isNew, xp) {
 
   modal.innerHTML = `
     <div style="background:#1E1648;border-radius:20px;padding:28px;max-width:480px;width:92%;border:1px solid rgba(196,152,58,.25);position:relative;max-height:85vh;overflow-y:auto;">
-      <button onclick="document.getElementById('lm').remove()" style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,.1);border:none;color:#eee;font-size:18px;cursor:pointer;width:30px;height:30px;border-radius:50%">✕</button>
+      <button onclick="document.getElementById('lm').remove()" style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,.1);border:none;color:#eee;font-size:18px;cursor:pointer;width:30px;height:30px;border-radius:50%">â</button>
       <div style="text-align:center;margin-bottom:20px">
         ${badge}
         <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
           <span style="background:rgba(33,150,243,.2);color:#2196F3;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${langMap2[lid2]||lid2}</span>
           <span style="background:rgba(156,39,176,.2);color:#CE93D8;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${skMap2[skId]||skId}</span>
-          <span style="background:rgba(255,255,255,.08);color:#aaa;padding:3px 10px;border-radius:20px;font-size:11px">⏱ ${minTime} دق</span>
+          <span style="background:rgba(255,255,255,.08);color:#aaa;padding:3px 10px;border-radius:20px;font-size:11px">â± ${minTime} Ø¯Ù</span>
         </div>
         <h2 style="color:#F0EDE8;margin:8px 0 6px;font-size:20px;font-weight:800">${title}</h2>
         <p style="color:#C4983A;font-size:14px;margin:0 0 10px">${desc}</p>
         ${tagsHTML}
       </div>
       <div style="background:rgba(15,14,26,.5);border-radius:12px;padding:16px;margin-bottom:16px">
-        <div style="font-size:13px;font-weight:700;color:#C4983A;margin-bottom:10px">💡 نصائح لهذا الدرس</div>
+        <div style="font-size:13px;font-weight:700;color:#C4983A;margin-bottom:10px">ð¡ ÙØµØ§Ø¦Ø­ ÙÙØ°Ø§ Ø§ÙØ¯Ø±Ø³</div>
         ${tipsHTML}
       </div>
       <div style="display:flex;gap:10px">
-        <button onclick="document.getElementById('lm').remove()" style="flex:1;background:#2d2a4a;color:#F0EDE8;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit">إغلاق</button>
-        <button onclick="document.getElementById('lm').remove();showToast('✅ تم تسجيل الدرس!')" style="flex:2;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:800;font-family:inherit">✅ تم الدرس!</button>
+        <button onclick="document.getElementById('lm').remove()" style="flex:1;background:#2d2a4a;color:#F0EDE8;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit">Ø¥ØºÙØ§Ù</button>
+        <button onclick="document.getElementById('lm').remove();showToast('â ØªÙ ØªØ³Ø¬ÙÙ Ø§ÙØ¯Ø±Ø³!')" style="flex:2;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:800;font-family:inherit">â ØªÙ Ø§ÙØ¯Ø±Ø³!</button>
       </div>
     </div>`;
   
@@ -657,39 +675,39 @@ function logout() { localStorage.removeItem('lingua_session'); location.href = '
 // ===== STORE =====
 const STORE_VIDEOS = {
   listening: [
-    {id:'sv-en-1', lang:'🇬🇧', title:'English Pronunciation for Beginners', level:'A0', duration:'8:24', channel:'BBC Learning English', thumb:'https://i.ytimg.com/vi/dtvd4g4eiAg/hqdefault.jpg', url:'https://www.youtube.com/watch?v=dtvd4g4eiAg', desc:'تعلم نطق الحروف الإنجليزية مع BBC'},
-    {id:'sv-en-2', lang:'🇬🇧', title:'Learn English Conversation - All Levels', level:'A1', duration:'45:30', channel:'English Singsing', thumb:'https://i.ytimg.com/vi/URnbeHo_hYA/hqdefault.jpg', url:'https://www.youtube.com/watch?v=URnbeHo_hYA', desc:'محادثات إنجليزية يومية للمبتدئين'},
-    {id:'sv-en-3', lang:'🇬🇧', title:'English Listening Practice - Daily Life', level:'A2', duration:'32:15', channel:'Learn English with TV Series', thumb:'https://i.ytimg.com/vi/3JZ_D3ELwOQ/hqdefault.jpg', url:'https://www.youtube.com/watch?v=3JZ_D3ELwOQ', desc:'استماع لمواقف الحياة اليومية'},
-    {id:'sv-en-4', lang:'🇬🇧', title:'TED Talks for English Learners', level:'B1', duration:'18:45', channel:'TED', thumb:'https://i.ytimg.com/vi/8jPQjjsBbIc/hqdefault.jpg', url:'https://www.youtube.com/watch?v=8jPQjjsBbIc', desc:'محادثات TED لمتعلمي الإنجليزية'},
-    {id:'sv-en-5', lang:'🇬🇧', title:'BBC News in Easy English', level:'B2', duration:'15:00', channel:'BBC News', thumb:'https://i.ytimg.com/vi/NJ3GBv8LlYs/hqdefault.jpg', url:'https://www.youtube.com/watch?v=NJ3GBv8LlYs', desc:'أخبار BBC بالإنجليزية المبسطة'},
-    {id:'sv-tr-1', lang:'🇹🇷', title:'Türkçe Öğreniyorum - Yeni Başlayanlar', level:'A0', duration:'20:10', channel:'Turkish Language', thumb:'https://i.ytimg.com/vi/QI1JxLbMDfo/hqdefault.jpg', url:'https://www.youtube.com/watch?v=QI1JxLbMDfo', desc:'تعلم التركية من الصفر'},
-    {id:'sv-tr-2', lang:'🇹🇷', title:'Türkçe Dinleme Pratiği', level:'A2', duration:'25:30', channel:'Learn Turkish', thumb:'https://i.ytimg.com/vi/HmWFR97bBgM/hqdefault.jpg', url:'https://www.youtube.com/watch?v=HmWFR97bBgM', desc:'تدريب الاستماع للتركية'},
-    {id:'sv-zh-1', lang:'🇨🇳', title:'Learn Chinese - Beginner Listening', level:'A0', duration:'16:45', channel:'ChinesePod', thumb:'https://i.ytimg.com/vi/Vt-HxgcCEAE/hqdefault.jpg', url:'https://www.youtube.com/watch?v=Vt-HxgcCEAE', desc:'استماع للصينية المبتدئين'},
-    {id:'sv-zh-2', lang:'🇨🇳', title:'Chinese Conversations for Daily Life', level:'A2', duration:'28:20', channel:'Mandarin Corner', thumb:'https://i.ytimg.com/vi/CzRKGD_KPKU/hqdefault.jpg', url:'https://www.youtube.com/watch?v=CzRKGD_KPKU', desc:'محادثات صينية يومية'}
+    {id:'sv-en-1', lang:'ð¬ð§', title:'English Pronunciation for Beginners', level:'A0', duration:'8:24', channel:'BBC Learning English', thumb:'https://i.ytimg.com/vi/dtvd4g4eiAg/hqdefault.jpg', url:'https://www.youtube.com/watch?v=dtvd4g4eiAg', desc:'ØªØ¹ÙÙ ÙØ·Ù Ø§ÙØ­Ø±ÙÙ Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ© ÙØ¹ BBC'},
+    {id:'sv-en-2', lang:'ð¬ð§', title:'Learn English Conversation - All Levels', level:'A1', duration:'45:30', channel:'English Singsing', thumb:'https://i.ytimg.com/vi/URnbeHo_hYA/hqdefault.jpg', url:'https://www.youtube.com/watch?v=URnbeHo_hYA', desc:'ÙØ­Ø§Ø¯Ø«Ø§Øª Ø¥ÙØ¬ÙÙØ²ÙØ© ÙÙÙÙØ© ÙÙÙØ¨ØªØ¯Ø¦ÙÙ'},
+    {id:'sv-en-3', lang:'ð¬ð§', title:'English Listening Practice - Daily Life', level:'A2', duration:'32:15', channel:'Learn English with TV Series', thumb:'https://i.ytimg.com/vi/3JZ_D3ELwOQ/hqdefault.jpg', url:'https://www.youtube.com/watch?v=3JZ_D3ELwOQ', desc:'Ø§Ø³ØªÙØ§Ø¹ ÙÙÙØ§ÙÙ Ø§ÙØ­ÙØ§Ø© Ø§ÙÙÙÙÙØ©'},
+    {id:'sv-en-4', lang:'ð¬ð§', title:'TED Talks for English Learners', level:'B1', duration:'18:45', channel:'TED', thumb:'https://i.ytimg.com/vi/8jPQjjsBbIc/hqdefault.jpg', url:'https://www.youtube.com/watch?v=8jPQjjsBbIc', desc:'ÙØ­Ø§Ø¯Ø«Ø§Øª TED ÙÙØªØ¹ÙÙÙ Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©'},
+    {id:'sv-en-5', lang:'ð¬ð§', title:'BBC News in Easy English', level:'B2', duration:'15:00', channel:'BBC News', thumb:'https://i.ytimg.com/vi/NJ3GBv8LlYs/hqdefault.jpg', url:'https://www.youtube.com/watch?v=NJ3GBv8LlYs', desc:'Ø£Ø®Ø¨Ø§Ø± BBC Ø¨Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ© Ø§ÙÙØ¨Ø³Ø·Ø©'},
+    {id:'sv-tr-1', lang:'ð¹ð·', title:'TÃ¼rkÃ§e ÃÄreniyorum - Yeni BaÅlayanlar', level:'A0', duration:'20:10', channel:'Turkish Language', thumb:'https://i.ytimg.com/vi/QI1JxLbMDfo/hqdefault.jpg', url:'https://www.youtube.com/watch?v=QI1JxLbMDfo', desc:'ØªØ¹ÙÙ Ø§ÙØªØ±ÙÙØ© ÙÙ Ø§ÙØµÙØ±'},
+    {id:'sv-tr-2', lang:'ð¹ð·', title:'TÃ¼rkÃ§e Dinleme PratiÄi', level:'A2', duration:'25:30', channel:'Learn Turkish', thumb:'https://i.ytimg.com/vi/HmWFR97bBgM/hqdefault.jpg', url:'https://www.youtube.com/watch?v=HmWFR97bBgM', desc:'ØªØ¯Ø±ÙØ¨ Ø§ÙØ§Ø³ØªÙØ§Ø¹ ÙÙØªØ±ÙÙØ©'},
+    {id:'sv-zh-1', lang:'ð¨ð³', title:'Learn Chinese - Beginner Listening', level:'A0', duration:'16:45', channel:'ChinesePod', thumb:'https://i.ytimg.com/vi/Vt-HxgcCEAE/hqdefault.jpg', url:'https://www.youtube.com/watch?v=Vt-HxgcCEAE', desc:'Ø§Ø³ØªÙØ§Ø¹ ÙÙØµÙÙÙØ© Ø§ÙÙØ¨ØªØ¯Ø¦ÙÙ'},
+    {id:'sv-zh-2', lang:'ð¨ð³', title:'Chinese Conversations for Daily Life', level:'A2', duration:'28:20', channel:'Mandarin Corner', thumb:'https://i.ytimg.com/vi/CzRKGD_KPKU/hqdefault.jpg', url:'https://www.youtube.com/watch?v=CzRKGD_KPKU', desc:'ÙØ­Ø§Ø¯Ø«Ø§Øª ØµÙÙÙØ© ÙÙÙÙØ©'}
   ],
   reading: [
-    {id:'sr-en-1', lang:'🇬🇧', title:'The Three Little Pigs', level:'A0', duration:'5:30', channel:'Fairy Tales', thumb:'https://i.ytimg.com/vi/QLKGMKDrJoE/hqdefault.jpg', url:'https://www.youtube.com/watch?v=QLKGMKDrJoE', text:'Once upon a time, there were three little pigs. The first pig built a house of straw. The second pig built a house of sticks. The third pig built a house of bricks.
+    {id:'sr-en-1', lang:'ð¬ð§', title:'The Three Little Pigs', level:'A0', duration:'5:30', channel:'Fairy Tales', thumb:'https://i.ytimg.com/vi/QLKGMKDrJoE/hqdefault.jpg', url:'https://www.youtube.com/watch?v=QLKGMKDrJoE', text:'Once upon a time, there were three little pigs. The first pig built a house of straw. The second pig built a house of sticks. The third pig built a house of bricks.
 
 One day, a big bad wolf came along. "Little pig, little pig, let me in!" "Not by the hair of my chinny chin chin!" said the pig.
 
 The wolf huffed and puffed and blew the house in! The first pig ran to his brother's stick house. The wolf blew that down too! Both pigs ran to their brother's brick house.
 
-The wolf huffed and puffed but could not blow the brick house down. He tried to come down the chimney, but the pigs had a pot of hot water. The wolf ran away and never came back!', desc:'قصة الخنازير الثلاثة الصغيرة'},
-    {id:'sr-en-2', lang:'🇬🇧', title:'Little Red Riding Hood', level:'A1', duration:'7:15', channel:'Fairy Tales', thumb:'https://i.ytimg.com/vi/TtNBJQvbkto/hqdefault.jpg', url:'https://www.youtube.com/watch?v=TtNBJQvbkto', text:'Once there was a little girl called Little Red Riding Hood. One day, her mother said: "Take this basket of food to Grandmother. She is sick in bed."
+The wolf huffed and puffed but could not blow the brick house down. He tried to come down the chimney, but the pigs had a pot of hot water. The wolf ran away and never came back!', desc:'ÙØµØ© Ø§ÙØ®ÙØ§Ø²ÙØ± Ø§ÙØ«ÙØ§Ø«Ø© Ø§ÙØµØºÙØ±Ø©'},
+    {id:'sr-en-2', lang:'ð¬ð§', title:'Little Red Riding Hood', level:'A1', duration:'7:15', channel:'Fairy Tales', thumb:'https://i.ytimg.com/vi/TtNBJQvbkto/hqdefault.jpg', url:'https://www.youtube.com/watch?v=TtNBJQvbkto', text:'Once there was a little girl called Little Red Riding Hood. One day, her mother said: "Take this basket of food to Grandmother. She is sick in bed."
 
 On the way, Little Red Riding Hood met a wolf. "Where are you going?" asked the wolf. "To Grandmother's house," she said. The wolf ran ahead to Grandmother's house.
 
 When Little Red Riding Hood arrived, she noticed something strange. "Grandmother, what big eyes you have!" "All the better to see you with!" "What big ears you have!" "All the better to hear you with!" "What big teeth you have!" "All the better to EAT you with!" shouted the wolf.
 
-A woodcutter heard her scream and saved them both. The wolf ran away and was never seen again.', desc:'ذات الرداء الأحمر'},
-    {id:'sr-en-3', lang:'🇬🇧', title:'Goldilocks and the Three Bears', level:'A1', duration:'6:45', channel:'Story Time', thumb:'https://i.ytimg.com/vi/0nEMVpOtd1c/hqdefault.jpg', url:'https://www.youtube.com/watch?v=0nEMVpOtd1c', text:'Once upon a time, a girl named Goldilocks found a house in the forest. Inside were three bowls of porridge. She tasted the first bowl - it was too hot. The second was too cold. The third was just right, and she ate it all.
+A woodcutter heard her scream and saved them both. The wolf ran away and was never seen again.', desc:'Ø°Ø§Øª Ø§ÙØ±Ø¯Ø§Ø¡ Ø§ÙØ£Ø­ÙØ±'},
+    {id:'sr-en-3', lang:'ð¬ð§', title:'Goldilocks and the Three Bears', level:'A1', duration:'6:45', channel:'Story Time', thumb:'https://i.ytimg.com/vi/0nEMVpOtd1c/hqdefault.jpg', url:'https://www.youtube.com/watch?v=0nEMVpOtd1c', text:'Once upon a time, a girl named Goldilocks found a house in the forest. Inside were three bowls of porridge. She tasted the first bowl - it was too hot. The second was too cold. The third was just right, and she ate it all.
 
 Then she found three chairs. The big chair was too hard. The middle chair was too soft. The little chair was just right - but it broke!
 
 Upstairs were three beds. The first was too hard. The second was too soft. The third was just right, and she fell asleep.
 
-When the three bears came home, they found someone had eaten Baby Bear's porridge and was sleeping in his bed! Goldilocks woke up, saw the three bears, screamed, and ran home as fast as she could!', desc:'غولديلوكس والدببة الثلاثة'},
-    {id:'sr-en-4', lang:'🇬🇧', title:'The Tortoise and the Hare', level:'A2', duration:'5:00', channel:'Aesop Fables', thumb:'https://i.ytimg.com/vi/XRCopKAHCcQ/hqdefault.jpg', url:'https://www.youtube.com/watch?v=XRCopKAHCcQ', text:'Once there was a hare who was very proud of his speed. He always boasted: "I am the fastest animal in the forest! No one can beat me!"
+When the three bears came home, they found someone had eaten Baby Bear's porridge and was sleeping in his bed! Goldilocks woke up, saw the three bears, screamed, and ran home as fast as she could!', desc:'ØºÙÙØ¯ÙÙÙÙØ³ ÙØ§ÙØ¯Ø¨Ø¨Ø© Ø§ÙØ«ÙØ§Ø«Ø©'},
+    {id:'sr-en-4', lang:'ð¬ð§', title:'The Tortoise and the Hare', level:'A2', duration:'5:00', channel:'Aesop Fables', thumb:'https://i.ytimg.com/vi/XRCopKAHCcQ/hqdefault.jpg', url:'https://www.youtube.com/watch?v=XRCopKAHCcQ', text:'Once there was a hare who was very proud of his speed. He always boasted: "I am the fastest animal in the forest! No one can beat me!"
 
 A tortoise got tired of hearing this. "I challenge you to a race," said the tortoise. All the animals laughed at this idea.
 
@@ -697,33 +715,33 @@ The race began. The hare ran so fast that he was soon far ahead. He thought: "I 
 
 Meanwhile, the tortoise walked slowly but steadily, never stopping. When the hare woke up, he saw the tortoise crossing the finish line!
 
-The moral of the story: Slow and steady wins the race!', desc:'السلحفاة والأرنب'},
-    {id:'sr-en-5', lang:'🇬🇧', title:'Cinderella Story', level:'B1', duration:'12:30', channel:'Classic Tales', thumb:'https://i.ytimg.com/vi/4bvKHCMqceQ/hqdefault.jpg', url:'https://www.youtube.com/watch?v=4bvKHCMqceQ', text:'Once upon a time, there was a kind girl named Cinderella who lived with her cruel stepmother and two stepsisters. They made her do all the work while they lived in luxury.
+The moral of the story: Slow and steady wins the race!', desc:'Ø§ÙØ³ÙØ­ÙØ§Ø© ÙØ§ÙØ£Ø±ÙØ¨'},
+    {id:'sr-en-5', lang:'ð¬ð§', title:'Cinderella Story', level:'B1', duration:'12:30', channel:'Classic Tales', thumb:'https://i.ytimg.com/vi/4bvKHCMqceQ/hqdefault.jpg', url:'https://www.youtube.com/watch?v=4bvKHCMqceQ', text:'Once upon a time, there was a kind girl named Cinderella who lived with her cruel stepmother and two stepsisters. They made her do all the work while they lived in luxury.
 
 One day, the king announced a royal ball to find a bride for the prince. Cinderella was forbidden to go. But her fairy godmother appeared and transformed her dress into a beautiful gown, her shoes into glass slippers, and a pumpkin into a carriage.
 
 "Be home by midnight," warned the fairy godmother. At the ball, the prince danced only with Cinderella all night. But at midnight, she fled, leaving one glass slipper on the steps.
 
-The prince searched the entire kingdom. When he found Cinderella and the slipper fit perfectly, he knew she was the one. They were married and lived happily ever after.', desc:'سندريلا - قصة للقراءة والاستماع'},
-    {id:'sr-tr-1', lang:'🇹🇷', title:'Türk Halk Masalı - Keloğlan', level:'A1', duration:'8:00', channel:'Turkish Tales', thumb:'https://i.ytimg.com/vi/rO_Pj4Kxjcw/hqdefault.jpg', url:'https://www.youtube.com/watch?v=rO_Pj4Kxjcw', text:'Bir zamanlar Keloğlan adında fakir bir çocuk yaşıyordu. Annesiyle birlikte küçük bir kulübede oturuyorlardı.
+The prince searched the entire kingdom. When he found Cinderella and the slipper fit perfectly, he knew she was the one. They were married and lived happily ever after.', desc:'Ø³ÙØ¯Ø±ÙÙØ§ - ÙØµØ© ÙÙÙØ±Ø§Ø¡Ø© ÙØ§ÙØ§Ø³ØªÙØ§Ø¹'},
+    {id:'sr-tr-1', lang:'ð¹ð·', title:'TÃ¼rk Halk MasalÄ± - KeloÄlan', level:'A1', duration:'8:00', channel:'Turkish Tales', thumb:'https://i.ytimg.com/vi/rO_Pj4Kxjcw/hqdefault.jpg', url:'https://www.youtube.com/watch?v=rO_Pj4Kxjcw', text:'Bir zamanlar KeloÄlan adÄ±nda fakir bir Ã§ocuk yaÅÄ±yordu. Annesiyle birlikte kÃ¼Ã§Ã¼k bir kulÃ¼bede oturuyorlardÄ±.
 
-Bir gün annesine "Anne, çarşıya gidip bir şeyler alayım" dedi. Annesi ona birkaç kuruş verdi.
+Bir gÃ¼n annesine "Anne, Ã§arÅÄ±ya gidip bir Åeyler alayÄ±m" dedi. Annesi ona birkaÃ§ kuruÅ verdi.
 
-Keloğlan çarşıya giderken yolda yaralı bir kuş buldu. Kuşa acıdı ve onu satın aldı. Kuş, "Seni büyük bir padişahın kızına götüreceğim" dedi.
+KeloÄlan Ã§arÅÄ±ya giderken yolda yaralÄ± bir kuÅ buldu. KuÅa acÄ±dÄ± ve onu satÄ±n aldÄ±. KuÅ, "Seni bÃ¼yÃ¼k bir padiÅahÄ±n kÄ±zÄ±na gÃ¶tÃ¼receÄim" dedi.
 
-Uçtular, uçtular ve sarayın önüne geldiler. Padişahın kızı Keloğlan'ı gördü ve onu çok sevdi. Evlendiler ve sonsuza dek mutlu yaşadılar.
+UÃ§tular, uÃ§tular ve sarayÄ±n Ã¶nÃ¼ne geldiler. PadiÅahÄ±n kÄ±zÄ± KeloÄlan'Ä± gÃ¶rdÃ¼ ve onu Ã§ok sevdi. Evlendiler ve sonsuza dek mutlu yaÅadÄ±lar.
 
-Öğüt: İyilik eden iyilik bulur.', desc:'كيلوغلان - حكاية شعبية تركية'},
-    {id:'sr-zh-1', lang:'🇨🇳', title:'守株待兔 - The Farmer and the Rabbit', level:'A2', duration:'6:30', channel:'Chinese Stories', thumb:'https://i.ytimg.com/vi/RmrDpKSwGsA/hqdefault.jpg', url:'https://www.youtube.com/watch?v=RmrDpKSwGsA', text:'从前，有一个农夫在田里工作。
-一天，一只兔子跑过来，撞到了树桩，死了。
-农夫很高兴，捡起了兔子。
-从那以后，农夫不再工作，只是坐在树桩旁边等兔子。
-但是，再也没有兔子来了。
-农夫的庄稼都死了，他也没有食物吃。
-寓意：不要指望侥幸，要努力工作。
+ÃÄÃ¼t: Ä°yilik eden iyilik bulur.', desc:'ÙÙÙÙØºÙØ§Ù - Ø­ÙØ§ÙØ© Ø´Ø¹Ø¨ÙØ© ØªØ±ÙÙØ©'},
+    {id:'sr-zh-1', lang:'ð¨ð³', title:'å®æ ªå¾å - The Farmer and the Rabbit', level:'A2', duration:'6:30', channel:'Chinese Stories', thumb:'https://i.ytimg.com/vi/RmrDpKSwGsA/hqdefault.jpg', url:'https://www.youtube.com/watch?v=RmrDpKSwGsA', text:'ä»åï¼æä¸ä¸ªåå¤«å¨ç°éå·¥ä½ã
+ä¸å¤©ï¼ä¸åªåå­è·è¿æ¥ï¼æå°äºæ æ¡©ï¼æ­»äºã
+åå¤«å¾é«å´ï¼æ¡èµ·äºåå­ã
+ä»é£ä»¥åï¼åå¤«ä¸åå·¥ä½ï¼åªæ¯åå¨æ æ¡©æè¾¹ç­åå­ã
+ä½æ¯ï¼åä¹æ²¡æåå­æ¥äºã
+åå¤«çåºç¨¼é½æ­»äºï¼ä»ä¹æ²¡æé£ç©åã
+å¯æï¼ä¸è¦ææä¾¥å¹¸ï¼è¦åªåå·¥ä½ã
 
 Once, a farmer was working in his field. One day, a rabbit ran by and bumped into a tree stump and died. The farmer was very happy and picked up the rabbit. After that, the farmer stopped working and just sat by the stump waiting for rabbits. But no more rabbits came. His crops all died and he had nothing to eat.
-Moral: Do not rely on luck. You must work hard.', desc:'قصة المزارع والأرنب - صينية مع ترجمة'}
+Moral: Do not rely on luck. You must work hard.', desc:'ÙØµØ© Ø§ÙÙØ²Ø§Ø±Ø¹ ÙØ§ÙØ£Ø±ÙØ¨ - ØµÙÙÙØ© ÙØ¹ ØªØ±Ø¬ÙØ©'}
   ]
 };
 
@@ -741,9 +759,9 @@ function renderStore() {
   let html = '';
   
   if(curStoreTab === 'listening') {
-    html += '<div style="margin-bottom:16px;padding:14px;background:rgba(33,150,243,.1);border:1px solid rgba(33,150,243,.3);border-radius:12px;font-size:14px;color:#90CAF9">🎧 <strong>مقاطع فيديو للاستماع</strong> — اختر مستواك وابدأ التدريب على الاستماع الحقيقي</div>';
+    html += '<div style="margin-bottom:16px;padding:14px;background:rgba(33,150,243,.1);border:1px solid rgba(33,150,243,.3);border-radius:12px;font-size:14px;color:#90CAF9">ð§ <strong>ÙÙØ§Ø·Ø¹ ÙÙØ¯ÙÙ ÙÙØ§Ø³ØªÙØ§Ø¹</strong> â Ø§Ø®ØªØ± ÙØ³ØªÙØ§Ù ÙØ§Ø¨Ø¯Ø£ Ø§ÙØªØ¯Ø±ÙØ¨ Ø¹ÙÙ Ø§ÙØ§Ø³ØªÙØ§Ø¹ Ø§ÙØ­ÙÙÙÙ</div>';
     
-    // تجميع حسب اللغة
+    // ØªØ¬ÙÙØ¹ Ø­Ø³Ø¨ Ø§ÙÙØºØ©
     const langs = {};
     items.forEach(v => {
       if(!langs[v.lang]) langs[v.lang] = [];
@@ -752,7 +770,7 @@ function renderStore() {
     
     Object.entries(langs).forEach(([lang, videos]) => {
       html += `<div style="margin-bottom:24px">
-        <div style="font-size:16px;font-weight:800;margin-bottom:14px;color:var(--gold)">${lang} مقاطع الاستماع</div>
+        <div style="font-size:16px;font-weight:800;margin-bottom:14px;color:var(--gold)">${lang} ÙÙØ§Ø·Ø¹ Ø§ÙØ§Ø³ØªÙØ§Ø¹</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px">`;
       
       videos.forEach(v => {
@@ -760,16 +778,16 @@ function renderStore() {
           <div style="position:relative;cursor:pointer" onclick="openVideo('${v.id}')">
             <img src="${v.thumb}" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#1E1648';this.style.height='160px'" alt="${v.title}">
             <div style="position:absolute;inset:0;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;opacity:0;transition:.2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0">
-              <div style="width:54px;height:54px;background:rgba(196,152,58,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px">▶</div>
+              <div style="width:54px;height:54px;background:rgba(196,152,58,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px">â¶</div>
             </div>
             <div style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.8);color:#fff;padding:3px 8px;border-radius:6px;font-size:12px">${v.duration}</div>
             <div style="position:absolute;top:8px;left:8px;background:rgba(196,152,58,.9);color:#000;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700">${v.level}</div>
           </div>
           <div style="padding:14px">
             <div style="font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.4">${v.title}</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">${v.channel} • ${v.desc}</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">${v.channel} â¢ ${v.desc}</div>
             <button onclick="openVideo('${v.id}')" style="width:100%;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:10px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:800;font-family:inherit">
-              🎧 استمع الآن
+              ð§ Ø§Ø³ØªÙØ¹ Ø§ÙØ¢Ù
             </button>
           </div>
         </div>`;
@@ -780,7 +798,7 @@ function renderStore() {
   }
   
   if(curStoreTab === 'reading') {
-    html += '<div style="margin-bottom:16px;padding:14px;background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);border-radius:12px;font-size:14px;color:#A5D6A7">📖 <strong>قصص للقراءة والاستماع</strong> — شاهد الفيديو أولاً ثم اقرأ القصة واستمع لها</div>';
+    html += '<div style="margin-bottom:16px;padding:14px;background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);border-radius:12px;font-size:14px;color:#A5D6A7">ð <strong>ÙØµØµ ÙÙÙØ±Ø§Ø¡Ø© ÙØ§ÙØ§Ø³ØªÙØ§Ø¹</strong> â Ø´Ø§ÙØ¯ Ø§ÙÙÙØ¯ÙÙ Ø£ÙÙØ§Ù Ø«Ù Ø§ÙØ±Ø£ Ø§ÙÙØµØ© ÙØ§Ø³ØªÙØ¹ ÙÙØ§</div>';
     
     const langs = {};
     items.forEach(v => {
@@ -790,7 +808,7 @@ function renderStore() {
     
     Object.entries(langs).forEach(([lang, stories]) => {
       html += `<div style="margin-bottom:24px">
-        <div style="font-size:16px;font-weight:800;margin-bottom:14px;color:var(--gold)">${lang} قصص القراءة</div>
+        <div style="font-size:16px;font-weight:800;margin-bottom:14px;color:var(--gold)">${lang} ÙØµØµ Ø§ÙÙØ±Ø§Ø¡Ø©</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px">`;
       
       stories.forEach(v => {
@@ -804,10 +822,10 @@ function renderStore() {
           </div>
           <div style="padding:14px">
             <div style="font-size:14px;font-weight:700;margin-bottom:6px">${v.title}</div>
-            <div style="font-size:12px;color:var(--muted);margin-bottom:12px">${v.channel} • ${v.desc}</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:12px">${v.channel} â¢ ${v.desc}</div>
             <div style="display:flex;gap:8px">
-              <button onclick="openStory('${v.id}')" style="flex:1;background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:9px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:inherit">📖 اقرأ القصة</button>
-              <button onclick="window.open('${v.url}','_blank')" style="flex:1;background:rgba(255,255,255,.08);color:var(--txt);border:none;padding:9px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:inherit">▶ شاهد الفيديو</button>
+              <button onclick="openStory('${v.id}')" style="flex:1;background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:9px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:inherit">ð Ø§ÙØ±Ø£ Ø§ÙÙØµØ©</button>
+              <button onclick="window.open('${v.url}','_blank')" style="flex:1;background:rgba(255,255,255,.08);color:var(--txt);border:none;padding:9px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:inherit">â¶ Ø´Ø§ÙØ¯ Ø§ÙÙÙØ¯ÙÙ</button>
             </div>
           </div>
         </div>`;
@@ -838,16 +856,16 @@ function openVideo(id) {
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.08)">
       <div>
         <div style="font-size:16px;font-weight:800">${v.title}</div>
-        <div style="font-size:12px;color:var(--muted)">${v.channel} • ${v.level} • ${v.duration}</div>
+        <div style="font-size:12px;color:var(--muted)">${v.channel} â¢ ${v.level} â¢ ${v.duration}</div>
       </div>
-      <button onclick="document.getElementById('vm').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;font-size:18px;cursor:pointer;width:32px;height:32px;border-radius:50%">✕</button>
+      <button onclick="document.getElementById('vm').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;font-size:18px;cursor:pointer;width:32px;height:32px;border-radius:50%">â</button>
     </div>
     <div style="position:relative;padding-bottom:56.25%;height:0">
       <iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0" style="position:absolute;inset:0;width:100%;height:100%;border:none" allowfullscreen allow="autoplay"></iframe>
     </div>
     <div style="padding:16px 20px;display:flex;gap:10px;align-items:center">
       <div style="flex:1;font-size:13px;color:var(--muted)">${v.desc}</div>
-      <button onclick="document.getElementById('vm').remove()" style="background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:700;font-size:13px;font-family:inherit">✅ تم الاستماع</button>
+      <button onclick="document.getElementById('vm').remove()" style="background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:700;font-size:13px;font-family:inherit">â ØªÙ Ø§ÙØ§Ø³ØªÙØ§Ø¹</button>
     </div>
   </div>`;
   
@@ -872,37 +890,37 @@ function openStory(id) {
   modal.innerHTML = `<div style="background:#1E1648;border-radius:16px;width:min(750px,96vw);max-height:92vh;overflow-y:auto;border:1px solid rgba(76,175,80,.3);">
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;background:#1E1648;z-index:1">
       <div>
-        <div style="font-size:16px;font-weight:800">📖 ${v.title}</div>
-        <div style="font-size:12px;color:var(--muted)">${v.lang} • ${v.level} • ${v.desc}</div>
+        <div style="font-size:16px;font-weight:800">ð ${v.title}</div>
+        <div style="font-size:12px;color:var(--muted)">${v.lang} â¢ ${v.level} â¢ ${v.desc}</div>
       </div>
-      <button onclick="document.getElementById('sm').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;font-size:18px;cursor:pointer;width:32px;height:32px;border-radius:50%">✕</button>
+      <button onclick="document.getElementById('sm').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;font-size:18px;cursor:pointer;width:32px;height:32px;border-radius:50%">â</button>
     </div>
     
-    <!-- فيديو القصة -->
+    <!-- ÙÙØ¯ÙÙ Ø§ÙÙØµØ© -->
     <div style="padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.08)">
-      <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:10px">1️⃣ استمع للقصة أولاً</div>
+      <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:10px">1ï¸â£ Ø§Ø³ØªÙØ¹ ÙÙÙØµØ© Ø£ÙÙØ§Ù</div>
       <div style="position:relative;padding-bottom:40%;height:0;border-radius:10px;overflow:hidden">
         <iframe src="https://www.youtube.com/embed/${ytId}?rel=0" style="position:absolute;inset:0;width:100%;height:100%;border:none" allowfullscreen></iframe>
       </div>
     </div>
     
-    <!-- نص القصة -->
+    <!-- ÙØµ Ø§ÙÙØµØ© -->
     <div style="padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.08)">
-      <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:12px">2️⃣ اقرأ القصة</div>
+      <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:12px">2ï¸â£ Ø§ÙØ±Ø£ Ø§ÙÙØµØ©</div>
       <div style="background:rgba(15,14,26,.6);border-radius:12px;padding:20px;font-size:15px;line-height:1.9;color:#E0DCF0;font-family:'Tajawal',sans-serif;border:1px solid rgba(76,175,80,.2)">
         ${storyLines}
       </div>
     </div>
     
-    <!-- استمع مرة أخرى -->
+    <!-- Ø§Ø³ØªÙØ¹ ÙØ±Ø© Ø£Ø®Ø±Ù -->
     <div style="padding:16px 20px">
-      <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:12px">3️⃣ استمع مرة أخرى مع القراءة</div>
+      <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:12px">3ï¸â£ Ø§Ø³ØªÙØ¹ ÙØ±Ø© Ø£Ø®Ø±Ù ÙØ¹ Ø§ÙÙØ±Ø§Ø¡Ø©</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
         <button onclick="window.open('${v.url}','_blank')" style="background:rgba(33,150,243,.15);border:1px solid rgba(33,150,243,.3);color:#90CAF9;padding:12px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit">
-          🔊 الاستماع على YouTube
+          ð Ø§ÙØ§Ø³ØªÙØ§Ø¹ Ø¹ÙÙ YouTube
         </button>
-        <button onclick="document.getElementById('sm').remove();showToast('✅ رائع! تم إتمام القصة')" style="background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:800;font-family:inherit">
-          ✅ أتممت القصة!
+        <button onclick="document.getElementById('sm').remove();showToast('â Ø±Ø§Ø¦Ø¹! ØªÙ Ø¥ØªÙØ§Ù Ø§ÙÙØµØ©')" style="background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:800;font-family:inherit">
+          â Ø£ØªÙÙØª Ø§ÙÙØµØ©!
         </button>
       </div>
     </div>
@@ -914,6 +932,196 @@ function openStory(id) {
 
 
 // ===== START =====
+
+// ========== STORE: AI ORIGINAL CONTENT ==========
+const AI_L=[{"id":"ai-en-l1","lang":"english","flag":"🇬🇧","level":"A0","title":"My First Day at School","duration":"3 min","script":"Hello! My name is Alex. I am eight years old.\nToday is my first day at school. I am a little nervous, but excited too.\n\nMy teacher's name is Miss Sarah. She has a big smile. She says: \"Welcome, class! Don't be shy!\"\n\nI sit next to a girl named Mia. She has red hair and blue eyes. She gives me a pencil.\nI say: \"Thank you!\" She says: \"You're welcome!\"\n\nAt lunchtime, we eat together. I have a sandwich and an apple. Mia has rice and juice.\n\nAfter lunch, we go to the playground. We play football. It is very fun!\n\nAt the end of the day, I am happy. School is good. I have a new friend!","vocabulary":["nervous","excited","teacher","pencil","playground","sandwich"],"questions":[{"q":"What is the teacher's name?","a":"Miss Sarah"},{"q":"What does Alex eat for lunch?","a":"A sandwich and an apple"},{"q":"How does Alex feel at the end?","a":"Happy"}]},{"id":"ai-en-l2","lang":"english","flag":"🇬🇧","level":"A1","title":"A Day at the Market","duration":"4 min","script":"Every Saturday morning, my mother and I go to the market.\nThe market is colorful and loud. I love it!\n\nFirst, we go to the fruit stand. The farmer's name is Mr. Hassan.\nHe has big red apples, yellow bananas, and sweet oranges.\nMy mother asks: \"How much are the apples?\"\nMr. Hassan says: \"Two dollars per kilogram.\"\nMy mother says: \"I'll take two kilograms, please.\"\n\nNext, we go to the bread shop. The bread is still warm!\nWe buy one big loaf and some small rolls. The smell is wonderful.\n\nThen, we visit the flower shop. My mother buys yellow sunflowers.\nShe says: \"These flowers make our house beautiful!\"\n\nFinally, we go home. The bags are heavy, but we are happy.\nWe drink tea and eat fresh bread with honey. Perfect!","vocabulary":["market","colorful","farmer","kilogram","loaf","sunflowers","honey"],"questions":[{"q":"When do they go to the market?","a":"Every Saturday morning"},{"q":"How much is one kilogram of apples?","a":"Two dollars"},{"q":"What flowers does the mother buy?","a":"Yellow sunflowers"}]},{"id":"ai-en-l3","lang":"english","flag":"🇬🇧","level":"A2","title":"The Lost Dog","duration":"5 min","script":"One rainy Tuesday afternoon, I was walking home from school when I saw something unusual.\nA small brown dog was sitting under a bench, shaking. He had no collar.\n\nI stopped and looked at him carefully. His eyes were big and brown, just like chocolate.\n\"Hello, little guy,\" I said softly. \"Are you lost?\"\n\nThe dog looked at me and wagged his tail slowly. I sat down beside him.\nI opened my school bag and found half a sandwich from lunch.\nI gave him a small piece. He ate it quickly and licked my hand.\n\nI decided to take him home. My parents were surprised.\n\"We can't keep him forever,\" my mother said. \"But we can help him tonight.\"\n\nWe dried him with a towel and gave him warm milk. He fell asleep on my bedroom floor.\n\nThe next morning, I made a poster: \"FOUND: Small brown dog. Very friendly. Please call 555-0123.\"\n\nThree days later, a little girl called us. She was crying when she arrived.\n\"BISCUIT!\" she screamed. The dog jumped up immediately!\nShe hugged him tightly. \"Thank you so much,\" she said.\n\nI felt sad but also happy. Sometimes doing the right thing feels both things at once.","vocabulary":["collar","wagged","poster","immediately","tightly"],"questions":[{"q":"Where did the boy find the dog?","a":"Under a bench"},{"q":"What was the dog's name?","a":"Biscuit"},{"q":"How many days before the owner called?","a":"Three days"}]},{"id":"ai-tr-l1","lang":"turkish","flag":"🇹🇷","level":"A0","title":"Merhaba! Ben Elif.","duration":"3 min","script":"Merhaba! Benim adım Elif. On iki yaşındayım.\n(Hello! My name is Elif. I am twelve years old.)\n\nİstanbul'da yaşıyorum. İstanbul çok büyük ve güzel bir şehir.\n(I live in Istanbul. Istanbul is a very big and beautiful city.)\n\nAilem: annem, babam ve küçük kardeşim Ahmet var.\n(My family: I have my mother, father and little brother Ahmet.)\n\nAhmet çok şakacı. Her zaman güler.\n(Ahmet is very funny. He always laughs.)\n\nOkulumu seviyorum. En sevdiğim ders matematik.\n(I love my school. My favourite subject is mathematics.)\n\nSeni tanımak çok güzel. Hoşça kal!\n(It is wonderful to meet you. Goodbye!)","vocabulary":["Merhaba=Hello","yaşıyorum=I live","güzel=beautiful","kardeşim=my brother","seviyorum=I love"],"questions":[{"q":"Elif kaç yaşında? / How old is Elif?","a":"12"},{"q":"Elif'in kardeşinin adı? / Brother's name?","a":"Ahmet"},{"q":"En sevdiği ders? / Favourite subject?","a":"Matematik"}]},{"id":"ai-zh-l1","lang":"chinese","flag":"🇨🇳","level":"A0","title":"我的家 — My Home","duration":"3 min","script":"大家好！我叫李明。(Hello everyone! My name is Li Ming.)\n我住在北京。(I live in Beijing.)\n\n我的家不大，但很温暖。(My home is not big, but very warm.)\n我们有客厅、厨房和两个卧室。(We have a living room, kitchen and two bedrooms.)\n\n我最喜欢厨房，因为妈妈在那里做好吃的饭。\n(I like the kitchen most, because mom cooks delicious food there.)\n\n晚上，我们全家一起看电视、聊天。\n(In the evening, our whole family watches TV and chats together.)\n\n这就是我的家。你的家是什么样子的？\n(This is my home. What is your home like?)","vocabulary":["家=home","客厅=living room","厨房=kitchen","卧室=bedroom","温暖=warm"],"questions":[{"q":"李明住在哪里？","a":"北京 / Beijing"},{"q":"他最喜欢哪个房间？","a":"厨房 / Kitchen"},{"q":"晚上他们做什么？","a":"看电视、聊天"}]}];
+const AI_R=[{"id":"ai-story-1","lang":"english","flag":"🇬🇧","level":"A0","title":"The Little Cloud Who Was Afraid of Rain","duration":"4 min","moral":"Helping others is braver than hiding from your fears.","ar_summary":"قصة سحابة صغيرة كانت تخاف من المطر لكنها تغلبت على خوفها لمساعدة الأزهار والأطفال.","text":"High above the city of Sunnyville, there lived a small white cloud named Fluff.\n\nFluff had one big problem: he was afraid to rain.\n\nEvery morning, the other clouds would gather together.\n\"Time to water the flowers!\" said Big Grey Cloud.\n\"Time to fill the rivers!\" said Dark Blue Cloud.\n\"Time to give the children puddles to jump in!\" laughed Round Pink Cloud.\n\nBut Fluff would hide behind a hill. \"Not today,\" he would whisper.\n\nOne hot summer day, the flowers in the park turned brown.\nThe river became very low. The children were too hot to play.\nAn old man sat under a tree. He looked at the sky and sighed.\n\nFluff watched from behind his hill. He felt something strange in his chest.\nIt wasn't fear. It was something else. It was sadness.\n\n\"What if I try?\" Fluff thought. \"Just a little. Just one drop.\"\n\nHe moved slowly over the park. He closed his eyes.\nHe took a deep breath. And then...\n\nDRIP. One small raindrop fell.\n\nA flower raised its head. A bird sang.\nFluff opened his eyes and saw the flower smile.\n\n\"More!\" he thought. And the rain came — gentle and cool and wonderful.\n\nThe children ran outside. They laughed and jumped in puddles.\nThe old man raised his face to the sky. \"Thank you, little cloud!\"\n\nThat night, Fluff rested on a soft mountain. He was not afraid anymore.\nHe was brave. And being brave felt much better than hiding."},{"id":"ai-story-2","lang":"english","flag":"🇬🇧","level":"A1","title":"The Boy Who Collected Colours","duration":"5 min","moral":"Even one small colour can change a grey world.","ar_summary":"ولد في بلدة رمادية لا ألوان فيها يجمع الألوان سراً حتى يجد طريقاً لعالم ملوّن.","text":"In a small grey town lived a boy named Sami.\n\nEverything in his town was grey: grey houses, grey streets, grey sky.\nEven the people wore grey clothes. They said: \"Colour is dangerous. Colour causes too many feelings.\"\n\nBut Sami secretly loved colour.\n\nHe found a red button on the ground and put it in his pocket.\nHe found a blue feather near the river and hid it in his sock.\nHe found a yellow leaf in autumn and kept it inside his book.\nHe found a green stone by the fountain and wrapped it in paper.\n\nEvery night, he took out his collection and arranged them on his bed:\nRed. Blue. Yellow. Green.\n\nHe whispered their names like magic words.\n\nOne stormy night, a little girl knocked on his door.\nShe was crying. \"I'm lost,\" she said.\n\nSami saw she was holding a torn piece of cloth — bright orange.\n\"Where did you get that?\" he asked.\n\"From my home village,\" she said. \"Everyone there loves colour.\"\n\nSami's eyes went wide. \"There are places like that?\"\n\n\"Yes,\" she said. \"Come with me tomorrow and I'll show you.\"\n\nThe next morning, the grey people watched as Sami walked out of town.\nHe turned once and waved. And when he turned, they saw it:\nHe had quietly placed his red button, blue feather, yellow leaf, and green stone\non four grey doorsteps.\n\nThat afternoon, four grey people each found a colour.\nAnd they weren't sure, but for a moment, they felt something.\nSomething like hope."},{"id":"ai-story-3","lang":"english","flag":"🇬🇧","level":"A2","title":"The Library at the End of the Street","duration":"6 min","moral":"Books and libraries have the power to change people.","ar_summary":"فتاة تكتشف مكتبة قديمة مهجورة وتعيدها للحياة حتى تغيّر الحي كله.","text":"At the very end of Maple Street, behind an old iron gate, stood a library that nobody visited.\n\nThe sign above the door said: \"OPEN\" — but the paint was faded and the windows were dusty.\n\nTwelve-year-old Nora walked past it every day for three years without stopping.\n\nOne Monday, it was raining very hard. Nora ran under the library's roof to stay dry.\nAs she waited, she noticed something: a warm orange light in the window.\nAnd a sound — very faint — like the turning of pages.\n\nShe pushed the gate. It creaked open.\nShe pushed the door. It was unlocked.\n\nInside, the library was not dusty at all. It was warm and bright.\nTall shelves covered every wall. Books of every colour filled them.\n\nBehind a small wooden desk sat an old woman with silver hair and round glasses.\nShe looked up and smiled as if she had been expecting Nora for years.\n\n\"Hello,\" said Nora. \"Is this library still open?\"\n\"For you,\" said the old woman, \"it never closed.\"\n\nThat evening, Nora left with three books under her arm.\nShe came back the next day. And the next. And every day after.\n\nSlowly, word spread. Other children came. Then adults. Then the whole street.\n\nThe old iron gate was painted green.\nThe windows were cleaned and filled with flowers.\nThe sign above the door was repainted in bright gold letters.\n\nThe old woman never said her name.\nShe just smiled every time a new person walked in.\n\nAnd somehow, without anyone understanding quite why,\nevery person who walked into that library walked out slightly changed.\nA little quieter. A little wiser. A little more themselves."},{"id":"ai-story-tr-1","lang":"turkish","flag":"🇹🇷","level":"A1","title":"Deniz Feneri / The Lighthouse","duration":"5 min","moral":"Küçük bir ışık büyük bir karanlığı yener. / A small light defeats great darkness.","ar_summary":"حارس منارة أنقذ سفينة في ليلة عاصفة بشمعة صغيرة فقط.","text":"Denizin kenarında küçük bir deniz feneri vardı.\n(At the edge of the sea, there was a small lighthouse.)\n\nFenercinin adı Yusuf'tu. Yusuf her gece ışığı yakar,\ngemilerin güvenle geçmesini sağlardı.\n(The lighthouse keeper's name was Yusuf. Every night Yusuf lit the light,\nhelping ships pass safely.)\n\nBir gece, çok kötü bir fırtına geldi.\n(One night, a very bad storm came.)\n\nYusuf'un lambası söndü! Karanlık her yeri kapladı.\n(Yusuf's lamp went out! Darkness covered everything.)\n\nAma Yusuf vazgeçmedi.\n(But Yusuf did not give up.)\n\nElinde küçük bir mum tutarak karanlığa ışık tuttu.\n(Holding a small candle, he shone a light into the darkness.)\n\nKüçük mumun ışığı uzaktan görünen bir gemiciye ulaştı.\n(The small candle's light reached a sailor who could see from far away.)\n\nGemi güvenle limana geldi.\n(The ship arrived safely at the harbour.)\n\nSabah, kaptan Yusuf'a teşekkür etmeye geldi.\n(In the morning, the captain came to thank Yusuf.)\n\n\"Senin küçük mumun bizi kurtardı,\" dedi.\n(\"Your small candle saved us,\" he said.)\n\nYusuf güldü: \"Büyük karanlıkta küçük bir ışık bile yeterlidir.\"\n(Yusuf smiled: \"Even a small light is enough in great darkness.\")"},{"id":"ai-story-zh-1","lang":"chinese","flag":"🇨🇳","level":"A1","title":"小熊的礼物 / The Little Bear's Gift","duration":"5 min","moral":"最好的礼物来自心里。/ The best gifts come from the heart.","ar_summary":"دب صغير يريد تقديم هدية لأمه في عيد ميلادها لكن بدون مال، فيتعلم أغنية وتكون أجمل هدية.","text":"森林里住着一只小熊，名叫毛毛。\n(In the forest lived a little bear named Maomao.)\n\n明天是妈妈的生日。毛毛想送妈妈一个礼物。\n(Tomorrow is mom's birthday. Maomao wants to give mom a gift.)\n\n但是毛毛没有钱。\n(But Maomao has no money.)\n\n毛毛去找松鼠朋友小跳。\n(Maomao went to find his squirrel friend Xiaotiao.)\n\n小跳说：\"我可以教你做一首歌！\"\n(Xiaotiao said: \"I can teach you to make a song!\")\n\n毛毛学了一整天。他的声音不太好听，但他很努力。\n(Maomao practised all day. His voice wasn't very good, but he tried very hard.)\n\n生日那天，毛毛站在妈妈面前，深呼吸，然后唱了起来。\n(On her birthday, Maomao stood before mom, took a deep breath, and began to sing.)\n\n歌声不完美，但充满了爱。\n(The song was not perfect, but it was full of love.)\n\n妈妈的眼睛里有了泪水。她把毛毛紧紧抱住。\n(Mom's eyes filled with tears. She held Maomao tightly.)\n\n\"这是我收到过最好的礼物，\"妈妈说。\n(\"This is the best gift I have ever received,\" said mom.)\n\n毛毛明白了：最好的礼物不是用钱买的。\n(Maomao understood: the best gifts cannot be bought with money.)"}];
+let curSTab='listening';
+
+function showStoreTab(t){
+  curSTab=t;
+  document.querySelectorAll('#store-tabs .lt').forEach(b=>b.classList.remove('on'));
+  document.getElementById('st-'+t)?.classList.add('on');
+  renderStore();
+}
+
+function renderStore(){
+  const el=document.getElementById('store-content');
+  if(!el)return;
+  if(curSTab==='listening')renderListening(el);
+  else renderReading(el);
+}
+
+function lvColor(lv){return{A0:'#4CAF50',A1:'#2196F3',A2:'#FF9800',B1:'#9C27B0'}[lv]||'#666';}
+
+function renderListening(el){
+  const byL={};
+  AI_L.forEach(x=>{if(!byL[x.lang])byL[x.lang]=[];byL[x.lang].push(x);});
+  const lNames={english:'🇬🇧 الإنجليزية',turkish:'🇹🇷 التركية',chinese:'🇨🇳 الصينية'};
+  let h=`<div style="padding:14px 18px;background:rgba(33,150,243,.1);border:1px solid rgba(33,150,243,.25);border-radius:12px;margin-bottom:24px;display:flex;gap:12px;align-items:flex-start">
+    <span style="font-size:28px">🤖</span>
+    <div><div style="font-weight:800;color:#90CAF9;margin-bottom:4px">نصوص استماع أصلية — كُتبت بالكامل بالذكاء الاصطناعي</div>
+    <div style="font-size:13px;color:var(--muted)">محتوى حصري لمنصة Lingua • مستويات A0 إلى B1 • 3 لغات</div></div></div>`;
+  
+  Object.entries(byL).forEach(([lang,items])=>{
+    h+=`<div style="margin-bottom:28px"><div style="font-size:17px;font-weight:900;color:var(--gold);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(196,152,58,.2)">${lNames[lang]||lang}</div><div class="sv-grid">`;
+    items.forEach(item=>{
+      const lc=lvColor(item.level);
+      const preview=item.script.slice(0,160).replace(/\n/g,' ')+'...';
+      const voc=item.vocabulary.slice(0,4).map(v=>`<span style="background:rgba(196,152,58,.15);color:#C4983A;padding:3px 10px;border-radius:20px;font-size:11px">${v}</span>`).join('');
+      h+=`<div class="sv-card" onclick="openAIListening('${item.id}')">
+        <div style="height:4px;background:linear-gradient(90deg,${lc},transparent)"></div>
+        <div style="padding:18px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+            <span style="background:${lc};color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:800">${item.level}</span>
+            <span style="font-size:12px;color:var(--muted)">⏱ ${item.duration}</span>
+          </div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:8px">${item.flag} ${item.title}</div>
+          <div style="background:rgba(15,14,26,.7);border-radius:10px;padding:12px;margin-bottom:12px;font-size:13px;color:#C4B8D0;line-height:1.6">${preview}</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">${voc}</div>
+          <button style="width:100%;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:11px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:800;font-family:inherit">🎧 ابدأ الاستماع</button>
+        </div></div>`;
+    });
+    h+='</div></div>';
+  });
+  el.innerHTML=h;
+}
+
+function renderReading(el){
+  const byL={};
+  AI_R.forEach(x=>{if(!byL[x.lang])byL[x.lang]=[];byL[x.lang].push(x);});
+  const lNames={english:'🇬🇧 الإنجليزية',turkish:'🇹🇷 التركية',chinese:'🇨🇳 الصينية'};
+  let h=`<div style="padding:14px 18px;background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.25);border-radius:12px;margin-bottom:24px;display:flex;gap:12px;align-items:flex-start">
+    <span style="font-size:28px">🤖</span>
+    <div><div style="font-weight:800;color:#A5D6A7;margin-bottom:4px">قصص أصلية — كُتبت بالكامل بالذكاء الاصطناعي خصيصاً لك</div>
+    <div style="font-size:13px;color:var(--muted)">قصص حصرية • محادثات مُميّزة بالذهبي • فكرة تعليمية في كل قصة</div></div></div>`;
+  
+  Object.entries(byL).forEach(([lang,items])=>{
+    h+=`<div style="margin-bottom:28px"><div style="font-size:17px;font-weight:900;color:var(--gold);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(196,152,58,.2)">${lNames[lang]||lang}</div><div class="sv-grid">`;
+    items.forEach(item=>{
+      const lc=lvColor(item.level);
+      h+=`<div class="sv-card">
+        <div style="height:4px;background:linear-gradient(90deg,${lc},transparent)"></div>
+        <div style="padding:18px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+            <span style="background:${lc};color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:800">${item.level}</span>
+            <span style="font-size:12px;color:var(--muted)">⏱ ${item.duration}</span>
+          </div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:6px">${item.flag} ${item.title}</div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:10px;font-style:italic">${item.ar_summary}</div>
+          <div style="background:rgba(15,14,26,.6);border-radius:10px;padding:12px;margin-bottom:10px;font-size:13px;color:#C4B8D0;line-height:1.7">${item.text.slice(0,160)}...</div>
+          <div style="background:rgba(196,152,58,.1);border-radius:8px;padding:10px;margin-bottom:14px;font-size:12px;color:#C4983A">💡 ${item.moral}</div>
+          <button onclick="openAIStory('${item.id}')" style="width:100%;background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:11px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:800;font-family:inherit">📖 اقرأ القصة كاملة</button>
+        </div></div>`;
+    });
+    h+='</div></div>';
+  });
+  el.innerHTML=h;
+}
+
+function openAIListening(id){
+  const item=AI_L.find(x=>x.id===id);
+  if(!item)return;
+  document.getElementById('listen-modal')?.remove();
+  const modal=document.createElement('div');
+  modal.id='listen-modal';
+  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(8px);padding:16px;';
+  const lc=lvColor(item.level);
+  const scriptFmt=item.script.split('\n').filter(l=>l.trim()).map(l=>{
+    if(l.includes('"')||l.startsWith('"'))return `<p style="color:#E5B84A;font-style:italic;padding-right:12px;border-right:3px solid #C4983A;margin:8px 0">${l}</p>`;
+    if(l.startsWith('('))return `<p style="color:#90CAF9;font-size:13px;margin:4px 0;font-style:italic">${l}</p>`;
+    return `<p style="margin:8px 0;line-height:1.9">${l}</p>`;
+  }).join('');
+  const voc=item.vocabulary.map(v=>`<span style="background:rgba(196,152,58,.15);color:#C4983A;padding:5px 14px;border-radius:20px;font-size:13px">${v}</span>`).join('');
+  const qs=item.questions.map((q,i)=>`<div style="background:rgba(15,14,26,.6);border-radius:10px;padding:14px;margin-bottom:10px">
+    <div style="font-size:13px;font-weight:700;margin-bottom:8px">❓ ${q.q}</div>
+    <div id="ans${id}${i}" style="display:none;color:#4CAF50;font-weight:700;font-size:13px">✅ ${q.a}</div>
+    <button onclick="document.getElementById('ans${id}${i}').style.display='block';this.style.display='none'" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:var(--txt);padding:6px 16px;border-radius:8px;cursor:pointer;font-size:12px;font-family:inherit">اظهر الإجابة</button>
+  </div>`).join('');
+  
+  modal.innerHTML=`<div style="background:#1A1640;border-radius:20px;width:min(680px,96vw);max-height:92vh;overflow-y:auto;border:1px solid rgba(196,152,58,.3)">
+    <div style="background:#1E1648;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:1;border-radius:20px 20px 0 0;display:flex;justify-content:space-between;align-items:start">
+      <div>
+        <div style="display:flex;gap:8px;margin-bottom:6px">
+          <span style="background:rgba(33,150,243,.2);color:#90CAF9;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">🤖 AI Original</span>
+          <span style="background:${lc};color:#fff;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${item.level}</span>
+          <span style="color:var(--muted);font-size:12px">⏱ ${item.duration}</span>
+        </div>
+        <div style="font-size:18px;font-weight:900">${item.flag} ${item.title}</div>
+      </div>
+      <button onclick="document.getElementById('listen-modal').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px">✕</button>
+    </div>
+    <div style="padding:12px 24px;background:rgba(33,150,243,.06);border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;color:#90CAF9">
+      1️⃣ اقرأ النص بصوت عالٍ &nbsp;•&nbsp; 2️⃣ ركّز على الكلمات المُميّزة &nbsp;•&nbsp; 3️⃣ أجب عن الأسئلة
+    </div>
+    <div style="padding:24px">
+      <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px">🎧 النص الكامل</div>
+      <div style="background:rgba(15,14,26,.7);border-radius:14px;padding:20px;font-size:14px;color:#E0DCF0;border:1px solid rgba(196,152,58,.15);margin-bottom:20px">${scriptFmt}</div>
+      <div style="margin-bottom:20px">
+        <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:10px">📚 المفردات المهمة</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">${voc}</div>
+      </div>
+      <div style="margin-bottom:20px">
+        <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px">❓ اختبر فهمك</div>
+        ${qs}
+      </div>
+      <div style="display:flex;gap:10px">
+        <button onclick="document.getElementById('listen-modal').remove()" style="flex:1;background:#2d2a4a;color:var(--txt);border:none;padding:13px;border-radius:12px;cursor:pointer;font-size:14px;font-family:inherit">إغلاق</button>
+        <button onclick="document.getElementById('listen-modal').remove();startLesson('${item.id}','${item.lang}','listening','${item.level}',50)" style="flex:2;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:13px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:900;font-family:inherit">✅ تم! +50 XP</button>
+      </div>
+    </div>
+  </div>`;
+  document.body.appendChild(modal);
+  modal.addEventListener('click',e=>{if(e.target===modal)modal.remove();});
+}
+
+function openAIStory(id){
+  const item=AI_R.find(x=>x.id===id);
+  if(!item)return;
+  document.getElementById('story-modal')?.remove();
+  const modal=document.createElement('div');
+  modal.id='story-modal';
+  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(8px);padding:16px;';
+  const storyFmt=item.text.split('\n').filter(l=>l.trim()).map(l=>{
+    if(l.includes('"')||(l.startsWith('"')&&l.endsWith('"')))return `<p style="color:#E5B84A;font-style:italic;padding-right:12px;border-right:3px solid #C4983A;margin:10px 0">${l}</p>`;
+    if(l.startsWith('(')||l.startsWith('【'))return `<p style="color:#90CAF9;font-size:13px;margin:3px 0;font-style:italic">${l}</p>`;
+    return `<p style="margin:10px 0;line-height:2">${l}</p>`;
+  }).join('');
+  
+  modal.innerHTML=`<div style="background:#1A1640;border-radius:20px;width:min(720px,96vw);max-height:92vh;overflow-y:auto;border:1px solid rgba(76,175,80,.3)">
+    <div style="background:#1E1648;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:1;border-radius:20px 20px 0 0;display:flex;justify-content:space-between;align-items:start">
+      <div>
+        <div style="display:flex;gap:8px;margin-bottom:6px">
+          <span style="background:rgba(76,175,80,.2);color:#A5D6A7;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">🤖 AI Story</span>
+          <span style="background:${lvColor(item.level)};color:#fff;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${item.level}</span>
+        </div>
+        <div style="font-size:18px;font-weight:900">${item.flag} ${item.title}</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px">${item.ar_summary}</div>
+      </div>
+      <button onclick="document.getElementById('story-modal').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px">✕</button>
+    </div>
+    <div style="padding:12px 24px;background:rgba(76,175,80,.06);border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;color:#A5D6A7">
+      1️⃣ اقرأ القصة ببطء &nbsp;•&nbsp; 2️⃣ الحوار مُميّز بالذهبي &nbsp;•&nbsp; 3️⃣ فكّر في معنى القصة
+    </div>
+    <div style="padding:24px">
+      <div style="background:rgba(15,14,26,.6);border-radius:16px;padding:24px;font-size:15px;color:#E0DCF0;border:1px solid rgba(76,175,80,.15);margin-bottom:20px;line-height:2">${storyFmt}</div>
+      <div style="background:rgba(196,152,58,.1);border:1px solid rgba(196,152,58,.25);border-radius:14px;padding:18px;margin-bottom:20px;display:flex;gap:12px;align-items:flex-start">
+        <span style="font-size:24px">💡</span>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#C4983A;margin-bottom:4px">الفكرة الرئيسية / Moral</div>
+          <div style="font-size:14px">${item.moral}</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button onclick="document.getElementById('story-modal').remove()" style="flex:1;background:#2d2a4a;color:var(--txt);border:none;padding:13px;border-radius:12px;cursor:pointer;font-size:14px;font-family:inherit">إغلاق</button>
+        <button onclick="document.getElementById('story-modal').remove();startLesson('${item.id}','${item.lang}','reading','${item.level}',60)" style="flex:2;background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:13px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:900;font-family:inherit">✅ أتممت القصة! +60 XP</button>
+      </div>
+    </div>
+  </div>`;
+  document.body.appendChild(modal);
+  modal.addEventListener('click',e=>{if(e.target===modal)modal.remove();});
+}
+// ========== END STORE ==========
 init();
 </script>
 </body>
