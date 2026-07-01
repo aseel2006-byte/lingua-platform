@@ -598,8 +598,7 @@ function renderAIListening(el){
     h+=`<div style="margin-bottom:28px"><div style="font-size:17px;font-weight:900;color:var(--gold);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(196,152,58,.2)">${lN[lang]||lang}</div><div class="sv-grid">`;
     items.forEach(x=>{
       const lc=lvC(x.level);
-      const prev=x.script.slice(0,150).replace(/
-/g,' ')+'...';
+      const prev=x.script.slice(0,150).split('\n').join(' ')+'...';
       const voc=x.vocabulary.slice(0,4).map(v=>`<span style="background:rgba(196,152,58,.15);color:#C4983A;padding:3px 10px;border-radius:20px;font-size:11px">${v}</span>`).join('');
       h+=`<div class="sv-card" onclick="openAIL('${x.id}')">
         <div style="height:4px;background:linear-gradient(90deg,${lc},transparent)"></div>
