@@ -566,6 +566,576 @@ function showLessonModal(lesson, isNew, xp, lid, sk, lvId){
 function showToastSafe(msg){showToast(msg);}
 
 // =================== STORE: AI CONTENT ===================
+const AI_L=[{"id":"ai-en-l1","lang":"english","flag":"🇬🇧","level":"A0","title":"My First Day at School","duration":"3 min","script":"Hello! My name is Alex. I am eight years old. Today is my first day at school. I am nervous, but excited too. My teacher's name is Miss Sarah. She says: \"Welcome, class!\" I sit next to a girl named Mia. She gives me a pencil. I say: \"Thank you!\" At lunchtime, I have a sandwich and an apple. After lunch, we play football. At the end of the day, I am happy. I have a new friend!","vocabulary":["nervous","excited","teacher","pencil","playground","sandwich"],"questions":[{"q":"What is the teacher's name?","a":"Miss Sarah"},{"q":"What does Alex eat for lunch?","a":"A sandwich and an apple"},{"q":"How does Alex feel at the end?","a":"Happy"}]},{"id":"ai-en-l2","lang":"english","flag":"🇬🇧","level":"A1","title":"A Day at the Market","duration":"4 min","script":"Every Saturday morning, my mother and I go to the market. The market is colorful and loud. First, we go to the fruit stand. The farmer's name is Mr. Hassan. My mother asks: \"How much are the apples?\" Mr. Hassan says: \"Two dollars per kilogram.\" We also buy warm bread and yellow sunflowers. We go home happy. We drink tea and eat fresh bread with honey.","vocabulary":["market","colorful","farmer","kilogram","loaf","sunflowers","honey"],"questions":[{"q":"When do they go to the market?","a":"Every Saturday morning"},{"q":"How much is one kilogram of apples?","a":"Two dollars"},{"q":"What flowers does the mother buy?","a":"Yellow sunflowers"}]},{"id":"ai-en-l3","lang":"english","flag":"🇬🇧","level":"A2","title":"The Lost Dog","duration":"5 min","script":"One rainy afternoon, I found a small brown dog under a bench. He had no collar. His eyes were big and brown. \"Are you lost?\" I said. He wagged his tail. I gave him a piece of my sandwich. I took him home. My parents helped for the night. The next morning, I made a poster: \"FOUND: Small brown dog. Call 555-0123.\" Three days later, a little girl called. \"BISCUIT!\" she screamed. He jumped up immediately! I felt sad but happy.","vocabulary":["collar","wagged","poster","immediately","tightly"],"questions":[{"q":"Where was the dog found?","a":"Under a bench"},{"q":"What was the dog's name?","a":"Biscuit"},{"q":"How many days before the owner called?","a":"Three days"}]},{"id":"ai-tr-l1","lang":"turkish","flag":"🇹🇷","level":"A0","title":"Merhaba! Ben Elif.","duration":"3 min","script":"Merhaba! Benim adim Elif. On iki yasindayim. (Hello! My name is Elif. I am twelve years old.) Istanbul'da yasiyorum. (I live in Istanbul.) Kucuk kardesim Ahmet var. (I have a little brother named Ahmet.) Okulumu seviyorum. (I love my school.) En sevdigim ders matematik. (My favourite subject is mathematics.) Hoscakal! (Goodbye!)","vocabulary":["Merhaba=Hello","yasiyorum=I live","guzel=beautiful","kardesim=my brother","seviyorum=I love"],"questions":[{"q":"Elif kac yasinda?","a":"12"},{"q":"Kardesinin adi?","a":"Ahmet"},{"q":"En sevdigi ders?","a":"Matematik"}]},{"id":"ai-zh-l1","lang":"chinese","flag":"🇨🇳","level":"A0","title":"我的家 — My Home","duration":"3 min","script":"大家好！我叫李明。 (Hello! My name is Li Ming.) 我住在北京。 (I live in Beijing.) 我的家很温暖。 (My home is very warm.) 我最喜欢厨房。 (I like the kitchen most.) 晚上我们看电视。 (In the evening we watch TV.)","vocabulary":["家=home","客厅=living room","厨房=kitchen","卧室=bedroom","温暖=warm"],"questions":[{"q":"李明住在哪里？","a":"北京"},{"q":"他最喜欢哪个房间？","a":"厨房"},{"q":"晚上他们做什么？","a":"看电视"}]}];
+const AI_R=[{"id":"ai-story-1","lang":"english","flag":"🇬🇧","level":"A0","title":"The Little Cloud Who Was Afraid of Rain","duration":"4 min","moral":"Helping others is braver than hiding from your fears.","ar_summary":"سحابة صغيرة تخاف من المطر تتغلب على خوفها لتساعد الأزهار والأطفال.","text":"High above the city of Sunnyville lived a small white cloud named Fluff. Fluff had one big problem: he was afraid to rain. Every morning, the other clouds watered the flowers and filled the rivers. But Fluff would hide behind a hill. One hot summer day, the flowers turned brown and the children were too hot to play. Fluff watched and felt sadness. \"What if I try?\" he thought. He moved over the park, closed his eyes, and DRIP — one small raindrop fell. A flower raised its head. \"More!\" he thought. And the rain came, gentle and wonderful. The children laughed and jumped in puddles. \"Thank you, little cloud!\" That night, Fluff rested on a soft mountain. He was not afraid anymore."},{"id":"ai-story-2","lang":"english","flag":"🇬🇧","level":"A1","title":"The Boy Who Collected Colours","duration":"5 min","moral":"Even one small colour can change a grey world.","ar_summary":"ولد في بلدة رمادية يجمع الألوان سراً حتى يجد طريقاً لعالم ملوّن.","text":"In a small grey town lived a boy named Sami. Everything was grey. But Sami secretly loved colour. He found a red button and put it in his pocket. He found a blue feather and hid it in his sock. He found a yellow leaf and kept it in his book. He found a green stone by the fountain. Every night he arranged them: Red. Blue. Yellow. Green. One stormy night, a lost girl knocked on his door. She held bright orange cloth from her colourful village. \"Come with me tomorrow,\" she said. The next morning, Sami left town. He placed his four colours on four grey doorsteps. That afternoon, four grey people each found a colour — and felt something like hope."},{"id":"ai-story-3","lang":"english","flag":"🇬🇧","level":"A2","title":"The Library at the End of the Street","duration":"6 min","moral":"Books and libraries have the power to change people.","ar_summary":"فتاة تكتشف مكتبة مهجورة وتعيدها للحياة حتى تغيّر الحي كله.","text":"At the end of Maple Street stood a library that nobody visited. Twelve-year-old Nora walked past it every day for three years. One rainy Monday, she ran under the library roof to stay dry. She noticed a warm orange light inside. She pushed the gate — it opened. Inside was warm and bright. An old woman with silver hair and round glasses smiled as if expecting her. \"Is this library still open?\" asked Nora. \"For you,\" said the old woman, \"it never closed.\" Nora came back every day. Others followed. The gate was painted green. The sign was repainted in gold. Every person who entered walked out slightly changed — a little wiser, a little more themselves."},{"id":"ai-story-tr-1","lang":"turkish","flag":"🇹🇷","level":"A1","title":"Deniz Feneri / The Lighthouse","duration":"5 min","moral":"Küçük bir ışık büyük bir karanlığı yener.","ar_summary":"حارس منارة أنقذ سفينة في ليلة عاصفة بشمعة صغيرة فقط.","text":"Denizin kenarinda kucuk bir deniz feneri vardi. (At the edge of the sea, there was a small lighthouse.) Fenercinin adi Yusuf'tu. (The keeper's name was Yusuf.) Her gece isigi yakar, gemileri korurdu. (Every night he lit the light, protecting ships.) Bir gece kotu bir firtina geldi. (One night a bad storm came.) Yusuf'un lambasi sOndu! (Yusuf's lamp went out!) Ama Yusuf vazgecmedi. (But Yusuf did not give up.) Kucuk bir mum ile karanliga isik tuttu. (He shone a small candle into the darkness.) Gemi guvence limana geldi. (The ship arrived safely.) \"Senin mumun bizi kurtardi.\" dedi kaptan. (\"Your candle saved us,\" said the captain.) Yusuf gulumsedi: \"Kucuk bir isik bile yeterlidir.\" (Yusuf smiled: \"Even a small light is enough.\")"},{"id":"ai-story-zh-1","lang":"chinese","flag":"🇨🇳","level":"A1","title":"小熊的礼物 / The Little Bear's Gift","duration":"5 min","moral":"最好的礼物来自心里。 / The best gifts come from the heart.","ar_summary":"دب صغير يتعلم أغنية لأمه بدلاً من المال.","text":"森林里住着一只小熊，名叫毛毛。 (In the forest lived a little bear named Maomao.) 明天是妈妈的生日。 (Tomorrow is mom's birthday.) 毛毛没有錢。 (Maomao has no money.) 毛毛学了一整天的歌。 (Maomao practised a song all day.) 生日那天，毛毛深呼吸，开始唱。 (On her birthday, Maomao took a deep breath and sang.) 歌声不完美，但充满爱。 (The song was not perfect, but full of love.) 妈妈把毛毛紧紧抱住。 (Mom held Maomao tightly.) \"这是最好的礼物。\" (\"This is the best gift.\")"}];
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lingua — لوحة التحكم</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<script>
+window.onerror = function(msg, src, l, c) {};
+</script>
+<style>
+:root{--bg:#0F0E1A;--sf:#1E1648;--sf2:#261E55;--gold:#C4983A;--gl:#E5B84A;--txt:#F0EDE8;--muted:#8886A0;--blue:#2196F3;--green:#4CAF50}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden}
+.nav{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(15,14,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:12px 24px;display:flex;align-items:center;gap:12px}
+.nav .logo{font-size:22px;font-weight:900;color:var(--gold);margin-right:auto}
+.nbtn{border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:inherit}
+.nbtn.ng{background:linear-gradient(135deg,var(--gold),var(--gl));color:#0F0E1A}
+.nbtn.nd{background:rgba(255,255,255,.08);color:var(--txt)}
+.nbtn.ns{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.1)}
+.uinfo{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);padding:6px 14px 6px 10px;border-radius:30px}
+.uavatar{width:30px;height:30px;background:linear-gradient(135deg,var(--gold),var(--gl));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#0F0E1A}
+.uname{font-size:14px;font-weight:700}
+.urole{font-size:11px;color:var(--gold)}
+.layout{display:flex;padding-top:65px;min-height:100vh}
+.sidebar{width:220px;position:fixed;top:65px;bottom:0;right:0;background:rgba(15,14,26,.6);border-left:1px solid rgba(255,255,255,.06);padding:20px 12px;overflow-y:auto;flex-shrink:0}
+.sb-section{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.5px;padding:0 8px;margin:16px 0 6px}
+.sbitem{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;cursor:pointer;font-size:14px;color:var(--muted);transition:.2s;margin-bottom:2px;text-decoration:none;width:100%}
+.sbitem:hover,.sbitem.on{background:rgba(196,152,58,.12);color:var(--gold)}
+.sbitem .ic{font-size:18px;width:22px;text-align:center}
+.sb-lv{font-size:11px;font-weight:800;background:rgba(196,152,58,.2);color:var(--gold);padding:2px 8px;border-radius:10px;margin-right:auto}
+main{margin-right:220px;padding:28px;flex:1;max-width:1200px}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.sh h2{font-size:22px;font-weight:900}
+/* Cards */
+.card{background:var(--sf);border-radius:16px;padding:24px;margin-bottom:20px}
+/* Hero */
+.hero{background:linear-gradient(135deg,#1E1648,#261E55);border:1px solid rgba(196,152,58,.15)}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.stat{background:rgba(255,255,255,.06);border-radius:12px;padding:12px 20px;text-align:center;flex:1;min-width:80px}
+.stat-n{font-size:24px;font-weight:900;color:var(--gold)}
+.stat-l{font-size:12px;color:var(--muted);margin-top:2px}
+/* XP bar */
+.xp-bar{background:rgba(255,255,255,.08);border-radius:20px;height:10px;overflow:hidden;margin:12px 0}
+.xp-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gl));border-radius:20px;transition:width .8s}
+/* Skill cards */
+.sk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.sk-card{border-radius:14px;padding:18px;text-align:center;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.sk-card:hover{transform:translateY(-4px)}
+/* Lesson items */
+.li{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,.04);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:.2s;border:1px solid rgba(255,255,255,.05)}
+.li:hover{background:rgba(255,255,255,.08)}
+.lc{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0}
+.lc.done{background:rgba(76,175,80,.2);color:#4CAF50}
+.lc.act{background:rgba(196,152,58,.2);color:var(--gold)}
+.linfo{flex:1;min-width:0}
+.ltitle{font-size:14px;font-weight:700;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lmeta{font-size:12px;color:var(--muted)}
+.start-btn{background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;flex-shrink:0;white-space:nowrap;transition:.2s}
+.start-btn:hover{transform:scale(1.05)}
+.lbadge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;flex-shrink:0}
+.bd{background:rgba(76,175,80,.2);color:#4CAF50}
+/* Tabs */
+.ltabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.lt{padding:8px 18px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;background:rgba(255,255,255,.06);color:var(--muted);transition:.2s}
+.lt.on{background:rgba(196,152,58,.2);color:var(--gold);border:1px solid rgba(196,152,58,.3)}
+/* Store */
+.sv-card{background:var(--sf);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:.3s;cursor:pointer}
+.sv-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.sv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-bottom:24px}
+/* Toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--gold);color:#0F0E1A;padding:12px 24px;border-radius:12px;font-weight:700;font-size:14px;opacity:0;transition:.3s;z-index:9000;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* Loading */
+.loading{text-align:center;padding:40px;color:var(--muted);font-size:15px}
+/* Progress */
+.prog-sec{margin-bottom:20px}
+.prog-lang{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.prog-bar-wrap{flex:1;background:rgba(255,255,255,.06);border-radius:20px;height:8px;overflow:hidden}
+.prog-bar{height:100%;border-radius:20px;transition:width .8s}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="uinfo">
+    <div class="uavatar" id="nav-av">م</div>
+    <div>
+      <div class="uname" id="nav-name">مستخدم</div>
+      <div class="urole" id="nav-role">✏️ تجريبي</div>
+    </div>
+  </div>
+  <button class="nbtn ng" onclick="showSec('store')">🛒 المتجر</button>
+  <button class="nbtn ns" onclick="doLogout()">خروج</button>
+  <div class="logo">Lingua 🎓</div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sb-section">القائمة الرئيسية</div>
+    <a class="sbitem on" id="sb-home" onclick="showSec('home')"><span class="ic">🏠</span>الرئيسية</a>
+    <a class="sbitem" id="sb-skills" onclick="showSec('skills')"><span class="ic">⚡</span>مهاراتي</a>
+    <a class="sbitem" id="sb-lessons" onclick="showSec('lessons')"><span class="ic">📚</span>جميع الدروس <span class="sb-lv" id="sb-cnt">0</span></a>
+    <a class="sbitem" id="sb-progress" onclick="showSec('progress')"><span class="ic">📊</span>تقدمي</a>
+    <div class="sb-section">اللغات</div>
+    <a class="sbitem" id="sb-en" onclick="showSec('lessons');filterLang('english')"><span class="ic">🇬🇧</span>الإنجليزية <span class="sb-lv" id="sb-en-cnt">0/87</span></a>
+    <a class="sbitem" id="sb-tr" onclick="showSec('lessons');filterLang('turkish')"><span class="ic">🇹🇷</span>التركية <span class="sb-lv" id="sb-tr-cnt">0/60</span></a>
+    <a class="sbitem" id="sb-zh" onclick="showSec('lessons');filterLang('chinese')"><span class="ic">🇨🇳</span>الصينية <span class="sb-lv" id="sb-zh-cnt">0/61</span></a>
+    <div class="sb-section">روابط</div>
+    <a class="sbitem" onclick="showSec('quiz')"><span class="ic">🎯</span>اختبار المستوى</a>
+    <a class="sbitem" id="sb-store" onclick="showSec('store')"><span class="ic">🛍️</span>المتجر</a>
+    <a class="sbitem" onclick="doLogout()"><span class="ic">🚪</span>تسجيل الخروج</a>
+  </aside>
+
+  <main id="main-content">
+    <!-- HOME -->
+    <div id="sec-home">
+      <div class="card hero">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px">
+          <div>
+            <div style="font-size:24px;font-weight:900;margin-bottom:4px">👋 مرحباً <span id="s-name">مستخدم</span>!</div>
+            <div style="color:var(--muted);font-size:14px">استمر في رحلتك اللغوية اليوم</div>
+            <div style="margin-top:10px"><span id="streak-badge" style="background:rgba(255,152,0,.2);color:#FF9800;padding:5px 14px;border-radius:20px;font-size:13px;font-weight:700">🔥 7 أيام</span></div>
+          </div>
+        </div>
+        <div class="stats" style="margin-top:20px">
+          <div class="stat"><div class="stat-n" id="s-total">208</div><div class="stat-l">إجمالي</div></div>
+          <div class="stat"><div class="stat-n" id="s-lv">A0</div><div class="stat-l">المستوى</div></div>
+          <div class="stat"><div class="stat-n" id="s-done">0</div><div class="stat-l">مكتمل</div></div>
+          <div class="stat"><div class="stat-n" id="s-xp">0</div><div class="stat-l">XP</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div style="font-weight:800;font-size:16px">⭐ نقاط الخبرة</div>
+          <div style="font-size:13px;color:var(--muted)" id="xp-label">XP 0/300</div>
+        </div>
+        <div class="xp-bar"><div class="xp-fill" id="xp-fill" style="width:0%"></div></div>
+        <div style="text-align:center;font-size:12px;color:var(--muted)" id="xp-next">A0 → A1</div>
+      </div>
+      <div>
+        <div class="sh"><h2>المهارات الأربع</h2><span style="font-size:13px;color:var(--gold);cursor:pointer" onclick="showSec('skills')">عرض الكل ←</span></div>
+        <div class="sk-grid" id="home-skills"></div>
+      </div>
+      <div>
+        <div class="sh"><h2>الدروس القادمة</h2><span style="font-size:13px;color:var(--gold);cursor:pointer" onclick="showSec('lessons')">عرض الكل ←</span></div>
+        <div id="home-lessons"></div>
+      </div>
+    </div>
+
+    <!-- LESSONS -->
+    <div id="sec-lessons" style="display:none">
+      <div class="sh"><h2 id="lessons-title">جميع الدروس (208 درس)</h2></div>
+      <div class="ltabs" id="lang-tabs">
+        <button class="lt on" onclick="filterLang('english')">🇬🇧 الإنجليزية</button>
+        <button class="lt" onclick="filterLang('turkish')">🇹🇷 التركية</button>
+        <button class="lt" onclick="filterLang('chinese')">🇨🇳 الصينية</button>
+        <button class="lt" onclick="filterLang('all')">الكل</button>
+      </div>
+      <div class="ltabs" id="lv-tabs">
+        <button class="lt on" onclick="filterLv('all')">الكل</button>
+        <button class="lt" onclick="filterLv('A0')">A0</button>
+        <button class="lt" onclick="filterLv('A1')">A1</button>
+        <button class="lt" onclick="filterLv('A2')">A2</button>
+        <button class="lt" onclick="filterLv('B1')">B1</button>
+        <button class="lt" onclick="filterLv('B2')">B2</button>
+        <button class="lt" onclick="filterLv('C1')">C1</button>
+        <button class="lt" onclick="filterLv('C2')">C2</button>
+      </div>
+      <div id="lessons-content"></div>
+    </div>
+
+    <!-- SKILLS -->
+    <div id="sec-skills" style="display:none">
+      <div class="sh"><h2>⚡ مهاراتي</h2></div>
+      <div class="ltabs" id="skills-tabs"></div>
+      <div id="skills-content"></div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div id="sec-progress" style="display:none">
+      <div class="sh"><h2>📊 تقدمي</h2></div>
+      <div id="progress-content"></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="sec-quiz" style="display:none">
+      <div class="sh"><h2>🎯 اختبار المستوى</h2></div>
+      <div class="card" style="text-align:center;padding:48px">
+        <div style="font-size:48px;margin-bottom:16px">🚧</div>
+        <div style="font-size:18px;font-weight:800;margin-bottom:8px">قريباً!</div>
+        <div style="color:var(--muted)">اختبار تحديد المستوى قيد التطوير</div>
+      </div>
+    </div>
+
+    <!-- STORE -->
+    <div id="sec-store" style="display:none">
+      <div class="sh">
+        <h2>🛍️ المتجر التعليمي</h2>
+        <span style="font-size:12px;padding:5px 14px;background:rgba(196,152,58,.15);color:#C4983A;border-radius:20px;font-weight:700;border:1px solid rgba(196,152,58,.25)">🤖 محتوى AI أصلي حصري</span>
+      </div>
+      <div class="ltabs" id="store-tabs">
+        <button class="lt on" id="st-listening" onclick="showStoreTab('listening')">🎧 مقاطع الاستماع</button>
+        <button class="lt" id="st-reading" onclick="showStoreTab('reading')">📖 قصص القراءة</button>
+      </div>
+      <div id="store-content"></div>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// =================== DATA ===================
+let DB = null, prog = null;
+
+const LEVELS = ['A0','A1','A2','B1','B2','C1','C2'];
+const LEVEL_XP = {A0:0,A1:300,A2:700,B1:1400,B2:2500,C1:4000,C2:6500};
+const LEVEL_NAMES = {A0:'مبتدئ تام',A1:'مبتدئ',A2:'ما دون المتوسط',B1:'متوسط',B2:'فوق المتوسط',C1:'متقدم',C2:'إتقان تام'};
+
+const SK_MAP = {
+  listening:{name:'الاستماع',icon:'🎧',color:'#2196F3'},
+  speaking:{name:'المحادثة',icon:'🗣️',color:'#9C27B0'},
+  reading:{name:'القراءة',icon:'📖',color:'#FF9800'},
+  writing:{name:'الكتابة',icon:'✍️',color:'#E91E63'}
+};
+
+// =================== AUTH ===================
+function getSession(){return JSON.parse(localStorage.getItem('lingua_session')||'null');}
+function getUsers(){return JSON.parse(localStorage.getItem('lingua_users')||'{}');}
+function loadProg(){
+  const s=getSession();
+  if(!s){location.href='auth.html';return false;}
+  prog=JSON.parse(localStorage.getItem('lingua_progress_'+s.userId)||JSON.stringify({completedLessons:[],xp:0,level:'A0',skillScores:{},streak:1}));
+  return true;
+}
+function saveProg(){const s=getSession();if(s)localStorage.setItem('lingua_progress_'+s.userId,JSON.stringify(prog));}
+function doLogout(){localStorage.removeItem('lingua_session');location.href='auth.html';}
+
+// =================== DB ===================
+async function loadDB(){
+  try{
+    const r=await fetch('../data/lessons.json?v='+Date.now());
+    if(r.ok){DB=await r.json();return;}
+  }catch(e){}
+  try{
+    const r=await fetch('https://raw.githubusercontent.com/aseel2006-byte/lingua-platform/main/frontend/pages/lessons.json');
+    if(r.ok){DB=await r.json();return;}
+  }catch(e){}
+  // fallback inline
+  DB=FALLBACK_DB;
+}
+
+function getAll(){
+  if(!DB)return[];
+  const arr=[];
+  Object.entries(DB.courses).forEach(([lid,course])=>{
+    Object.entries(course.levels||{}).forEach(([lvId,lv])=>{
+      Object.entries(lv.skills||{}).forEach(([sk,lessons])=>{
+        (lessons||[]).forEach(l=>arr.push({...l,lid,skId:sk,lvId,langFlag:course.flag||''}));
+      });
+    });
+  });
+  return arr;
+}
+
+// =================== UI HELPERS ===================
+function getCurLevel(){
+  const xp=prog.xp||0;
+  let lv='A0';
+  LEVELS.forEach(l=>{if(xp>=LEVEL_XP[l])lv=l;});
+  return lv;
+}
+function getNextLvXP(){
+  const lv=getCurLevel();
+  const idx=LEVELS.indexOf(lv);
+  return idx<LEVELS.length-1?LEVEL_XP[LEVELS[idx+1]]:LEVEL_XP.C2;
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+function showSec(name){
+  ['home','lessons','skills','progress','quiz','store'].forEach(s=>{
+    const el=document.getElementById('sec-'+s);
+    if(el)el.style.display=s===name?'block':'none';
+  });
+  document.querySelectorAll('.sbitem').forEach(b=>b.classList.remove('on'));
+  const sb=document.getElementById('sb-'+name);
+  if(sb)sb.classList.add('on');
+  if(name==='home')renderHome();
+  if(name==='skills')renderSkills(curSkLang);
+  if(name==='lessons')renderLessons();
+  if(name==='progress')renderProgress();
+  if(name==='store')setTimeout(renderStore,50);
+}
+
+// =================== HOME ===================
+function renderHome(){
+  prog.level=getCurLevel();
+  const nx=getNextLvXP();
+  const lv=prog.level;
+  const xp=prog.xp||0;
+  const prevXP=LEVEL_XP[lv]||0;
+  const pct=nx>prevXP?Math.min(100,Math.round((xp-prevXP)/(nx-prevXP)*100)):100;
+  
+  const s=getSession();
+  const uname=s?s.name:'مستخدم';
+  document.getElementById('s-name').textContent=uname;
+  document.getElementById('nav-name').textContent=uname;
+  document.getElementById('nav-av').textContent=uname[0]||'م';
+  document.getElementById('s-lv').textContent=lv;
+  document.getElementById('s-done').textContent=prog.completedLessons.length;
+  document.getElementById('s-xp').textContent=xp;
+  document.getElementById('sb-cnt').textContent=prog.completedLessons.length;
+  document.getElementById('xp-label').textContent='XP '+xp+'/'+nx;
+  document.getElementById('xp-fill').style.width=pct+'%';
+  document.getElementById('xp-next').textContent=lv+' → '+LEVELS[LEVELS.indexOf(lv)+1];
+  
+  // Skill cards
+  const scores=prog.skillScores||{};
+  const skHTML=Object.entries(SK_MAP).map(([sk,info])=>{
+    const pct=Math.min(100,scores[sk]||0);
+    return `<div class="sk-card" style="background:linear-gradient(135deg,${info.color}22,${info.color}11);border:1px solid ${info.color}33" onclick="showSec('skills')">
+      <div style="font-size:28px">${info.icon}</div>
+      <div style="font-size:14px;font-weight:700;margin:6px 0">${info.name}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${lv}</div>
+      <div style="background:rgba(255,255,255,.1);border-radius:20px;height:6px;overflow:hidden">
+        <div style="height:100%;background:${info.color};border-radius:20px;width:${pct}%;transition:.8s"></div>
+      </div>
+      <div style="font-size:12px;color:${info.color};margin-top:6px;font-weight:700">${pct}%</div>
+    </div>`;
+  }).join('');
+  document.getElementById('home-skills').innerHTML=skHTML;
+  
+  // Upcoming lessons
+  const done=new Set(prog.completedLessons);
+  const all=getAll();
+  const upcoming=all.filter(l=>!done.has(l.id)).slice(0,5);
+  document.getElementById('home-lessons').innerHTML=upcoming.length
+    ? upcoming.map(l=>lessonItem(l,false)).join('')
+    : '<div class="loading">🎉 أحسنت! لا توجد دروس معلقة</div>';
+}
+
+// =================== LESSONS ===================
+let curLL='english', curLV='all';
+
+function filterLang(lang){
+  curLL=lang;
+  document.querySelectorAll('#lang-tabs .lt').forEach(b=>b.classList.remove('on'));
+  event.target.classList.add('on');
+  renderLessons();
+}
+function filterLv(lv){
+  curLV=lv;
+  document.querySelectorAll('#lv-tabs .lt').forEach(b=>b.classList.remove('on'));
+  event.target.classList.add('on');
+  renderLessons();
+}
+
+function lessonItem(l, isDone){
+  const btn = isDone
+    ? `<span class="lbadge bd">✅ مكتمل</span>`
+    : `<button class="start-btn" onclick="event.stopPropagation();startLesson('${l.id}','${l.lid}','${l.skId}','${l.lvId}',${l.xp})">▶ ابدأ الدرس</button>`;
+  return `<div class="li" onclick="startLesson('${l.id}','${l.lid}','${l.skId}','${l.lvId}',${l.xp})">
+    <div class="lc ${isDone?'done':'act'}">${isDone?'✓':'▶'}</div>
+    <div class="linfo">
+      <div class="ltitle">${l.langFlag} ${l.title}</div>
+      <div class="lmeta">${l.min} دق • +${l.xp} XP • ${l.lvId}${l.tags?' • '+l.tags.slice(0,2).join(' • '):''}</div>
+    </div>
+    ${btn}
+  </div>`;
+}
+
+function renderLessons(){
+  const done=new Set(prog.completedLessons);
+  const all=getAll();
+  let items = curLL==='all' ? all : all.filter(l=>l.lid===curLL);
+  if(curLV!=='all') items=items.filter(l=>l.lvId===curLV);
+  
+  const byLv={};
+  items.forEach(l=>{
+    if(!byLv[l.lvId])byLv[l.lvId]={};
+    if(!byLv[l.lvId][l.skId])byLv[l.lvId][l.skId]=[];
+    byLv[l.lvId][l.skId].push(l);
+  });
+  
+  let html='';
+  LEVELS.forEach(lv=>{
+    if(!byLv[lv])return;
+    const lvItems=Object.values(byLv[lv]).flat();
+    const doneCount=lvItems.filter(l=>done.has(l.id)).length;
+    html+=`<div style="margin-bottom:24px">
+      <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.04);border-radius:12px;padding:12px 16px;margin-bottom:12px;border:1px solid rgba(255,255,255,.06)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:18px">📚</span>
+          <div>
+            <div style="font-size:15px;font-weight:800">${lv} — ${LEVEL_NAMES[lv]||lv}</div>
+            <div style="font-size:12px;color:var(--muted)">${doneCount}/${lvItems.length} مكتمل</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:var(--muted);background:rgba(196,152,58,.15);color:var(--gold);padding:3px 10px;border-radius:20px">XP 0 • ${lvItems.length-doneCount} مطلوب</div>
+      </div>`;
+    
+    Object.entries(byLv[lv]).forEach(([sk,lessons])=>{
+      const info=SK_MAP[sk]||{name:sk,icon:'📝',color:'#666'};
+      html+=`<div style="margin-bottom:10px">
+        <div style="font-size:13px;font-weight:700;color:${info.color};margin-bottom:8px;display:flex;align-items:center;gap:6px">${info.icon} ${info.name}</div>`;
+      lessons.forEach(l=>{ html+=lessonItem(l,done.has(l.id)); });
+      html+='</div>';
+    });
+    html+='</div>';
+  });
+  
+  document.getElementById('lessons-content').innerHTML=html||'<div class="loading">لا توجد دروس</div>';
+}
+
+// =================== SKILLS ===================
+let curSkLang='english';
+
+function initSkills(){
+  if(!DB)return;
+  const langs=Object.keys(DB.courses);
+  document.getElementById('skills-tabs').innerHTML=langs.map((lid,i)=>{
+    const l=DB.courses[lid];
+    return `<button class="lt ${i===0?'on':''}" onclick="switchSkLang('${lid}',this)">${l.flag||''} ${l.nameEn||lid}</button>`;
+  }).join('');
+}
+function switchSkLang(lid,btn){
+  curSkLang=lid;
+  document.querySelectorAll('#skills-tabs .lt').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderSkills(lid);
+}
+function renderSkills(lid){
+  curSkLang=lid;
+  if(!DB)return;
+  const course=DB.courses[lid];
+  if(!course)return;
+  const done=new Set(prog.completedLessons);
+  let html='';
+  Object.entries(course.levels||{}).forEach(([lvId,lv])=>{
+    html+=`<div class="card" style="margin-bottom:16px"><div style="font-size:16px;font-weight:900;margin-bottom:14px">${lvId} — ${LEVEL_NAMES[lvId]||lvId}</div>`;
+    Object.entries(lv.skills||{}).forEach(([sk,lessons])=>{
+      const info=SK_MAP[sk]||{name:sk,icon:'📝',color:'#666'};
+      const doneCount=(lessons||[]).filter(l=>done.has(l.id)).length;
+      const pct=lessons.length?Math.round(doneCount/lessons.length*100):0;
+      html+=`<div style="margin-bottom:16px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <div style="font-weight:700;display:flex;gap:8px;align-items:center">${info.icon} ${info.name}</div>
+          <div style="font-size:13px;color:${info.color};font-weight:700">${pct}%</div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border-radius:20px;height:8px;overflow:hidden;margin-bottom:10px">
+          <div style="height:100%;background:${info.color};border-radius:20px;width:${pct}%;transition:.8s"></div>
+        </div>`;
+      (lessons||[]).forEach(l=>{ html+=lessonItem(l,done.has(l.id)); });
+      html+='</div>';
+    });
+    html+='</div>';
+  });
+  document.getElementById('skills-content').innerHTML=html||'<div class="loading">لا توجد بيانات</div>';
+}
+
+// =================== PROGRESS ===================
+function renderProgress(){
+  if(!DB)return;
+  const done=new Set(prog.completedLessons);
+  const all=getAll();
+  let html=`<div class="card" style="margin-bottom:16px">
+    <div style="font-size:16px;font-weight:900;margin-bottom:16px">📊 إجمالي التقدم</div>`;
+  
+  Object.entries(DB.courses).forEach(([lid,course])=>{
+    const langAll=all.filter(l=>l.lid===lid);
+    const langDone=langAll.filter(l=>done.has(l.id));
+    const pct=langAll.length?Math.round(langDone.length/langAll.length*100):0;
+    html+=`<div class="prog-sec">
+      <div class="prog-lang">
+        <span style="font-size:20px">${course.flag||'🌍'}</span>
+        <span style="font-weight:700;min-width:80px">${course.nameEn||lid}</span>
+        <div class="prog-bar-wrap"><div class="prog-bar" style="background:${course.color||'#666'};width:${pct}%"></div></div>
+        <span style="font-size:13px;color:var(--muted)">${langDone.length}/${langAll.length}</span>
+      </div>
+    </div>`;
+  });
+  html+='</div>';
+  document.getElementById('progress-content').innerHTML=html;
+}
+
+// =================== START LESSON ===================
+function startLesson(id, lid, sk, lvId, xp){
+  const done=new Set(prog.completedLessons);
+  const isNew=!done.has(id);
+  if(isNew){
+    prog.completedLessons.push(id);
+    prog.xp=(prog.xp||0)+xp;
+    if(!prog.skillScores)prog.skillScores={};
+    prog.skillScores[sk]=Math.min(100,(prog.skillScores[sk]||0)+Math.ceil(xp/10));
+    prog.level=getCurLevel();
+    saveProg();
+    document.getElementById('s-xp').textContent=prog.xp;
+    document.getElementById('s-done').textContent=prog.completedLessons.length;
+    document.getElementById('s-lv').textContent=prog.level;
+    document.getElementById('sb-cnt').textContent=prog.completedLessons.length;
+    showToast('🎉 أحسنت! +'+xp+' XP');
+    renderHome();
+  }
+  const all=getAll();
+  const lesson=all.find(l=>l.id===id);
+  showLessonModal(lesson,isNew,xp,lid,sk,lvId);
+}
+
+function showLessonModal(lesson, isNew, xp, lid, sk, lvId){
+  document.getElementById('lm')?.remove();
+  const title=lesson?lesson.title:'درس';
+  const desc=lesson?lesson.desc:'';
+  const tags=lesson&&lesson.tags?lesson.tags:[];
+  const minTime=lesson?lesson.min:15;
+  
+  const langMap={english:'🇬🇧 الإنجليزية',turkish:'🇹🇷 التركية',chinese:'🇨🇳 الصينية'};
+  const skMap={listening:'🎧 استماع',speaking:'🗣️ محادثة',reading:'📖 قراءة',writing:'✍️ كتابة'};
+  const tipsMap={
+    listening:['🎧 استمع مرتين على الأقل قبل التقدم','📝 دوّن المفردات الجديدة','🔄 ركّز على السياق لا كل كلمة'],
+    speaking:['🗣️ تحدث بصوت عالٍ وواضح','🎯 قلّد النطق الطبيعي','🔁 كرّر الجمل حتى تتقنها'],
+    reading:['📖 اقرأ ببطء وافهم كل جملة','💡 خمّن معنى الكلمات من السياق','📋 حدّد الفكرة الرئيسية من كل فقرة'],
+    writing:['✏️ ابدأ بجملة بسيطة ثم طوّلها','📝 استخدم المفردات المتعلمة','🔄 راجع كتابتك وصحّح الأخطاء']
+  };
+  const tips=tipsMap[sk]||tipsMap.listening;
+  const tipsHTML=tips.map(t=>`<div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)"><span>${t.split(' ')[0]}</span><span style="font-size:13px;color:#C4B8D0">${t.slice(t.indexOf(' ')+1)}</span></div>`).join('');
+  const tagsHTML=tags.length?`<div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:12px">${tags.map(t=>`<span style="background:rgba(196,152,58,.15);color:#C4983A;padding:3px 10px;border-radius:20px;font-size:12px">${t}</span>`).join('')}</div>`:'';
+  const badge=isNew
+    ?`<div style="background:#4CAF50;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;margin-bottom:16px;display:inline-block">🎉 +${xp} XP مكتسبة!</div>`
+    :`<div style="background:rgba(196,152,58,.2);color:#C4983A;border:1px solid rgba(196,152,58,.3);padding:6px 18px;border-radius:20px;font-size:13px;margin-bottom:16px;display:inline-block">📚 مراجعة الدرس</div>`;
+  
+  const modal=document.createElement('div');
+  modal.id='lm';
+  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(6px);padding:16px;';
+  modal.innerHTML=`<div style="background:#1E1648;border-radius:20px;padding:28px;max-width:480px;width:100%;border:1px solid rgba(196,152,58,.25);position:relative;max-height:85vh;overflow-y:auto;">
+    <button onclick="document.getElementById('lm').remove()" style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,.1);border:none;color:#eee;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:18px">✕</button>
+    <div style="text-align:center;margin-bottom:20px">
+      ${badge}
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
+        <span style="background:rgba(33,150,243,.2);color:#2196F3;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${langMap[lid]||lid}</span>
+        <span style="background:rgba(156,39,176,.2);color:#CE93D8;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${skMap[sk]||sk}</span>
+        <span style="background:rgba(255,255,255,.08);color:#aaa;padding:3px 10px;border-radius:20px;font-size:11px">⏱ ${minTime} دق</span>
+      </div>
+      <h2 style="font-size:20px;font-weight:800;margin:8px 0 6px">${title}</h2>
+      <p style="color:#C4983A;font-size:14px;margin:0 0 10px">${desc}</p>
+      ${tagsHTML}
+    </div>
+    <div style="background:rgba(15,14,26,.5);border-radius:12px;padding:16px;margin-bottom:16px">
+      <div style="font-size:13px;font-weight:700;color:#C4983A;margin-bottom:10px">💡 نصائح لهذا الدرس</div>
+      ${tipsHTML}
+    </div>
+    <div style="display:flex;gap:10px">
+      <button onclick="document.getElementById('lm').remove()" style="flex:1;background:#2d2a4a;color:var(--txt);border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit">إغلاق</button>
+      <button onclick="document.getElementById('lm').remove();showToast('✅ تم تسجيل الدرس!')" style="flex:2;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:900;font-family:inherit">✅ تم الدرس!</button>
+    </div>
+  </div>`;
+  document.body.appendChild(modal);
+  modal.addEventListener('click',e=>{if(e.target===modal)modal.remove();});
+}
+
+function showToastSafe(msg){showToast(msg);}
+
+// =================== STORE: AI CONTENT ===================
 const AI_L=[{"id": "ai-en-l1", "lang": "english", "flag": "🇬🇧", "level": "A0", "title": "My First Day at School", "duration": "3 min", "script": "Hello! My name is Alex. I am eight years old.\\nToday is my first day at school. I am a little nervous, but excited too.\\n\\nMy teacher's name is Miss Sarah. She has a big smile. She says: \"Welcome, class! Don't be shy!\"\\n\\nI sit next to a girl named Mia. She has red hair and blue eyes. She gives me a pencil. \\nI say: \"Thank you!\" She says: \"You're welcome!\"\\n\\nAt lunchtime, we eat together. I have a sandwich and an apple. Mia has rice and juice.\\n\\nAfter lunch, we go to the playground. We play football. It is very fun!\\n\\nAt the end of the day, I am happy. School is good. I have a new friend!", "vocabulary": ["nervous", "excited", "teacher", "pencil", "playground", "sandwich"], "questions": [{"q": "What is the teacher's name?", "a": "Miss Sarah"}, {"q": "What does Alex eat for lunch?", "a": "A sandwich and an apple"}, {"q": "How does Alex feel at the end of the day?", "a": "Happy"}]}, {"id": "ai-en-l2", "lang": "english", "flag": "🇬🇧", "level": "A1", "title": "A Day at the Market", "duration": "4 min", "script": "Every Saturday morning, my mother and I go to the market.\\nThe market is colorful and loud. I love it!\\n\\nFirst, we go to the fruit stand. The farmer's name is Mr. Hassan. \\nHe has big red apples, yellow bananas, and sweet oranges.\\nMy mother asks: \"How much are the apples?\"\\nMr. Hassan says: \"Two dollars per kilogram.\"\\nMy mother says: \"I'll take two kilograms, please.\"\\n\\nNext, we go to the bread shop. The bread is still warm! \\nWe buy one big loaf and some small rolls. The smell is wonderful.\\n\\nThen, we visit the flower shop. My mother buys yellow sunflowers.\\nShe says: \"These flowers make our house beautiful!\"\\n\\nFinally, we go home. The bags are heavy, but we are happy.\\nWe drink tea and eat fresh bread with honey. Perfect!", "vocabulary": ["market", "colorful", "farmer", "kilogram", "loaf", "sunflowers", "honey"], "questions": [{"q": "When do they go to the market?", "a": "Every Saturday morning"}, {"q": "How much is one kilogram of apples?", "a": "Two dollars"}, {"q": "What flowers does the mother buy?", "a": "Yellow sunflowers"}]}, {"id": "ai-en-l3", "lang": "english", "flag": "🇬🇧", "level": "A2", "title": "The Lost Dog", "duration": "5 min", "script": "One rainy Tuesday afternoon, I was walking home from school when I saw something unusual.\\nA small brown dog was sitting under a bench, shaking. He had no collar.\\n\\nI stopped and looked at him carefully. His eyes were big and brown, just like chocolate.\\n\"Hello, little guy,\" I said softly. \"Are you lost?\"\\n\\nThe dog looked at me and wagged his tail slowly. I sat down beside him.\\nI opened my school bag and found half a sandwich from lunch.\\nI gave him a small piece. He ate it quickly and licked my hand.\\n\\nI decided to take him home. My parents were surprised.\\n\"We can't keep him forever,\" my mother said. \"But we can help him tonight.\"\\n\\nWe dried him with a towel and gave him warm milk. He fell asleep on my bedroom floor.\\n\\nThe next morning, I made a poster with his photo: \\n\"FOUND: Small brown dog. Very friendly. Please call 555-0123.\"\\n\\nThree days later, a little girl called us. She was crying when she arrived.\\n\"BISCUIT!\" she screamed. The dog jumped up immediately!\\nShe hugged him tightly. \"Thank you so much,\" she said. \"I missed him so much.\"\\n\\nI felt sad but also happy. Sometimes doing the right thing feels both things at once.", "vocabulary": ["collar", "wagged", "poster", "immediately", "tightly"], "questions": [{"q": "Where did the boy find the dog?", "a": "Under a bench"}, {"q": "What was the dog's name?", "a": "Biscuit"}, {"q": "How many days before the owner called?", "a": "Three days"}]}, {"id": "ai-tr-l1", "lang": "turkish", "flag": "🇹🇷", "level": "A0", "title": "Merhaba! Ben Elif.", "duration": "3 min", "script": "Merhaba! Benim adım Elif. On iki yaşındayım.\\n(Hello! My name is Elif. I am twelve years old.)\\n\\nİstanbul'da yaşıyorum. İstanbul çok büyük ve güzel bir şehir.\\n(I live in Istanbul. Istanbul is a very big and beautiful city.)\\n\\nAilem: annem, babam ve küçük kardeşim Ahmet var.\\n(My family: I have my mother, father and little brother Ahmet.)\\n\\nAhmet çok şakacı. Her zaman güler.\\n(Ahmet is very funny. He always laughs.)\\n\\nOkulumu seviyorum. En sevdiğim ders matematik.\\n(I love my school. My favourite subject is mathematics.)\\n\\nOkul sonrası kitap okumayı ve müzik dinlemeyi seviyorum.\\n(After school, I love reading books and listening to music.)\\n\\nSeni tanımak çok güzel. Hoşça kal!\\n(It is wonderful to meet you. Goodbye!)", "vocabulary": ["Merhaba=Hello", "yaşıyorum=I live", "güzel=beautiful", "kardeşim=my brother", "seviyorum=I love"], "questions": [{"q": "Elif kaç yaşında? / How old is Elif?", "a": "12"}, {"q": "Elif'in kardeşinin adı ne? / What is Elif's brother's name?", "a": "Ahmet"}, {"q": "Elif'in en sevdiği ders ne? / What is Elif's favourite subject?", "a": "Matematik / Mathematics"}]}, {"id": "ai-zh-l1", "lang": "chinese", "flag": "🇨🇳", "level": "A0", "title": "我的家 — My Home", "duration": "3 min", "script": "大家好！我叫李明。(Hello everyone! My name is Li Ming.)\\n我住在北京。(I live in Beijing.)\\n\\n我的家不大，但很温暖。(My home is not big, but very warm.)\\n我们有客厅、厨房和两个卧室。(We have a living room, kitchen and two bedrooms.)\\n\\n我最喜欢厨房，因为妈妈在那里做好吃的饭。\\n(I like the kitchen most, because mom cooks delicious food there.)\\n\\n我的卧室有一张床，一张桌子和很多书。\\n(My bedroom has a bed, a desk and many books.)\\n\\n晚上，我们全家一起看电视、聊天。\\n(In the evening, our whole family watches TV and chats together.)\\n\\n这就是我的家。你的家是什么样子的？\\n(This is my home. What is your home like?)", "vocabulary": ["家=home", "客厅=living room", "厨房=kitchen", "卧室=bedroom", "温暖=warm"], "questions": [{"q": "李明住在哪里？/ Where does Li Ming live?", "a": "北京 / Beijing"}, {"q": "他最喜欢哪个房间？/ Which room does he like most?", "a": "厨房 / Kitchen"}, {"q": "晚上他们做什么？/ What do they do in the evening?", "a": "看电视、聊天 / Watch TV and chat"}]}];
 const AI_R=[{"id": "ai-story-1", "lang": "english", "flag": "🇬🇧", "level": "A0", "title": "The Little Cloud Who Was Afraid of Rain", "duration": "4 min", "text": "High above the city of Sunnyville, there lived a small white cloud named Fluff.\\n\\nFluff had one big problem: he was afraid to rain.\\n\\nEvery morning, the other clouds would gather together. \\n\"Time to water the flowers!\" said Big Grey Cloud.\\n\"Time to fill the rivers!\" said Dark Blue Cloud.\\n\"Time to give the children puddles to jump in!\" laughed Round Pink Cloud.\\n\\nBut Fluff would hide behind a hill. \"Not today,\" he would whisper.\\n\\nOne hot summer day, the flowers in the park turned brown. \\nThe river became very low. The children were too hot to play.\\nAn old man sat under a tree. He looked at the sky and sighed.\\n\\nFluff watched from behind his hill. He felt something strange in his chest.\\nIt wasn't fear. It was something else. It was sadness.\\n\\n\"What if I try?\" Fluff thought. \"Just a little. Just one drop.\"\\n\\nHe moved slowly over the park. He closed his eyes.\\nHe took a deep breath. And then...\\n\\nDRIP. One small raindrop fell.\\n\\nA flower raised its head. A bird sang.\\nFluff opened his eyes and saw the flower smile.\\n\\n\"More!\" he thought. And the rain came — gentle and cool and wonderful.\\n\\nThe children ran outside. They laughed and jumped in puddles.\\nThe old man raised his face to the sky. \"Thank you, little cloud!\"\\n\\nThat night, Fluff rested on a soft mountain. He was not afraid anymore.\\nHe was brave. And being brave felt much better than hiding.", "moral": "Helping others is braver than hiding from your fears.", "ar_summary": "قصة سحابة صغيرة اسمها فلاف كانت تخاف من المطر، لكنها تغلبت على خوفها عندما رأت الزهور تجف والأطفال يتألمون من الحر."}, {"id": "ai-story-2", "lang": "english", "flag": "🇬🇧", "level": "A1", "title": "The Boy Who Collected Colours", "duration": "5 min", "text": "In a small grey town lived a boy named Sami.\\n\\nEverything in his town was grey: grey houses, grey streets, grey sky.\\nEven the people wore grey clothes. They said: \"Colour is dangerous. Colour causes too many feelings.\"\\n\\nBut Sami secretly loved colour.\\n\\nHe found a red button on the ground and put it in his pocket.\\nHe found a blue feather near the river and hid it in his sock.\\nHe found a yellow leaf in autumn and kept it inside his book.\\nHe found a green stone by the fountain and wrapped it in paper.\\n\\nEvery night, he took out his collection and arranged them on his bed:\\nRed. Blue. Yellow. Green.\\n\\nHe whispered their names like magic words.\\n\\nOne stormy night, a little girl knocked on his door.\\nShe was crying. \"I'm lost,\" she said.\\n\\nSami saw she was holding a torn piece of cloth — bright orange.\\n\"Where did you get that?\" he asked.\\n\"From my home village,\" she said. \"Everyone there loves colour.\"\\n\\nSami's eyes went wide. \"There are places like that?\"\\n\\n\"Yes,\" she said. \"Come with me tomorrow and I'll show you.\"\\n\\nThe next morning, the grey people watched as Sami walked out of town.\\nHe turned once and waved. And when he turned, they saw it:\\nHe had quietly placed his red button, blue feather, yellow leaf, and green stone \\non four grey doorsteps.\\n\\nThat afternoon, four grey people each found a colour.\\nAnd they weren't sure, but for a moment, they felt something.\\nSomething like hope.", "moral": "Even one small colour can change a grey world.", "ar_summary": "قصة ولد اسمه سامي في بلدة رمادية لا ألوان فيها، كان يجمع الألوان سراً حتى وجد طريقاً لعالم ملوّن."}, {"id": "ai-story-3", "lang": "english", "flag": "🇬🇧", "level": "A2", "title": "The Library at the End of the Street", "duration": "6 min", "text": "At the very end of Maple Street, behind an old iron gate, stood a library that nobody visited.\\n\\nThe sign above the door said: \"OPEN\" — but the paint was faded and the windows were dusty.\\n\\nTwelve-year-old Nora walked past it every day for three years without stopping.\\n\\nOne Monday, it was raining very hard. Nora ran under the library's roof to stay dry.\\nAs she waited, she noticed something: a warm orange light in the window. \\nAnd a sound — very faint — like the turning of pages.\\n\\nShe pushed the gate. It creaked open.\\nShe pushed the door. It was unlocked.\\n\\nInside, the library was not dusty at all. It was warm and bright.\\nTall shelves covered every wall. Books of every colour filled them.\\n\\nBehind a small wooden desk sat an old woman with silver hair and round glasses.\\nShe looked up and smiled as if she had been expecting Nora for years.\\n\\n\"Hello,\" said Nora. \"Is this library still open?\"\\n\"For you,\" said the old woman, \"it never closed.\"\\n\\nThat evening, Nora left with three books under her arm.\\nShe came back the next day. And the next. And every day after.\\n\\nSlowly, word spread. Other children came. Then adults. Then the whole street.\\n\\nThe old iron gate was painted green.\\nThe windows were cleaned and filled with flowers.\\nThe sign above the door was repainted in bright gold letters.\\n\\nThe old woman never said her name. \\nShe just smiled every time a new person walked in.\\n\\nAnd somehow, without anyone understanding quite why, \\nevery person who walked into that library walked out slightly changed.\\nA little quieter. A little wiser. A little more themselves.", "moral": "Books and libraries have the power to change people.", "ar_summary": "قصة فتاة اكتشفت مكتبة قديمة في نهاية الشارع كانت مهجورة، فأصبحت تزورها يومياً حتى عادت المكتبة للحياة وغيّرت الحي كله."}, {"id": "ai-story-tr-1", "lang": "turkish", "flag": "🇹🇷", "level": "A1", "title": "Deniz Feneri / The Lighthouse", "duration": "5 min", "text": "Denizin kenarında küçük bir deniz feneri vardı.\\n(At the edge of the sea, there was a small lighthouse.)\\n\\nFenercinin adı Yusuf'tu. Yusuf her gece ışığı yakar,\\ngemilerin güvenle geçmesini sağlardı.\\n(The lighthouse keeper's name was Yusuf. Every night Yusuf lit the light, \\nhelping ships pass safely.)\\n\\nBir gece, çok kötü bir fırtına geldi.\\n(One night, a very bad storm came.)\\n\\nYusuf'un lambası söndü! Karanlık her yeri kapladı.\\n(Yusuf's lamp went out! Darkness covered everything.)\\n\\nAma Yusuf vazgeçmedi.\\n(But Yusuf did not give up.)\\n\\nElinde küçük bir mum tutarak karanlığa ışık tuttu.\\n(Holding a small candle, he shone a light into the darkness.)\\n\\nKüçük mumun ışığı uzaktan görünen bir gemiciye ulaştı.\\n(The small candle's light reached a sailor who could see from far away.)\\n\\nGemi güvenle limana geldi.\\n(The ship arrived safely at the harbour.)\\n\\nSabah, kaptan Yusuf'a teşekkür etmeye geldi.\\n(In the morning, the captain came to thank Yusuf.)\\n\\n\"Senin küçük mumun bizi kurtardı,\" dedi.\\n(\"Your small candle saved us,\" he said.)\\n\\nYusuf güldü: \"Büyük karanlıkta küçük bir ışık bile yeterlidir.\"\\n(Yusuf smiled: \"Even a small light is enough in great darkness.\")", "moral": "Küçük bir ışık büyük bir karanlığı yener. / A small light defeats great darkness.", "ar_summary": "قصة حارس منارة اسمه يوسف أنقذ سفينة في ليلة عاصفة بشمعة صغيرة فقط."}, {"id": "ai-story-zh-1", "lang": "chinese", "flag": "🇨🇳", "level": "A1", "title": "小熊的礼物 / The Little Bear's Gift", "duration": "5 min", "text": "森林里住着一只小熊，名叫毛毛。\\n(In the forest lived a little bear named Maomao.)\\n\\n明天是妈妈的生日。毛毛想送妈妈一个礼物。\\n(Tomorrow is mom's birthday. Maomao wants to give mom a gift.)\\n\\n但是毛毛没有钱。\\n(But Maomao has no money.)\\n\\n毛毛去找松鼠朋友小跳。\\n(Maomao went to find his squirrel friend Xiaotiao.)\\n\\n小跳说：\"我可以教你做一首歌！\"\\n(Xiaotiao said: \"I can teach you to make a song!\")\\n\\n毛毛学了一整天。他的声音不太好听，但他很努力。\\n(Maomao practised all day. His voice wasn't very good, but he tried very hard.)\\n\\n生日那天，毛毛站在妈妈面前，深呼吸，然后唱了起来。\\n(On her birthday, Maomao stood before mom, took a deep breath, and began to sing.)\\n\\n歌声不完美，但充满了爱。\\n(The song was not perfect, but it was full of love.)\\n\\n妈妈的眼睛里有了泪水。她把毛毛紧紧抱住。\\n(Mom's eyes filled with tears. She held Maomao tightly.)\\n\\n\"这是我收到过最好的礼物，\"妈妈说。\\n(\"This is the best gift I have ever received,\" said mom.)\\n\\n毛毛明白了：最好的礼物不是用钱买的。\\n(Maomao understood: the best gifts cannot be bought with money.)", "moral": "最好的礼物来自心里。/ The best gifts come from the heart.", "ar_summary": "قصة دب صغير اسمه ماوماو أراد تقديم هدية لأمه في عيد ميلادها لكن لم يكن لديه مال، فتعلم أغنية وكانت أجمل هدية."}];
 
