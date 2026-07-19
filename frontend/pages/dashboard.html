@@ -4,51 +4,39 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Lingua — لوحة التحكم</title>
+<title>Lingua &#x2014; &#x644;&#x648;&#x62D;&#x629; &#x627;&#x644;&#x62A;&#x62D;&#x643;&#x645;</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-<script>
-window.onerror = function(msg, src, l, c) {};
-</script>
 <style>
-:root{--bg:#0F0E1A;--sf:#1E1648;--sf2:#261E55;--gold:#C4983A;--gl:#E5B84A;--txt:#F0EDE8;--muted:#8886A0;--blue:#2196F3;--green:#4CAF50}
+:root{--bg:#0F0E1A;--sf:#1E1648;--sf2:#261E55;--gold:#C4983A;--gl:#E5B84A;--txt:#F0EDE8;--muted:#8886A0}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
 .nav{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(15,14,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:12px 24px;display:flex;align-items:center;gap:12px}
 .nav .logo{font-size:22px;font-weight:900;color:var(--gold);margin-right:auto}
 .nbtn{border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:inherit}
 .nbtn.ng{background:linear-gradient(135deg,var(--gold),var(--gl));color:#0F0E1A}
-.nbtn.nd{background:rgba(255,255,255,.08);color:var(--txt)}
 .nbtn.ns{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.1)}
 .uinfo{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);padding:6px 14px 6px 10px;border-radius:30px}
 .uavatar{width:30px;height:30px;background:linear-gradient(135deg,var(--gold),var(--gl));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#0F0E1A}
-.uname{font-size:14px;font-weight:700}
-.urole{font-size:11px;color:var(--gold)}
+.uname{font-size:14px;font-weight:700}.urole{font-size:11px;color:var(--gold)}
 .layout{display:flex;padding-top:65px;min-height:100vh}
-.sidebar{width:220px;position:fixed;top:65px;bottom:0;right:0;background:rgba(15,14,26,.6);border-left:1px solid rgba(255,255,255,.06);padding:20px 12px;overflow-y:auto;flex-shrink:0}
+.sidebar{width:220px;position:fixed;top:65px;bottom:0;right:0;background:rgba(15,14,26,.6);border-left:1px solid rgba(255,255,255,.06);padding:20px 12px;overflow-y:auto}
 .sb-section{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.5px;padding:0 8px;margin:16px 0 6px}
-.sbitem{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;cursor:pointer;font-size:14px;color:var(--muted);transition:.2s;margin-bottom:2px;text-decoration:none;width:100%}
+.sbitem{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;cursor:pointer;font-size:14px;color:var(--muted);transition:.2s;margin-bottom:2px;text-decoration:none;width:100%;border:none;background:none;font-family:inherit;text-align:right}
 .sbitem:hover,.sbitem.on{background:rgba(196,152,58,.12);color:var(--gold)}
 .sbitem .ic{font-size:18px;width:22px;text-align:center}
 .sb-lv{font-size:11px;font-weight:800;background:rgba(196,152,58,.2);color:var(--gold);padding:2px 8px;border-radius:10px;margin-right:auto}
-main{margin-right:220px;padding:28px;flex:1;max-width:1200px}
-.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-.sh h2{font-size:22px;font-weight:900}
-/* Cards */
+main{margin-right:220px;padding:28px;flex:1}
 .card{background:var(--sf);border-radius:16px;padding:24px;margin-bottom:20px}
-/* Hero */
 .hero{background:linear-gradient(135deg,#1E1648,#261E55);border:1px solid rgba(196,152,58,.15)}
 .stats{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
 .stat{background:rgba(255,255,255,.06);border-radius:12px;padding:12px 20px;text-align:center;flex:1;min-width:80px}
 .stat-n{font-size:24px;font-weight:900;color:var(--gold)}
 .stat-l{font-size:12px;color:var(--muted);margin-top:2px}
-/* XP bar */
 .xp-bar{background:rgba(255,255,255,.08);border-radius:20px;height:10px;overflow:hidden;margin:12px 0}
 .xp-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gl));border-radius:20px;transition:width .8s}
-/* Skill cards */
 .sk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
-.sk-card{border-radius:14px;padding:18px;text-align:center;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.sk-card{border-radius:14px;padding:18px;text-align:center;cursor:pointer;transition:.3s}
 .sk-card:hover{transform:translateY(-4px)}
-/* Lesson items */
 .li{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,.04);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:.2s;border:1px solid rgba(255,255,255,.05)}
 .li:hover{background:rgba(255,255,255,.08)}
 .lc{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0}
@@ -57,723 +45,140 @@ main{margin-right:220px;padding:28px;flex:1;max-width:1200px}
 .linfo{flex:1;min-width:0}
 .ltitle{font-size:14px;font-weight:700;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lmeta{font-size:12px;color:var(--muted)}
-.start-btn{background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;flex-shrink:0;white-space:nowrap;transition:.2s}
+.start-btn{background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;flex-shrink:0;transition:.2s}
 .start-btn:hover{transform:scale(1.05)}
 .lbadge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;flex-shrink:0}
 .bd{background:rgba(76,175,80,.2);color:#4CAF50}
-/* Tabs */
 .ltabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .lt{padding:8px 18px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;background:rgba(255,255,255,.06);color:var(--muted);transition:.2s}
 .lt.on{background:rgba(196,152,58,.2);color:var(--gold);border:1px solid rgba(196,152,58,.3)}
-/* Store */
-.sv-card{background:var(--sf);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:.3s;cursor:pointer}
+.sv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:24px}
+.sv-card{background:var(--sf);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:.3s;cursor:pointer}
 .sv-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.sv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-bottom:24px}
-/* Toast */
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--gold);color:#0F0E1A;padding:12px 24px;border-radius:12px;font-weight:700;font-size:14px;opacity:0;transition:.3s;z-index:9000;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-/* Loading */
-.loading{text-align:center;padding:40px;color:var(--muted);font-size:15px}
-/* Progress */
-.prog-sec{margin-bottom:20px}
-.prog-lang{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.prog-bar-wrap{flex:1;background:rgba(255,255,255,.06);border-radius:20px;height:8px;overflow:hidden}
-.prog-bar{height:100%;border-radius:20px;transition:width .8s}
+.loading{text-align:center;padding:40px;color:var(--muted)}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.sh h2{font-size:22px;font-weight:900}
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="uinfo">
-    <div class="uavatar" id="nav-av">م</div>
-    <div>
-      <div class="uname" id="nav-name">مستخدم</div>
-      <div class="urole" id="nav-role">✏️ تجريبي</div>
-    </div>
+    <div class="uavatar" id="nav-av">M</div>
+    <div><div class="uname" id="nav-name">&#x645;&#x633;&#x62A;&#x62E;&#x62F;&#x645;</div><div class="urole" id="nav-role">&#x62A;&#x62C;&#x631;&#x64A;&#x628;&#x64A;</div></div>
   </div>
-  <button class="nbtn ng" onclick="showSec('store')">🛒 المتجر</button>
-  <button class="nbtn ns" onclick="doLogout()">خروج</button>
-  <div class="logo">Lingua 🎓</div>
+  <button class="nbtn ng" onclick="showSec('store')">&#x1F6D2; &#x627;&#x644;&#x645;&#x62A;&#x62C;&#x631;</button>
+  <button class="nbtn ns" onclick="doLogout()">&#x62E;&#x631;&#x648;&#x62C;</button>
+  <div class="logo">Lingua &#x1F393;</div>
 </nav>
-
 <div class="layout">
   <aside class="sidebar">
-    <div class="sb-section">القائمة الرئيسية</div>
-    <a class="sbitem on" id="sb-home" onclick="showSec('home')"><span class="ic">🏠</span>الرئيسية</a>
-    <a class="sbitem" id="sb-skills" onclick="showSec('skills')"><span class="ic">⚡</span>مهاراتي</a>
-    <a class="sbitem" id="sb-lessons" onclick="showSec('lessons')"><span class="ic">📚</span>جميع الدروس <span class="sb-lv" id="sb-cnt">0</span></a>
-    <a class="sbitem" id="sb-progress" onclick="showSec('progress')"><span class="ic">📊</span>تقدمي</a>
-    <div class="sb-section">اللغات</div>
-    <a class="sbitem" id="sb-en" onclick="showSec('lessons');filterLang('english')"><span class="ic">🇬🇧</span>الإنجليزية <span class="sb-lv" id="sb-en-cnt">0/87</span></a>
-    <a class="sbitem" id="sb-tr" onclick="showSec('lessons');filterLang('turkish')"><span class="ic">🇹🇷</span>التركية <span class="sb-lv" id="sb-tr-cnt">0/60</span></a>
-    <a class="sbitem" id="sb-zh" onclick="showSec('lessons');filterLang('chinese')"><span class="ic">🇨🇳</span>الصينية <span class="sb-lv" id="sb-zh-cnt">0/61</span></a>
-    <div class="sb-section">روابط</div>
-    <a class="sbitem" onclick="showSec('quiz')"><span class="ic">🎯</span>اختبار المستوى</a>
-    <a class="sbitem" id="sb-store" onclick="showSec('store')"><span class="ic">🛍️</span>المتجر</a>
-    <a class="sbitem" onclick="doLogout()"><span class="ic">🚪</span>تسجيل الخروج</a>
+    <div class="sb-section">&#x627;&#x644;&#x642;&#x627;&#x626;&#x645;&#x629;</div>
+    <button class="sbitem on" id="sb-home" onclick="showSec('home')"><span class="ic">&#x1F3E0;</span>&#x627;&#x644;&#x631;&#x626;&#x64A;&#x633;&#x64A;&#x629;</button>
+    <button class="sbitem" id="sb-lessons" onclick="showSec('lessons')"><span class="ic">&#x1F4DA;</span>&#x627;&#x644;&#x62F;&#x631;&#x648;&#x633; <span class="sb-lv" id="sb-cnt">0</span></button>
+    <button class="sbitem" id="sb-progress" onclick="showSec('progress')"><span class="ic">&#x1F4CA;</span>&#x62A;&#x642;&#x62F;&#x645;&#x64A;</button>
+    <div class="sb-section">&#x627;&#x644;&#x644;&#x63A;&#x627;&#x62A;</div>
+    <button class="sbitem" onclick="showSec('lessons');filterLang('english',this)"><span class="ic">&#x1F1EC;&#x1F1E7;</span>&#x627;&#x644;&#x625;&#x646;&#x62C;&#x644;&#x64A;&#x632;&#x64A;&#x629; <span class="sb-lv" id="sb-english-cnt">0/87</span></button>
+    <button class="sbitem" onclick="showSec('lessons');filterLang('turkish',this)"><span class="ic">&#x1F1F9;&#x1F1F7;</span>&#x627;&#x644;&#x62A;&#x631;&#x643;&#x64A;&#x629; <span class="sb-lv" id="sb-turkish-cnt">0/60</span></button>
+    <button class="sbitem" onclick="showSec('lessons');filterLang('chinese',this)"><span class="ic">&#x1F1E8;&#x1F1F3;</span>&#x627;&#x644;&#x635;&#x64A;&#x646;&#x64A;&#x629; <span class="sb-lv" id="sb-chinese-cnt">0/61</span></button>
+    <div class="sb-section">&#x631;&#x648;&#x627;&#x628;&#x637;</div>
+    <button class="sbitem" id="sb-store" onclick="showSec('store')"><span class="ic">&#x1F6CD;&#xFE0F;</span>&#x627;&#x644;&#x645;&#x62A;&#x62C;&#x631;</button>
+    <button class="sbitem" onclick="doLogout()"><span class="ic">&#x1F6AA;</span>&#x62E;&#x631;&#x648;&#x62C;</button>
   </aside>
-
   <main id="main-content">
-    <!-- HOME -->
     <div id="sec-home">
       <div class="card hero">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px">
-          <div>
-            <div style="font-size:24px;font-weight:900;margin-bottom:4px">👋 مرحباً <span id="s-name">مستخدم</span>!</div>
-            <div style="color:var(--muted);font-size:14px">استمر في رحلتك اللغوية اليوم</div>
-            <div style="margin-top:10px"><span id="streak-badge" style="background:rgba(255,152,0,.2);color:#FF9800;padding:5px 14px;border-radius:20px;font-size:13px;font-weight:700">🔥 7 أيام</span></div>
-          </div>
-        </div>
-        <div class="stats" style="margin-top:20px">
-          <div class="stat"><div class="stat-n" id="s-total">208</div><div class="stat-l">إجمالي</div></div>
-          <div class="stat"><div class="stat-n" id="s-lv">A0</div><div class="stat-l">المستوى</div></div>
-          <div class="stat"><div class="stat-n" id="s-done">0</div><div class="stat-l">مكتمل</div></div>
+        <div style="font-size:24px;font-weight:900;margin-bottom:4px" id="s-greeting">&#x1F44B;</div>
+        <div style="color:var(--muted);font-size:14px;margin-bottom:16px">&#x627;&#x633;&#x62A;&#x645;&#x631; &#x641;&#x64A; &#x631;&#x62D;&#x644;&#x62A;&#x643; &#x627;&#x644;&#x644;&#x63A;&#x648;&#x64A;&#x629;</div>
+        <div class="stats">
+          <div class="stat"><div class="stat-n" id="s-total">208</div><div class="stat-l">&#x625;&#x62C;&#x645;&#x627;&#x644;&#x64A;</div></div>
+          <div class="stat"><div class="stat-n" id="s-lv">A0</div><div class="stat-l">&#x627;&#x644;&#x645;&#x633;&#x62A;&#x648;&#x649;</div></div>
+          <div class="stat"><div class="stat-n" id="s-done">0</div><div class="stat-l">&#x645;&#x643;&#x62A;&#x645;&#x644;</div></div>
           <div class="stat"><div class="stat-n" id="s-xp">0</div><div class="stat-l">XP</div></div>
         </div>
       </div>
       <div class="card">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-          <div style="font-weight:800;font-size:16px">⭐ نقاط الخبرة</div>
+          <div style="font-weight:800">&#x2B50; &#x646;&#x642;&#x627;&#x637; &#x627;&#x644;&#x62E;&#x628;&#x631;&#x629;</div>
           <div style="font-size:13px;color:var(--muted)" id="xp-label">XP 0/300</div>
         </div>
         <div class="xp-bar"><div class="xp-fill" id="xp-fill" style="width:0%"></div></div>
-        <div style="text-align:center;font-size:12px;color:var(--muted)" id="xp-next">A0 → A1</div>
+        <div style="text-align:center;font-size:12px;color:var(--muted)" id="xp-next">A0 &#x2192; A1</div>
       </div>
-      <div>
-        <div class="sh"><h2>المهارات الأربع</h2><span style="font-size:13px;color:var(--gold);cursor:pointer" onclick="showSec('skills')">عرض الكل ←</span></div>
-        <div class="sk-grid" id="home-skills"></div>
-      </div>
-      <div>
-        <div class="sh"><h2>الدروس القادمة</h2><span style="font-size:13px;color:var(--gold);cursor:pointer" onclick="showSec('lessons')">عرض الكل ←</span></div>
-        <div id="home-lessons"></div>
-      </div>
+      <div class="sh"><h2>&#x627;&#x644;&#x645;&#x647;&#x627;&#x631;&#x627;&#x62A;</h2><span style="font-size:13px;color:var(--gold);cursor:pointer" onclick="showSec('lessons')">&#x639;&#x631;&#x636; &#x627;&#x644;&#x643;&#x644; &#x2190;</span></div>
+      <div class="sk-grid" id="home-skills"></div>
+      <div class="sh"><h2>&#x627;&#x644;&#x62F;&#x631;&#x648;&#x633; &#x627;&#x644;&#x642;&#x627;&#x62F;&#x645;&#x629;</h2><span style="font-size:13px;color:var(--gold);cursor:pointer" onclick="showSec('lessons')">&#x639;&#x631;&#x636; &#x627;&#x644;&#x643;&#x644; &#x2190;</span></div>
+      <div id="home-lessons"></div>
     </div>
-
-    <!-- LESSONS -->
     <div id="sec-lessons" style="display:none">
-      <div class="sh"><h2 id="lessons-title">جميع الدروس (208 درس)</h2></div>
+      <div class="sh"><h2>&#x62C;&#x645;&#x64A;&#x639; &#x627;&#x644;&#x62F;&#x631;&#x648;&#x633;</h2></div>
       <div class="ltabs" id="lang-tabs">
-        <button class="lt on" onclick="filterLang('english')">🇬🇧 الإنجليزية</button>
-        <button class="lt" onclick="filterLang('turkish')">🇹🇷 التركية</button>
-        <button class="lt" onclick="filterLang('chinese')">🇨🇳 الصينية</button>
-        <button class="lt" onclick="filterLang('all')">الكل</button>
-      </div>
-      <div class="ltabs" id="lv-tabs">
-        <button class="lt on" onclick="filterLv('all')">الكل</button>
-        <button class="lt" onclick="filterLv('A0')">A0</button>
-        <button class="lt" onclick="filterLv('A1')">A1</button>
-        <button class="lt" onclick="filterLv('A2')">A2</button>
-        <button class="lt" onclick="filterLv('B1')">B1</button>
-        <button class="lt" onclick="filterLv('B2')">B2</button>
-        <button class="lt" onclick="filterLv('C1')">C1</button>
-        <button class="lt" onclick="filterLv('C2')">C2</button>
+        <button class="lt on" onclick="filterLang('english',this)">&#x1F1EC;&#x1F1E7; &#x627;&#x644;&#x625;&#x646;&#x62C;&#x644;&#x64A;&#x632;&#x64A;&#x629;</button>
+        <button class="lt" onclick="filterLang('turkish',this)">&#x1F1F9;&#x1F1F7; &#x627;&#x644;&#x62A;&#x631;&#x643;&#x64A;&#x629;</button>
+        <button class="lt" onclick="filterLang('chinese',this)">&#x1F1E8;&#x1F1F3; &#x627;&#x644;&#x635;&#x64A;&#x646;&#x64A;&#x629;</button>
+        <button class="lt" onclick="filterLang('all',this)">&#x627;&#x644;&#x643;&#x644;</button>
       </div>
       <div id="lessons-content"></div>
     </div>
-
-    <!-- SKILLS -->
-    <div id="sec-skills" style="display:none">
-      <div class="sh"><h2>⚡ مهاراتي</h2></div>
-      <div class="ltabs" id="skills-tabs"></div>
-      <div id="skills-content"></div>
-    </div>
-
-    <!-- PROGRESS -->
     <div id="sec-progress" style="display:none">
-      <div class="sh"><h2>📊 تقدمي</h2></div>
+      <div class="sh"><h2>&#x1F4CA; &#x62A;&#x642;&#x62F;&#x645;&#x64A;</h2></div>
       <div id="progress-content"></div>
     </div>
-
-    <!-- QUIZ -->
-    <div id="sec-quiz" style="display:none">
-      <div class="sh"><h2>🎯 اختبار المستوى</h2></div>
-      <div class="card" style="text-align:center;padding:48px">
-        <div style="font-size:48px;margin-bottom:16px">🚧</div>
-        <div style="font-size:18px;font-weight:800;margin-bottom:8px">قريباً!</div>
-        <div style="color:var(--muted)">اختبار تحديد المستوى قيد التطوير</div>
-      </div>
-    </div>
-
-    <!-- STORE -->
     <div id="sec-store" style="display:none">
       <div class="sh">
-        <h2>🛍️ المتجر التعليمي</h2>
-        <span style="font-size:12px;padding:5px 14px;background:rgba(196,152,58,.15);color:#C4983A;border-radius:20px;font-weight:700;border:1px solid rgba(196,152,58,.25)">🤖 محتوى AI أصلي حصري</span>
+        <h2>&#x1F6CD;&#xFE0F; &#x627;&#x644;&#x645;&#x62A;&#x62C;&#x631; &#x627;&#x644;&#x62A;&#x639;&#x644;&#x64A;&#x645;&#x64A;</h2>
+        <span style="font-size:12px;padding:4px 12px;background:rgba(196,152,58,.2);color:#C4983A;border-radius:20px;font-weight:700">&#x1F916; AI</span>
       </div>
-      <div class="ltabs" id="store-tabs">
-        <button class="lt on" id="st-listening" onclick="showStoreTab('listening')">🎧 مقاطع الاستماع</button>
-        <button class="lt" id="st-reading" onclick="showStoreTab('reading')">📖 قصص القراءة</button>
+      <div class="ltabs">
+        <button class="lt on" id="st-l" onclick="stTab('l',this)">&#x1F3A7; &#x627;&#x644;&#x627;&#x633;&#x62A;&#x645;&#x627;&#x639;</button>
+        <button class="lt" id="st-r" onclick="stTab('r',this)">&#x1F4D6; &#x642;&#x635;&#x635;</button>
       </div>
-      <div id="store-content"></div>
+      <div id="st-content"></div>
     </div>
   </main>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
-// =================== DATA ===================
-let DB = null, prog = null;
-
-const LEVELS = ['A0','A1','A2','B1','B2','C1','C2'];
-const LEVEL_XP = {A0:0,A1:300,A2:700,B1:1400,B2:2500,C1:4000,C2:6500};
-const LEVEL_NAMES = {A0:'مبتدئ تام',A1:'مبتدئ',A2:'ما دون المتوسط',B1:'متوسط',B2:'فوق المتوسط',C1:'متقدم',C2:'إتقان تام'};
-
-const SK_MAP = {
-  listening:{name:'الاستماع',icon:'🎧',color:'#2196F3'},
-  speaking:{name:'المحادثة',icon:'🗣️',color:'#9C27B0'},
-  reading:{name:'القراءة',icon:'📖',color:'#FF9800'},
-  writing:{name:'الكتابة',icon:'✍️',color:'#E91E63'}
-};
-
-// =================== AUTH ===================
+// AUTH
 function getSession(){return JSON.parse(localStorage.getItem('lingua_session')||'null');}
-function getUsers(){return JSON.parse(localStorage.getItem('lingua_users')||'{}');}
-function loadProg(){
-  const s=getSession();
-  if(!s){location.href='auth.html';return false;}
-  prog=JSON.parse(localStorage.getItem('lingua_progress_'+s.userId)||JSON.stringify({completedLessons:[],xp:0,level:'A0',skillScores:{},streak:1}));
-  return true;
-}
-function saveProg(){const s=getSession();if(s)localStorage.setItem('lingua_progress_'+s.userId,JSON.stringify(prog));}
+function saveProg(){var s=getSession();if(s)localStorage.setItem('lingua_progress_'+s.userId,JSON.stringify(prog));}
+function loadProg(){var s=getSession();if(!s){location.href='auth.html';return false;}prog=JSON.parse(localStorage.getItem('lingua_progress_'+s.userId)||'{"completedLessons":[],"xp":0,"level":"A0","skillScores":{},"streak":1}');return true;}
 function doLogout(){localStorage.removeItem('lingua_session');location.href='auth.html';}
-
-// =================== DB ===================
-async function loadDB(){
-  try{
-    const r=await fetch('../data/lessons.json?v='+Date.now());
-    if(r.ok){DB=await r.json();return;}
-  }catch(e){}
-  try{
-    const r=await fetch('https://raw.githubusercontent.com/aseel2006-byte/lingua-platform/main/frontend/pages/lessons.json');
-    if(r.ok){DB=await r.json();return;}
-  }catch(e){}
-  // fallback inline
-  DB=FALLBACK_DB;
-}
-
-function getAll(){
-  if(!DB)return[];
-  const arr=[];
-  Object.entries(DB.courses).forEach(([lid,course])=>{
-    Object.entries(course.levels||{}).forEach(([lvId,lv])=>{
-      Object.entries(lv.skills||{}).forEach(([sk,lessons])=>{
-        (lessons||[]).forEach(l=>arr.push({...l,lid,skId:sk,lvId,langFlag:course.flag||''}));
-      });
-    });
-  });
-  return arr;
-}
-
-// =================== UI HELPERS ===================
-function getCurLevel(){
-  const xp=prog.xp||0;
-  let lv='A0';
-  LEVELS.forEach(l=>{if(xp>=LEVEL_XP[l])lv=l;});
-  return lv;
-}
-function getNextLvXP(){
-  const lv=getCurLevel();
-  const idx=LEVELS.indexOf(lv);
-  return idx<LEVELS.length-1?LEVEL_XP[LEVELS[idx+1]]:LEVEL_XP.C2;
-}
-function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2500);
-}
-
-function showSec(name){
-  ['home','lessons','skills','progress','quiz','store'].forEach(s=>{
-    const el=document.getElementById('sec-'+s);
-    if(el)el.style.display=s===name?'block':'none';
-  });
-  document.querySelectorAll('.sbitem').forEach(b=>b.classList.remove('on'));
-  const sb=document.getElementById('sb-'+name);
-  if(sb)sb.classList.add('on');
-  if(name==='home')renderHome();
-  if(name==='skills')renderSkills(curSkLang);
-  if(name==='lessons')renderLessons();
-  if(name==='progress')renderProgress();
-  if(name==='store')setTimeout(renderStore,50);
-}
-
-// =================== HOME ===================
-function renderHome(){
-  prog.level=getCurLevel();
-  const nx=getNextLvXP();
-  const lv=prog.level;
-  const xp=prog.xp||0;
-  const prevXP=LEVEL_XP[lv]||0;
-  const pct=nx>prevXP?Math.min(100,Math.round((xp-prevXP)/(nx-prevXP)*100)):100;
-  
-  const s=getSession();
-  const uname=s?s.name:'مستخدم';
-  document.getElementById('s-name').textContent=uname;
-  document.getElementById('nav-name').textContent=uname;
-  document.getElementById('nav-av').textContent=uname[0]||'م';
-  document.getElementById('s-lv').textContent=lv;
-  document.getElementById('s-done').textContent=prog.completedLessons.length;
-  document.getElementById('s-xp').textContent=xp;
-  document.getElementById('sb-cnt').textContent=prog.completedLessons.length;
-  document.getElementById('xp-label').textContent='XP '+xp+'/'+nx;
-  document.getElementById('xp-fill').style.width=pct+'%';
-  document.getElementById('xp-next').textContent=lv+' → '+LEVELS[LEVELS.indexOf(lv)+1];
-  
-  // Skill cards
-  const scores=prog.skillScores||{};
-  const skHTML=Object.entries(SK_MAP).map(([sk,info])=>{
-    const pct=Math.min(100,scores[sk]||0);
-    return `<div class="sk-card" style="background:linear-gradient(135deg,${info.color}22,${info.color}11);border:1px solid ${info.color}33" onclick="showSec('skills')">
-      <div style="font-size:28px">${info.icon}</div>
-      <div style="font-size:14px;font-weight:700;margin:6px 0">${info.name}</div>
-      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${lv}</div>
-      <div style="background:rgba(255,255,255,.1);border-radius:20px;height:6px;overflow:hidden">
-        <div style="height:100%;background:${info.color};border-radius:20px;width:${pct}%;transition:.8s"></div>
-      </div>
-      <div style="font-size:12px;color:${info.color};margin-top:6px;font-weight:700">${pct}%</div>
-    </div>`;
-  }).join('');
-  document.getElementById('home-skills').innerHTML=skHTML;
-  
-  // Upcoming lessons
-  const done=new Set(prog.completedLessons);
-  const all=getAll();
-  const upcoming=all.filter(l=>!done.has(l.id)).slice(0,5);
-  document.getElementById('home-lessons').innerHTML=upcoming.length
-    ? upcoming.map(l=>lessonItem(l,false)).join('')
-    : '<div class="loading">🎉 أحسنت! لا توجد دروس معلقة</div>';
-}
-
-// =================== LESSONS ===================
-let curLL='english', curLV='all';
-
-function filterLang(lang){
-  curLL=lang;
-  document.querySelectorAll('#lang-tabs .lt').forEach(b=>b.classList.remove('on'));
-  event.target.classList.add('on');
-  renderLessons();
-}
-function filterLv(lv){
-  curLV=lv;
-  document.querySelectorAll('#lv-tabs .lt').forEach(b=>b.classList.remove('on'));
-  event.target.classList.add('on');
-  renderLessons();
-}
-
-function lessonItem(l, isDone){
-  const btn = isDone
-    ? `<span class="lbadge bd">✅ مكتمل</span>`
-    : `<button class="start-btn" onclick="event.stopPropagation();startLesson('${l.id}','${l.lid}','${l.skId}','${l.lvId}',${l.xp})">▶ ابدأ الدرس</button>`;
-  return `<div class="li" onclick="startLesson('${l.id}','${l.lid}','${l.skId}','${l.lvId}',${l.xp})">
-    <div class="lc ${isDone?'done':'act'}">${isDone?'✓':'▶'}</div>
-    <div class="linfo">
-      <div class="ltitle">${l.langFlag} ${l.title}</div>
-      <div class="lmeta">${l.min} دق • +${l.xp} XP • ${l.lvId}${l.tags?' • '+l.tags.slice(0,2).join(' • '):''}</div>
-    </div>
-    ${btn}
-  </div>`;
-}
-
-function renderLessons(){
-  const done=new Set(prog.completedLessons);
-  const all=getAll();
-  let items = curLL==='all' ? all : all.filter(l=>l.lid===curLL);
-  if(curLV!=='all') items=items.filter(l=>l.lvId===curLV);
-  
-  const byLv={};
-  items.forEach(l=>{
-    if(!byLv[l.lvId])byLv[l.lvId]={};
-    if(!byLv[l.lvId][l.skId])byLv[l.lvId][l.skId]=[];
-    byLv[l.lvId][l.skId].push(l);
-  });
-  
-  let html='';
-  LEVELS.forEach(lv=>{
-    if(!byLv[lv])return;
-    const lvItems=Object.values(byLv[lv]).flat();
-    const doneCount=lvItems.filter(l=>done.has(l.id)).length;
-    html+=`<div style="margin-bottom:24px">
-      <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.04);border-radius:12px;padding:12px 16px;margin-bottom:12px;border:1px solid rgba(255,255,255,.06)">
-        <div style="display:flex;align-items:center;gap:10px">
-          <span style="font-size:18px">📚</span>
-          <div>
-            <div style="font-size:15px;font-weight:800">${lv} — ${LEVEL_NAMES[lv]||lv}</div>
-            <div style="font-size:12px;color:var(--muted)">${doneCount}/${lvItems.length} مكتمل</div>
-          </div>
-        </div>
-        <div style="font-size:11px;color:var(--muted);background:rgba(196,152,58,.15);color:var(--gold);padding:3px 10px;border-radius:20px">XP 0 • ${lvItems.length-doneCount} مطلوب</div>
-      </div>`;
-    
-    Object.entries(byLv[lv]).forEach(([sk,lessons])=>{
-      const info=SK_MAP[sk]||{name:sk,icon:'📝',color:'#666'};
-      html+=`<div style="margin-bottom:10px">
-        <div style="font-size:13px;font-weight:700;color:${info.color};margin-bottom:8px;display:flex;align-items:center;gap:6px">${info.icon} ${info.name}</div>`;
-      lessons.forEach(l=>{ html+=lessonItem(l,done.has(l.id)); });
-      html+='</div>';
-    });
-    html+='</div>';
-  });
-  
-  document.getElementById('lessons-content').innerHTML=html||'<div class="loading">لا توجد دروس</div>';
-}
-
-// =================== SKILLS ===================
-let curSkLang='english';
-
-function initSkills(){
-  if(!DB)return;
-  const langs=Object.keys(DB.courses);
-  document.getElementById('skills-tabs').innerHTML=langs.map((lid,i)=>{
-    const l=DB.courses[lid];
-    return `<button class="lt ${i===0?'on':''}" onclick="switchSkLang('${lid}',this)">${l.flag||''} ${l.nameEn||lid}</button>`;
-  }).join('');
-}
-function switchSkLang(lid,btn){
-  curSkLang=lid;
-  document.querySelectorAll('#skills-tabs .lt').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  renderSkills(lid);
-}
-function renderSkills(lid){
-  curSkLang=lid;
-  if(!DB)return;
-  const course=DB.courses[lid];
-  if(!course)return;
-  const done=new Set(prog.completedLessons);
-  let html='';
-  Object.entries(course.levels||{}).forEach(([lvId,lv])=>{
-    html+=`<div class="card" style="margin-bottom:16px"><div style="font-size:16px;font-weight:900;margin-bottom:14px">${lvId} — ${LEVEL_NAMES[lvId]||lvId}</div>`;
-    Object.entries(lv.skills||{}).forEach(([sk,lessons])=>{
-      const info=SK_MAP[sk]||{name:sk,icon:'📝',color:'#666'};
-      const doneCount=(lessons||[]).filter(l=>done.has(l.id)).length;
-      const pct=lessons.length?Math.round(doneCount/lessons.length*100):0;
-      html+=`<div style="margin-bottom:16px">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-          <div style="font-weight:700;display:flex;gap:8px;align-items:center">${info.icon} ${info.name}</div>
-          <div style="font-size:13px;color:${info.color};font-weight:700">${pct}%</div>
-        </div>
-        <div style="background:rgba(255,255,255,.06);border-radius:20px;height:8px;overflow:hidden;margin-bottom:10px">
-          <div style="height:100%;background:${info.color};border-radius:20px;width:${pct}%;transition:.8s"></div>
-        </div>`;
-      (lessons||[]).forEach(l=>{ html+=lessonItem(l,done.has(l.id)); });
-      html+='</div>';
-    });
-    html+='</div>';
-  });
-  document.getElementById('skills-content').innerHTML=html||'<div class="loading">لا توجد بيانات</div>';
-}
-
-// =================== PROGRESS ===================
-function renderProgress(){
-  if(!DB)return;
-  const done=new Set(prog.completedLessons);
-  const all=getAll();
-  let html=`<div class="card" style="margin-bottom:16px">
-    <div style="font-size:16px;font-weight:900;margin-bottom:16px">📊 إجمالي التقدم</div>`;
-  
-  Object.entries(DB.courses).forEach(([lid,course])=>{
-    const langAll=all.filter(l=>l.lid===lid);
-    const langDone=langAll.filter(l=>done.has(l.id));
-    const pct=langAll.length?Math.round(langDone.length/langAll.length*100):0;
-    html+=`<div class="prog-sec">
-      <div class="prog-lang">
-        <span style="font-size:20px">${course.flag||'🌍'}</span>
-        <span style="font-weight:700;min-width:80px">${course.nameEn||lid}</span>
-        <div class="prog-bar-wrap"><div class="prog-bar" style="background:${course.color||'#666'};width:${pct}%"></div></div>
-        <span style="font-size:13px;color:var(--muted)">${langDone.length}/${langAll.length}</span>
-      </div>
-    </div>`;
-  });
-  html+='</div>';
-  document.getElementById('progress-content').innerHTML=html;
-}
-
-// =================== START LESSON ===================
-function startLesson(id, lid, sk, lvId, xp){
-  const done=new Set(prog.completedLessons);
-  const isNew=!done.has(id);
-  if(isNew){
-    prog.completedLessons.push(id);
-    prog.xp=(prog.xp||0)+xp;
-    if(!prog.skillScores)prog.skillScores={};
-    prog.skillScores[sk]=Math.min(100,(prog.skillScores[sk]||0)+Math.ceil(xp/10));
-    prog.level=getCurLevel();
-    saveProg();
-    document.getElementById('s-xp').textContent=prog.xp;
-    document.getElementById('s-done').textContent=prog.completedLessons.length;
-    document.getElementById('s-lv').textContent=prog.level;
-    document.getElementById('sb-cnt').textContent=prog.completedLessons.length;
-    showToast('🎉 أحسنت! +'+xp+' XP');
-    renderHome();
-  }
-  const all=getAll();
-  const lesson=all.find(l=>l.id===id);
-  showLessonModal(lesson,isNew,xp,lid,sk,lvId);
-}
-
-function showLessonModal(lesson, isNew, xp, lid, sk, lvId){
-  document.getElementById('lm')?.remove();
-  const title=lesson?lesson.title:'درس';
-  const desc=lesson?lesson.desc:'';
-  const tags=lesson&&lesson.tags?lesson.tags:[];
-  const minTime=lesson?lesson.min:15;
-  
-  const langMap={english:'🇬🇧 الإنجليزية',turkish:'🇹🇷 التركية',chinese:'🇨🇳 الصينية'};
-  const skMap={listening:'🎧 استماع',speaking:'🗣️ محادثة',reading:'📖 قراءة',writing:'✍️ كتابة'};
-  const tipsMap={
-    listening:['🎧 استمع مرتين على الأقل قبل التقدم','📝 دوّن المفردات الجديدة','🔄 ركّز على السياق لا كل كلمة'],
-    speaking:['🗣️ تحدث بصوت عالٍ وواضح','🎯 قلّد النطق الطبيعي','🔁 كرّر الجمل حتى تتقنها'],
-    reading:['📖 اقرأ ببطء وافهم كل جملة','💡 خمّن معنى الكلمات من السياق','📋 حدّد الفكرة الرئيسية من كل فقرة'],
-    writing:['✏️ ابدأ بجملة بسيطة ثم طوّلها','📝 استخدم المفردات المتعلمة','🔄 راجع كتابتك وصحّح الأخطاء']
-  };
-  const tips=tipsMap[sk]||tipsMap.listening;
-  const tipsHTML=tips.map(t=>`<div style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)"><span>${t.split(' ')[0]}</span><span style="font-size:13px;color:#C4B8D0">${t.slice(t.indexOf(' ')+1)}</span></div>`).join('');
-  const tagsHTML=tags.length?`<div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:12px">${tags.map(t=>`<span style="background:rgba(196,152,58,.15);color:#C4983A;padding:3px 10px;border-radius:20px;font-size:12px">${t}</span>`).join('')}</div>`:'';
-  const badge=isNew
-    ?`<div style="background:#4CAF50;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;margin-bottom:16px;display:inline-block">🎉 +${xp} XP مكتسبة!</div>`
-    :`<div style="background:rgba(196,152,58,.2);color:#C4983A;border:1px solid rgba(196,152,58,.3);padding:6px 18px;border-radius:20px;font-size:13px;margin-bottom:16px;display:inline-block">📚 مراجعة الدرس</div>`;
-  
-  const modal=document.createElement('div');
-  modal.id='lm';
-  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(6px);padding:16px;';
-  modal.innerHTML=`<div style="background:#1E1648;border-radius:20px;padding:28px;max-width:480px;width:100%;border:1px solid rgba(196,152,58,.25);position:relative;max-height:85vh;overflow-y:auto;">
-    <button onclick="document.getElementById('lm').remove()" style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,.1);border:none;color:#eee;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:18px">✕</button>
-    <div style="text-align:center;margin-bottom:20px">
-      ${badge}
-      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
-        <span style="background:rgba(33,150,243,.2);color:#2196F3;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${langMap[lid]||lid}</span>
-        <span style="background:rgba(156,39,176,.2);color:#CE93D8;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${skMap[sk]||sk}</span>
-        <span style="background:rgba(255,255,255,.08);color:#aaa;padding:3px 10px;border-radius:20px;font-size:11px">⏱ ${minTime} دق</span>
-      </div>
-      <h2 style="font-size:20px;font-weight:800;margin:8px 0 6px">${title}</h2>
-      <p style="color:#C4983A;font-size:14px;margin:0 0 10px">${desc}</p>
-      ${tagsHTML}
-    </div>
-    <div style="background:rgba(15,14,26,.5);border-radius:12px;padding:16px;margin-bottom:16px">
-      <div style="font-size:13px;font-weight:700;color:#C4983A;margin-bottom:10px">💡 نصائح لهذا الدرس</div>
-      ${tipsHTML}
-    </div>
-    <div style="display:flex;gap:10px">
-      <button onclick="document.getElementById('lm').remove()" style="flex:1;background:#2d2a4a;color:var(--txt);border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit">إغلاق</button>
-      <button onclick="document.getElementById('lm').remove();showToast('✅ تم تسجيل الدرس!')" style="flex:2;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:900;font-family:inherit">✅ تم الدرس!</button>
-    </div>
-  </div>`;
-  document.body.appendChild(modal);
-  modal.addEventListener('click',e=>{if(e.target===modal)modal.remove();});
-}
-
-function showToastSafe(msg){showToast(msg);}
-
-// =================== STORE: AI CONTENT ===================
-const AI_L=[{"id": "ai-en-l1", "lang": "english", "flag": "🇬🇧", "level": "A0", "title": "My First Day at School", "duration": "3 min", "script": "Hello! My name is Alex. I am eight years old.\\nToday is my first day at school. I am a little nervous, but excited too.\\n\\nMy teacher's name is Miss Sarah. She has a big smile. She says: \"Welcome, class! Don't be shy!\"\\n\\nI sit next to a girl named Mia. She has red hair and blue eyes. She gives me a pencil. \\nI say: \"Thank you!\" She says: \"You're welcome!\"\\n\\nAt lunchtime, we eat together. I have a sandwich and an apple. Mia has rice and juice.\\n\\nAfter lunch, we go to the playground. We play football. It is very fun!\\n\\nAt the end of the day, I am happy. School is good. I have a new friend!", "vocabulary": ["nervous", "excited", "teacher", "pencil", "playground", "sandwich"], "questions": [{"q": "What is the teacher's name?", "a": "Miss Sarah"}, {"q": "What does Alex eat for lunch?", "a": "A sandwich and an apple"}, {"q": "How does Alex feel at the end of the day?", "a": "Happy"}]}, {"id": "ai-en-l2", "lang": "english", "flag": "🇬🇧", "level": "A1", "title": "A Day at the Market", "duration": "4 min", "script": "Every Saturday morning, my mother and I go to the market.\\nThe market is colorful and loud. I love it!\\n\\nFirst, we go to the fruit stand. The farmer's name is Mr. Hassan. \\nHe has big red apples, yellow bananas, and sweet oranges.\\nMy mother asks: \"How much are the apples?\"\\nMr. Hassan says: \"Two dollars per kilogram.\"\\nMy mother says: \"I'll take two kilograms, please.\"\\n\\nNext, we go to the bread shop. The bread is still warm! \\nWe buy one big loaf and some small rolls. The smell is wonderful.\\n\\nThen, we visit the flower shop. My mother buys yellow sunflowers.\\nShe says: \"These flowers make our house beautiful!\"\\n\\nFinally, we go home. The bags are heavy, but we are happy.\\nWe drink tea and eat fresh bread with honey. Perfect!", "vocabulary": ["market", "colorful", "farmer", "kilogram", "loaf", "sunflowers", "honey"], "questions": [{"q": "When do they go to the market?", "a": "Every Saturday morning"}, {"q": "How much is one kilogram of apples?", "a": "Two dollars"}, {"q": "What flowers does the mother buy?", "a": "Yellow sunflowers"}]}, {"id": "ai-en-l3", "lang": "english", "flag": "🇬🇧", "level": "A2", "title": "The Lost Dog", "duration": "5 min", "script": "One rainy Tuesday afternoon, I was walking home from school when I saw something unusual.\\nA small brown dog was sitting under a bench, shaking. He had no collar.\\n\\nI stopped and looked at him carefully. His eyes were big and brown, just like chocolate.\\n\"Hello, little guy,\" I said softly. \"Are you lost?\"\\n\\nThe dog looked at me and wagged his tail slowly. I sat down beside him.\\nI opened my school bag and found half a sandwich from lunch.\\nI gave him a small piece. He ate it quickly and licked my hand.\\n\\nI decided to take him home. My parents were surprised.\\n\"We can't keep him forever,\" my mother said. \"But we can help him tonight.\"\\n\\nWe dried him with a towel and gave him warm milk. He fell asleep on my bedroom floor.\\n\\nThe next morning, I made a poster with his photo: \\n\"FOUND: Small brown dog. Very friendly. Please call 555-0123.\"\\n\\nThree days later, a little girl called us. She was crying when she arrived.\\n\"BISCUIT!\" she screamed. The dog jumped up immediately!\\nShe hugged him tightly. \"Thank you so much,\" she said. \"I missed him so much.\"\\n\\nI felt sad but also happy. Sometimes doing the right thing feels both things at once.", "vocabulary": ["collar", "wagged", "poster", "immediately", "tightly"], "questions": [{"q": "Where did the boy find the dog?", "a": "Under a bench"}, {"q": "What was the dog's name?", "a": "Biscuit"}, {"q": "How many days before the owner called?", "a": "Three days"}]}, {"id": "ai-tr-l1", "lang": "turkish", "flag": "🇹🇷", "level": "A0", "title": "Merhaba! Ben Elif.", "duration": "3 min", "script": "Merhaba! Benim adım Elif. On iki yaşındayım.\\n(Hello! My name is Elif. I am twelve years old.)\\n\\nİstanbul'da yaşıyorum. İstanbul çok büyük ve güzel bir şehir.\\n(I live in Istanbul. Istanbul is a very big and beautiful city.)\\n\\nAilem: annem, babam ve küçük kardeşim Ahmet var.\\n(My family: I have my mother, father and little brother Ahmet.)\\n\\nAhmet çok şakacı. Her zaman güler.\\n(Ahmet is very funny. He always laughs.)\\n\\nOkulumu seviyorum. En sevdiğim ders matematik.\\n(I love my school. My favourite subject is mathematics.)\\n\\nOkul sonrası kitap okumayı ve müzik dinlemeyi seviyorum.\\n(After school, I love reading books and listening to music.)\\n\\nSeni tanımak çok güzel. Hoşça kal!\\n(It is wonderful to meet you. Goodbye!)", "vocabulary": ["Merhaba=Hello", "yaşıyorum=I live", "güzel=beautiful", "kardeşim=my brother", "seviyorum=I love"], "questions": [{"q": "Elif kaç yaşında? / How old is Elif?", "a": "12"}, {"q": "Elif'in kardeşinin adı ne? / What is Elif's brother's name?", "a": "Ahmet"}, {"q": "Elif'in en sevdiği ders ne? / What is Elif's favourite subject?", "a": "Matematik / Mathematics"}]}, {"id": "ai-zh-l1", "lang": "chinese", "flag": "🇨🇳", "level": "A0", "title": "我的家 — My Home", "duration": "3 min", "script": "大家好！我叫李明。(Hello everyone! My name is Li Ming.)\\n我住在北京。(I live in Beijing.)\\n\\n我的家不大，但很温暖。(My home is not big, but very warm.)\\n我们有客厅、厨房和两个卧室。(We have a living room, kitchen and two bedrooms.)\\n\\n我最喜欢厨房，因为妈妈在那里做好吃的饭。\\n(I like the kitchen most, because mom cooks delicious food there.)\\n\\n我的卧室有一张床，一张桌子和很多书。\\n(My bedroom has a bed, a desk and many books.)\\n\\n晚上，我们全家一起看电视、聊天。\\n(In the evening, our whole family watches TV and chats together.)\\n\\n这就是我的家。你的家是什么样子的？\\n(This is my home. What is your home like?)", "vocabulary": ["家=home", "客厅=living room", "厨房=kitchen", "卧室=bedroom", "温暖=warm"], "questions": [{"q": "李明住在哪里？/ Where does Li Ming live?", "a": "北京 / Beijing"}, {"q": "他最喜欢哪个房间？/ Which room does he like most?", "a": "厨房 / Kitchen"}, {"q": "晚上他们做什么？/ What do they do in the evening?", "a": "看电视、聊天 / Watch TV and chat"}]}];
-const AI_R=[{"id": "ai-story-1", "lang": "english", "flag": "🇬🇧", "level": "A0", "title": "The Little Cloud Who Was Afraid of Rain", "duration": "4 min", "text": "High above the city of Sunnyville, there lived a small white cloud named Fluff.\\n\\nFluff had one big problem: he was afraid to rain.\\n\\nEvery morning, the other clouds would gather together. \\n\"Time to water the flowers!\" said Big Grey Cloud.\\n\"Time to fill the rivers!\" said Dark Blue Cloud.\\n\"Time to give the children puddles to jump in!\" laughed Round Pink Cloud.\\n\\nBut Fluff would hide behind a hill. \"Not today,\" he would whisper.\\n\\nOne hot summer day, the flowers in the park turned brown. \\nThe river became very low. The children were too hot to play.\\nAn old man sat under a tree. He looked at the sky and sighed.\\n\\nFluff watched from behind his hill. He felt something strange in his chest.\\nIt wasn't fear. It was something else. It was sadness.\\n\\n\"What if I try?\" Fluff thought. \"Just a little. Just one drop.\"\\n\\nHe moved slowly over the park. He closed his eyes.\\nHe took a deep breath. And then...\\n\\nDRIP. One small raindrop fell.\\n\\nA flower raised its head. A bird sang.\\nFluff opened his eyes and saw the flower smile.\\n\\n\"More!\" he thought. And the rain came — gentle and cool and wonderful.\\n\\nThe children ran outside. They laughed and jumped in puddles.\\nThe old man raised his face to the sky. \"Thank you, little cloud!\"\\n\\nThat night, Fluff rested on a soft mountain. He was not afraid anymore.\\nHe was brave. And being brave felt much better than hiding.", "moral": "Helping others is braver than hiding from your fears.", "ar_summary": "قصة سحابة صغيرة اسمها فلاف كانت تخاف من المطر، لكنها تغلبت على خوفها عندما رأت الزهور تجف والأطفال يتألمون من الحر."}, {"id": "ai-story-2", "lang": "english", "flag": "🇬🇧", "level": "A1", "title": "The Boy Who Collected Colours", "duration": "5 min", "text": "In a small grey town lived a boy named Sami.\\n\\nEverything in his town was grey: grey houses, grey streets, grey sky.\\nEven the people wore grey clothes. They said: \"Colour is dangerous. Colour causes too many feelings.\"\\n\\nBut Sami secretly loved colour.\\n\\nHe found a red button on the ground and put it in his pocket.\\nHe found a blue feather near the river and hid it in his sock.\\nHe found a yellow leaf in autumn and kept it inside his book.\\nHe found a green stone by the fountain and wrapped it in paper.\\n\\nEvery night, he took out his collection and arranged them on his bed:\\nRed. Blue. Yellow. Green.\\n\\nHe whispered their names like magic words.\\n\\nOne stormy night, a little girl knocked on his door.\\nShe was crying. \"I'm lost,\" she said.\\n\\nSami saw she was holding a torn piece of cloth — bright orange.\\n\"Where did you get that?\" he asked.\\n\"From my home village,\" she said. \"Everyone there loves colour.\"\\n\\nSami's eyes went wide. \"There are places like that?\"\\n\\n\"Yes,\" she said. \"Come with me tomorrow and I'll show you.\"\\n\\nThe next morning, the grey people watched as Sami walked out of town.\\nHe turned once and waved. And when he turned, they saw it:\\nHe had quietly placed his red button, blue feather, yellow leaf, and green stone \\non four grey doorsteps.\\n\\nThat afternoon, four grey people each found a colour.\\nAnd they weren't sure, but for a moment, they felt something.\\nSomething like hope.", "moral": "Even one small colour can change a grey world.", "ar_summary": "قصة ولد اسمه سامي في بلدة رمادية لا ألوان فيها، كان يجمع الألوان سراً حتى وجد طريقاً لعالم ملوّن."}, {"id": "ai-story-3", "lang": "english", "flag": "🇬🇧", "level": "A2", "title": "The Library at the End of the Street", "duration": "6 min", "text": "At the very end of Maple Street, behind an old iron gate, stood a library that nobody visited.\\n\\nThe sign above the door said: \"OPEN\" — but the paint was faded and the windows were dusty.\\n\\nTwelve-year-old Nora walked past it every day for three years without stopping.\\n\\nOne Monday, it was raining very hard. Nora ran under the library's roof to stay dry.\\nAs she waited, she noticed something: a warm orange light in the window. \\nAnd a sound — very faint — like the turning of pages.\\n\\nShe pushed the gate. It creaked open.\\nShe pushed the door. It was unlocked.\\n\\nInside, the library was not dusty at all. It was warm and bright.\\nTall shelves covered every wall. Books of every colour filled them.\\n\\nBehind a small wooden desk sat an old woman with silver hair and round glasses.\\nShe looked up and smiled as if she had been expecting Nora for years.\\n\\n\"Hello,\" said Nora. \"Is this library still open?\"\\n\"For you,\" said the old woman, \"it never closed.\"\\n\\nThat evening, Nora left with three books under her arm.\\nShe came back the next day. And the next. And every day after.\\n\\nSlowly, word spread. Other children came. Then adults. Then the whole street.\\n\\nThe old iron gate was painted green.\\nThe windows were cleaned and filled with flowers.\\nThe sign above the door was repainted in bright gold letters.\\n\\nThe old woman never said her name. \\nShe just smiled every time a new person walked in.\\n\\nAnd somehow, without anyone understanding quite why, \\nevery person who walked into that library walked out slightly changed.\\nA little quieter. A little wiser. A little more themselves.", "moral": "Books and libraries have the power to change people.", "ar_summary": "قصة فتاة اكتشفت مكتبة قديمة في نهاية الشارع كانت مهجورة، فأصبحت تزورها يومياً حتى عادت المكتبة للحياة وغيّرت الحي كله."}, {"id": "ai-story-tr-1", "lang": "turkish", "flag": "🇹🇷", "level": "A1", "title": "Deniz Feneri / The Lighthouse", "duration": "5 min", "text": "Denizin kenarında küçük bir deniz feneri vardı.\\n(At the edge of the sea, there was a small lighthouse.)\\n\\nFenercinin adı Yusuf'tu. Yusuf her gece ışığı yakar,\\ngemilerin güvenle geçmesini sağlardı.\\n(The lighthouse keeper's name was Yusuf. Every night Yusuf lit the light, \\nhelping ships pass safely.)\\n\\nBir gece, çok kötü bir fırtına geldi.\\n(One night, a very bad storm came.)\\n\\nYusuf'un lambası söndü! Karanlık her yeri kapladı.\\n(Yusuf's lamp went out! Darkness covered everything.)\\n\\nAma Yusuf vazgeçmedi.\\n(But Yusuf did not give up.)\\n\\nElinde küçük bir mum tutarak karanlığa ışık tuttu.\\n(Holding a small candle, he shone a light into the darkness.)\\n\\nKüçük mumun ışığı uzaktan görünen bir gemiciye ulaştı.\\n(The small candle's light reached a sailor who could see from far away.)\\n\\nGemi güvenle limana geldi.\\n(The ship arrived safely at the harbour.)\\n\\nSabah, kaptan Yusuf'a teşekkür etmeye geldi.\\n(In the morning, the captain came to thank Yusuf.)\\n\\n\"Senin küçük mumun bizi kurtardı,\" dedi.\\n(\"Your small candle saved us,\" he said.)\\n\\nYusuf güldü: \"Büyük karanlıkta küçük bir ışık bile yeterlidir.\"\\n(Yusuf smiled: \"Even a small light is enough in great darkness.\")", "moral": "Küçük bir ışık büyük bir karanlığı yener. / A small light defeats great darkness.", "ar_summary": "قصة حارس منارة اسمه يوسف أنقذ سفينة في ليلة عاصفة بشمعة صغيرة فقط."}, {"id": "ai-story-zh-1", "lang": "chinese", "flag": "🇨🇳", "level": "A1", "title": "小熊的礼物 / The Little Bear's Gift", "duration": "5 min", "text": "森林里住着一只小熊，名叫毛毛。\\n(In the forest lived a little bear named Maomao.)\\n\\n明天是妈妈的生日。毛毛想送妈妈一个礼物。\\n(Tomorrow is mom's birthday. Maomao wants to give mom a gift.)\\n\\n但是毛毛没有钱。\\n(But Maomao has no money.)\\n\\n毛毛去找松鼠朋友小跳。\\n(Maomao went to find his squirrel friend Xiaotiao.)\\n\\n小跳说：\"我可以教你做一首歌！\"\\n(Xiaotiao said: \"I can teach you to make a song!\")\\n\\n毛毛学了一整天。他的声音不太好听，但他很努力。\\n(Maomao practised all day. His voice wasn't very good, but he tried very hard.)\\n\\n生日那天，毛毛站在妈妈面前，深呼吸，然后唱了起来。\\n(On her birthday, Maomao stood before mom, took a deep breath, and began to sing.)\\n\\n歌声不完美，但充满了爱。\\n(The song was not perfect, but it was full of love.)\\n\\n妈妈的眼睛里有了泪水。她把毛毛紧紧抱住。\\n(Mom's eyes filled with tears. She held Maomao tightly.)\\n\\n\"这是我收到过最好的礼物，\"妈妈说。\\n(\"This is the best gift I have ever received,\" said mom.)\\n\\n毛毛明白了：最好的礼物不是用钱买的。\\n(Maomao understood: the best gifts cannot be bought with money.)", "moral": "最好的礼物来自心里。/ The best gifts come from the heart.", "ar_summary": "قصة دب صغير اسمه ماوماو أراد تقديم هدية لأمه في عيد ميلادها لكن لم يكن لديه مال، فتعلم أغنية وكانت أجمل هدية."}];
-
-let curSTab='listening';
-
-function showStoreTab(t){
-  curSTab=t;
-  document.querySelectorAll('#store-tabs .lt').forEach(b=>b.classList.remove('on'));
-  document.getElementById('st-'+t)?.classList.add('on');
-  renderStore();
-}
-
-function renderStore(){
-  const el=document.getElementById('store-content');
-  if(!el)return;
-  if(curSTab==='listening')renderAIListening(el);
-  else renderAIReading(el);
-}
-
+var DB=null,prog=null;
+var LEVELS=['A0','A1','A2','B1','B2','C1','C2'];
+var LEVEL_XP={A0:0,A1:300,A2:700,B1:1400,B2:2500,C1:4000,C2:6500};
+var LEVEL_NAMES={A0:'\u0645\u0628\u062A\u062F\u0626 \u062A\u0627\u0645',A1:'\u0645\u0628\u062A\u062F\u0626',A2:'\u0645\u0627 \u062F\u0648\u0646 \u0627\u0644\u0645\u062A\u0648\u0633\u0637',B1:'\u0645\u062A\u0648\u0633\u0637',B2:'\u0641\u0648\u0642 \u0627\u0644\u0645\u062A\u0648\u0633\u0637',C1:'\u0645\u062A\u0642\u062F\u0645',C2:'\u0625\u062A\u0642\u0627\u0646 \u062A\u0627\u0645'};
+var SK_MAP={listening:{name:'\u0627\u0644\u0627\u0633\u062A\u0645\u0627\u0639',icon:'\uD83C\uDFA7',color:'#2196F3'},speaking:{name:'\u0627\u0644\u0645\u062D\u0627\u062F\u062B\u0629',icon:'\uD83D\uDDE3',color:'#9C27B0'},reading:{name:'\u0627\u0644\u0642\u0631\u0627\u0621\u0629',icon:'\uD83D\uDCD6',color:'#FF9800'},writing:{name:'\u0627\u0644\u0643\u062A\u0627\u0628\u0629',icon:'\u270F',color:'#E91E63'}};
+var FALLBACK_DB={courses:{english:{id:'english',name:'\u0627\u0644\u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629',nameEn:'English',flag:'\uD83C\uDDEC\uD83C\uDDE7',color:'#2196F3',levels:{A0:{skills:{listening:[{id:'en-a0-l1',title:'\u0627\u0644\u062D\u0631\u0648\u0641 \u0648\u0627\u0644\u0623\u0635\u0648\u0627\u062A',desc:'\u062A\u0639\u0644\u0645 \u0627\u0644\u0623\u0628\u062C\u062F\u064A\u0629',min:10,xp:30,tags:['\u0623\u0628\u062C\u062F\u064A\u0629']},{id:'en-a0-l2',title:'\u0627\u0644\u062A\u062D\u064A\u0627\u062A',desc:'\u0627\u0633\u062A\u0645\u0627\u0639 \u0644\u0644\u062A\u062D\u064A\u0627\u062A',min:12,xp:35,tags:['\u062A\u062D\u064A\u0627\u062A']},{id:'en-a0-l3',title:'\u0627\u0644\u0623\u0631\u0642\u0627\u0645 1-20',desc:'\u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u0627\u0644\u0623\u0633\u0627\u0633\u064A\u0629',min:10,xp:30,tags:['\u0623\u0631\u0642\u0627\u0645']}],speaking:[{id:'en-a0-s1',title:'\u062A\u0639\u0631\u064A\u0641 \u0627\u0644\u0646\u0641\u0633',desc:'\u062A\u0639\u0631\u064A\u0641 \u0646\u0641\u0633\u0643',min:10,xp:30,tags:['\u0645\u0642\u062F\u0645\u0627\u062A']},{id:'en-a0-s2',title:'Hello & Goodbye',desc:'\u0627\u0644\u062A\u062D\u064A\u0627\u062A',min:8,xp:25,tags:['\u062A\u062D\u064A\u0627\u062A']},{id:'en-a0-s3',title:'\u0627\u0644\u0623\u0644\u0648\u0627\u0646',desc:'\u0646\u0637\u0642 \u0627\u0644\u0623\u0644\u0648\u0627\u0646',min:10,xp:30,tags:['\u0645\u0641\u0631\u062F\u0627\u062A']}],reading:[{id:'en-a0-r1',title:'\u0642\u0631\u0627\u0621\u0629 \u0627\u0644\u062D\u0631\u0648\u0641',desc:'\u0627\u0644\u062D\u0631\u0648\u0641',min:12,xp:35,tags:['\u062D\u0631\u0648\u0641']},{id:'en-a0-r2',title:'\u0643\u0644\u0645\u0627\u062A \u0642\u0635\u064A\u0631\u0629',desc:'\u0643\u0644\u0645\u0627\u062A \u0628\u0633\u064A\u0637\u0629',min:10,xp:30,tags:['\u0643\u0644\u0645\u0627\u062A']}],writing:[{id:'en-a0-w1',title:'\u0643\u062A\u0627\u0628\u0629 \u0627\u0644\u062D\u0631\u0648\u0641',desc:'\u0627\u0644\u062A\u062F\u0631\u0628',min:15,xp:40,tags:['\u0643\u062A\u0627\u0628\u0629']},{id:'en-a0-w2',title:'\u0643\u062A\u0627\u0628\u0629 \u0627\u0644\u0623\u0631\u0642\u0627\u0645',desc:'\u0628\u0627\u0644\u0643\u0644\u0645\u0627\u062A',min:12,xp:35,tags:['\u0623\u0631\u0642\u0627\u0645']}]}},A1:{skills:{listening:[{id:'en-a1-l1',title:'\u0645\u062D\u0627\u062F\u062B\u0627\u062A \u064A\u0648\u0645\u064A\u0629',desc:'\u0645\u062D\u0627\u062F\u062B\u0627\u062A \u0642\u0635\u064A\u0631\u0629',min:15,xp:50,tags:['\u0645\u062D\u0627\u062F\u062B\u0629']},{id:'en-a1-l2',title:'\u0627\u0644\u0637\u0642\u0633',desc:'\u062A\u0639\u0628\u064A\u0631\u0627\u062A \u0627\u0644\u0637\u0642\u0633',min:15,xp:50,tags:['\u0637\u0642\u0633']},{id:'en-a1-l3',title:'\u0627\u0644\u0623\u0633\u0631\u0629',desc:'\u0645\u0641\u0631\u062F\u0627\u062A \u0627\u0644\u0639\u0627\u0626\u0644\u0629',min:15,xp:50,tags:['\u0623\u0633\u0631\u0629']}],speaking:[{id:'en-a1-s1',title:'\u0645\u0639\u0644\u0648\u0645\u0627\u062A\u064A \u0627\u0644\u0634\u062E\u0635\u064A\u0629',desc:'\u0627\u0644\u062A\u062D\u062F\u062B \u0639\u0646 \u0646\u0641\u0633\u0643',min:15,xp:50,tags:['\u0645\u0642\u062F\u0645\u0627\u062A']},{id:'en-a1-s2',title:'\u0637\u0644\u0628 \u0627\u0644\u0623\u0634\u064A\u0627\u0621',desc:'Can I...',min:15,xp:50,tags:['\u0637\u0644\u0628']}],reading:[{id:'en-a1-r1',title:'\u0631\u0633\u0627\u0626\u0644 \u0642\u0635\u064A\u0631\u0629',desc:'\u0642\u0631\u0627\u0621\u0629 \u0631\u0633\u0627\u0626\u0644',min:15,xp:50,tags:['\u0631\u0633\u0627\u0626\u0644']}],writing:[{id:'en-a1-w1',title:'\u0643\u062A\u0627\u0628\u0629 \u0631\u0633\u0627\u0644\u0629',desc:'\u0631\u0633\u0627\u0644\u0629 \u062A\u0639\u0631\u064A\u0641\u064A\u0629',min:20,xp:60,tags:['\u0631\u0633\u0627\u0626\u0644']}]}},A2:{skills:{listening:[{id:'en-a2-l1',title:'\u0623\u062E\u0628\u0627\u0631 \u0628\u0633\u064A\u0637\u0629',desc:'\u0623\u062E\u0628\u0627\u0631 \u0645\u0628\u0633\u0637\u0629',min:20,xp:70,tags:['\u0623\u062E\u0628\u0627\u0631']}],speaking:[{id:'en-a2-s1',title:'\u0645\u0646\u0627\u0642\u0634\u0629',desc:'\u0625\u0628\u062F\u0627\u0621 \u0631\u0623\u064A\u0643',min:20,xp:70,tags:['\u0646\u0642\u0627\u0634']}],reading:[{id:'en-a2-r1',title:'\u0642\u0635\u0635 \u0642\u0635\u064A\u0631\u0629',desc:'\u0642\u0631\u0627\u0621\u0629 \u0642\u0635\u0629',min:25,xp:75,tags:['\u0642\u0635\u0635']}],writing:[{id:'en-a2-w1',title:'\u062A\u0642\u0631\u064A\u0631',desc:'\u0643\u062A\u0627\u0628\u0629 \u062A\u0642\u0631\u064A\u0631',min:25,xp:75,tags:['\u062A\u0642\u0627\u0631\u064A\u0631']}]}},B1:{skills:{listening:[{id:'en-b1-l1',title:'\u0645\u062D\u0627\u0636\u0631\u0629',desc:'\u0641\u0647\u0645 \u0645\u062D\u0627\u0636\u0631\u0629',min:25,xp:100,tags:['\u0623\u0643\u0627\u062F\u064A\u0645\u064A']}],speaking:[{id:'en-b1-s1',title:'\u0639\u0631\u0636 \u062A\u0642\u062F\u064A\u0645\u064A',desc:'\u062A\u0642\u062F\u064A\u0645 \u0645\u0648\u0636\u0648\u0639',min:25,xp:100,tags:['\u0639\u0631\u0648\u0636']}],reading:[{id:'en-b1-r1',title:'\u0645\u0642\u0627\u0644',desc:'\u0642\u0631\u0627\u0621\u0629 \u0645\u0642\u0627\u0644',min:30,xp:110,tags:['\u0623\u0643\u0627\u062F\u064A\u0645\u064A']}],writing:[{id:'en-b1-w1',title:'\u0645\u0642\u0627\u0644 \u0631\u0623\u064A',desc:'\u0643\u062A\u0627\u0628\u0629 \u0645\u0642\u0627\u0644',min:35,xp:120,tags:['\u0645\u0642\u0627\u0644\u0627\u062A']}]}},B2:{skills:{listening:[{id:'en-b2-l1',title:'\u0646\u0642\u0627\u0634 \u0623\u0643\u0627\u062F\u064A\u0645\u064A',desc:'\u0641\u0647\u0645 \u0646\u0642\u0627\u0634',min:30,xp:150,tags:['\u0623\u0643\u0627\u062F\u064A\u0645\u064A']}],speaking:[{id:'en-b2-s1',title:'\u0645\u0646\u0627\u0638\u0631\u0629',desc:'\u0645\u0634\u0627\u0631\u0643\u0629 \u0641\u064A \u0645\u0646\u0627\u0638\u0631\u0629',min:30,xp:150,tags:['\u0645\u0646\u0627\u0638\u0631\u0629']}],reading:[{id:'en-b2-r1',title:'\u0631\u0648\u0627\u064A\u0629',desc:'\u0642\u0631\u0627\u0621\u0629 \u0641\u0635\u0644',min:40,xp:160,tags:['\u0631\u0648\u0627\u064A\u0627\u062A']}],writing:[{id:'en-b2-w1',title:'\u062A\u0642\u0631\u064A\u0631',desc:'\u062A\u0642\u0631\u064A\u0631 \u0623\u0643\u0627\u062F\u064A\u0645\u064A',min:45,xp:170,tags:['\u062A\u0642\u0627\u0631\u064A\u0631']}]}},C1:{skills:{listening:[{id:'en-c1-l1',title:'\u0645\u062D\u0627\u0636\u0631\u0629 \u0645\u062A\u0642\u062F\u0645\u0629',desc:'\u0641\u0647\u0645 \u0645\u062A\u0642\u062F\u0645',min:35,xp:200,tags:['\u0645\u062A\u0642\u062F\u0645']}],speaking:[{id:'en-c1-s1',title:'\u062D\u0648\u0627\u0631 \u0623\u0643\u0627\u062F\u064A\u0645\u064A',desc:'\u062D\u0648\u0627\u0631 \u0645\u062A\u0642\u062F\u0645',min:35,xp:200,tags:['\u0623\u0643\u0627\u062F\u064A\u0645\u064A']}],reading:[{id:'en-c1-r1',title:'\u0646\u0635 \u0623\u0643\u0627\u062F\u064A\u0645\u064A',desc:'\u0646\u0635 \u0645\u0639\u0642\u062F',min:45,xp:210,tags:['\u0645\u062A\u0642\u062F\u0645']}],writing:[{id:'en-c1-w1',title:'\u0628\u062D\u062B \u0639\u0644\u0645\u064A',desc:'\u0645\u0644\u062E\u0635 \u0628\u062D\u062B',min:50,xp:220,tags:['\u0628\u062D\u062B']}]}},C2:{skills:{listening:[{id:'en-c2-l1',title:'\u062E\u0637\u0627\u0628 \u0631\u0633\u0645\u064A',desc:'\u0641\u0647\u0645 \u062E\u0637\u0627\u0628',min:40,xp:250,tags:['\u0645\u062A\u0642\u062F\u0645']}],speaking:[{id:'en-c2-s1',title:'\u0625\u0644\u0642\u0627\u0621 \u0643\u0644\u0645\u0629',desc:'\u0643\u0644\u0645\u0629 \u0631\u0633\u0645\u064A\u0629',min:40,xp:250,tags:['\u062E\u0637\u0627\u0628\u0629']}],reading:[{id:'en-c2-r1',title:'\u0646\u0635 \u0623\u062F\u0628\u064A',desc:'\u062A\u062D\u0644\u064A\u0644 \u0646\u0635',min:50,xp:260,tags:['\u0623\u062F\u0628']}],writing:[{id:'en-c2-w1',title:'\u0627\u0644\u062A\u0623\u0644\u064A\u0641',desc:'\u0643\u062A\u0627\u0628\u0629 \u0623\u062F\u0628\u064A\u0629',min:50,xp:220,tags:['\u062A\u0623\u0644\u064A\u0641']}]}}}},turkish:{id:'turkish',name:'\u0627\u0644\u062A\u0631\u0643\u064A\u0629',nameEn:'Turkish',flag:'\uD83C\uDDF9\uD83C\uDDF7',color:'#E91E63',levels:{A0:{skills:{listening:[{id:'tr-a0-l1',title:'\u0627\u0644\u0623\u0628\u062C\u062F\u064A\u0629 \u0627\u0644\u062A\u0631\u0643\u064A\u0629',desc:'\u062D\u0631\u0648\u0641 \u0627\u0644\u062A\u0631\u0643\u064A\u0629',min:12,xp:35,tags:['Alfabe']},{id:'tr-a0-l2',title:'Merhaba!',desc:'\u0627\u0644\u062A\u062D\u064A\u0627\u062A',min:10,xp:30,tags:['Selamlar']},{id:'tr-a0-l3',title:'\u0627\u0644\u0623\u0639\u062F\u0627\u062F',desc:'\u0627\u0644\u0623\u0639\u062F\u0627\u062F \u0628\u0627\u0644\u062A\u0631\u0643\u064A\u0629',min:10,xp:30,tags:['Sayilar']}],speaking:[{id:'tr-a0-s1',title:'Ben...',desc:'\u062A\u0639\u0631\u064A\u0641 \u0627\u0644\u0646\u0641\u0633',min:12,xp:35,tags:['Tanitma']},{id:'tr-a0-s2',title:'Evet/Hayir',desc:'\u0639\u0628\u0627\u0631\u0627\u062A',min:10,xp:30,tags:['Temel']}],reading:[{id:'tr-a0-r1',title:'\u0642\u0631\u0627\u0621\u0629 \u062A\u0631\u0643\u064A\u0629',desc:'\u0643\u0644\u0645\u0627\u062A \u0628\u0633\u064A\u0637\u0629',min:12,xp:35,tags:['Okuma']}],writing:[{id:'tr-a0-w1',title:'\u0643\u062A\u0627\u0628\u0629 \u062A\u0631\u0643\u064A\u0629',desc:'\u0627\u0644\u062D\u0631\u0648\u0641',min:15,xp:40,tags:['Yazma']}]}},A1:{skills:{listening:[{id:'tr-a1-l1',title:'\u0645\u062D\u0627\u062F\u062B\u0627\u062A \u062A\u0631\u0643\u064A\u0629',desc:'\u0645\u0648\u0627\u0642\u0641 \u064A\u0648\u0645\u064A\u0629',min:15,xp:50,tags:['Konusma']},{id:'tr-a1-l2',title:'\u0627\u0644\u0637\u0642\u0633',desc:'Hava nasil?',min:15,xp:50,tags:['Hava']},{id:'tr-a1-l3',title:'\u0627\u0644\u0639\u0627\u0626\u0644\u0629',desc:'\u0645\u0641\u0631\u062F\u0627\u062A \u0627\u0644\u0639\u0627\u0626\u0644\u0629',min:15,xp:50,tags:['Aile']}],speaking:[{id:'tr-a1-s1',title:'\u0627\u0644\u062A\u0633\u0648\u0642',desc:'\u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u0648\u0627\u0644\u062A\u0633\u0648\u0642',min:15,xp:50,tags:['Alisveris']}],reading:[{id:'tr-a1-r1',title:'\u0642\u0635\u0629 \u062A\u0631\u0643\u064A\u0629',desc:'\u0642\u0635\u0629 \u0628\u0633\u064A\u0637\u0629',min:20,xp:65,tags:['Hikaye']}],writing:[{id:'tr-a1-w1',title:'\u0631\u0633\u0627\u0644\u0629 \u062A\u0631\u0643\u064A\u0629',desc:'\u0643\u062A\u0627\u0628\u0629 \u0631\u0633\u0627\u0644\u0629',min:18,xp:55,tags:['Mektup']}]}}}},chinese:{id:'chinese',name:'\u0627\u0644\u0635\u064A\u0646\u064A\u0629',nameEn:'Chinese',flag:'\uD83C\uDDE8\uD83C\uDDF3',color:'#F44336',levels:{A0:{skills:{listening:[{id:'zh-a0-l1',title:'Pinyin',desc:'\u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u0635\u0648\u062A\u064A',min:15,xp:40,tags:['Pinyin']},{id:'zh-a0-l2',title:'1-20',desc:'\u0627\u0644\u0623\u0639\u062F\u0627\u062F',min:12,xp:35,tags:['\u0623\u0631\u0642\u0627\u0645']},{id:'zh-a0-l3',title:'\u0627\u0644\u0646\u063A\u0645\u0627\u062A',desc:'\u0627\u0644\u0646\u063A\u0645\u0627\u062A \u0627\u0644\u0623\u0631\u0628\u0639\u0629',min:15,xp:45,tags:['\u0646\u063A\u0645\u0627\u062A']}],speaking:[{id:'zh-a0-s1',title:'\u4F60\u597D',desc:'\u0627\u0644\u062A\u062D\u064A\u0629',min:12,xp:35,tags:['\u062A\u062D\u064A\u0627\u062A']},{id:'zh-a0-s2',title:'\u6211\u662F...',desc:'\u062A\u0639\u0631\u064A\u0641 \u0627\u0644\u0646\u0641\u0633',min:12,xp:35,tags:['\u0645\u0642\u062F\u0645\u0627\u062A']}],reading:[{id:'zh-a0-r1',title:'\u0627\u0644\u062D\u0631\u0648\u0641 \u0627\u0644\u0623\u0648\u0644\u0649',desc:'\u0623\u0648\u0644 20 \u062D\u0631\u0641',min:20,xp:60,tags:['\u062D\u0631\u0648\u0641']}],writing:[{id:'zh-a0-w1',title:'\u0643\u062A\u0627\u0628\u0629 \u0627\u0644\u062D\u0631\u0648\u0641',desc:'\u062E\u0637\u0648\u0627\u062A \u0627\u0644\u0643\u062A\u0627\u0628\u0629',min:25,xp:70,tags:['\u0643\u062A\u0627\u0628\u0629']}]}},A1:{skills:{listening:[{id:'zh-a1-l1',title:'\u0645\u062D\u0627\u062F\u062B\u0627\u062A \u0635\u064A\u0646\u064A\u0629',desc:'\u0645\u0648\u0627\u0642\u0641 \u064A\u0648\u0645\u064A\u0629',min:15,xp:50,tags:['\u0645\u062D\u0627\u062F\u062B\u0629']},{id:'zh-a1-l2',title:'\u5BB6\u5EAD',desc:'\u0645\u0641\u0631\u062F\u0627\u062A \u0627\u0644\u0639\u0627\u0626\u0644\u0629',min:15,xp:50,tags:['\u0623\u0633\u0631\u0629']},{id:'zh-a1-l3',title:'\u5403\u4EC0\u4E48',desc:'\u0627\u0644\u0637\u0639\u0627\u0645',min:15,xp:50,tags:['\u0637\u0639\u0627\u0645']}],speaking:[{id:'zh-a1-s1',title:'\u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u0648\u0627\u0644\u0645\u0627\u0644',desc:'\u0627\u0644\u062A\u0633\u0648\u0642',min:15,xp:50,tags:['\u062A\u0633\u0648\u0642']}],reading:[{id:'zh-a1-r1',title:'\u0642\u0635\u0629 \u0635\u064A\u0646\u064A\u0629',desc:'\u0642\u0635\u0629 \u0628\u0633\u064A\u0637\u0629',min:20,xp:65,tags:['\u0642\u0635\u0635']}],writing:[{id:'zh-a1-w1',title:'\u062C\u0645\u0644\u0629 \u0628\u0633\u064A\u0637\u0629',desc:'\u0643\u062A\u0627\u0628\u0629 \u062C\u0645\u0644',min:20,xp:60,tags:['\u0643\u062A\u0627\u0628\u0629']}]}}}}}};
+// HELPERS
+function getCurLevel(){var xp=prog.xp||0,lv='A0';LEVELS.forEach(function(l){if(xp>=LEVEL_XP[l])lv=l;});return lv;}
+function getNextXP(){var lv=getCurLevel(),idx=LEVELS.indexOf(lv);return idx<LEVELS.length-1?LEVEL_XP[LEVELS[idx+1]]:LEVEL_XP.C2;}
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2500);}
+function getAll(){var arr=[];if(!DB)return arr;Object.keys(DB.courses).forEach(function(lid){var c=DB.courses[lid];Object.keys(c.levels||{}).forEach(function(lvId){var lv=c.levels[lvId];Object.keys(lv.skills||{}).forEach(function(sk){(lv.skills[sk]||[]).forEach(function(l){arr.push(Object.assign({},l,{lid:lid,skId:sk,lvId:lvId,langFlag:c.flag||''}));});});});});return arr;}
+function showSec(name){['home','lessons','progress','store'].forEach(function(s){var el=document.getElementById('sec-'+s);if(el)el.style.display=s===name?'block':'none';});document.querySelectorAll('.sbitem').forEach(function(b){b.classList.remove('on');});var sb=document.getElementById('sb-'+name);if(sb)sb.classList.add('on');if(name==='home')renderHome();if(name==='lessons')renderLessons();if(name==='progress')renderProgress();if(name==='store')setTimeout(renderStore,50);}
+function renderHome(){prog.level=getCurLevel();var nx=getNextXP(),lv=prog.level,xp=prog.xp||0,prevXP=LEVEL_XP[lv]||0,pct=nx>prevXP?Math.min(100,Math.round((xp-prevXP)/(nx-prevXP)*100)):100;var s=getSession(),uname=s?s.name:'';document.getElementById('s-greeting').textContent=uname?'\uD83D\uDC4B '+uname+'!':'\uD83D\uDC4B';document.getElementById('nav-av').textContent=(uname||'M')[0];document.getElementById('nav-name').textContent=uname||'';document.getElementById('s-lv').textContent=lv;document.getElementById('s-done').textContent=prog.completedLessons.length;document.getElementById('s-xp').textContent=xp;document.getElementById('sb-cnt').textContent=prog.completedLessons.length;document.getElementById('xp-label').textContent='XP '+xp+'/'+nx;document.getElementById('xp-fill').style.width=pct+'%';var nxtLv=LEVELS[LEVELS.indexOf(lv)+1];document.getElementById('xp-next').textContent=lv+(nxtLv?' \u2192 '+nxtLv:'');var scores=prog.skillScores||{};document.getElementById('home-skills').innerHTML=Object.keys(SK_MAP).map(function(sk){var info=SK_MAP[sk],p=Math.min(100,scores[sk]||0);return '<div class="sk-card" style="background:linear-gradient(135deg,'+info.color+'22,'+info.color+'11);border:1px solid '+info.color+'33" onclick="showSec(\'lessons\')"><div style="font-size:28px">'+info.icon+'</div><div style="font-size:14px;font-weight:700;margin:6px 0">'+info.name+'</div><div style="font-size:11px;color:var(--muted);margin-bottom:8px">'+lv+'</div><div style="background:rgba(255,255,255,.1);border-radius:20px;height:6px;overflow:hidden"><div style="height:100%;background:'+info.color+';width:'+p+'%;transition:.8s"></div></div><div style="font-size:12px;color:'+info.color+';margin-top:6px;font-weight:700">'+p+'%</div></div>';}).join('');var done=new Set(prog.completedLessons),all=getAll(),upcoming=all.filter(function(l){return!done.has(l.id);}).slice(0,5);document.getElementById('home-lessons').innerHTML=upcoming.length?upcoming.map(function(l){return lessonItem(l,false);}).join(''):'<div class="loading">\uD83C\uDF89</div>';}
+var curLL='english';
+function filterLang(lang,btn){curLL=lang;document.querySelectorAll('#lang-tabs .lt').forEach(function(b){b.classList.remove('on');});if(btn)btn.classList.add('on');renderLessons();}
+function lessonItem(l,isDone){var btn=isDone?'<span class="lbadge bd">\u2705 \u0645\u0643\u062A\u0645\u0644</span>':'<button class="start-btn" onclick="event.stopPropagation();startLesson(\''+l.id+'\',\''+l.lid+'\',\''+l.skId+'\',\''+l.lvId+'\','+l.xp+')">\u25B6 \u0627\u0628\u062F\u0623</button>';return '<div class="li" onclick="startLesson(\''+l.id+'\',\''+l.lid+'\',\''+l.skId+'\',\''+l.lvId+'\','+l.xp+')"><div class="lc '+(isDone?'done':'act')+'">'+(isDone?'\u2713':'\u25B6')+'</div><div class="linfo"><div class="ltitle">'+l.langFlag+' '+l.title+'</div><div class="lmeta">'+l.min+' \u062F\u0642 \u2022 +'+l.xp+' XP \u2022 '+l.lvId+'</div></div>'+btn+'</div>';}
+function renderLessons(){var done=new Set(prog.completedLessons),all=getAll(),items=curLL==='all'?all:all.filter(function(l){return l.lid===curLL;}),byLv={};items.forEach(function(l){if(!byLv[l.lvId])byLv[l.lvId]={};if(!byLv[l.lvId][l.skId])byLv[l.lvId][l.skId]=[];byLv[l.lvId][l.skId].push(l);});var html='';LEVELS.forEach(function(lvId){if(!byLv[lvId])return;var lvItems=Object.values(byLv[lvId]).flat(),dc=lvItems.filter(function(l){return done.has(l.id);}).length;html+='<div style="margin-bottom:24px"><div style="background:rgba(255,255,255,.04);border-radius:12px;padding:12px 16px;margin-bottom:12px"><div style="font-size:15px;font-weight:800">'+lvId+' \u2014 '+(LEVEL_NAMES[lvId]||lvId)+'</div><div style="font-size:12px;color:var(--muted)">'+dc+'/'+lvItems.length+'</div></div>';Object.keys(byLv[lvId]).forEach(function(sk){var info=SK_MAP[sk]||{name:sk,icon:'',color:'#666'};html+='<div style="margin-bottom:10px"><div style="font-size:13px;font-weight:700;color:'+info.color+';margin-bottom:8px">'+info.icon+' '+info.name+'</div>';byLv[lvId][sk].forEach(function(l){html+=lessonItem(l,done.has(l.id));});html+='</div>';});html+='</div>';});document.getElementById('lessons-content').innerHTML=html||'<div class="loading">\u0644\u0627 \u062F\u0631\u0648\u0633</div>';}
+function renderProgress(){if(!DB)return;var done=new Set(prog.completedLessons),all=getAll(),html='<div class="card">';Object.keys(DB.courses).forEach(function(lid){var c=DB.courses[lid],la=all.filter(function(l){return l.lid===lid;}),ld=la.filter(function(l){return done.has(l.id);}),pct=la.length?Math.round(ld.length/la.length*100):0;html+='<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><span style="font-size:20px">'+c.flag+'</span><span style="font-weight:700;min-width:80px">'+c.nameEn+'</span><div style="flex:1;background:rgba(255,255,255,.06);border-radius:20px;height:8px;overflow:hidden"><div style="height:100%;background:'+c.color+';width:'+pct+'%;transition:.8s"></div></div><span style="font-size:13px;color:var(--muted)">'+ld.length+'/'+la.length+'</span></div>';});html+='</div>';document.getElementById('progress-content').innerHTML=html;}
+function startLesson(id,lid,sk,lvId,xp){var done=new Set(prog.completedLessons),isNew=!done.has(id);if(isNew){prog.completedLessons.push(id);prog.xp=(prog.xp||0)+xp;if(!prog.skillScores)prog.skillScores={};prog.skillScores[sk]=Math.min(100,(prog.skillScores[sk]||0)+Math.ceil(xp/10));prog.level=getCurLevel();saveProg();document.getElementById('s-xp').textContent=prog.xp;document.getElementById('s-done').textContent=prog.completedLessons.length;document.getElementById('s-lv').textContent=prog.level;document.getElementById('sb-cnt').textContent=prog.completedLessons.length;showToast('\uD83C\uDF89 +'+xp+' XP');renderHome();}var all=getAll(),lesson=all.find(function(l){return l.id===id;});showLessonModal(lesson,isNew,xp,lid,sk,lvId);}
+function showLessonModal(lesson,isNew,xp,lid,sk,lvId){document.getElementById('lm')&&document.getElementById('lm').remove();var title=lesson?lesson.title:'',desc=lesson?lesson.desc:'',mn=lesson?lesson.min:15;var tips={listening:['\uD83C\uDFA7 \u0627\u0633\u062A\u0645\u0639 \u0645\u0631\u062A\u064A\u0646','\uD83D\uDCDD \u062F\u0648\u0651\u0646 \u0627\u0644\u0645\u0641\u0631\u062F\u0627\u062A','\uD83D\uDD04 \u0631\u0643\u0651\u0632 \u0639\u0644\u0649 \u0627\u0644\u0633\u064A\u0627\u0642'],speaking:['\uD83D\uDDE3 \u062A\u062D\u062F\u062B \u0628\u0635\u0648\u062A \u0639\u0627\u0644','\uD83C\uDF5E \u0642\u0644\u0651\u062F \u0627\u0644\u0646\u0637\u0642','\uD83D\uDD01 \u0643\u0631\u0651\u0631 \u062D\u062A\u0649 \u062A\u062A\u0642\u0646'],reading:['\uD83D\uDCD6 \u0627\u0642\u0631\u0623 \u0628\u0628\u0637\u0621','\uD83D\uDCA1 \u062E\u0645\u0651\u0646 \u0645\u0639\u0646\u0649 \u0627\u0644\u0643\u0644\u0645\u0627\u062A','\uD83D\uDCCB \u062D\u062F\u0651\u062F \u0627\u0644\u0641\u0643\u0631\u0629'],writing:['\u270F \u0627\u0628\u062F\u0623 \u0628\u062C\u0645\u0644\u0629','\uD83D\uDCDD \u0627\u0633\u062A\u062E\u062F\u0645 \u0627\u0644\u0645\u0641\u0631\u062F\u0627\u062A','\uD83D\uDD04 \u0631\u0627\u062C\u0639 \u0643\u062A\u0627\u0628\u062A\u0643']};var t=(tips[sk]||tips.listening).map(function(tip){return '<div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)"><span>'+tip.split(' ')[0]+'</span><span style="font-size:13px;color:#C4B8D0">'+tip.slice(tip.indexOf(' ')+1)+'</span></div>';}).join('');var badge=isNew?'<div style="background:#4CAF50;color:#fff;padding:6px 18px;border-radius:20px;font-size:13px;margin-bottom:16px;display:inline-block">\uD83C\uDF89 +'+xp+' XP</div>':'<div style="background:rgba(196,152,58,.2);color:#C4983A;padding:6px 18px;border-radius:20px;font-size:13px;margin-bottom:16px;display:inline-block">\uD83D\uDCDA \u0645\u0631\u0627\u062C\u0639\u0629</div>';var modal=document.createElement('div');modal.id='lm';modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(6px);padding:16px;';modal.innerHTML='<div style="background:#1E1648;border-radius:20px;padding:28px;max-width:480px;width:100%;border:1px solid rgba(196,152,58,.25);max-height:85vh;overflow-y:auto;position:relative"><button onclick="document.getElementById(\'lm\').remove()" style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,.1);border:none;color:#eee;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:18px">\u00D7</button><div style="text-align:center;margin-bottom:20px">'+badge+'<h2 style="font-size:20px;font-weight:800;margin:8px 0 6px">'+title+'</h2><p style="color:#C4983A;font-size:14px;margin:0 0 10px">'+desc+'</p></div><div style="background:rgba(15,14,26,.5);border-radius:12px;padding:16px;margin-bottom:16px"><div style="font-size:13px;font-weight:700;color:#C4983A;margin-bottom:10px">\uD83D\uDCA1 \u0646\u0635\u0627\u0626\u062D</div>'+t+'</div><div style="display:flex;gap:10px"><button onclick="document.getElementById(\'lm\').remove()" style="flex:1;background:#2d2a4a;color:var(--txt);border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit">\u0625\u063A\u0644\u0627\u0642</button><button onclick="document.getElementById(\'lm\').remove()" style="flex:2;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:900;font-family:inherit">\u2705 \u062A\u0645!</button></div></div>';document.body.appendChild(modal);modal.addEventListener('click',function(e){if(e.target===modal)modal.remove();});}
+// STORE
+var AI_L=[{id:'ai-en-l1',flag:'\uD83C\uDDEC\uD83C\uDDE7',level:'A0',title:'My First Day at School',dur:'3 min',script:'Hello! My name is Alex. Today is my first day at school. My teacher Miss Sarah is very kind. I sit next to Mia who gives me a pencil. At lunch I have a sandwich and apple. We play football. I am happy and have a new friend!',voc:['nervous','excited','teacher','pencil','sandwich'],qs:[{q:'Teacher name?',a:'Miss Sarah'},{q:'What did Alex eat?',a:'Sandwich'},{q:'Feeling?',a:'Happy'}]},{id:'ai-en-l2',flag:'\uD83C\uDDEC\uD83C\uDDE7',level:'A1',title:'A Day at the Market',dur:'4 min',script:'Every Saturday we go to the market. Mr Hassan sells apples for two dollars per kilogram. We buy warm bread and yellow sunflowers. We drink tea with honey at home.',voc:['market','colorful','kilogram','sunflowers','honey'],qs:[{q:'When?',a:'Saturday'},{q:'Apple price?',a:'Two dollars'},{q:'Flowers?',a:'Sunflowers'}]},{id:'ai-en-l3',flag:'\uD83C\uDDEC\uD83C\uDDE7',level:'A2',title:'The Lost Dog',dur:'5 min',script:'One rainy afternoon I found a small dog under a bench. No collar. I gave him sandwich and took him home. Next morning I made a poster. Three days later a girl called BISCUIT!',voc:['collar','wagged','poster','immediately'],qs:[{q:'Where was the dog?',a:'Under a bench'},{q:'Dog name?',a:'Biscuit'},{q:'Days?',a:'Three'}]},{id:'ai-tr-l1',flag:'\uD83C\uDDF9\uD83C\uDDF7',level:'A0',title:'Merhaba! Ben Elif.',dur:'3 min',script:"Merhaba! Ben Elif, on iki yasindayim. Istanbul'da yasiyorum. Kucuk kardesim Ahmet var. Matematik seviyorum.",voc:['Merhaba=Hello','yasiyorum=I live','kardesim=brother'],qs:[{q:'Age?',a:'12'},{q:'Brother?',a:'Ahmet'},{q:'Subject?',a:'Matematik'}]},{id:'ai-zh-l1',flag:'\uD83C\uDDE8\uD83C\uDDF3',level:'A0',title:'\u6211\u7684\u5BB6',dur:'3 min',script:'\u5927\u5BB6\u597D! \u6211\u53EB\u674E\u660E. I am Li Ming. \u6211\u4F4F\u5728\u5317\u4EAC. I live in Beijing. \u6211\u6700\u559C\u6B22\u53A8\u623F. I like the kitchen.',voc:['\u5BB6=home','\u53A8\u623F=kitchen'],qs:[{q:'Where?',a:'Beijing'},{q:'Room?',a:'\u53A8\u623F'}]}];
+var AI_R=[{id:'ai-s1',flag:'\uD83C\uDDEC\uD83C\uDDE7',level:'A0',title:'The Little Cloud',dur:'4 min',moral:'Helping others is braver than hiding.',ar:'\u0633\u062D\u0627\u0628\u0629 \u0635\u063A\u064A\u0631\u0629 \u062A\u062A\u063A\u0644\u0628 \u0639\u0644\u0649 \u062E\u0648\u0641\u0647\u0627.',text:'High above Sunnyville lived Fluff, a small cloud afraid to rain. One hot day flowers turned brown. Fluff tried one raindrop. A flower raised its head. More rain came and children laughed. That night Fluff was brave at last.'},{id:'ai-s2',flag:'\uD83C\uDDEC\uD83C\uDDE7',level:'A1',title:'The Boy Who Collected Colours',dur:'5 min',moral:'Even one colour can change a grey world.',ar:'\u0648\u0644\u062F \u064A\u062C\u0645\u0639 \u0627\u0644\u0623\u0644\u0648\u0627\u0646 \u0633\u0631\u0627\u064B.',text:'In a grey town, Sami collected a red button, blue feather, yellow leaf and green stone. A lost girl showed him her colourful village. Next morning Sami placed his colours on grey doorsteps. Four people felt hope.'},{id:'ai-s3',flag:'\uD83C\uDDEC\uD83C\uDDE7',level:'A2',title:'The Library at the End of the Street',dur:'6 min',moral:'Books have the power to change people.',ar:'\u0645\u0643\u062A\u0628\u0629 \u0645\u0647\u062C\u0648\u0631\u0629 \u062A\u0639\u0648\u062F \u0644\u0644\u062D\u064A\u0627\u0629.',text:'At the end of Maple Street stood a library nobody visited. One rainy day Nora found an old woman inside who said: For you this library never closed. Every person who entered walked out slightly changed.'},{id:'ai-str1',flag:'\uD83C\uDDF9\uD83C\uDDF7',level:'A1',title:'Deniz Feneri',dur:'5 min',moral:'Kucuk bir isik yeterlidir.',ar:'\u0645\u0646\u0627\u0631\u0629 \u0648\u0634\u0645\u0639\u0629.',text:'Keeper Yusuf lit the lighthouse every night. One stormy night the lamp went out. He held a small candle. A ship saw it and arrived safely. Your candle saved us. Even a small light is enough.'},{id:'ai-szh1',flag:'\uD83C\uDDE8\uD83C\uDDF3',level:'A1',title:'\u5C0F\u718A\u7684\u793C\u7269',dur:'5 min',moral:'\u6700\u597D\u7684\u793C\u7269\u6765\u81EA\u5FC3\u91CC.',ar:'\u062F\u0628 \u0635\u063A\u064A\u0631 \u0648\u0623\u063A\u0646\u064A\u0629.',text:'Little bear Maomao had no money for mom birthday. He practised a song all day. On her birthday he sang. The song was not perfect but full of love. Mom held him tightly. This is the best gift.'}];
+var stCur='l';
+function stTab(t,btn){stCur=t;document.querySelectorAll('#sec-store .lt').forEach(function(b){b.classList.remove('on');});if(btn)btn.classList.add('on');renderStore();}
 function lvC(lv){return{A0:'#4CAF50',A1:'#2196F3',A2:'#FF9800',B1:'#9C27B0'}[lv]||'#666';}
-
-function renderAIListening(el){
-  const byL={};AI_L.forEach(x=>{if(!byL[x.lang])byL[x.lang]=[];byL[x.lang].push(x);});
-  const lN={english:'🇬🇧 الإنجليزية',turkish:'🇹🇷 التركية',chinese:'🇨🇳 الصينية'};
-  let h=`<div style="padding:14px 18px;background:rgba(33,150,243,.1);border:1px solid rgba(33,150,243,.25);border-radius:12px;margin-bottom:24px;display:flex;gap:12px">
-    <span style="font-size:28px">🤖</span>
-    <div><div style="font-weight:800;color:#90CAF9;margin-bottom:4px">نصوص استماع أصلية — كُتبت بالكامل بالذكاء الاصطناعي</div>
-    <div style="font-size:13px;color:var(--muted)">محتوى حصري لمنصة Lingua • مستويات A0 إلى B1 • 3 لغات</div></div></div>`;
-  Object.entries(byL).forEach(([lang,items])=>{
-    h+=`<div style="margin-bottom:28px"><div style="font-size:17px;font-weight:900;color:var(--gold);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(196,152,58,.2)">${lN[lang]||lang}</div><div class="sv-grid">`;
-    items.forEach(x=>{
-      const lc=lvC(x.level);
-      const prev=x.script.slice(0,150).split('\n').join(' ')+'...';
-      const voc=x.vocabulary.slice(0,4).map(v=>`<span style="background:rgba(196,152,58,.15);color:#C4983A;padding:3px 10px;border-radius:20px;font-size:11px">${v}</span>`).join('');
-      h+=`<div class="sv-card" onclick="openAIL('${x.id}')">
-        <div style="height:4px;background:linear-gradient(90deg,${lc},transparent)"></div>
-        <div style="padding:18px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <span style="background:${lc};color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:800">${x.level}</span>
-            <span style="font-size:12px;color:var(--muted)">⏱ ${x.duration}</span>
-          </div>
-          <div style="font-size:15px;font-weight:800;margin-bottom:8px">${x.flag} ${x.title}</div>
-          <div style="background:rgba(15,14,26,.7);border-radius:10px;padding:12px;margin-bottom:12px;font-size:13px;color:#C4B8D0;line-height:1.6">${prev}</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">${voc}</div>
-          <button style="width:100%;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:11px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:800;font-family:inherit">🎧 ابدأ الاستماع</button>
-        </div></div>`;
-    });
-    h+='</div></div>';
-  });
-  el.innerHTML=h;
-}
-
-function renderAIReading(el){
-  const byL={};AI_R.forEach(x=>{if(!byL[x.lang])byL[x.lang]=[];byL[x.lang].push(x);});
-  const lN={english:'🇬🇧 الإنجليزية',turkish:'🇹🇷 التركية',chinese:'🇨🇳 الصينية'};
-  let h=`<div style="padding:14px 18px;background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.25);border-radius:12px;margin-bottom:24px;display:flex;gap:12px">
-    <span style="font-size:28px">🤖</span>
-    <div><div style="font-weight:800;color:#A5D6A7;margin-bottom:4px">قصص أصلية — كُتبت خصيصاً لك بالذكاء الاصطناعي</div>
-    <div style="font-size:13px;color:var(--muted)">قصص حصرية • حوار مُميّز بالذهبي • فكرة تعليمية في كل قصة</div></div></div>`;
-  Object.entries(byL).forEach(([lang,items])=>{
-    h+=`<div style="margin-bottom:28px"><div style="font-size:17px;font-weight:900;color:var(--gold);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(196,152,58,.2)">${lN[lang]||lang}</div><div class="sv-grid">`;
-    items.forEach(x=>{
-      const lc=lvC(x.level);
-      h+=`<div class="sv-card">
-        <div style="height:4px;background:linear-gradient(90deg,${lc},transparent)"></div>
-        <div style="padding:18px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <span style="background:${lc};color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:800">${x.level}</span>
-            <span style="font-size:12px;color:var(--muted)">⏱ ${x.duration}</span>
-          </div>
-          <div style="font-size:15px;font-weight:800;margin-bottom:6px">${x.flag} ${x.title}</div>
-          <div style="font-size:13px;color:var(--muted);margin-bottom:10px;font-style:italic">${x.ar_summary}</div>
-          <div style="background:rgba(15,14,26,.6);border-radius:10px;padding:12px;margin-bottom:10px;font-size:13px;color:#C4B8D0;line-height:1.7">${x.text.slice(0,160)}...</div>
-          <div style="background:rgba(196,152,58,.1);border-radius:8px;padding:10px;margin-bottom:14px;font-size:12px;color:#C4983A">💡 ${x.moral}</div>
-          <button onclick="openAIR('${x.id}')" style="width:100%;background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:11px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:800;font-family:inherit">📖 اقرأ القصة كاملة</button>
-        </div></div>`;
-    });
-    h+='</div></div>';
-  });
-  el.innerHTML=h;
-}
-
-function openAIL(id){
-  const x=AI_L.find(i=>i.id===id);if(!x)return;
-  document.getElementById('lm-ai')?.remove();
-  const lc=lvC(x.level);
-  const lines=x.script.split('\n').filter(l=>l.trim()).map(l=>{
-    if(l.includes('"'))return `<p style="color:#E5B84A;font-style:italic;padding-right:12px;border-right:3px solid #C4983A;margin:8px 0">${l}</p>`;
-    if(l.startsWith('('))return `<p style="color:#90CAF9;font-size:13px;margin:3px 0;font-style:italic">${l}</p>`;
-    return `<p style="margin:8px 0;line-height:1.9">${l}</p>`;
-  }).join('');
-  const voc=x.vocabulary.map(v=>`<span style="background:rgba(196,152,58,.15);color:#C4983A;padding:5px 14px;border-radius:20px;font-size:13px">${v}</span>`).join('');
-  const qs=x.questions.map((q,i)=>`<div style="background:rgba(15,14,26,.6);border-radius:10px;padding:14px;margin-bottom:10px">
-    <div style="font-size:13px;font-weight:700;margin-bottom:8px">❓ ${q.q}</div>
-    <div id="qa${x.id.replace(/-/g,'')}${i}" style="display:none;color:#4CAF50;font-weight:700;font-size:13px">✅ ${q.a}</div>
-    <button onclick="document.getElementById('qa${x.id.replace(/-/g,'')}${i}').style.display='block';this.style.display='none'" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:var(--txt);padding:6px 16px;border-radius:8px;cursor:pointer;font-size:12px;font-family:inherit">اظهر الإجابة</button>
-  </div>`).join('');
-  const modal=document.createElement('div');
-  modal.id='lm-ai';
-  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(8px);padding:16px;';
-  modal.innerHTML=`<div style="background:#1A1640;border-radius:20px;width:min(680px,96vw);max-height:92vh;overflow-y:auto;border:1px solid rgba(196,152,58,.3)">
-    <div style="background:#1E1648;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:1;border-radius:20px 20px 0 0;display:flex;justify-content:space-between;align-items:start">
-      <div><div style="display:flex;gap:8px;margin-bottom:6px">
-        <span style="background:rgba(33,150,243,.2);color:#90CAF9;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">🤖 AI Original</span>
-        <span style="background:${lc};color:#fff;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${x.level}</span>
-        <span style="color:var(--muted);font-size:12px">⏱ ${x.duration}</span>
-      </div>
-      <div style="font-size:18px;font-weight:900">${x.flag} ${x.title}</div></div>
-      <button onclick="document.getElementById('lm-ai').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px">✕</button>
-    </div>
-    <div style="padding:12px 24px;background:rgba(33,150,243,.06);border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;color:#90CAF9">
-      1️⃣ اقرأ النص بصوت عالٍ &nbsp;•&nbsp; 2️⃣ ركّز على الكلمات المُميّزة &nbsp;•&nbsp; 3️⃣ أجب عن الأسئلة
-    </div>
-    <div style="padding:24px">
-      <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px">🎧 النص الكامل</div>
-      <div style="background:rgba(15,14,26,.7);border-radius:14px;padding:20px;font-size:14px;color:#E0DCF0;border:1px solid rgba(196,152,58,.15);margin-bottom:20px">${lines}</div>
-      <div style="margin-bottom:20px">
-        <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:10px">📚 المفردات المهمة</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">${voc}</div>
-      </div>
-      <div style="margin-bottom:20px">
-        <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px">❓ اختبر فهمك</div>
-        ${qs}
-      </div>
-      <div style="display:flex;gap:10px">
-        <button onclick="document.getElementById('lm-ai').remove()" style="flex:1;background:#2d2a4a;color:var(--txt);border:none;padding:13px;border-radius:12px;cursor:pointer;font-size:14px;font-family:inherit">إغلاق</button>
-        <button onclick="document.getElementById('lm-ai').remove();startLesson('${x.id}','${x.lang}','listening','${x.level}',50)" style="flex:2;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:13px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:900;font-family:inherit">✅ تم! +50 XP</button>
-      </div>
-    </div>
-  </div>`;
-  document.body.appendChild(modal);
-  modal.addEventListener('click',e=>{if(e.target===modal)modal.remove();});
-}
-
-function openAIR(id){
-  const x=AI_R.find(i=>i.id===id);if(!x)return;
-  document.getElementById('sm-ai')?.remove();
-  const storyFmt=x.text.split('\n').filter(l=>l.trim()).map(l=>{
-    if(l.includes('"'))return `<p style="color:#E5B84A;font-style:italic;padding-right:12px;border-right:3px solid #C4983A;margin:10px 0">${l}</p>`;
-    if(l.startsWith('('))return `<p style="color:#90CAF9;font-size:13px;margin:3px 0;font-style:italic">${l}</p>`;
-    return `<p style="margin:10px 0;line-height:2">${l}</p>`;
-  }).join('');
-  const modal=document.createElement('div');
-  modal.id='sm-ai';
-  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(8px);padding:16px;';
-  modal.innerHTML=`<div style="background:#1A1640;border-radius:20px;width:min(720px,96vw);max-height:92vh;overflow-y:auto;border:1px solid rgba(76,175,80,.3)">
-    <div style="background:#1E1648;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:1;border-radius:20px 20px 0 0;display:flex;justify-content:space-between;align-items:start">
-      <div><div style="display:flex;gap:8px;margin-bottom:6px">
-        <span style="background:rgba(76,175,80,.2);color:#A5D6A7;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">🤖 AI Story</span>
-        <span style="background:${lvC(x.level)};color:#fff;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${x.level}</span>
-      </div>
-      <div style="font-size:18px;font-weight:900">${x.flag} ${x.title}</div>
-      <div style="font-size:13px;color:var(--muted);margin-top:4px">${x.ar_summary}</div></div>
-      <button onclick="document.getElementById('sm-ai').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px">✕</button>
-    </div>
-    <div style="padding:12px 24px;background:rgba(76,175,80,.06);border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;color:#A5D6A7">
-      1️⃣ اقرأ القصة ببطء &nbsp;•&nbsp; 2️⃣ الحوار مُميّز بالذهبي &nbsp;•&nbsp; 3️⃣ فكّر في معنى القصة
-    </div>
-    <div style="padding:24px">
-      <div style="background:rgba(15,14,26,.6);border-radius:16px;padding:24px;font-size:15px;color:#E0DCF0;border:1px solid rgba(76,175,80,.15);margin-bottom:20px;line-height:2">${storyFmt}</div>
-      <div style="background:rgba(196,152,58,.1);border:1px solid rgba(196,152,58,.25);border-radius:14px;padding:18px;margin-bottom:20px;display:flex;gap:12px;align-items:flex-start">
-        <span style="font-size:24px">💡</span>
-        <div><div style="font-size:13px;font-weight:700;color:#C4983A;margin-bottom:4px">الفكرة الرئيسية / Moral</div>
-        <div style="font-size:14px">${x.moral}</div></div>
-      </div>
-      <div style="display:flex;gap:10px">
-        <button onclick="document.getElementById('sm-ai').remove()" style="flex:1;background:#2d2a4a;color:var(--txt);border:none;padding:13px;border-radius:12px;cursor:pointer;font-size:14px;font-family:inherit">إغلاق</button>
-        <button onclick="document.getElementById('sm-ai').remove();startLesson('${x.id}','${x.lang}','reading','${x.level}',60)" style="flex:2;background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:13px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:900;font-family:inherit">✅ أتممت القصة! +60 XP</button>
-      </div>
-    </div>
-  </div>`;
-  document.body.appendChild(modal);
-  modal.addEventListener('click',e=>{if(e.target===modal)modal.remove();});
-}
-
-// =================== FALLBACK DB ===================
-const FALLBACK_DB={meta:{},courses:{english:{id:'english',name:'الإنجليزية',nameEn:'English',flag:'🇬🇧',color:'#2196F3',levels:{A0:{skills:{listening:[{id:'en-a0-l1',title:'الحروف والأصوات',desc:'تعلم حروف الأبجدية وأصواتها',min:10,xp:30,tags:['أبجدية']},{id:'en-a0-l2',title:'التحيات - استماع',desc:'استماع للتحيات اليومية',min:12,xp:35,tags:['تحيات']},{id:'en-a0-l3',title:'الأرقام 1-20',desc:'الأرقام الأساسية استماعاً',min:10,xp:30,tags:['أرقام']}],speaking:[{id:'en-a0-s1',title:'تعريف النفس',desc:'تعلّم تعريف نفسك باللغة الإنجليزية',min:10,xp:30,tags:['مقدمات']},{id:'en-a0-s2',title:'Hello & Goodbye',desc:'التدرب على التحيات والوداع',min:8,xp:25,tags:['تحيات']},{id:'en-a0-s3',title:'الألوان والأشكال',desc:'نطق أسماء الألوان والأشكال',min:10,xp:30,tags:['مفردات']}],reading:[{id:'en-a0-r1',title:'الحروف الكبيرة والصغيرة',desc:'تمييز وقراءة الحروف',min:12,xp:35,tags:['حروف']},{id:'en-a0-r2',title:'كلمات قصيرة',desc:'قراءة كلمات مكونة من 2-3 حروف',min:10,xp:30,tags:['كلمات']},{id:'en-a0-r3',title:'أسماء الحيوانات',desc:'قراءة أسماء الحيوانات الشائعة',min:10,xp:30,tags:['مفردات']}],writing:[{id:'en-a0-w1',title:'كتابة الحروف',desc:'تعلّم كتابة الحروف الإنجليزية',min:15,xp:40,tags:['كتابة']},{id:'en-a0-w2',title:'كتابة الأرقام',desc:'كتابة الأرقام بالكلمات',min:12,xp:35,tags:['أرقام']}]}},A1:{skills:{listening:[{id:'en-a1-l1',title:'محادثات يومية بسيطة',desc:'فهم محادثات قصيرة يومية',min:15,xp:50,tags:['محادثة']},{id:'en-a1-l2',title:'الطقس والمواقيت',desc:'تعبيرات الطقس والوقت',min:15,xp:50,tags:['طقس']},{id:'en-a1-l3',title:'الأسرة والأصدقاء',desc:'مفردات العائلة والعلاقات',min:15,xp:50,tags:['أسرة']},{id:'en-a1-l4',title:'الأطعمة والمشروبات',desc:'مفردات الطعام في الحياة اليومية',min:18,xp:55,tags:['طعام']}],speaking:[{id:'en-a1-s1',title:'معلوماتي الشخصية',desc:'التحدث عن نفسك باللغة الإنجليزية',min:15,xp:50,tags:['مقدمات']},{id:'en-a1-s2',title:'طلب الأشياء بأدب',desc:'Can I / Could I...',min:15,xp:50,tags:['طلب']},{id:'en-a1-s3',title:'وصف الأماكن',desc:'وصف مكان وأماكن',min:18,xp:55,tags:['أماكن']}],reading:[{id:'en-a1-r1',title:'رسائل قصيرة',desc:'قراءة رسائل بريدية قصيرة',min:15,xp:50,tags:['رسائل']},{id:'en-a1-r2',title:'قوائم التسوق',desc:'قراءة قوائم وفهرسة بسيطة',min:12,xp:40,tags:['مفردات']}],writing:[{id:'en-a1-w1',title:'كتابة رسالة بسيطة',desc:'كتابة رسالة تعريفية قصيرة',min:20,xp:60,tags:['رسائل']},{id:'en-a1-w2',title:'وصف صورة',desc:'كتابة وصف لصورة بسيطة',min:18,xp:55,tags:['وصف']}]}},A2:{skills:{listening:[{id:'en-a2-l1',title:'أخبار بسيطة',desc:'فهم أخبار مبسطة باللغة الإنجليزية',min:20,xp:70,tags:['أخبار']},{id:'en-a2-l2',title:'محادثات في المتجر',desc:'مواقف التسوق والمساومة',min:20,xp:70,tags:['تسوق']}],speaking:[{id:'en-a2-s1',title:'مناقشة بسيطة',desc:'إبداء رأيك في موضوع بسيط',min:20,xp:70,tags:['نقاش']},{id:'en-a2-s2',title:'الاتجاهات',desc:'شرح الطريق وطلب المساعدة',min:18,xp:65,tags:['اتجاهات']}],reading:[{id:'en-a2-r1',title:'قصص قصيرة A2',desc:'قراءة قصة قصيرة بسيطة',min:25,xp:75,tags:['قصص']}],writing:[{id:'en-a2-w1',title:'تقرير بسيط',desc:'كتابة تقرير قصير عن حدث',min:25,xp:75,tags:['تقارير']}]}},B1:{skills:{listening:[{id:'en-b1-l1',title:'محاضرة قصيرة',desc:'فهم محاضرة أكاديمية قصيرة',min:25,xp:100,tags:['أكاديمي'],audio:'files/en-b1-lesson.wav'}],speaking:[{id:'en-b1-s1',title:'عرض تقديمي',desc:'تقديم موضوع قصير بالإنجليزية',min:25,xp:100,tags:['عروض']}],reading:[{id:'en-b1-r1',title:'مقال أكاديمي',desc:'قراءة مقال أكاديمي قصير',min:30,xp:110,tags:['أكاديمي'],pdf:'files/en-b1-grammar.pdf'}],writing:[{id:'en-b1-w1',title:'مقال رأي',desc:'كتابة مقال رأي بسيط',min:35,xp:120,tags:['مقالات']}]}},B2:{skills:{listening:[{id:'en-b2-l1',title:'نقاش أكاديمي',desc:'فهم نقاش أكاديمي',min:30,xp:150,tags:['أكاديمي']}],speaking:[{id:'en-b2-s1',title:'مناظرة',desc:'المشاركة في مناظرة بسيطة',min:30,xp:150,tags:['مناظرة']}],reading:[{id:'en-b2-r1',title:'رواية مبسطة',desc:'قراءة فصل من رواية مبسطة',min:40,xp:160,tags:['روايات']}],writing:[{id:'en-b2-w1',title:'تقرير أكاديمي',desc:'كتابة تقرير أكاديمي',min:45,xp:170,tags:['تقارير']}]}},C1:{skills:{listening:[{id:'en-c1-l1',title:'محاضرة متقدمة',desc:'فهم محاضرة أكاديمية متقدمة',min:35,xp:200,tags:['متقدم']}],speaking:[{id:'en-c1-s1',title:'حوار أكاديمي',desc:'المشاركة في حوار أكاديمي',min:35,xp:200,tags:['أكاديمي']}],reading:[{id:'en-c1-r1',title:'نص أكاديمي',desc:'قراءة نص أكاديمي معقد',min:45,xp:210,tags:['متقدم']}],writing:[{id:'en-c1-w1',title:'بحث علمي',desc:'كتابة ملخص بحث علمي',min:50,xp:220,tags:['بحث']}]}},C2:{skills:{listening:[{id:'en-c2-l1',title:'خطاب رسمي',desc:'فهم خطاب رسمي متقدم',min:40,xp:250,tags:['متقدم']}],speaking:[{id:'en-c2-s1',title:'إلقاء كلمة',desc:'إلقاء كلمة رسمية بالإنجليزية',min:40,xp:250,tags:['خطابة']}],reading:[{id:'en-c2-r1',title:'نص أدبي',desc:'قراءة وتحليل نص أدبي',min:50,xp:260,tags:['أدب']}],writing:[{id:'en-c2-w1',title:'التأليف والنشر',desc:'كتابة مقالة بأسلوب أدبي',min:50,xp:220,tags:['تأليف']},{id:'en-c2-w2',title:'النقد الأدبي',desc:'كتابة نقد أدبي متقدم',min:50,xp:220,tags:['نقد']}]}}}}},turkish:{id:'turkish',name:'التركية',nameEn:'Turkish',flag:'🇹🇷',color:'#E91E63',levels:{A0:{skills:{listening:[{id:'tr-a0-l1',title:'الأبجدية التركية',desc:'تعلم حروف الأبجدية التركية',min:12,xp:35,tags:['أبجدية'],audio:'files/tr-a0-lesson.wav'},{id:'tr-a0-l2',title:'الأعداد بالتركية',desc:'أعداد 1-20 بالتركية',min:10,xp:30,tags:['أرقام']},{id:'tr-a0-l3',title:'Merhaba - التحيات',desc:'التحيات الأساسية بالتركية',min:10,xp:30,tags:['تحيات']}],speaking:[{id:'tr-a0-s1',title:'تعريف النفس بالتركية',desc:'Benim adım...',min:12,xp:35,tags:['مقدمات']},{id:'tr-a0-s2',title:'العبارات الأساسية',desc:'Evet/Hayır وعبارات أساسية',min:10,xp:30,tags:['أساسيات']}],reading:[{id:'tr-a0-r1',title:'قراءة الكلمات التركية',desc:'قراءة كلمات بسيطة',min:12,xp:35,tags:['قراءة']},{id:'tr-a0-r2',title:'الحروف الخاصة',desc:'ğ ş ç ö ü İ',min:10,xp:30,tags:['أبجدية']}],writing:[{id:'tr-a0-w1',title:'كتابة الحروف التركية',desc:'التدرب على الحروف الخاصة',min:15,xp:40,tags:['كتابة']}]}},A1:{skills:{listening:[{id:'tr-a1-l1',title:'محادثات يومية تركية',desc:'مواقف يومية بسيطة',min:15,xp:50,tags:['محادثة']},{id:'tr-a1-l2',title:'الطقس بالتركية',desc:'Hava nasıl?',min:15,xp:50,tags:['طقس']},{id:'tr-a1-l3',title:'الأسرة بالتركية',desc:'مفردات العائلة',min:15,xp:50,tags:['أسرة']}],speaking:[{id:'tr-a1-s1',title:'الأرقام والتسوق',desc:'التسوق بالتركية',min:15,xp:50,tags:['تسوق']},{id:'tr-a1-s2',title:'وصف الشخص',desc:'التعبير عن الصفات',min:18,xp:55,tags:['صفات']}],reading:[{id:'tr-a1-r1',title:'قصة تركية قصيرة',desc:'قصة A1 بالتركية',min:20,xp:65,tags:['قصص']},{id:'tr-a1-r2',title:'لافتات وإعلانات',desc:'قراءة لافتات بسيطة',min:12,xp:40,tags:['قراءة']}],writing:[{id:'tr-a1-w1',title:'بطاقة معايدة تركية',desc:'كتابة رسالة قصيرة',min:18,xp:55,tags:['رسائل']}]}}}}}},chinese:{id:'chinese',name:'الصينية',nameEn:'Chinese',flag:'🇨🇳',color:'#F44336',levels:{A0:{skills:{listening:[{id:'zh-a0-l1',title:'الأصوات الصينية',desc:'نظام Pinyin',min:15,xp:40,tags:['Pinyin']},{id:'zh-a0-l2',title:'الأعداد الصينية',desc:'一二三... 1-20',min:12,xp:35,tags:['أرقام']},{id:'zh-a0-l3',title:'النغمات الأربعة',desc:'فهم النغمات في الصينية',min:15,xp:45,tags:['نغمات']}],speaking:[{id:'zh-a0-s1',title:'Nǐ hǎo - مرحبا',desc:'التحية والتعارف',min:12,xp:35,tags:['تحيات']},{id:'zh-a0-s2',title:'أنا... 我是',desc:'تعريف النفس بالصينية',min:12,xp:35,tags:['مقدمات']}],reading:[{id:'zh-a0-r1',title:'الحروف الصينية الأولى',desc:'أول 20 حرف صيني',min:20,xp:60,tags:['حروف']},{id:'zh-a0-r2',title:'الكتابة والقراءة',desc:'القراءة بنظام Pinyin',min:15,xp:45,tags:['Pinyin']}],writing:[{id:'zh-a0-w1',title:'كتابة الحروف',desc:'خطوات كتابة الحروف الصينية',min:25,xp:70,tags:['كتابة']}]}},A1:{skills:{listening:[{id:'zh-a1-l1',title:'محادثات صينية يومية',desc:'مواقف يومية بسيطة',min:15,xp:50,tags:['محادثة']},{id:'zh-a1-l2',title:'الأسرة بالصينية',desc:'家庭 مفردات العائلة',min:15,xp:50,tags:['أسرة']},{id:'zh-a1-l3',title:'الطعام الصيني',desc:'吃什么? ماذا تأكل؟',min:15,xp:50,tags:['طعام']}],speaking:[{id:'zh-a1-s1',title:'الأرقام والمال',desc:'التسوق بالصينية',min:15,xp:50,tags:['تسوق']},{id:'zh-a1-s2',title:'الوقت والتاريخ',desc:'التعبير عن الوقت',min:18,xp:55,tags:['وقت']}],reading:[{id:'zh-a1-r1',title:'قصة صينية قصيرة',desc:'قصة A1 بالصينية',min:20,xp:65,tags:['قصص']},{id:'zh-a1-r2',title:'علامات وإشارات',desc:'قراءة لافتات شائعة',min:12,xp:40,tags:['قراءة']}],writing:[{id:'zh-a1-w1',title:'جملة بسيطة',desc:'كتابة جمل بسيطة',min:20,xp:60,tags:['كتابة']}]}}};
-
-// =================== INIT ===================
-async function init(){
-  if(!loadProg())return;
-  await loadDB();
-  initSkills();
-  renderHome();
-  
-  // تحديث sidebar counts
-  const all=getAll();
-  const done=new Set(prog.completedLessons);
-  ['english','turkish','chinese'].forEach(lang=>{
-    const el=document.getElementById('sb-'+lang+'-cnt');
-    if(el){
-      const langAll=all.filter(l=>l.lid===lang);
-      const langDone=langAll.filter(l=>done.has(l.id));
-      el.textContent=langDone.length+'/'+langAll.length;
-    }
-  });
-}
-
-function filterLang(lang){
-  curLL=lang;
-  const tabs=document.querySelectorAll('#lang-tabs .lt');
-  tabs.forEach(b=>b.classList.remove('on'));
-  const map={english:0,turkish:1,chinese:2,all:3};
-  if(tabs[map[lang]])tabs[map[lang]].classList.add('on');
-  renderLessons();
-}
-
+function renderStore(){var el=document.getElementById('st-content');if(!el)return;var h='';if(stCur==='l'){h='<div style="padding:14px;background:rgba(33,150,243,.1);border:1px solid rgba(33,150,243,.25);border-radius:12px;margin-bottom:20px"><b style="color:#90CAF9">\uD83E\uDD16 \u0646\u0635\u0648\u0635 AI \u0623\u0635\u0644\u064A\u0629</b></div><div class="sv-grid">';AI_L.forEach(function(x){var lc=lvC(x.level);h+='<div class="sv-card" onclick="openL(\''+x.id+'\')"><div style="height:4px;background:linear-gradient(90deg,'+lc+',transparent)"></div><div style="padding:16px"><div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="background:'+lc+';color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:800">'+x.level+'</span><span style="font-size:12px;color:var(--muted)">\u23F1 '+x.dur+'</span></div><div style="font-size:15px;font-weight:800;margin-bottom:8px">'+x.flag+' '+x.title+'</div><div style="background:rgba(15,14,26,.7);border-radius:8px;padding:10px;margin-bottom:12px;font-size:13px;color:#C4B8D0">'+x.script.slice(0,100)+'...</div><button style="width:100%;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:10px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:800;font-family:inherit">\uD83C\uDFA7 \u0627\u0628\u062F\u0623</button></div></div>';});h+='</div>';}else{h='<div style="padding:14px;background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.25);border-radius:12px;margin-bottom:20px"><b style="color:#A5D6A7">\uD83E\uDD16 \u0642\u0635\u0635 AI \u062D\u0635\u0631\u064A\u0629</b></div><div class="sv-grid">';AI_R.forEach(function(x){var lc=lvC(x.level);h+='<div class="sv-card"><div style="height:4px;background:linear-gradient(90deg,'+lc+',transparent)"></div><div style="padding:16px"><div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="background:'+lc+';color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:800">'+x.level+'</span></div><div style="font-size:15px;font-weight:800;margin-bottom:6px">'+x.flag+' '+x.title+'</div><div style="font-size:13px;color:var(--muted);margin-bottom:8px;font-style:italic">'+x.ar+'</div><div style="background:rgba(15,14,26,.6);border-radius:8px;padding:10px;margin-bottom:10px;font-size:13px;color:#C4B8D0">'+x.text.slice(0,120)+'...</div><div style="background:rgba(196,152,58,.1);border-radius:8px;padding:8px;margin-bottom:12px;font-size:12px;color:#C4983A">\uD83D\uDCA1 '+x.moral+'</div><button onclick="openR(\''+x.id+'\')" style="width:100%;background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:10px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:800;font-family:inherit">\uD83D\uDCD6 \u0627\u0642\u0631\u0623 \u0627\u0644\u0642\u0635\u0629</button></div></div>';});h+='</div>';}el.innerHTML=h;}
+function openL(id){var x=AI_L.find(function(i){return i.id===id;});if(!x)return;document.getElementById('lm-ai')&&document.getElementById('lm-ai').remove();var modal=document.createElement('div');modal.id='lm-ai';modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(8px);padding:16px;';var voc=x.voc.map(function(v){return '<span style="background:rgba(196,152,58,.15);color:#C4983A;padding:5px 12px;border-radius:20px;font-size:13px">'+v+'</span>';}).join('');var qs=x.qs.map(function(q,i){return '<div style="background:rgba(15,14,26,.6);border-radius:10px;padding:12px;margin-bottom:8px"><div style="font-size:13px;font-weight:700;margin-bottom:6px">\u2753 '+q.q+'</div><div id="qa'+i+x.id+'" style="display:none;color:#4CAF50;font-weight:700">\u2705 '+q.a+'</div><button onclick="document.getElementById(\'qa'+i+x.id+'\').style.display=\'block\';this.style.display=\'none\'" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:var(--txt);padding:5px 14px;border-radius:8px;cursor:pointer;font-size:12px;font-family:inherit">\u0627\u0638\u0647\u0631 \u0627\u0644\u0625\u062C\u0627\u0628\u0629</button></div>';}).join('');modal.innerHTML='<div style="background:#1A1640;border-radius:20px;width:min(660px,96vw);max-height:90vh;overflow-y:auto;border:1px solid rgba(196,152,58,.3)"><div style="background:#1E1648;padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:1;border-radius:20px 20px 0 0;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:17px;font-weight:900">'+x.flag+' '+x.title+'</div><div style="font-size:12px;color:var(--muted)">\uD83E\uDD16 AI \u2022 '+x.level+' \u2022 \u23F1 '+x.dur+'</div></div><button onclick="document.getElementById(\'lm-ai\').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px">\u00D7</button></div><div style="padding:22px"><div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px">\uD83C\uDFA7 \u0627\u0644\u0646\u0635 \u0627\u0644\u0643\u0627\u0645\u0644</div><div style="background:rgba(15,14,26,.7);border-radius:12px;padding:18px;font-size:14px;color:#E0DCF0;line-height:1.9;margin-bottom:18px">'+x.script+'</div><div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:10px">\uD83D\uDCDA \u0627\u0644\u0645\u0641\u0631\u062F\u0627\u062A</div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">'+voc+'</div><div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px">\u2753 \u0627\u062E\u062A\u0628\u0631 \u0641\u0647\u0645\u0643</div>'+qs+'<div style="display:flex;gap:10px;margin-top:18px"><button onclick="document.getElementById(\'lm-ai\').remove()" style="flex:1;background:#2d2a4a;color:var(--txt);border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit">\u0625\u063A\u0644\u0627\u0642</button><button onclick="document.getElementById(\'lm-ai\').remove();startLesson(\''+x.id+'\',\'english\',\'listening\',\''+x.level+'\',50)" style="flex:2;background:linear-gradient(135deg,#C4983A,#E5B84A);color:#0F0E1A;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:900;font-family:inherit">\u2705 \u062A\u0645! +50 XP</button></div></div></div>';document.body.appendChild(modal);modal.addEventListener('click',function(e){if(e.target===modal)modal.remove();});}
+function openR(id){var x=AI_R.find(function(i){return i.id===id;});if(!x)return;document.getElementById('sm-ai')&&document.getElementById('sm-ai').remove();var modal=document.createElement('div');modal.id='sm-ai';modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;z-index:9999;backdrop-filter:blur(8px);padding:16px;';modal.innerHTML='<div style="background:#1A1640;border-radius:20px;width:min(700px,96vw);max-height:90vh;overflow-y:auto;border:1px solid rgba(76,175,80,.3)"><div style="background:#1E1648;padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:1;border-radius:20px 20px 0 0;display:flex;justify-content:space-between;align-items:start"><div><div style="font-size:17px;font-weight:900">'+x.flag+' '+x.title+'</div><div style="font-size:12px;color:var(--muted)">'+x.ar+'</div></div><button onclick="document.getElementById(\'sm-ai\').remove()" style="background:rgba(255,255,255,.1);border:none;color:#eee;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;flex-shrink:0">\u00D7</button></div><div style="padding:22px"><div style="background:rgba(15,14,26,.6);border-radius:14px;padding:22px;font-size:15px;color:#E0DCF0;line-height:2;margin-bottom:18px">'+x.text+'</div><div style="background:rgba(196,152,58,.1);border:1px solid rgba(196,152,58,.25);border-radius:12px;padding:16px;margin-bottom:18px;display:flex;gap:10px"><span style="font-size:22px">\uD83D\uDCA1</span><div><div style="font-size:13px;font-weight:700;color:#C4983A;margin-bottom:4px">Moral</div><div>'+x.moral+'</div></div></div><div style="display:flex;gap:10px"><button onclick="document.getElementById(\'sm-ai\').remove()" style="flex:1;background:#2d2a4a;color:var(--txt);border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-family:inherit">\u0625\u063A\u0644\u0627\u0642</button><button onclick="document.getElementById(\'sm-ai\').remove()" style="flex:2;background:linear-gradient(135deg,#4CAF50,#66BB6A);color:#fff;border:none;padding:12px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:900;font-family:inherit">\u2705 +60 XP</button></div></div></div>';document.body.appendChild(modal);modal.addEventListener('click',function(e){if(e.target===modal)modal.remove();}); }
+async function loadDB(){try{var r=await fetch('../data/lessons.json?v='+Date.now());if(r.ok){DB=await r.json();return;}}catch(e){}try{var r=await fetch('https://raw.githubusercontent.com/aseel2006-byte/lingua-platform/main/frontend/pages/lessons.json');if(r.ok){DB=await r.json();return;}}catch(e){}DB=FALLBACK_DB;}
+async function init(){if(!loadProg())return;await loadDB();showSec('home');var all=getAll(),done=new Set(prog.completedLessons);['english','turkish','chinese'].forEach(function(lang){var el=document.getElementById('sb-'+lang+'-cnt');if(el){var la=all.filter(function(l){return l.lid===lang;});el.textContent=la.filter(function(l){return done.has(l.id);}).length+'/'+la.length;}});}
 init();
+
 </script>
 </body>
 </html>
