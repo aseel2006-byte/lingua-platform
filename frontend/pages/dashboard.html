@@ -139,12 +139,20 @@ main{margin-right:220px;padding:28px;flex:1}
   </main>
 </div>
 <div class="toast" id="toast"></div>
+<div id="err-display" style="display:none;position:fixed;top:70px;right:50%;transform:translateX(50%);background:#f44336;color:#fff;padding:12px 20px;border-radius:10px;z-index:10000;font-size:13px;max-width:80%"></div>
 
 <script>
+window.onerror=function(msg,src,l,col,err){
+  var d=document.getElementById('err-display');
+  if(d){d.style.display='block';d.textContent='JS Error: '+msg+' (L'+l+')';setTimeout(function(){d.style.display='none';},8000);}
+  console.error('JS Error:',msg,'at line',l);
+  return false;
+};
 // AUTH
 function getSession(){return JSON.parse(localStorage.getItem('lingua_session')||'null');}
 function saveProg(){var s=getSession();if(s)localStorage.setItem('lingua_progress_'+s.userId,JSON.stringify(prog));}
-function loadProg(){var s=getSession();if(!s){location.href='auth.html';return false;}prog=JSON.parse(localStorage.getItem('lingua_progress_'+s.userId)||'{"completedLessons":[],"xp":0,"level":"A0","skillScores":{},"streak":1}');return true;}
+function loadProg(){var s=getSession();if(!s){// auto demo session
+s={userId:'demo_001',name:'Demo',role:'demo'};localStorage.setItem('lingua_session',JSON.stringify(s));}prog=JSON.parse(localStorage.getItem('lingua_progress_'+s.userId)||'{"completedLessons":[],"xp":0,"level":"A0","skillScores":{},"streak":1}');return true;}
 function doLogout(){localStorage.removeItem('lingua_session');location.href='auth.html';}
 var DB=null,prog=null;
 var LEVELS=['A0','A1','A2','B1','B2','C1','C2'];
